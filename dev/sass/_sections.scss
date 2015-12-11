@@ -1,0 +1,114 @@
+// Section elements
+
+// .sticky-menu is the wrapper around the fixed position header
+
+.sticky-menu {
+	position: static; // on mobile we don't want the header to be sticky to preserve vertical real estate
+
+	@include media($bp-md) {
+	  position: fixed; // on tablet and desktop we do want a sticky header
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  max-width: inherit;
+	  margin: 0 auto;
+	  z-index: 100000; // always on top!
+	}
+}
+
+// This creates the space behind the sticky header when it's in fixed position
+.sticky-placeholder {
+	width: 100%;
+	height: $header-height-sm; // Global var set in _variables.scss
+	background-color: $gray-lighter;
+	display: none;
+
+	@include media($bp-md) {
+		height: $header-height-lg;
+		display: block;
+	}
+}
+
+// .subheader is the wrapper for the department page info and section menu
+// See the .section-menu in _menus.scss
+.subheader {
+	background-color: $oakland-green;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	transition: all 0.3s ease-out;
+	height: auto;
+	padding-top: 0;
+	margin-bottom: 2.5rem;
+	position: relative;
+
+	.grid-row {
+		margin-bottom: 0;
+	}
+
+	&.sticky {
+		overflow: visible;
+		min-height: 2.625rem;
+		padding: 0;
+
+	}
+
+	&.done {
+		background-image: none !important; // force the bg image to be hidden when subnav is sticky
+	}
+
+	.container {
+		margin-top: 2.25rem;
+		@include media($bp-md) {
+			margin-top: 5.25rem;
+		}
+	}
+	.breadcrumb-wrap ~ .container {
+		margin-top: 5.25rem;
+	}
+}
+
+// This is the part of the subnav that contains info about the current site section (e.g. Public Works)
+.section-info {
+	@include media($bp-md) {
+		float: right;
+		margin-right: 0;
+		&:last-child {
+			float: none;
+			margin-left: 0;
+		}
+	}
+
+	h1,
+	p,
+	span {
+		max-width: 28.125rem;
+		color: $white;
+	}
+
+	.sticky & {
+		display: none;
+	}
+}
+
+// Main content footer
+.content-footer {
+	position: relative;
+	overflow: hidden;
+}
+
+// Main content overlay, when global nav is open
+.main-overlay {
+	position: absolute;
+	transition: background 0.3s ease;
+
+	.nav-visible & {
+		top: $header-height-sm;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: $black;
+		background-color: rgba($black, 0.85);
+		z-index: 1000;
+	}
+}

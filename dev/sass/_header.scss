@@ -1,0 +1,193 @@
+// Header styles
+.header-wrap {
+	background: $gray-lighter;
+
+	.dept-title {
+		color: $color-text-body;
+	}
+}
+
+.page-header {
+	display: block;
+	display: flex;
+	width: 100%;
+	position: relative;
+	margin-bottom: 2.5rem;
+
+	// This creates the green bar to the left of the logo
+	&:after {
+		content: "";
+		position: absolute;
+		left: -$gutter;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		background-color: $oakland-green;
+	}
+}
+
+.multi-logo-wrap {
+	display: inline-block;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+
+	@include media($bp-md) {
+		flex-direction: row;
+	}
+}
+
+.site-logo-wrap {
+	display: inline-block;
+  white-space: nowrap;
+	padding-top: 2.5rem;
+	position: relative;
+	flex-shrink: 0;
+
+	@include media($bp-md) {
+		width: auto;
+		margin-bottom: 0;
+	}
+}
+
+.site-logo {
+	max-width: 10.8125rem;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	margin-right: 2.5rem;
+	width: 12.25rem;
+	height: 3.0625rem;
+}
+
+// Text wordmark for CoO departments
+
+.dept-title {
+	display: inline-block;
+	font-size: 1.35rem;
+	line-height: 1.15;
+	font-family: $dept-font;
+	flex-shrink: 0;
+	margin-bottom: 0;
+	margin-top: 0.5rem;
+	padding-left: 5.55rem;
+
+	@include media($bp-md) {
+		padding-top: 2.5rem;
+		height: 5.5rem;
+		position: relative;
+		margin-top: 0;
+		padding-left: 0;
+
+		&:before {
+			content: '';
+			width: 2px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -$gutter;
+			background-color: $oakland-green;
+		}
+	}
+}
+
+	// Search and Off Canvas menu button
+	// -----------------------------------
+	.header-actions {
+		align-self: center;
+		flex-shrink: 0;
+		margin-left: auto; // pushes it to the right inside flex container
+
+		@include media($bp-md) {
+			display: inline-block;
+			vertical-align: middle;
+			float: right;
+			width: auto;
+			padding-top: 2.5rem;
+			margin-bottom: 0;
+		}
+	}
+
+	.header-search {
+		position: relative;
+		background: transparent;
+		width: auto;
+		padding: 0;
+		display: none;
+		margin-bottom: 0;
+
+		@include media($bp-md) {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		label {
+			margin-bottom: 0;
+		}
+
+		input {
+			border-color: $gray-lighter !important;
+			width: 17.1875rem;
+			padding-right: 2.1875rem;
+		}
+
+		.search-icon {
+			position: absolute;
+			right: 0.625rem;
+			top: 0.75rem;
+			color: $oakland-green;
+			font-size: 1.0625rem;
+		}
+	}
+
+	.mobile-search {
+		display: inline-block;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		width: 100%;
+
+		input {
+			width: 100%;
+			max-width: none;
+		}
+
+		@include media($bp-md) {
+			display: none;
+		}
+	}
+
+	.header-nav-button {
+		display: inline-block;
+		vertical-align: middle;
+		cursor: pointer;
+		font-size: 1.25rem;
+		float: right;
+
+		@include media($bp-md) {
+			margin-left: 1.25rem;
+			float: none;
+		}
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+
+		&:active {
+			text-decoration: none;
+		}
+
+		.global-navigation & {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			@include media($bp-md) {
+				display: none;
+			}
+		}
+	}
+
+// Temporary Parking color for demo
+// @todo remove this when we have final colors
+.parking {
+	background: #009691;
+}

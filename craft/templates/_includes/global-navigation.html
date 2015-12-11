@@ -1,0 +1,34 @@
+
+<div class="sticky-menu">
+
+  <div class="beta-banner">
+    <div class="container">
+      <span>This site is a work in progress and may be inaccurate.</span>
+      <a href="https://www.codeforamerica.org/our-work/initiatives/digitalfrontdoor/">Learn More</a>
+      <a href="https://cfa.typeform.com/to/Bytcvb">Give Feedback</a>
+    </div>
+
+  </div>
+  <div class="header-wrap">
+    <div class="container">
+      <header class="page-header" role="banner">
+        <div class="multi-logo-wrap">
+          <a href="{{ siteUrl }}" class="site-logo-wrap">
+            <img class="site-logo logo-black" src="{{ siteUrl }}/resources/img/coo-logo-black.svg" onerror="this.src='{{ siteUrl }}/resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+          </a>
+        </div>
+        <div class="header-actions">
+          <form role="search" class="header-search" method="get" action="{{ url('search/') }}">
+            <label>
+              <input type="text" name="q" placeholder="How can we help?" title="Search for:">
+            </label>
+            <span class="lnr lnr-magnifier search-icon"></span>
+          </form>
+        </div>
+      </header>
+    </div>
+  </div>
+
+</div>
+
+<div class="sticky-placeholder"></div>

@@ -1,0 +1,33 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<main class="search">
+  <div class="main-overlay"></div>
+  
+  <div class="container">
+
+    {% set query = craft.request.getParam('q') %}
+    {% set entries = craft.entries.search(query).order('score') %}
+
+    <div class="container">
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">Oakland</a>
+        <span>Search Results</span>
+      </nav>
+    </div>
+
+    <h1>{{ entries | length }} pages match your search for <strong>{{ query }}</strong></h1>
+
+    {% if entries|length %}
+        <div class="big-menu">
+        {% for entry in entries %}
+          <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>Your search for “{{ query }}” didn’t return any results.</p>
+    {% endif %}
+  </div>
+
+</main>
+{% endblock %}

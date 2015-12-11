@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<main class="transportation">
+
+  <div class="main-overlay"></div>
+
+  <section class="subheader">
+    <div class="breadcrumb-wrap">
+      {% include '_includes/breadcrumbs.html' %}
+    </div>
+    <div class="container">
+      <div class="grid-row">
+        <div class="section-info two-thirds">
+          <h1>{{ entry.title }}</h1>
+          <p>{{ entry.leadIn }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <nav class="big-menu">
+        {% for page in entry.getChildren %}
+        <div class="menu-item">
+          <a href="{{ page.url }}">
+            <h3>{{ page.title }}</h3>
+            <p>{{ page.leadIn }}</p>
+          </a>
+        </div>
+        {% else %}
+        <h3>This section is currently empty.</h3>
+        {% endfor %}
+      </nav>
+
+    </div>
+  </section>
+
+</main>
+
+{% endblock %}

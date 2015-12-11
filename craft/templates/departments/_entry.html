@@ -1,0 +1,155 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<main class="{{ entry.slug }}">
+
+  <div class="main-overlay"></div>
+
+  <section class="subheader">
+
+    <div class="breadcrumb-wrap">
+
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">Oakland</a>
+        <a href="#">Departments</a>
+        <span>{{ entry.title }}</span>
+      </nav>
+
+    </div>
+
+    <div class="container">
+
+      <div class="grid-row">
+
+        <div class="section-info two-thirds column-shift">
+          <h1>{{ entry.title }}</h1>
+          <p>{{ entry.about }}</p>
+        </div>
+
+        <nav class="section-menu one-fourth">
+          <a class="menu-item" href="#section-1">Related Services</a>
+          <a class="menu-item" href="#section-2">Department News</a>
+          <a class="menu-item" href="#section-3">Management</a>
+        </nav>
+
+      </div><!-- .grid-row -->
+
+    </div><!-- .container -->
+
+  </section><!-- .subheader -->
+
+  <section id="section-1" class="section">
+    <div class="container">
+      <h2>Related Services</h2>
+      <div class="grid-row">
+        <div class="menu one-third">
+          {% for entry in entry.relatedServices %}
+          {% if loop.index % 3 == 1 %}
+          <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="menu one-third">
+          {% for entry in entry.relatedServices %}
+          {% if loop.index % 3 == 2 %}
+          <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="menu one-third">
+          {% for entry in entry.relatedServices %}
+          {% if loop.index % 3 == 0 %}
+          <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <hr>
+    </div>
+  </section>
+
+  <section id="section-2" class="section">
+
+    <div class="container">
+
+      <div class="grid-row">
+
+        <div class="post-excerpt two-thirds right">
+
+          <h2>News and Press</h2>
+
+          <img src="http://placehold.it/604x453" alt="">
+          <p class="post-data"><a href="#">Category</a> - <time datetime="">September 9, 2015</time></p>
+          <h3><a href="#">City of Oakland Kicks off "Plan Downtown"</a></h3>
+          <p>The City of Oakland will mark the start of a new planning process for Downtown Oakland with a community kick-oﬀ event on Thursday, September 3, 2015. “Plan Downtown” will help guide the future development of Oakland’s urban core. The Speciﬁc Plan will focus on making it easier and more attractive to walk, bike, shop, work and live in Downtown Oakland.</p>
+        </div>
+
+      </div>
+
+      <div class="grid-row">
+
+        <div class="post-excerpt one-third">
+          <img src="http://placehold.it/604x453" alt="">
+          <p class="post-data"><a href="#">Category</a> - <time datetime="">September 9, 2015</time></p>
+          <h3><a href="#">City of Oakland Kicks off "Plan Downtown"</a></h3>
+        </div>
+
+        <div class="post-excerpt one-third">
+          <img src="http://placehold.it/604x453" alt="">
+          <p class="post-data"><a href="#">Category</a> - <time datetime="">September 9, 2015</time></p>
+          <h3><a href="#">City of Oakland Kicks off "Plan Downtown"</a></h3>
+          <p>The City of Oakland will mark the start of a new planning process for Downtown Oakland with a community kick-oﬀ event on Thursday, September 3, 2015&hellip;</p>
+        </div>
+
+        <div class="post-excerpt one-third">
+          <img src="http://placehold.it/604x453" alt="">
+          <p class="post-data"><a href="#">Category</a> - <time datetime="">September 9, 2015</time></p>
+          <h3><a href="#">City of Oakland Kicks off "Plan Downtown"</a></h3>
+          <p>The City of Oakland will mark the start of a new planning process for Downtown Oakland with a community kick-oﬀ event on Thursday&hellip;</p>
+        </div>
+
+      </div>
+
+      <hr>
+
+    </div>
+  </section>
+
+
+  <section id="section-3" class="section">
+    <div class="container">
+      <h2>Our Management</h2>
+      <div class="grid-row">
+        <div class="one-third">
+          <img src="{{siteUrl}}/resources/img/mayor.jpg" alt="Mayor Libby Schaaf">
+        </div>
+        <div class="one-third">
+          <a href="#">Brooke A. Levin</a>
+          <p>Director</p>
+          <p>She is an American Public Works Association Leadership Fellow with more than 30 years of public and private sector experience, including the past 22 years with the City of Oakland.</p>
+        </div>
+        <nav class="menu one-third">
+          <a href="#" class="menu-item">
+            Michael Neary, P.E.
+            <span>Assistant Director</span>
+          </a>
+          <a href="#" class="menu-item">
+            Jason Mitchell
+            <span>Assistant Director</span>
+          </a>
+          <a href="#" class="menu-item">
+            Susan Kattchee
+            <span>Assistant Director</span>
+          </a>
+          <a href="#" class="menu-item">
+            Tom Morgan
+            <span>Administrative Manager</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+</main> 
+{% endblock %}   

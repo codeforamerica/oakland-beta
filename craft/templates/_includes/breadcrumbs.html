@@ -1,0 +1,7 @@
+  <nav class="breadcrumbs">
+    <a href="{{ siteUrl }}">Oakland</a>
+    {% for ancestor in entry.getAncestors() %}
+    <span><a href="{{ ancestor.url }}">{{ ancestor.title }}</a></span>
+    {% endfor %}
+    <span>{{ entry.title }}</span>
+  </nav>

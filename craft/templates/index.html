@@ -1,0 +1,141 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_base" %}
+
+{% block content %}
+
+<section class="subheader" style="background-image: url(resources/assets/images/{{ entry.heroImage.first().filename }});">
+
+  <div class="container">
+    <div class="grid-row">
+      <div class="section-info two-thirds">
+        <h1>{{ entry.welcome }}</h1>
+        <p>{{ entry.body }}</p>
+      </div>
+      <nav class="section-menu one-third">
+        <a class="menu-item" href="#section-1">Services</a>
+        <a class="menu-item" href="#section-2">City News</a>
+        <a class="menu-item" href="#section-4">Mayor</a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<div class="main-overlay"></div>
+
+<section id="section-1" class="section">
+  <div class="container">
+    <h2>Services</h2>
+    <div class="grid-row">
+      {% for entry in craft.entries.section('services').level(1) %}
+      {% if loop.index % 3 == 1 %}
+      <nav class="big-menu one-third">
+        <div class="menu-item">
+          <a href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{ entry.leadIn }}</p>
+          </a>
+        </div>
+      </nav>
+      {% endif %}
+      {% endfor %}
+      {% for entry in craft.entries.section('services').level(1) %}
+      {% if loop.index % 3 == 2 %}
+      <nav class="big-menu one-third">
+        <div class="menu-item">
+          <a href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{ entry.leadIn }}</p>
+          </a>
+        </div>
+      </nav>
+      {% endif %}
+      {% endfor %}
+      {% for entry in craft.entries.section('services').level(1) %}
+      {% if loop.index % 3 == 3 %}
+      <nav class="big-menu one-third">
+        <div class="menu-item">
+          <a href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{ entry.leadIn }}</p>
+          </a>
+        </div>
+      </nav>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <hr>
+  </div>
+</section>
+
+<section id="section-2" class="section">
+
+  <div class="container">
+
+    <div class="grid-row">
+
+      <div class="two-thirds">
+        <h2>City News</h2>
+        {% for entry in craft.entries.section('news').limit(1) %}
+        <div class="post-excerpt">
+          <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+          <p class="post-data"><a href="{{ entry.relatedDepartment.first().url }}">{{ entry.relatedDepartment.first().title }}</a> - <time datetime="">{{ entry.dateCreated.nice() }}</time></p>
+          <p>{{ entry.summary }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <aside class="one-third">
+        <h4 class="aside-title">Other News</h4>
+        <ul class="list-no-style">
+          {% for entry in craft.entries.section('news').offset(1) %}
+          <li>
+            <a href="{{ entry.url }}">{{ entry.title }}</a>
+            <p class="post-data">{{ entry.dateCreated.nice() }}</p>
+          </li>
+          {% endfor %}
+        </ul>
+      </aside>
+
+    </div>
+
+    <hr>
+
+  </div>
+
+</section>
+
+<section id="section-4" class="section">
+  <div class="container">
+    <h2>City of Oakland Mayor</h2>
+    <div class="grid-row">
+      <div class="one-third">
+        <img src="resources/img/mayor.jpg" alt="Mayor Libby Schaaf">
+      </div>
+      <div class="two-thirds">
+        <a href="#">Mayor Libby Schaaf</a><br>
+        <p>Oakland City Council</p>
+        <p>She is an American Public Works Association Leadership Fellow with more than 30 years of public and private sector experience, including the past 22 years with the City of Oakland.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

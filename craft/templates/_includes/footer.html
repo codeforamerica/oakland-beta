@@ -1,0 +1,76 @@
+<footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <h4>Services and Information</h4>
+        <div class="grid-row">
+          <ul class="footer-links list-no-style one-third">
+            {% for entry in craft.entries.section('services').level(1) %}
+            {% if loop.index % 3 == 1 %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          <ul class="footer-links list-no-style one-third">
+            {% for entry in craft.entries.section('services').level(1) %}
+            {% if loop.index % 3 == 2 %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          <ul class="footer-links list-no-style one-third">
+            {% for entry in craft.entries.section('services').level(1) %}
+            {% if loop.index % 3 == 0 %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <hr>
+        <h4>Oakland Government</h4>
+        <div class="grid-row">
+          <ul class="footer-links list-no-style one-third">
+            {% for entry in craft.entries.section('departments') %}
+            {% if loop.index % 3 == 1 %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          <ul class="footer-links list-no-style one-third">
+            {% for entry in craft.entries.section('departments') %}
+            {% if loop.index % 3 == 2 %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          <ul class="footer-links list-no-style one-third">
+            {% for entry in craft.entries.section('departments') %}
+            {% if loop.index % 3 == 0 %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <hr>
+        <div class="footer-omega">
+          <div class="one-third right column-last">
+            <small>&copy; 2015 City of Oakland</small><br>
+            <a href="#"><small>Privacy Policy</small></a>
+            <a href="#"><small>Terms of Use</small></a>
+          </div>
+          <a href="#" class="logo-wrap">
+            <img class="site-logo" src="{{ siteUrl }}/resources/img/coo-logo-black.svg" onerror="this.src='{{ siteUrl }}/resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <span class="js-media-query-med"></span>
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="{{ siteUrl }}/resources/js/jquery.min.js"></script>
+    <script>
+      if ( ! window.jQuery ) {
+        document.write('script src="{{ siteUrl }}/resources/js/jquery.min.js"><\/script>');
+      }
+    </script>
+    <script src="{{ siteUrl }}/resources/js/jquery.waypoints.min.js"></script>
+    <script src="{{ siteUrl }}/resources/js/oakland.js"></script>

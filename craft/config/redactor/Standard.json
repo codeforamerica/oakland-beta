@@ -1,0 +1,5 @@
+{
+	"buttons": ["html", "format","bold","italic","lists","link","file","horizontalrule"],
+	"plugins": ["source","fullscreen"],
+    "formattingTags": ["p", "blockquote", "h2", "h3", "h4"]
+}

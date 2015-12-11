@@ -7,14 +7,14 @@
  * You can see a list of the default settings in craft/app/etc/config/defaults/db.php
  */
 
-$url=parse_url(getenv(“CLEARDB_DATABASE_URL”));
+$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 return array(
 
-	‘server’ => $url[“host”],
-	‘user’ => $url[“user”],
-	‘password’ => $url[“pass”],
-	‘database’ => substr($url[“path”],1),
+	‘server’ => $url["host"],
+	‘user’ => $url["user"],
+	‘password’ => $url["pass"],
+	‘database’ => substr($url["path"],1),
 	‘tablePrefix’ => ‘craft’
-	
+
 );

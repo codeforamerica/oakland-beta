@@ -18,7 +18,7 @@ return array(
 		'database' => substr($url["path"],1),
 		'tablePrefix' => 'craft'
 	),
-	'oakland-beta.herokuapp.com' => array(
+	'herokuapp.com' => array(
 		'server' => $url["host"],
 		'user' => $url["user"],
 		'password' => $url["pass"],

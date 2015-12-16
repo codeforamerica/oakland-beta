@@ -9,10 +9,10 @@
 
 return array(
 	'*' => array(
-
+		'devMode' => true
 	),
 	'localhost' => array(
-		'devMode' => true
+		
 	)
 	
 );

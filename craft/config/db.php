@@ -10,10 +10,19 @@
 $url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 return array(
-
+	'*' => array(
+		'tablePrefix' => 'craft'
+	),
+	'live' => array(
 		'server' => $url["host"],
 		'user' => $url["user"],
 		'password' => $url["pass"],
 		'database' => substr($url["path"],1),
-
+	),
+	'dev' => array(
+		'server' => localhost,
+		'user' => 'root',
+		'password' => 'root',
+		'database' => oaklanddb,
+	),
 );

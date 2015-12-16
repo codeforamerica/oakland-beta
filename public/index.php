@@ -1,5 +1,25 @@
 <?php
 
+switch ($_SERVER['SERVER_NAME']) 
+{   
+    // If the SERVER_NAME variable matches our case, 
+    // assign the CRAFT_ENVIRONMENT variable a keyword 
+    // that identifies this environment that we can 
+    // use in our multi-environment config
+
+    case 'heroku.com' :
+        define('CRAFT_ENVIRONMENT', 'live');
+        break;
+
+    case 'localhost' :
+        define('CRAFT_ENVIRONMENT', 'dev');
+        break;
+
+    default :
+        define('CRAFT_ENVIRONMENT', 'dev');
+        break;
+}
+
 // Path to your craft/ folder
 $craftPath = '../craft';
 

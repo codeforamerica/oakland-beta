@@ -7,7 +7,7 @@ switch ($_SERVER['SERVER_NAME'])
     // that identifies this environment that we can 
     // use in our multi-environment config
 
-    case 'heroku.com' :
+    case 'oakland-beta.heroku.com' :
         define('CRAFT_ENVIRONMENT', 'live');
         break;
 

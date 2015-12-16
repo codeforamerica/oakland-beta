@@ -1,13 +1,13 @@
 <?php
 
-switch ($_SERVER['SERVER_NAME']) 
+switch ($_SERVER['HTTP_HOST']) 
 {   
     // If the SERVER_NAME variable matches our case, 
     // assign the CRAFT_ENVIRONMENT variable a keyword 
     // that identifies this environment that we can 
     // use in our multi-environment config
 
-    case 'herokuapp.com' :
+    case 'oakland-beta.herokuapp.com' :
         define('CRAFT_ENVIRONMENT', 'live');
         break;
 

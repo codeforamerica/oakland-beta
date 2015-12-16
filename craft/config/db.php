@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -10,11 +11,25 @@
 $url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 return array(
-
-	'server' => $url["host"],
-	'user' => $url["user"],
-	'password' => $url["pass"],
-	'database' => substr($url["path"],1),
-	'tablePrefix' => 'craft'
-
+	'*' => array(
+		'server' => $url["host"],
+		'user' => $url["user"],
+		'password' => $url["pass"],
+		'database' => substr($url["path"],1),
+		'tablePrefix' => 'craft'
+	),
+	'oakland-beta.herokuapp.com' => array(
+		'server' => $url["host"],
+		'user' => $url["user"],
+		'password' => $url["pass"],
+		'database' => substr($url["path"],1),
+		'tablePrefix' => 'craft'
+	),
+	'localhost' => array(
+		'server' => localhost,
+		'user' => 'root',
+		'password' => 'root',
+		'database' => oaklanddb,
+		'tablePrefix' => 'craft'
+	),
 );

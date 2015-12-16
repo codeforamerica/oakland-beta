@@ -8,5 +8,11 @@
  */
 
 return array(
+	'*' => array(
 
+	),
+	'localhost' => array(
+		'devMode' => true
+	)
+	
 );

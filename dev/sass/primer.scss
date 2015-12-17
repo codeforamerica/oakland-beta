@@ -47,10 +47,11 @@ $gutter: 1.25rem !default;
 @import "menu";
 @import "links";
 @import "posts";
+@import "panels";
 
 // Utilities
 @import "flex-table";
 @import "truncate";
 
-// Tempaltes
+// Templates
 @import "jobs";

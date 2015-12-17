@@ -1,0 +1,16 @@
+.panel {
+    color: $white;
+    background-color: $gray-light;
+    padding: .5em .7em;
+    h2 {
+        margin-bottom: .5em;
+    }
+    p  {
+        height: 3em;
+        overflow: auto;
+    }
+
+    *:last-child {
+        margin-bottom: .5em;
+    }
+}

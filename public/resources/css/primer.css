@@ -74,6 +74,9 @@ html {
     .default .menu-item:active:before {
       background-color: #3d921d; }
 
+.default .panel {
+  background-color: #4fbc26; }
+
 .public-works a {
   color: #0e5478; }
   .public-works a:hover, .public-works a:focus {
@@ -95,6 +98,9 @@ html {
     .public-works .menu-item:active:before {
       background-color: #09344a; }
 
+.public-works .panel {
+  background-color: #0e5478; }
+
 .transportation a {
   color: #104741; }
   .transportation a:hover, .transportation a:focus {
@@ -115,6 +121,33 @@ html {
     color: #071d1b; }
     .transportation .menu-item:active:before {
       background-color: #071d1b; }
+
+.transportation .panel {
+  background-color: #104741; }
+
+.jobs a {
+  color: #0e5478; }
+  .jobs a:hover, .jobs a:focus {
+    color: #0e5478; }
+  .jobs a:active {
+    color: #09344a; }
+
+.jobs .subheader {
+  background-color: #0e5478; }
+
+.jobs .menu-item {
+  color: #0e5478; }
+  .jobs .menu-item:hover, .jobs .menu-item:focus {
+    color: #0e5478; }
+    .jobs .menu-item:hover:before, .jobs .menu-item:focus:before {
+      background-color: #0e5478; }
+  .jobs .menu-item:active {
+    color: #09344a; }
+    .jobs .menu-item:active:before {
+      background-color: #09344a; }
+
+.jobs .panel {
+  background-color: #0e5478; }
 
 .navicon-button {
   position: relative;
@@ -1378,12 +1411,39 @@ pre {
       .three-fourths:last-child {
         margin-right: 0; } }
 
+.one-sixth {
+  width: 100%;
+  margin-bottom: 1.5rem; }
+  @media screen and (min-width: 48em) {
+    .one-sixth {
+      float: left;
+      display: block;
+      margin-right: 2.1834061135%;
+      width: 14.8471615721%; }
+      .one-sixth:last-child {
+        margin-right: 0; } }
+
+.five-sixths {
+  width: 100%;
+  margin-bottom: 1.5rem; }
+  @media screen and (min-width: 48em) {
+    .five-sixths {
+      float: left;
+      display: block;
+      margin-right: 2.1834061135%;
+      width: 82.9694323144%; }
+      .five-sixths:last-child {
+        margin-right: 0; } }
+
 @media screen and (min-width: 48em) {
   .column-shift {
     margin-left: 8.5152838428%; } }
 
 .column-last {
   margin-right: 0; }
+
+.gutter-bottom {
+  margin-bottom: 0.75rem; }
 
 fieldset {
   padding: 0;
@@ -2219,9 +2279,6 @@ img {
       .global-navigation .header-nav-button {
         display: none; } }
 
-.parking {
-  background: #009691; }
-
 .global-navigation-wrap {
   position: fixed;
   width: 100%;
@@ -2474,19 +2531,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -764px; } }
+        background-position: 0px -377px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -442px; } }
+        background-position: 0px -589px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -788px; } }
+        background-position: 0px -330px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2793,7 +2850,7 @@ a.btn-block {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -425px; } }
+      background-position: 0px -373px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -2883,6 +2940,18 @@ a.btn-block {
   .post-excerpt img {
     margin-bottom: 20px;
     margin-bottom: 1.25rem; }
+
+.panel {
+  color: #ffffff;
+  background-color: #e9eae7;
+  padding: .5em .7em; }
+  .panel h2 {
+    margin-bottom: .5em; }
+  .panel p {
+    height: 3em;
+    overflow: auto; }
+  .panel *:last-child {
+    margin-bottom: .5em; }
 
 .flex-table {
   display: table; }

@@ -83,6 +83,24 @@
   }
 }
 
+.one-sixth {
+  @include fill-parent;
+  margin-bottom: 1.5rem;
+
+  @include media($bp-md) {
+    @include span-columns(2);
+  }
+}
+
+.five-sixths {
+  @include fill-parent;
+  margin-bottom: 1.5rem;
+
+  @include media($bp-md) {
+    @include span-columns(10);
+  }
+}
+
 .column-shift {
   @include media($bp-md) {
     @include shift;
@@ -91,4 +109,8 @@
 
 .column-last {
   @include omega();
+}
+
+.gutter-bottom {
+  margin-bottom: $gutter - .5rem;
 }

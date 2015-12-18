@@ -25,7 +25,7 @@
         <div class="menu-item">
           <a href="{{ page.url }}">
             <h3>{{ page.title }}</h3>
-            <p>{% if entry.type == "topic" %}{{ page.leadIn }}{% endif %}</p>
+            {% if page.type == "topic" %}<p>{{ page.leadIn }}</p>{% endif %}
           </a>
         </div>
         {% else %}

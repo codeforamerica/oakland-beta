@@ -10,17 +10,16 @@
         {% include '_includes/breadcrumbs.html' %}
       </div>
 
-      <section class="container">
+      <article class="container">
         <h1>{{ entry.title }}</h1>
         <div class="grid-row">
-          <div class="one-fourth">
-            <a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a>
-          </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds">
+            <p class="lead">{{ entry.leadIn}}</p>
+            <p><a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a></p>
             {{ entry.body }}
           </div>
         </div>
-      </section>
+      </article>
     </main>    
 
 {% endblock %}

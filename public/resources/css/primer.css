@@ -62,6 +62,8 @@ html {
 
 .default .subheader {
   background-color: #4fbc26; }
+  .default .subheader .btn {
+    background-color: #f7b600; }
 
 .default .menu-item {
   color: #4fbc26; }
@@ -86,6 +88,8 @@ html {
 
 .public-works .subheader {
   background-color: #0e5478; }
+  .public-works .subheader .btn {
+    background-color: #f7b600; }
 
 .public-works .menu-item {
   color: #0e5478; }
@@ -110,6 +114,8 @@ html {
 
 .transportation .subheader {
   background-color: #104741; }
+  .transportation .subheader .btn {
+    background-color: #f7b600; }
 
 .transportation .menu-item {
   color: #104741; }
@@ -124,30 +130,6 @@ html {
 
 .transportation .panel {
   background-color: #104741; }
-
-.jobs a {
-  color: #0e5478; }
-  .jobs a:hover, .jobs a:focus {
-    color: #0e5478; }
-  .jobs a:active {
-    color: #09344a; }
-
-.jobs .subheader {
-  background-color: #0e5478; }
-
-.jobs .menu-item {
-  color: #0e5478; }
-  .jobs .menu-item:hover, .jobs .menu-item:focus {
-    color: #0e5478; }
-    .jobs .menu-item:hover:before, .jobs .menu-item:focus:before {
-      background-color: #0e5478; }
-  .jobs .menu-item:active {
-    color: #09344a; }
-    .jobs .menu-item:active:before {
-      background-color: #09344a; }
-
-.jobs .panel {
-  background-color: #0e5478; }
 
 .navicon-button {
   position: relative;
@@ -2535,19 +2517,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -302px; } }
+        background-position: 0px -214px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -36px; } }
+        background-position: 0px -664px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -151px; } }
+        background-position: 0px -35px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2854,7 +2836,7 @@ a.btn-block {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -193px; } }
+      background-position: 0px -676px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -2947,7 +2929,7 @@ a.btn-block {
 
 .panel {
   color: #ffffff;
-  background-color: #e9eae7;
+  background-color: #004c0d;
   padding: .5em .7em; }
   .panel h2 {
     margin-bottom: .5em; }

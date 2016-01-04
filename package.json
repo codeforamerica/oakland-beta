@@ -1,9 +1,11 @@
 {
-  "name": "craft_oakland",
+  "name": "oakland-beta",
   "version": "0.0.1",
+  "repository": "https://github.com/codeforamerica/oakland-beta",
+  "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "~0.18.0"
+    "grunt-sass": "^1.1.0"
   }
 }

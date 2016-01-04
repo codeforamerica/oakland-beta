@@ -63,6 +63,8 @@
   $darkened: darken($color, 10%);
 
   .#{$name} {
+  
+
     a {
       color: $primary;
 
@@ -78,6 +80,10 @@
 
     .subheader {
       background-color: $primary;
+
+      .btn {
+        background-color: $gold;
+      }
     }
 
     .menu-item {

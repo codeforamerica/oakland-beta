@@ -1,5 +1,5 @@
 {
 	"buttons": ["format","bold","italic","lists","link","file","horizontalrule"],
-	"plugins": ["source","fullscreen"],
+	"plugins": ["source","fullscreen", "table"],
     "formatting": ["p", "h2", "h3", "h4", "blockquote",]
 }

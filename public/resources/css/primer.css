@@ -2002,27 +2002,25 @@ input::-webkit-inner-spin-button {
 
 .table-wrap {
   width: 100%;
-  overflow-y: auto;
-  _overflow: auto;
-  margin-bottom: 1.5rem; }
+  overflow-y: auto; }
 
 table {
   width: auto;
-  max-width: 100%; }
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+  font-size: .8em; }
   table th,
   table tr,
   table td {
     border: none;
     text-align: left; }
   table th {
-    font-weight: bold; }
-  table tr {
-    border-bottom: 1px solid #e9eae7; }
+    font-weight: bold;
+    background-color: #f4f5f4; }
   table td,
   table th {
-    padding: 1rem; }
-  table tbody tr:last-child {
-    border-bottom: none; }
+    padding: 1rem;
+    border: 1px solid #e9eae7; }
 
 .sticky-menu {
   position: static; }
@@ -2517,19 +2515,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -214px; } }
+        background-position: 0px -540px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -664px; } }
+        background-position: 0px -294px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -35px; } }
+        background-position: 0px -122px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2836,7 +2834,7 @@ a.btn-block {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -676px; } }
+      background-position: 0px -950px; } }
 
 .previous-next-links {
   background-size: cover;

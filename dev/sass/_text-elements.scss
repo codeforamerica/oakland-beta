@@ -133,13 +133,14 @@
 .table-wrap {
 	width: 100%;
 	overflow-y: auto;
-	_overflow: auto;
-	margin-bottom: 1.5rem;
 }
 
 table {
 	width: auto;
 	max-width: 100%;
+	margin-bottom: 1.5rem;
+	font-size: .8em;
+
 
 	th,
 	tr,
@@ -150,18 +151,14 @@ table {
 
 	th {
 		font-weight: bold;
+		background-color: $gray-lighter;
 	}
 
-	tr {
-		border-bottom: 1px solid $gray-light;
-	}
 
 	td,
 	th {
 		padding: 1rem;
+		border: 1px solid $gray-light;
 	}
 
-	tbody tr:last-child {
-		border-bottom: none;
-	}
 }

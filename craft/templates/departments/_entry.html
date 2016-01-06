@@ -79,7 +79,7 @@
 
           <h2>News and Press</h2>
 
-          {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(1) %}
+          {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(1) %}          
           <img src="http://placehold.it/604x453" alt="">
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>

@@ -116,6 +116,7 @@
     <div class="container">
       <h2>Our Management</h2>
       <div class="grid-row">
+        {% if entry.departmentHeadPortrait|length > 0 %}
         <div class="one-third">
           <img src="{{ entry.departmentHeadPortrait.first().url }}" alt="Department Head Photo">
         </div>

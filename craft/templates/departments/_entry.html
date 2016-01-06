@@ -80,7 +80,9 @@
           <h2>News and Press</h2>
 
           {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(1) %}          
-          <img src="http://placehold.it/604x453" alt="">
+          {% if newsArticle.mainImage|length > 0 %}
+          <img src="{{siteUrl}}{{ newsArticle.mainImage.first().url }}" alt="Main Image">
+          {% endif %}
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
           <p>{{ newsArticle.leadIn }}</p>
@@ -94,6 +96,9 @@
         {% for newsArticle in craft.entries.section('news').relatedTo(entry).offset(1).limit(3) %}
 
         <div class="post-excerpt one-third">
+          {% if newsArticle.mainImage|length > 0 %}
+          <img src="{{siteUrl}}{{ newsArticle.mainImage.first().url }}" alt="Main Image">
+          {% endif %}
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
         </div>

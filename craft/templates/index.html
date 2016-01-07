@@ -21,7 +21,7 @@
 
 {% block content %}
 
-<section class="subheader" style="background-image: url(resources/assets/images/{{ entry.hero.first().filename }});">
+<section class="subheader" style="background-image: url({{siteUrl}}{{ entry.hero.first().url }});">
 
   <div class="container">
     <div class="grid-row">
@@ -93,10 +93,10 @@
 
       <div class="two-thirds">
         <h2>City News</h2>
-        {% for entry in craft.entries.section('news').limit(1) %}
+        {% for entry in craft.entries.section('news').limit(2) %}
         <div class="post-excerpt">
+          <p class="post-data"><a href="{{ entry.relatedDepartment.first().url }}">{{ entry.relatedDepartment.first().title }}</a> - <time datetime>{{ entry.dateCreated.localeDate() }}</time></p>
           <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
-          <p class="post-data"><a href="{{ entry.relatedDepartment.first().url }}">{{ entry.relatedDepartment.first().title }}</a> - <time datetime="">{{ entry.dateCreated.nice() }}</time></p>
           <p>{{ entry.summary }}</p>
         </div>
         {% endfor %}
@@ -105,10 +105,9 @@
       <aside class="one-third">
         <h4 class="aside-title">Other News</h4>
         <ul class="list-no-style">
-          {% for entry in craft.entries.section('news').offset(1) %}
+          {% for entry in craft.entries.section('news').offset(2) %}
           <li>
             <a href="{{ entry.url }}">{{ entry.title }}</a>
-            <p class="post-data">{{ entry.dateCreated.nice() }}</p>
           </li>
           {% endfor %}
         </ul>

@@ -16,7 +16,12 @@
 
       <section class="container">
         <h1>{{ entry.title }}</h1>
-        <p class="post-data">{{ entry.dateCreated.nice() }}</p>
+        <p class="post-data">{{ entry.dateCreated.localeDate() }}</p>
+        {% if entry.mainImage|length > 0 %}
+        <div class="grid-row">
+          <img src="{{siteUrl}}{{ entry.mainImage.first().url }}" alt="Main Image">
+        </div>
+        {% endif %}
         <div class="grid-row">
           <div class="two-thirds">
             {{ entry.body }}

@@ -79,35 +79,31 @@
 
           <h2>News and Press</h2>
 
-          <img src="http://placehold.it/604x453" alt="">
-          <p class="post-data"><a href="#">Category</a> - <time datetime="">September 9, 2015</time></p>
-          <h3><a href="#">City of Oakland Kicks off "Plan Downtown"</a></h3>
-          <p>The City of Oakland will mark the start of a new planning process for Downtown Oakland with a community kick-oﬀ event on Thursday, September 3, 2015. “Plan Downtown” will help guide the future development of Oakland’s urban core. The Speciﬁc Plan will focus on making it easier and more attractive to walk, bike, shop, work and live in Downtown Oakland.</p>
+          {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(1) %}          
+          {% if newsArticle.mainImage|length > 0 %}
+          <img src="{{siteUrl}}{{ newsArticle.mainImage.first().url }}" alt="Main Image">
+          {% endif %}
+          <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
+          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
+          <p>{{ newsArticle.leadIn }}</p>
+          {% endfor %}
         </div>
 
       </div>
 
       <div class="grid-row">
 
-        <div class="post-excerpt one-third">
-          <img src="http://placehold.it/604x453" alt="">
-          <p class="post-data"><a href="#">Category</a> - <time datetime="">September 9, 2015</time></p>
-          <h3><a href="#">City of Oakland Kicks off "Plan Downtown"</a></h3>
-        </div>
+        {% for newsArticle in craft.entries.section('news').relatedTo(entry).offset(1).limit(3) %}
 
         <div class="post-excerpt one-third">
-          <img src="http://placehold.it/604x453" alt="">
-          <p class="post-data"><a href="#">Category</a> - <time datetime="">September 9, 2015</time></p>
-          <h3><a href="#">City of Oakland Kicks off "Plan Downtown"</a></h3>
-          <p>The City of Oakland will mark the start of a new planning process for Downtown Oakland with a community kick-oﬀ event on Thursday, September 3, 2015&hellip;</p>
+          {% if newsArticle.mainImage|length > 0 %}
+          <img src="{{siteUrl}}{{ newsArticle.mainImage.first().url }}" alt="Main Image">
+          {% endif %}
+          <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
+          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
         </div>
 
-        <div class="post-excerpt one-third">
-          <img src="http://placehold.it/604x453" alt="">
-          <p class="post-data"><a href="#">Category</a> - <time datetime="">September 9, 2015</time></p>
-          <h3><a href="#">City of Oakland Kicks off "Plan Downtown"</a></h3>
-          <p>The City of Oakland will mark the start of a new planning process for Downtown Oakland with a community kick-oﬀ event on Thursday&hellip;</p>
-        </div>
+        {% endfor %}
 
       </div>
 
@@ -116,37 +112,19 @@
     </div>
   </section>
 
-
   <section id="section-3" class="section">
     <div class="container">
       <h2>Our Management</h2>
       <div class="grid-row">
+        {% if entry.departmentHeadPortrait|length > 0 %}
         <div class="one-third">
-          <img src="{{siteUrl}}/resources/img/mayor.jpg" alt="Mayor Libby Schaaf">
+          <img src="{{ entry.departmentHeadPortrait.first().url }}" alt="Department Head Photo">
         </div>
-        <div class="one-third">
-          <a href="#">Brooke A. Levin</a>
-          <p>Director</p>
-          <p>She is an American Public Works Association Leadership Fellow with more than 30 years of public and private sector experience, including the past 22 years with the City of Oakland.</p>
+        {% endif %}
+        <div class="two-thirds">
+          {{ entry.departmentHead }}
+          <p>{{ entry.departmentHeadBio }}</p>
         </div>
-        <nav class="menu one-third">
-          <a href="#" class="menu-item">
-            Michael Neary, P.E.
-            <span>Assistant Director</span>
-          </a>
-          <a href="#" class="menu-item">
-            Jason Mitchell
-            <span>Assistant Director</span>
-          </a>
-          <a href="#" class="menu-item">
-            Susan Kattchee
-            <span>Assistant Director</span>
-          </a>
-          <a href="#" class="menu-item">
-            Tom Morgan
-            <span>Administrative Manager</span>
-          </a>
-        </nav>
       </div>
     </div>
   </section>

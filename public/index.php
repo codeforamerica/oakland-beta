@@ -1,7 +1,5 @@
 <?php
 
-echo $_SERVER['HTTP_HOST'];
-
 switch ($_SERVER['HTTP_HOST']) 
 {   
     // If the SERVER_NAME variable matches our case, 
@@ -18,7 +16,7 @@ switch ($_SERVER['HTTP_HOST'])
         break;
 
     default :
-        define('CRAFT_ENVIRONMENT', 'dev');
+        define('CRAFT_ENVIRONMENT', 'live');
         break;
 }
 

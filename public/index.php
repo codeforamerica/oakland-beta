@@ -11,6 +11,10 @@ switch ($_SERVER['HTTP_HOST'])
         define('CRAFT_ENVIRONMENT', 'live');
         break;
 
+    case 'beta.oaklandca.gov' :
+        define('CRAFT_ENVIRONMENT', 'live');
+        break;
+
     case 'localhost' :
         define('CRAFT_ENVIRONMENT', 'dev');
         break;

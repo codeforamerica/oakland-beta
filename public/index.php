@@ -7,7 +7,7 @@ switch ($_SERVER['HTTP_HOST'])
     // that identifies this environment that we can 
     // use in our multi-environment config
 
-    case 'oakland-beta.herokuapp.com' :
+    case 'beta.oaklandca.gov' :
         define('CRAFT_ENVIRONMENT', 'live');
         break;
 
@@ -16,7 +16,7 @@ switch ($_SERVER['HTTP_HOST'])
         break;
 
     default :
-        define('CRAFT_ENVIRONMENT', 'dev');
+        define('CRAFT_ENVIRONMENT', 'live');
         break;
 }
 

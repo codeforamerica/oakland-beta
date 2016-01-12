@@ -45,6 +45,18 @@
     <h2>Services</h2>
     <div class="grid-row">
       {% for entry in craft.entries.section('services').level(1) %}
+      {% if loop.index % 3 == 0 %}
+      <nav class="big-menu one-third">
+        <div class="menu-item">
+          <a href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{ entry.leadIn }}</p>
+          </a>
+        </div>
+      </nav>
+      {% endif %}
+      {% endfor %}
+      {% for entry in craft.entries.section('services').level(1) %}
       {% if loop.index % 3 == 1 %}
       <nav class="big-menu one-third">
         <div class="menu-item">
@@ -58,18 +70,6 @@
       {% endfor %}
       {% for entry in craft.entries.section('services').level(1) %}
       {% if loop.index % 3 == 2 %}
-      <nav class="big-menu one-third">
-        <div class="menu-item">
-          <a href="{{ entry.url }}">
-            <h3>{{ entry.title }}</h3>
-            <p>{{ entry.leadIn }}</p>
-          </a>
-        </div>
-      </nav>
-      {% endif %}
-      {% endfor %}
-      {% for entry in craft.entries.section('services').level(1) %}
-      {% if loop.index % 3 == 3 %}
       <nav class="big-menu one-third">
         <div class="menu-item">
           <a href="{{ entry.url }}">

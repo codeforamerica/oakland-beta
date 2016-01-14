@@ -69,7 +69,7 @@
       {% endif %}
       {% endfor %}
       {% for entry in craft.entries.section('services').level(1) %}
-      {% if loop.index % 3 == 3 %}
+      {% if loop.index % 3 == 0 %}
       <nav class="big-menu one-third">
         <div class="menu-item">
           <a href="{{ entry.url }}">

@@ -11,7 +11,7 @@ switch ($_SERVER['HTTP_HOST'])
         define('CRAFT_ENVIRONMENT', 'live');
         break;
 
-    case 'localhost' :
+    case 'localhost:8888' :
         define('CRAFT_ENVIRONMENT', 'dev');
         break;
 

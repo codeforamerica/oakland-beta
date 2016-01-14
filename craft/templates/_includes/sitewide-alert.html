@@ -1,0 +1,11 @@
+{% if sitewideAlert.alertShowHide == "show" %}
+
+<div class="flash flash-{{sitewideAlert.alertType}}">
+  <div class="container">
+    <span class="flash-type">{{sitewideAlert.alertLabel}}</span>
+    <span class="flash-text">{{sitewideAlert.alertMessage}}</span>
+    <a href="{{sitewideAlert.alertUrl}}">Read more</a>
+  </div>
+</div>
+
+{% endif %}

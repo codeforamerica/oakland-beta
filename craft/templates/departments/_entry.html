@@ -81,7 +81,7 @@
 
           {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(1) %}          
           {% if newsArticle.mainImage|length > 0 %}
-          <img src="{{siteUrl}}{{ newsArticle.mainImage.first().url }}" alt="Main Image">
+          <img src="{{ newsArticle.mainImage.first().url }}" alt="Main Image">
           {% endif %}
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
@@ -97,7 +97,7 @@
 
         <div class="post-excerpt one-third">
           {% if newsArticle.mainImage|length > 0 %}
-          <img src="{{siteUrl}}{{ newsArticle.mainImage.first().url }}" alt="Main Image">
+          <img src="{{ newsArticle.mainImage.first().url }}" alt="Main Image">
           {% endif %}
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>

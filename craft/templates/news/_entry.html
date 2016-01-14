@@ -19,7 +19,7 @@
         <p class="post-data">{{ entry.dateCreated.localeDate() }}</p>
         {% if entry.mainImage|length > 0 %}
         <div class="grid-row">
-          <img src="{{siteUrl}}{{ entry.mainImage.first().url }}" alt="Main Image">
+          <img src="{{ entry.mainImage.first().url }}" alt="Main Image">
         </div>
         {% endif %}
         <div class="grid-row">

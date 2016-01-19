@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+    <main class="transportation">
+
+    <div class="main-overlay"></div>
+
+      <div class="container">
+        {% include '_includes/breadcrumbs.html' %}
+      </div>
+
+      <article class="container">
+        <h1>{{ entry.title }}</h1>
+        <div class="grid-row">
+          <div class="two-thirds">
+            <p class="lead">{{ entry.leadIn}}</p>
+            {% if entry.CTATitle != "" %}
+            <p><a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a></p>
+            {% endif %}
+            {{ entry.body }}
+          </div>
+        </div>
+      </article>
+    </main>    
+
+{% endblock %}

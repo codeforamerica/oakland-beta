@@ -30,7 +30,7 @@
         <p>{{ entry.body }}</p>
       </div>
       <nav class="section-menu one-third">
-        <a class="menu-item" href="#section-1">Services</a>
+        <a class="menu-item" href="#section-1">Services and Resources</a>
         <a class="menu-item" href="#section-2">City News</a>
         <a class="menu-item" href="#section-4">Mayor</a>
       </nav>
@@ -42,7 +42,7 @@
 
 <section id="section-1" class="section">
   <div class="container">
-    <h2>Services</h2>
+    <h2>Services and Resources</h2>
     <div class="grid-row">
       {% for entry in craft.entries.section('services').level(1) %}
       {% if loop.index % 3 == 1 %}

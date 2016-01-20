@@ -27,9 +27,10 @@
         </div>
 
         <nav class="section-menu one-fourth">
-          <a class="menu-item" href="#section-1">Services and Resources</a>
-          <a class="menu-item" href="#section-2">News and Updates</a>
-          <a class="menu-item" href="#section-3">Our Management</a>
+          <a class="menu-item" href="#section-1">Contact Us</a>
+          <a class="menu-item" href="#section-2">Services and Resources</a>
+          <a class="menu-item" href="#section-3">News and Updates</a>
+          <a class="menu-item" href="#section-4">Our Management</a>
         </nav>
 
       </div><!-- .grid-row -->
@@ -39,6 +40,27 @@
   </section><!-- .subheader -->
 
   <section id="section-1" class="section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="grid-row">
+        <div class="one-half">
+          <h4>Address</h4>
+          <p>{{entry.departmentAddress}}</p>
+          <h4>Hours</h4>
+          <p>{{entry.departmentHours}}</p>
+        </div>
+        <div class="one-half">
+          {% if entry.departmentEmail|length > 0 %}
+          <h4>Email</h4>
+          <p>{{entry.departmentEmail}}</p>
+          {% endif %}
+          <h4>Phone Numbers</h4>
+          <p>{{entry.departmentPhoneNumber}}</p>
+        </div>
+      </div>
+    </div>
+
+  <section id="section-2" class="section">
     <div class="container">
       <h2>Services and Resources</h2>
       <div class="grid-row">
@@ -69,7 +91,7 @@
     </div>
   </section>
 
-  <section id="section-2" class="section">
+  <section id="section-3" class="section">
 
     <div class="container">
 
@@ -112,7 +134,7 @@
     </div>
   </section>
 
-  <section id="section-3" class="section">
+  <section id="section-4" class="section">
     <div class="container">
       <h2>Our Management</h2>
       <div class="grid-row">

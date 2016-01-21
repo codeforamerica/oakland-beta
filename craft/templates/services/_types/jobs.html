@@ -39,24 +39,21 @@
     <div class="container">
       <h1>Why Oakland?</h1>
       <div class="grid-row">
-        <div class="two-thirds"><img src="http://placehold.it/800x510" alt=""></div>
+        <div class="two-thirds"><img src="{{entry.jobsImage1.first().url}}" alt=""></div>
         <div class="one-third">
-          <img class="gutter-bottom" src="http://placehold.it/800x500" alt="">
-          <img src="http://placehold.it/800x500" alt="">
+          <img class="gutter-bottom" src="{{entry.jobsImage2.first().url}}" alt="">
+          <img src="{{entry.jobsImage3.first().url}}" alt="">
         </div>
       </div>
       <div class="grid-row">
         <div class="one-fourth">
-          <p>"It's a great place to work because of the quality of people who work here and because of the residents. You gotta love the variety and personality."</p>
-          <p class="text-muted">Glassdoor Reviewer</p>
+          {{entry.jobsQuote1}}
         </div>
         <div class="one-fourth column-shift">
-          <p>"If you live in Oakland, it's great to be a public servant in your own town."</p>
-          <p class="text-muted">Glassdoor Reviewer</p>
+          {{entry.jobsQuote2}}
         </div>
         <div class="one-fourth column-shift">
-          <p>"There is potential to do great things in this City and most of the employees want to do just that."</p>
-          <p class="text-muted">Glassdoor Reviewer</p>
+          {{entry.jobsQuote3}}
         </div>
       </div>
       <hr>

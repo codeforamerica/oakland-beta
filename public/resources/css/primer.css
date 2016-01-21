@@ -2401,6 +2401,7 @@ img {
   color: #fff; }
 
 .site-footer {
+  margin-top: 4rem;
   background: #cfd0ce;
   padding-top: 2rem;
   font-size: 0.875rem; }
@@ -2417,7 +2418,7 @@ img {
   .site-footer .footer-links {
     padding: 0; }
     .site-footer .footer-links li {
-      margin-bottom: 0.25rem; }
+      margin-bottom: 1rem; }
     .site-footer .footer-links a {
       font-size: 0.875rem;
       line-height: 1.2;
@@ -2518,19 +2519,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -667px; } }
+        background-position: 0px -201px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -432px; } }
+        background-position: 0px -750px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -126px; } }
+        background-position: 0px -603px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2837,7 +2838,7 @@ a.btn-block {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -941px; } }
+      background-position: 0px -831px; } }
 
 .previous-next-links {
   background-size: cover;

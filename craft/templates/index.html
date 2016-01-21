@@ -91,7 +91,7 @@
     <div class="grid-row">
 
       <div class="two-thirds">
-        <h2>City News</h2>
+        <h2>City News and Updates</h2>
         {% for entry in craft.entries.section('news').limit(2) %}
         <div class="post-excerpt">
           <p class="post-data"><a href="{{ entry.relatedDepartment.first().url }}">{{ entry.relatedDepartment.first().title }}</a> - <time datetime>{{ entry.dateCreated.localeDate() }}</time></p>

@@ -2025,6 +2025,10 @@ table {
     padding: 1rem;
     border: 1px solid #e9eae7; }
 
+aside.with-bg {
+  padding: 1em;
+  background: #f4f5f4; }
+
 .sticky-menu {
   position: static; }
   @media screen and (min-width: 48em) {
@@ -2519,19 +2523,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -772px; } }
+        background-position: 0px -285px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -506px; } }
+        background-position: 0px -204px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -705px; } }
+        background-position: 0px -743px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2838,7 +2842,7 @@ a.btn-block {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -266px; } }
+      background-position: 0px -378px; } }
 
 .previous-next-links {
   background-size: cover;

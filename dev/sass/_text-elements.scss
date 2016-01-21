@@ -162,3 +162,14 @@ table {
 	}
 
 }
+
+// Asides
+// ----------------------------------------------------
+
+aside {
+
+	&.with-bg {
+		padding: 1em;
+		background: $gray-lighter;
+	}
+}

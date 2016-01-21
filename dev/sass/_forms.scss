@@ -25,7 +25,7 @@ input[type="url"],
 select,
 textarea {
   min-height: 38px;
-  padding: 5px 8px;
+  padding: 8px 8px 5px 8px;
   color: $black;
   vertical-align: middle;
   background-color: $white;
@@ -37,7 +37,7 @@ textarea {
   width: 100%;
   max-width: 370px;
   display: block;
-  font: 1.1875rem/1.5 $body-font;
+  font: 1.1875rem/1.5em $body-font;
 
   &.focus,
   &:focus {

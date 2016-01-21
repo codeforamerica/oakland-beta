@@ -1455,7 +1455,7 @@ input[type="url"],
 select,
 textarea {
   min-height: 38px;
-  padding: 5px 8px;
+  padding: 8px 8px 5px 8px;
   color: #000000;
   vertical-align: middle;
   background-color: #ffffff;
@@ -1467,7 +1467,7 @@ textarea {
   width: 100%;
   max-width: 370px;
   display: block;
-  font: 1.1875rem/1.5 Fakt, Helvetica, arial, sans-serif; }
+  font: 1.1875rem/1.5em Fakt, Helvetica, arial, sans-serif; }
   .form-control.focus, .form-control:focus,
   input[type="text"].focus,
   input[type="text"]:focus,
@@ -2228,7 +2228,7 @@ img {
   .header-search .search-icon {
     position: absolute;
     right: 0.625rem;
-    top: 0.75rem;
+    top: .8rem;
     color: #4fbc26;
     font-size: 1.0625rem; }
 
@@ -2519,19 +2519,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -201px; } }
+        background-position: 0px -772px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -750px; } }
+        background-position: 0px -506px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -603px; } }
+        background-position: 0px -705px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2838,7 +2838,7 @@ a.btn-block {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -831px; } }
+      background-position: 0px -266px; } }
 
 .previous-next-links {
   background-size: cover;

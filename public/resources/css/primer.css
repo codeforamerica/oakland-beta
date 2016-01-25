@@ -1143,6 +1143,7 @@ h6 {
 .h1,
 .h2,
 .h3,
+.phone-cta,
 .h4,
 .h5,
 .h6 {
@@ -1153,7 +1154,7 @@ h6 {
   line-height: 1; }
   .h1 a,
   .h2 a,
-  .h3 a,
+  .h3 a, .phone-cta a,
   .h4 a,
   .h5 a,
   .h6 a {
@@ -1162,8 +1163,8 @@ h6 {
     .h1 a:hover, .h1 a:focus,
     .h2 a:hover,
     .h2 a:focus,
-    .h3 a:hover,
-    .h3 a:focus,
+    .h3 a:hover, .phone-cta a:hover,
+    .h3 a:focus, .phone-cta a:focus,
     .h4 a:hover,
     .h4 a:focus,
     .h5 a:hover,
@@ -1186,6 +1187,7 @@ h2,
 
 h3,
 .h3,
+.phone-cta,
 article h2 {
   font-size: 1.5rem;
   margin-bottom: 1em;
@@ -2523,19 +2525,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -398px; } }
+        background-position: 0px -691px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -30px; } }
+        background-position: 0px -237px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -438px; } }
+        background-position: 0px -56px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2842,7 +2844,7 @@ a.btn-block {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -292px; } }
+      background-position: 0px -627px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3056,3 +3058,6 @@ a.btn-block {
     left: 0;
     top: .2em;
     display: inline-block; }
+
+.phone-cta {
+  margin-top: 0; }

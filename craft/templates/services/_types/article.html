@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <main class="transportation">
+    <main>
 
     <div class="main-overlay"></div>
 
@@ -13,11 +13,25 @@
       <article class="container">
         <h1>{{ entry.title }}</h1>
         <div class="grid-row">
+          {% if entry.leadIn != "" %}
           <div class="two-thirds">
             <p class="lead">{{ entry.leadIn}}</p>
+          </div>
+          {% endif %}
+        </div>
+        <div class="grid-row">
+          <div class="one-whole">
             {% if entry.CTATitle != "" %}
-            <p><a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a></p>
+            <a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a>
             {% endif %}
+            {% if entry.callToActionPhoneNumber != "" %}
+            <br>
+            <span class="btn btn-secondary">Call: {{ entry.callToActionPhoneNumber }} <span class="lnr lnr-arrow-right"></span></span>
+            {% endif %}
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="two-thirds">
             {{ entry.body }}
           </div>
         </div>

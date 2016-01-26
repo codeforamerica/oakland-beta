@@ -1060,8 +1060,7 @@ body {
   font-family: Fakt, Helvetica, arial, sans-serif; }
 
 a {
-  color: #4fbc26;
-  text-decoration: none; }
+  color: #4fbc26; }
   a:hover, a:active {
     text-decoration: underline; }
 
@@ -1096,15 +1095,14 @@ h6 {
   font-weight: lighter;
   margin-bottom: 0.75em;
   margin-top: 0;
-  line-height: 1; }
+  line-height: 1.25em; }
   h1 a,
   h2 a,
   h3 a,
   h4 a,
   h5 a,
   h6 a {
-    font-size: inherit;
-    text-decoration: none; }
+    font-size: inherit; }
     h1 a:hover, h1 a:focus,
     h2 a:hover,
     h2 a:focus,
@@ -1129,15 +1127,14 @@ h6 {
   font-family: FaktLight, Helvetica, arial, sans-serif;
   font-weight: lighter;
   margin-top: 0;
-  line-height: 1; }
+  line-height: 1.25em; }
   .h1 a,
   .h2 a,
   .h3 a, .phone-cta a,
   .h4 a,
   .h5 a,
   .h6 a {
-    font-size: inherit;
-    text-decoration: none; }
+    font-size: inherit; }
     .h1 a:hover, .h1 a:focus,
     .h2 a:hover,
     .h2 a:focus,
@@ -1154,22 +1151,19 @@ h6 {
 h1,
 .h1 {
   font-size: 2rem;
-  margin-bottom: 2.625rem;
-  line-height: 1.5; }
+  margin-bottom: 2.625rem; }
 
 h2,
 .h2 {
   font-size: 2rem;
-  margin-bottom: 2.625rem;
-  line-height: 1.25; }
+  margin-bottom: 2.625rem; }
 
 h3,
 .h3,
 .phone-cta,
 article h2 {
   font-size: 1.5rem;
-  margin-bottom: 1em;
-  line-height: 1.25; }
+  margin-bottom: 1em; }
 
 h4,
 .h4,
@@ -1186,16 +1180,16 @@ article h3 {
 h5,
 .h5,
 article h4 {
-  font-size: 1.25rem;
+  font-size: 1.1875rem;
   margin-bottom: 1em; }
 
 h6,
 .h6 {
-  font-size: 1rem;
+  font-size: 0.875rem;
   margin-bottom: 1em; }
 
 article h1, article h2, article h3, article h4 {
-  margin-top: 1.5em; }
+  margin-top: 1em; }
 
 small, .text-small {
   font-size: 0.875rem; }
@@ -1208,7 +1202,7 @@ blockquote {
 
 .lead {
   margin-bottom: 30px;
-  font-size: 1.428rem;
+  font-size: 1.1875rem;
   font-weight: 300;
   color: #555; }
 
@@ -1223,8 +1217,7 @@ blockquote {
   color: #333; }
 
 a {
-  color: #4fbc26;
-  text-decoration: none; }
+  color: #4fbc26; }
   a:hover, a:focus {
     text-decoration: underline; }
   a:active {
@@ -1263,12 +1256,12 @@ li {
 tt,
 code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px; }
+  font-size: 0.75rem; }
 
 pre {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; }
 
 .container {
@@ -2504,19 +2497,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -458px; } }
+        background-position: 0px -15px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -241px; } }
+        background-position: 0px -506px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -702px; } }
+        background-position: 0px -649px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2658,7 +2651,8 @@ a.btn-small {
   color: #4fbc26;
   padding: 6px 5px 4px 1.25rem;
   padding: 0.375rem 0.3125rem 0.25rem 1.25rem;
-  margin-left: -1.25rem; }
+  margin-left: -1.25rem;
+  text-decoration: none; }
   .menu-item:hover, .menu-item:focus {
     text-decoration: none;
     background-color: #f4f5f4; }
@@ -2685,6 +2679,8 @@ a.btn-small {
       width: 2px;
       content: "";
       background-color: #4fbc26; }
+  .menu-item h1, .menu-item h2, .menu-item h3, .menu-item h4, .menu-item h5, .menu-item h6 {
+    text-decoration: underline; }
   .menu-item span {
     color: #404040;
     display: block; }
@@ -2827,7 +2823,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -4px; } }
+      background-position: 0px -91px; } }
 
 .previous-next-links {
   background-size: cover;

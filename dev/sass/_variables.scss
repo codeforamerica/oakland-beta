@@ -8,16 +8,16 @@ $mono-font: 			Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
 
 //----- TYPE HIERARCHY -----//
 $font-size-html:		14px;
-$font-size-body:		1.1875rem;
-$font-size-h1: 			2rem;
-$font-size-h2: 			2rem;
-$font-size-h3: 			1.5rem;
-$font-size-h4: 			1.1875rem;
-$font-size-h5: 			1.25rem;
-$font-size-h6: 			1rem;
-$font-size-small:		0.875rem;
-$font-size-leadin:		1.428rem;
-$font-size-code:		12px;
+$font-size-body:		rem(19);
+$font-size-h1: 			rem(32);
+$font-size-h2: 			rem(32);
+$font-size-h3: 			rem(24);
+$font-size-h4: 			rem(19);
+$font-size-h5: 			rem(19);
+$font-size-h6: 			rem(14);
+$font-size-small:		rem(14);
+$font-size-leadin:		rem(19);
+$font-size-code:		rem(12);
 
 
 

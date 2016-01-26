@@ -13,7 +13,7 @@ a.btn {
   color: $white;
   background-color: $forestland;
   border: none;
-  font-size: 1.5rem;
+  font-size: $font-size-h3;
   line-height: 1.5;
   padding: 1rem;
   transition: all 0.15s ease;
@@ -115,4 +115,9 @@ a.btn-block {
   width: 100%;
   text-align: center;
   margin-bottom: 1.25rem;
+}
+
+.btn-small,
+a.btn-small {
+  font-size: $font-size-h4;
 }

@@ -3,7 +3,7 @@
 }
 
 html {
-  font-size: 14px;
+  font-size: $font-size-html;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
@@ -27,11 +27,15 @@ input,
 select,
 textarea,
 button {
-  font: 1.1875rem/1.5 $body-font;
+  font-size: $font-size-body;
+  line-height: 1.5em;
+  font-family: $body-font;
 }
 
 body {
-  font: 1.1875rem/1.5 $body-font;
+  font-size: $font-size-body;
+  line-height: 1.5em;
+  font-family: $body-font;
   color: $color-text-body;
   background-color: #fff;
   position: relative;  

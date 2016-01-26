@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+    <main class="news">
+
+    <div class="main-overlay"></div>
+
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="{{ siteUrl }}">Oakland</a>
+          <a href="#">City News</a>
+          <span>{{ entry.title }}</span>
+        </nav>
+      </div>
+
+      <section class="container">
+        <div class="grid-row">
+          <div class="two-thirds">
+            <h1>{{ entry.title }}</h1>
+            <p class="post-data">{{ entry.dateCreated.localeDate() }}</p>
+            {% if entry.mainImage|length > 0 %}
+            <img src="{{ entry.mainImage.first().url }}" alt="Main Image">
+            {% endif %}
+          </div>
+        </div>
+        
+        <div class="grid-row">
+          <div class="two-thirds">
+            {{ entry.body }}
+          </div>
+          <div class="one-fourth column-shift">
+            <h3>Media contacts</h3>
+            {{ entry.mediaContacts }}
+            <p><a class="btn btn-secondary btn-small" href="{{ entry.pressReleasePdf.first().url }}">Download this press release as a PDF.</a></p>
+          </div>
+        </div>
+      </section>
+    </main>    
+
+{% endblock %}

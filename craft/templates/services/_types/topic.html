@@ -20,18 +20,22 @@
   </section>
   <section>
     <div class="container">
-      <nav class="big-menu">
-        {% for page in entry.getChildren %}
-        <div class="menu-item">
-          <a href="{{ page.url }}">
-            <h3>{{ page.title }}</h3>
-            {% if page.type == "topic" %}<p>{{ page.leadIn }}</p>{% endif %}
-          </a>
+      <div class="grid-row">
+        <div class="two-thirds">
+          <nav class="big-menu">
+            {% for page in entry.getChildren %}
+            <div class="menu-item">
+              <a href="{{ page.url }}">
+                <h3>{{ page.title }}</h3>
+                {% if page.type == "topic" %}<p>{{ page.leadIn }}</p>{% endif %}
+              </a>
+            </div>
+            {% else %}
+            <h3>This section is currently empty.</h3>
+            {% endfor %}
+          </nav>
         </div>
-        {% else %}
-        <h3>This section is currently empty.</h3>
-        {% endfor %}
-      </nav>
+      </div>
 
     </div>
   </section>

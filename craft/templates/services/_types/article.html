@@ -12,15 +12,10 @@
 
       <article class="container">
         <h1>{{ entry.title }}</h1>
+        {% if entry.leadIn != "" %}
         <div class="grid-row">
-          {% if entry.leadIn != "" %}
           <div class="two-thirds">
             <p class="lead">{{ entry.leadIn}}</p>
-          </div>
-          {% endif %}
-        </div>
-        <div class="grid-row">
-          <div class="one-whole">
             {% if entry.CTATitle != "" %}
             <a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a>
             {% endif %}
@@ -29,6 +24,7 @@
             {% endif %}
           </div>
         </div>
+        {% endif %}
         <div class="grid-row">
           <div class="two-thirds">
             {{ entry.body }}

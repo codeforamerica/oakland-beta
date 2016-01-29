@@ -53,6 +53,10 @@
 
 	}
 
+	h1 {
+		font-size: $font-size-h2;
+	}
+
 	&.done {
 		background-image: none !important; // force the bg image to be hidden when subnav is sticky
 	}

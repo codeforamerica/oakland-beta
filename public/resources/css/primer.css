@@ -1150,36 +1150,32 @@ h6 {
 
 h1,
 .h1 {
-  font-size: 2rem;
+  font-size: 2.25rem;
   margin-bottom: 2.625rem; }
 
 h2,
 .h2 {
-  font-size: 2rem;
+  font-size: 1.875rem;
   margin-bottom: 2.625rem; }
 
 h3,
 .h3,
-.phone-cta,
-article h2 {
+.phone-cta {
   font-size: 1.5rem;
   margin-bottom: 1em; }
 
 h4,
-.h4,
-article h3 {
-  font-size: 1.1875rem;
+.h4 {
+  font-size: 1.3125rem;
   margin-bottom: 1em;
   font-weight: bold; }
   h4.aside-title,
-  .h4.aside-title,
-  article h3.aside-title {
+  .h4.aside-title {
     margin-top: 0.75rem;
     margin-bottom: 2.625rem; }
 
 h5,
-.h5,
-article h4 {
+.h5 {
   font-size: 1.1875rem;
   margin-bottom: 1em; }
 
@@ -1188,8 +1184,13 @@ h6,
   font-size: 0.875rem;
   margin-bottom: 1em; }
 
-article h1, article h2, article h3, article h4 {
-  margin-top: 1em; }
+article h2, article h3, article h4, article h5, article h6 {
+  margin-top: 2em; }
+  article h2:first-child, article h3:first-child, article h4:first-child, article h5:first-child, article h6:first-child {
+    margin-top: 0; }
+
+article h2 + h3, article h2 + h4, article h3 + h4 {
+  margin-top: 0; }
 
 small, .text-small {
   font-size: 0.875rem; }
@@ -1201,10 +1202,9 @@ blockquote {
   color: #404040; }
 
 .lead {
-  margin-bottom: 30px;
-  font-size: 1.1875rem;
+  font-size: 1.5rem;
   font-weight: 300;
-  color: #555; }
+  color: #757773; }
 
 .text-muted {
   color: #cfd0ce; }
@@ -2041,6 +2041,8 @@ aside.with-bg {
     overflow: visible;
     min-height: 2.625rem;
     padding: 0; }
+  .subheader h1 {
+    font-size: 1.875rem; }
   .subheader.done {
     background-image: none !important; }
   .subheader .container {
@@ -2497,19 +2499,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -15px; } }
+        background-position: 0px -415px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -506px; } }
+        background-position: 0px -271px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -649px; } }
+        background-position: 0px -378px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2643,7 +2645,7 @@ a.btn-block {
 
 .btn-small,
 a.btn-small {
-  font-size: 1.1875rem; }
+  font-size: 1.3125rem; }
 
 .menu-item {
   position: relative;
@@ -2823,7 +2825,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -91px; } }
+      background-position: 0px -871px; } }
 
 .previous-next-links {
   background-size: cover;

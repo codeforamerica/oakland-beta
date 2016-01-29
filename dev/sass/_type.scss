@@ -57,15 +57,13 @@ h2,
 }
 
 h3,
-.h3,
-article h2 {
+.h3 {
   font-size: $font-size-h3;
   margin-bottom: 1em;
 }
 
 h4,
-.h4,
-article h3 {
+.h4 {
   font-size: $font-size-h4;
   margin-bottom: 1em;
   font-weight: bold;
@@ -77,8 +75,7 @@ article h3 {
 }
 
 h5,
-.h5,
-article h4 {
+.h5 {
   font-size: $font-size-h5;
   margin-bottom: 1em;
 }
@@ -90,8 +87,14 @@ h6,
 }
 
 article {
-  h1, h2, h3, h4 {
-    margin-top: 1em;
+  h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  h2+h3, h2+h4, h3+h4 {
+    margin-top: 0;
   }
 }
 
@@ -111,10 +114,9 @@ blockquote {
 
 // Large leading paragraphs
 .lead {
-  margin-bottom: 30px;
-  font-size: $font-size-leadin;
+  font-size: $font-size-h3;
   font-weight: 300;
-  color: #555;
+  color: $gray-dark;
 }
 
 // Text utilities

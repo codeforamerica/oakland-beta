@@ -87,7 +87,13 @@ h6,
 }
 
 article {
-  h2, h3, h4, h5, h6 {
+  h2 {
+    margin-top: 3em;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  h3, h4, h5, h6 {
     margin-top: 2em;
     &:first-child {
       margin-top: 0;

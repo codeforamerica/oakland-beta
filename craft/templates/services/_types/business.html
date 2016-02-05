@@ -1,0 +1,123 @@
+{% extends "_base" %}
+
+{% block content %}
+
+<main class="business">
+
+  <div class="main-overlay"></div>
+
+  <section class="subheader">
+
+    <div class="breadcrumb-wrap">
+
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">Oakland</a>
+        <span>{{ entry.title }}</span>
+      </nav>
+
+    </div>
+
+    <div class="container">
+
+      <div class="grid-row">
+        
+        <div class="section-info two-thirds column-shift">
+          <h1>Business</h1>
+          <p>What you need to know to start, manage, and grow your business.</p>
+        </div>
+
+        <nav class="section-menu one-fourth">
+          <a class="menu-item" href="#section-1">Starting Your Business</a>
+          <a class="menu-item" href="#section-2">Managing and Growing Your Business</a>
+          <a class="menu-item" href="#section-3">Permits and Forms, A-Z</a>
+      </nav>
+      </div>
+    </div>
+  </section>
+  <section class="section section-vignette section-vignette-1">
+    <div class="container">
+      <div class="grid-row">
+        <div class="one-half align-right">
+          <p class="quote">My sister and I felt the need to share the food we loved so much as children to our friends and family.</p>
+          <p class="quote-author">Andy Lee, Shan Dong Restaurant</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section-1" class="section">
+    <div class="container">
+      <h2>Starting Your Business</h2>
+      <div class="grid-row">
+        <div class="one-half">
+          <p>Starting your own business can be one of the most exciting and rewarding moments in your life. Know what it means to start a business in Oakland and let the city help you do it right.</p>
+
+          <p><i>Click on the steps below to learn more about each park of the process.</i></p> 
+        </div>
+        <div class="column-shift one-third">
+          <h5>Popular Links</h5>
+        </div>
+      </div>
+      <ol class="step-list grid-row">
+        {% for step in entry.children.first().children() %}
+        <li class="step-item one-fourth">
+          <div class="step-number">{{ loop.index }}</div>
+          <div class="step-content">
+            <h5><a href="{{ step.url }}">{{ step.title }} <span class="lnr lnr-arrow-right"></span></a></h5>
+            <p>{{ step.leadIn }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </section>
+  <section class="section section-vignette section-vignette-2">
+    <div class="container">
+      <div class="grid-row">
+        <div class="one-half">
+          <p class="quote">My sister and I felt the need to share the food we loved so much as children to our friends and family.</p>
+          <p class="quote-author">Andy Lee, Shan Dong Restaurant</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section-2" class="section">
+    <div class="container">
+      <h2>Managing and Growing Your Business</h2>
+      <div class="grid-row">
+        <p class="one-half">You’ve gotten your business off the ground and now you are ready to take it to the next level. Learn more and take advantage of city resources to help you maintain and grow your business.</p>
+        <div class="column-shift one-third">
+          <h5>Popular Links</h5>
+        </div>
+      </div>
+      <div class="grid-row">
+        <div class="big-menu">
+          {% for topic in entry.children.nth(1).children %}
+          <div class="menu-item one-fourth">
+            <a href="{{ topic.url }}">
+              <h3>{{ topic.title }} </h3>
+              <p>{{ topic.leadIn }}</p>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-vignette section-vignette-2">
+    <div class="container">
+      <div class="grid-row">
+        <div class="one-half">
+          <p class="quote">My sister and I felt the need to share the food we loved so much as children to our friends and family.</p>
+          <p class="quote-author">Andy Lee, Shan Dong Restaurant</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section-3" class="section">
+    <div class="container">
+      <h2>Permits and Forms, A-Z</h2>
+      
+    </div>
+  </section>
+</main>
+{% endblock %}

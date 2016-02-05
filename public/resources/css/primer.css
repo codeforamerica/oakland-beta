@@ -1184,9 +1184,14 @@ h6,
   font-size: 0.875rem;
   margin-bottom: 1em; }
 
-article h2, article h3, article h4, article h5, article h6 {
+article h2 {
+  margin-top: 3em; }
+  article h2:first-child {
+    margin-top: 0; }
+
+article h3, article h4, article h5, article h6 {
   margin-top: 2em; }
-  article h2:first-child, article h3:first-child, article h4:first-child, article h5:first-child, article h6:first-child {
+  article h3:first-child, article h4:first-child, article h5:first-child, article h6:first-child {
     margin-top: 0; }
 
 article h2 + h3, article h2 + h4, article h3 + h4 {
@@ -2499,19 +2504,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -415px; } }
+        background-position: 0px -553px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -271px; } }
+        background-position: 0px -45px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -378px; } }
+        background-position: 0px -697px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2825,7 +2830,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -871px; } }
+      background-position: 0px -299px; } }
 
 .previous-next-links {
   background-size: cover;

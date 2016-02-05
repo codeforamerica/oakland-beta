@@ -12,19 +12,21 @@
 
       <article class="container">
         <h1>{{ entry.title }}</h1>
-        {% if entry.leadIn != "" %}
         <div class="grid-row">
           <div class="two-thirds">
+            {% if entry.leadIn != "" %}
             <p class="lead">{{ entry.leadIn}}</p>
+            {% endif %}
+
             {% if entry.CTATitle != "" %}
             <a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a>
             {% endif %}
+            
             {% if entry.callToActionPhoneNumber != "" %}
             <p class="phone-cta">or call <a href="tel: {{ entry.callToActionPhoneNumber }}">{{ entry.callToActionPhoneNumber }}</a></p>
             {% endif %}
           </div>
         </div>
-        {% endif %}
         <div class="grid-row">
           <div class="two-thirds">
             {{ entry.body }}

@@ -2530,19 +2530,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -81px; } }
+        background-position: 0px -274px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -13px; } }
+        background-position: 0px -352px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -694px; } }
+        background-position: 0px -220px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2856,7 +2856,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -293px; } }
+      background-position: 0px -247px; } }
 
 .previous-next-links {
   background-size: cover;

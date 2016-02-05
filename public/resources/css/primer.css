@@ -76,9 +76,6 @@ html {
     .default .menu-item:active:before {
       background-color: #3d921d; }
 
-.default .panel {
-  background-color: #4fbc26; }
-
 .public-works a {
   color: #0e5478; }
   .public-works a:hover, .public-works a:focus {
@@ -102,9 +99,6 @@ html {
     .public-works .menu-item:active:before {
       background-color: #09344a; }
 
-.public-works .panel {
-  background-color: #0e5478; }
-
 .business a {
   color: #800600; }
   .business a:hover, .business a:focus {
@@ -127,9 +121,6 @@ html {
     color: #4d0400; }
     .business .menu-item:active:before {
       background-color: #4d0400; }
-
-.business .panel {
-  background-color: #800600; }
 
 .navicon-button {
   position: relative;
@@ -1429,6 +1420,54 @@ pre {
       .five-sixths:last-child {
         margin-right: 0; } }
 
+.one-twelfths {
+  width: 100%;
+  margin-bottom: 1.5rem; }
+  @media screen and (min-width: 48em) {
+    .one-twelfths {
+      float: left;
+      display: block;
+      margin-right: 2.1834061135%;
+      width: 6.3318777293%; }
+      .one-twelfths:last-child {
+        margin-right: 0; } }
+
+.five-twelfths {
+  width: 100%;
+  margin-bottom: 1.5rem; }
+  @media screen and (min-width: 48em) {
+    .five-twelfths {
+      float: left;
+      display: block;
+      margin-right: 2.1834061135%;
+      width: 40.3930131004%; }
+      .five-twelfths:last-child {
+        margin-right: 0; } }
+
+.seven-twelfths {
+  width: 100%;
+  margin-bottom: 1.5rem; }
+  @media screen and (min-width: 48em) {
+    .seven-twelfths {
+      float: left;
+      display: block;
+      margin-right: 2.1834061135%;
+      width: 57.423580786%; }
+      .seven-twelfths:last-child {
+        margin-right: 0; } }
+
+.eleven-twelfths {
+  width: 100%;
+  margin-bottom: 1.5rem; }
+  @media screen and (min-width: 48em) {
+    .eleven-twelfths {
+      float: left;
+      display: block;
+      margin-right: 2.1834061135%;
+      width: 91.4847161572%; }
+      .eleven-twelfths:last-child {
+        margin-right: 0; } }
+
 @media screen and (min-width: 48em) {
   .column-shift {
     margin-left: 8.5152838428%; } }
@@ -2530,19 +2569,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -274px; } }
+        background-position: 0px -313px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -352px; } }
+        background-position: 0px -691px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -220px; } }
+        background-position: 0px -99px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2856,7 +2895,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -247px; } }
+      background-position: 0px -422px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -2948,14 +2987,17 @@ a.btn-small {
     margin-bottom: 1.25rem; }
 
 .panel {
-  color: #ffffff;
-  background-color: #004c0d;
-  padding: .5em .7em; }
+  background-color: #f4f5f4;
+  padding: .5em .7em;
+  text-decoration: none; }
   .panel h2 {
     margin-bottom: .5em; }
+  .panel h3 {
+    font-size: 1.1875rem;
+    margin-bottom: .5em; }
   .panel p {
-    height: 3em;
-    overflow: auto; }
+    font-size: 0.875rem;
+    color: #293028; }
   .panel *:last-child {
     margin-bottom: .5em; }
 
@@ -2997,7 +3039,6 @@ a.btn-small {
     text-decoration: underline; }
 
 .step-content p {
-  font-size: 0.875rem;
   line-height: 1.5em; }
 
 .flex-table {

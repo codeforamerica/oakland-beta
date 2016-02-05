@@ -101,6 +101,42 @@
   }
 }
 
+.one-twelfths {
+  @include fill-parent;
+  margin-bottom: 1.5rem;
+
+  @include media($bp-md) {
+    @include span-columns(1);
+  }
+}
+
+.five-twelfths {
+  @include fill-parent;
+  margin-bottom: 1.5rem;
+
+  @include media($bp-md) {
+    @include span-columns(5);
+  }
+}
+
+.seven-twelfths {
+  @include fill-parent;
+  margin-bottom: 1.5rem;
+
+  @include media($bp-md) {
+    @include span-columns(7);
+  }
+}
+
+.eleven-twelfths {
+  @include fill-parent;
+  margin-bottom: 1.5rem;
+
+  @include media($bp-md) {
+    @include span-columns(11);
+  }
+}
+
 .column-shift {
   @include media($bp-md) {
     @include shift;

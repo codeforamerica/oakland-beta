@@ -1,13 +1,17 @@
 .panel {
-    color: $white;
-    background-color: $forestland;
+    background-color: $gray-lighter;
     padding: .5em .7em;
+    text-decoration: none;
     h2 {
         margin-bottom: .5em;
     }
+    h3 {
+      font-size: $font-size-h5;
+      margin-bottom: .5em;  
+    }
     p  {
-        height: 3em;
-        overflow: auto;
+        font-size: $font-size-small;
+        color: $gray-darker;
     }
 
     *:last-child {

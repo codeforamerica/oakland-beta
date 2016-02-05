@@ -105,6 +105,32 @@ html {
 .public-works .panel {
   background-color: #0e5478; }
 
+.business a {
+  color: #800600; }
+  .business a:hover, .business a:focus {
+    color: #800600; }
+  .business a:active {
+    color: #4d0400; }
+
+.business .subheader {
+  background-color: #800600; }
+  .business .subheader .btn {
+    background-color: #f7b600; }
+
+.business .menu-item {
+  color: #800600; }
+  .business .menu-item:hover, .business .menu-item:focus {
+    color: #800600; }
+    .business .menu-item:hover:before, .business .menu-item:focus:before {
+      background-color: #800600; }
+  .business .menu-item:active {
+    color: #4d0400; }
+    .business .menu-item:active:before {
+      background-color: #4d0400; }
+
+.business .panel {
+  background-color: #800600; }
+
 .navicon-button {
   position: relative;
   padding: 8px 0;
@@ -2504,19 +2530,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -553px; } }
+        background-position: 0px -81px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -45px; } }
+        background-position: 0px -13px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -697px; } }
+        background-position: 0px -694px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2830,7 +2856,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -299px; } }
+      background-position: 0px -293px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -2932,6 +2958,47 @@ a.btn-small {
     overflow: auto; }
   .panel *:last-child {
     margin-bottom: .5em; }
+
+.step-list {
+  list-style-type: none;
+  padding-left: 0; }
+
+.step-item {
+  position: relative;
+  margin-bottom: 2em; }
+  .step-item:before {
+    content: '';
+    position: absolute;
+    top: 1em;
+    left: 2em;
+    right: -1em;
+    border-top: 1px dotted #757773;
+    height: 1px;
+    width: auto; }
+  .step-item:last-child:before {
+    display: none; }
+
+.step-number {
+  display: inline-block;
+  padding: .5em;
+  line-height: 1em;
+  text-align: center;
+  height: 2em;
+  width: 2em;
+  border: 1px solid #757773;
+  border-radius: 50%;
+  color: #757773;
+  margin-bottom: 1em;
+  background-color: #fff; }
+
+.step-content h5 a {
+  text-decoration: none; }
+  .step-content h5 a:hover {
+    text-decoration: underline; }
+
+.step-content p {
+  font-size: 0.875rem;
+  line-height: 1.5em; }
 
 .flex-table {
   display: table; }
@@ -3044,6 +3111,44 @@ a.btn-small {
     left: 0;
     top: .2em;
     display: inline-block; }
+
+.business .section-vignette {
+  margin-top: -2.2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+  background-color: #000;
+  position: relative; }
+  .business .section-vignette:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    background-position: center center;
+    opacity: .7; }
+  .business .section-vignette .align-right {
+    float: right; }
+  .business .section-vignette .quote {
+    color: #fff;
+    font-size: 1.875rem;
+    font-weight: lighter;
+    line-height: 1.5em; }
+  .business .section-vignette .quote-author {
+    color: #fff;
+    font-size: 1.1875rem; }
+
+.business .section-vignette-1:before {
+  background-image: url("../img/shan_dong.jpg"); }
+
+.business .section-vignette-2:before {
+  background-image: url("../img/modern_coffee.jpg"); }
+
+.business .section-vignette-3:before {
+  background-image: url("../img/shan_dong.jpg"); }
 
 .phone-cta {
   margin-top: 0; }

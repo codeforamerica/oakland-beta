@@ -1478,6 +1478,12 @@ pre {
 .gutter-bottom {
   margin-bottom: 0.75rem; }
 
+.align-left {
+  float: left; }
+
+.align-right {
+  float: right; }
+
 fieldset {
   padding: 0;
   margin: 0;
@@ -2122,6 +2128,13 @@ aside.with-bg {
         margin-top: 5.25rem; } }
   .subheader .breadcrumb-wrap ~ .container {
     margin-top: 5.25rem; }
+  .subheader .hero-caption {
+    margin-left: 68.1222707424%;
+    text-align: right;
+    color: #fff;
+    font-size: 0.875rem; }
+    .subheader .hero-caption p {
+      margin-bottom: 0; }
 
 @media screen and (min-width: 48em) {
   .section-info {
@@ -2569,19 +2582,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -543px; } }
+        background-position: 0px -670px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -702px; } }
+        background-position: 0px -432px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -612px; } }
+        background-position: 0px -484px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2895,7 +2908,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -447px; } }
+      background-position: 0px -40px; } }
 
 .previous-next-links {
   background-size: cover;

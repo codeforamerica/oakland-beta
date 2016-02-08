@@ -21,7 +21,9 @@
 
 {% block content %}
 
-<section class="subheader" style="background-image: url({{ entry.hero.order('RAND()').first().url }});">
+{% set current_hero = entry.hero.order('RAND()').first() %}
+
+<section class="subheader" style="background-image: url({{ current_hero.url }});">
 
   <div class="container">
     <div class="grid-row">
@@ -35,7 +37,13 @@
         <a class="menu-item" href="#section-4">City of Oakland Mayor</a>
       </nav>
     </div>
+    <div class="grid-row">
+      <div class="hero-caption one-third">
+        <p>{{ current_hero.caption }}</p>
+      </div>
+    </div>
   </div>
+
 </section>
 
 <div class="main-overlay"></div>

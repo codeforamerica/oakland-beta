@@ -70,6 +70,16 @@
 	.breadcrumb-wrap ~ .container {
 		margin-top: 5.25rem;
 	}
+
+	.hero-caption {
+		@include shift(8);
+		text-align: right;
+		color: #fff;
+		font-size: $font-size-small;
+		p {
+			margin-bottom: 0;
+		}
+	}
 }
 
 // This is the part of the subnav that contains info about the current site section (e.g. Public Works)

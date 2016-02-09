@@ -12,21 +12,35 @@
 
       <article class="container">
         <h1>{{ entry.title }}</h1>
-        <div class="grid-row">
-          <div class="two-thirds">
-            {% if entry.leadIn != "" %}
-            <p class="lead">{{ entry.leadIn}}</p>
+        {% if entry.callToAction %}
+        <div class="grid-row cta-section">
+          {% if entry.leadIn != "" %}
+          <p class="lead">{{ entry.leadIn}}</p>
+          {% endif %}
+          {% for cta in entry.callToAction %}
+          {% if cta.type == "onlineLink" %}
+            <div class="cta-block one-third">
+              <h5>Online</h5>
+              <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.linkUrl}}">{{cta.linkTitle}}</span></a>
+            </div>
             {% endif %}
-
-            {% if entry.CTATitle != "" %}
-            <a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a>
+            {% if cta.type == "phoneNumber" %}
+            <div class="cta-block one-third">
+              <h5>By Phone</h5>
+              <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="tel:{{cta.number}}">Call {{cta.number}}</a>
+            </div>
             {% endif %}
-            
-            {% if entry.callToActionPhoneNumber != "" %}
-            <p class="phone-cta">or call <a href="tel: {{ entry.callToActionPhoneNumber }}">{{ entry.callToActionPhoneNumber }}</a></p>
+            {% if cta.type == "physicalAddress" %}
+            <div class="cta-block one-third">
+              <h5>{{cta.physicalAddressTitle}}</h5>
+              <div>
+                {{cta.address}}
+              </div>
+            </div>
             {% endif %}
-          </div>
+          {% endfor %}
         </div>
+        {% endif %}
         <div class="grid-row">
           <div class="two-thirds">
             {{ entry.body }}

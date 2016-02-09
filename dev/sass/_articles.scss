@@ -1,4 +1,17 @@
-.phone-cta {
-	@extend .h3;
-	margin-top: 0;
+.cta-section {
+    border-bottom: 4px solid $gray-lighter;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+
+    .cta-block {
+        margin-bottom: 0;
+        padding-right: 1em;
+        .btn {
+            width: 100%;
+            text-align: center;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
 }

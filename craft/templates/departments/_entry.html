@@ -46,16 +46,17 @@
         <div class="one-half">
           <h4>Address</h4>
           <p>{{entry.departmentAddress}}</p>
-          <h4>Hours</h4>
-          <p>{{entry.departmentHours}}</p>
+          <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.departmentAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
         </div>
-        <div class="one-half">
+        <div class="column-shift five-twelfths">
           {% if entry.departmentEmail|length > 0 %}
           <h4>Email</h4>
           <p>{{entry.departmentEmail}}</p>
           {% endif %}
           <h4>Phone Numbers</h4>
           <p>{{entry.departmentPhoneNumber}}</p>
+          <h4>Hours</h4>
+          <p>{{entry.departmentHours}}</p>
         </div>
       </div>
       <hr>

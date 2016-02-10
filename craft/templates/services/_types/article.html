@@ -18,13 +18,13 @@
         <div class="grid-row cta-section">
           {% if entry.callToAction %}
             {% if entry.callToAction|length == 1 %}
-              {% set block-width == "one-whole" %}
+              {% set block-width = "one-whole" %}
             {% endif %}
             {% if entry.callToAction|length == 2 %}
-              {% set block-width == "one-half" %}
+              {% set block-width = "one-half" %}
             {% endif %}
             {% if entry.callToAction|length == 3 %}
-              {% set block-width == "one-third" %}
+              {% set block-width = "one-third" %}
             {% endif %}
             {% for cta in entry.callToAction %}
             {% if cta.type == "onlineLink" %}

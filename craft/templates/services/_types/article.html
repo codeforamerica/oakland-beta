@@ -36,7 +36,7 @@
               {% if cta.type == "phoneNumber" %}
               <div class="cta-block {{ blockwidth }}">
                 {% if cta['phoneNumberTitle'] is defined %}<h6>{{cta.phoneNumberTitle}}</h6>{% endif %}
-                <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="tel:{{cta.number}}">Call {{cta.number}}</a>
+                <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="tel:{{cta.number}}">{{cta.number}}</a>
               </div>
               {% endif %}
               {% if cta.type == "physicalAddress" %}

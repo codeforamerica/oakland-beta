@@ -30,7 +30,7 @@
             {% if cta.type == "onlineLink" %}
               <div class="cta-block {{ block-width }}">
                 <h5>Online</h5>
-                <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.linkUrl}}">{{cta.linkTitle}}</span></a>
+                <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.linkUrl}}">{{cta.linkTitle}}</a>
               </div>
               {% endif %}
               {% if cta.type == "phoneNumber" %}

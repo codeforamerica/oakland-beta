@@ -1196,7 +1196,7 @@ h5,
 
 h6,
 .h6 {
-  font-size: 0.875rem;
+  font-size: 1rem;
   margin-bottom: 1em; }
 
 article h2 {
@@ -1213,7 +1213,7 @@ article h2 + h3, article h2 + h4, article h3 + h4 {
   margin-top: 0; }
 
 small, .text-small {
-  font-size: 0.875rem; }
+  font-size: 1rem; }
 
 blockquote {
   margin: 0 0 1.5rem 0;
@@ -2130,7 +2130,7 @@ aside.with-bg {
     margin-left: 68.1222707424%;
     text-align: right;
     color: #fff;
-    font-size: 0.875rem; }
+    font-size: 1rem; }
     .subheader .hero-caption p {
       margin-bottom: 0; }
 
@@ -2465,7 +2465,7 @@ img {
   margin-top: 4rem;
   background: #cfd0ce;
   padding-top: 2rem;
-  font-size: 0.875rem; }
+  font-size: 1rem; }
   @media screen and (min-width: 48em) {
     .site-footer {
       padding-top: 2.625rem; } }
@@ -2481,7 +2481,7 @@ img {
     .site-footer .footer-links li {
       margin-bottom: 1rem; }
     .site-footer .footer-links a {
-      font-size: 0.875rem;
+      font-size: 1rem;
       line-height: 1.2;
       color: #404040; }
       .site-footer .footer-links a:hover, .site-footer .footer-links a:focus {
@@ -2580,19 +2580,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -549px; } }
+        background-position: 0px -492px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -61px; } }
+        background-position: 0px -140px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -467px; } }
+        background-position: 0px -695px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2906,7 +2906,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -543px; } }
+      background-position: 0px -211px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3007,7 +3007,7 @@ a.btn-small {
     font-size: 1.1875rem;
     margin-bottom: .5em; }
   .panel p {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: #293028; }
   .panel *:last-child {
     margin-bottom: .5em; }
@@ -3204,8 +3204,8 @@ a.btn-small {
 
 .cta-section {
   border-bottom: 4px solid #f4f5f4;
-  padding-bottom: 1em;
-  margin-bottom: 2em; }
+  padding-bottom: 3em;
+  margin-bottom: 3em; }
   .cta-section .cta-block {
     margin-bottom: 0;
     padding-right: 1em; }

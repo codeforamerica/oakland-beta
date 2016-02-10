@@ -18,29 +18,29 @@
         <div class="grid-row cta-section">
           {% if entry.callToAction %}
             {% if entry.callToAction|length == 1 %}
-              {% set block-width = "one-whole" %}
+              {% set blockwidth = "one-whole" %}
             {% endif %}
             {% if entry.callToAction|length == 2 %}
-              {% set block-width = "one-half" %}
+              {% set blockwidth = "one-half" %}
             {% endif %}
             {% if entry.callToAction|length == 3 %}
-              {% set block-width = "one-third" %}
+              {% set blockwidth = "one-third" %}
             {% endif %}
             {% for cta in entry.callToAction %}
             {% if cta.type == "onlineLink" %}
-              <div class="cta-block {{ block-width }}">
+              <div class="cta-block {{ blockwidth }}">
                 <h5>Online</h5>
                 <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.linkUrl}}">{{cta.linkTitle}}</a>
               </div>
               {% endif %}
               {% if cta.type == "phoneNumber" %}
-              <div class="cta-block {{ block-width }}">
+              <div class="cta-block {{ blockwidth }}">
                 <h5>By Phone</h5>
                 <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="tel:{{cta.number}}">Call {{cta.number}}</a>
               </div>
               {% endif %}
               {% if cta.type == "physicalAddress" %}
-              <div class="cta-block {{ block-width }}">
+              <div class="cta-block {{ blockwidth }}">
                 <h5>{{cta.physicalAddressTitle}}</h5>
                 <div>
                   {{cta.address}}

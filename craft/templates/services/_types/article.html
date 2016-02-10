@@ -28,19 +28,19 @@
             {% endif %}
             {% for cta in entry.callToAction %}
             {% if cta.type == "onlineLink" %}
-              <div class="cta-block one-third">
+              <div class="cta-block {{ block-width }}">
                 <h5>Online</h5>
                 <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.linkUrl}}">{{cta.linkTitle}}</span></a>
               </div>
               {% endif %}
               {% if cta.type == "phoneNumber" %}
-              <div class="cta-block one-third">
+              <div class="cta-block {{ block-width }}">
                 <h5>By Phone</h5>
                 <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="tel:{{cta.number}}">Call {{cta.number}}</a>
               </div>
               {% endif %}
               {% if cta.type == "physicalAddress" %}
-              <div class="cta-block one-third">
+              <div class="cta-block {{ block-width }}">
                 <h5>{{cta.physicalAddressTitle}}</h5>
                 <div>
                   {{cta.address}}

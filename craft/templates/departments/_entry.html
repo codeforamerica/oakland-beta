@@ -108,35 +108,15 @@
 
       <div class="grid-row">
 
-        <div class="post-excerpt two-thirds right">
-
           <h2>News and Updates</h2>
 
-          {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(1) %}          
-          {% if newsArticle.mainImage|length > 0 %}
-          <img src="{{ newsArticle.mainImage.first().url }}" alt="Main Image">
-          {% endif %}
+          {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
+          <div class="post-excerpt one-third">        
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
           <p>{{ newsArticle.leadIn }}</p>
+          </div>
           {% endfor %}
-        </div>
-
-      </div>
-
-      <div class="grid-row">
-
-        {% for newsArticle in craft.entries.section('news').relatedTo(entry).offset(1).limit(3) %}
-
-        <div class="post-excerpt one-third">
-          {% if newsArticle.mainImage|length > 0 %}
-          <img src="{{ newsArticle.mainImage.first().url }}" alt="Main Image">
-          {% endif %}
-          <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
-          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
-        </div>
-
-        {% endfor %}
 
       </div>
 

@@ -122,6 +122,29 @@ html {
     .business .menu-item:active:before {
       background-color: #4d0400; }
 
+.digital-front-door a {
+  color: #581666; }
+  .digital-front-door a:hover, .digital-front-door a:focus {
+    color: #581666; }
+  .digital-front-door a:active {
+    color: #340d3c; }
+
+.digital-front-door .subheader {
+  background-color: #581666; }
+  .digital-front-door .subheader .btn {
+    background-color: #f7b600; }
+
+.digital-front-door .menu-item {
+  color: #581666; }
+  .digital-front-door .menu-item:hover, .digital-front-door .menu-item:focus {
+    color: #581666; }
+    .digital-front-door .menu-item:hover:before, .digital-front-door .menu-item:focus:before {
+      background-color: #581666; }
+  .digital-front-door .menu-item:active {
+    color: #340d3c; }
+    .digital-front-door .menu-item:active:before {
+      background-color: #340d3c; }
+
 .navicon-button {
   position: relative;
   padding: 8px 0;
@@ -2587,19 +2610,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -303px; } }
+        background-position: 0px -37px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -794px; } }
+        background-position: 0px -216px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -437px; } }
+        background-position: 0px -766px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2913,7 +2936,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -3px; } }
+      background-position: 0px -401px; } }
 
 .previous-next-links {
   background-size: cover;

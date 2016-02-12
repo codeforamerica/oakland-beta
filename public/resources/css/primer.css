@@ -2544,12 +2544,19 @@ img {
     /* IE 8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
     opacity: 0.35; }
+  .beta-banner .grid-row, .beta-banner .one-half {
+    margin-bottom: 0; }
   .beta-banner a {
-    float: right;
-    margin-left: 1em;
+    float: left;
+    margin-right: 1em;
     color: #ffffff;
     font-size: 1rem;
     text-decoration: underline; }
+    @media screen and (min-width: 48em) {
+      .beta-banner a {
+        float: right;
+        margin-left: 1em;
+        margin-right: 0; } }
 
 .flash {
   font-size: 1.5rem;
@@ -2582,19 +2589,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -670px; } }
+        background-position: 0px -4px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -432px; } }
+        background-position: 0px -497px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -484px; } }
+        background-position: 0px -435px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -2908,7 +2915,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -40px; } }
+      background-position: 0px -691px; } }
 
 .previous-next-links {
   background-size: cover;

@@ -23,12 +23,20 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
     opacity: 0.35;
   }
+  .grid-row, .one-half {
+    margin-bottom: 0;
+  }
   a {
-    float: right;
-    margin-left: 1em;
+    float: left;
+    margin-right: 1em;
     color: $white;
     font-size: 1rem;
     text-decoration: underline;
+    @include media($bp-md) {
+      float: right;
+      margin-left: 1em;
+      margin-right: 0;
+    }
   }
 }
 

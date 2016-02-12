@@ -117,9 +117,11 @@ $news:					$oakland-green !default;
 // The value should be one of the Deep Tertiary color variables listed above
 $themes: (
 						default: $oakland-green,
+						parking: $water-blue,
 						public-works: $water-blue,
                         business: $longfellow-rosewood,
-                        digital-front-door: $jack-london-purple
+                        digital-front-door: $jack-london-purple,
+                        emergency-services: $merritt-lake
 ) !default;
 
 

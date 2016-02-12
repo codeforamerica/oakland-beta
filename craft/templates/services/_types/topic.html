@@ -1,7 +1,13 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<main>
+{% if entry.getAncestors() | length > 0 %}
+  {% set top_level_service = entry.getAncestors().first().title|kebab %}
+{% else %}
+  {% set top_level_service = entry.title|kebab %}
+{% endif %}
+
+<main class="{{top_level_service|lower}}">
 
   <div class="main-overlay"></div>
 

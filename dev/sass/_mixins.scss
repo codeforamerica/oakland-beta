@@ -60,7 +60,8 @@
 
 @mixin theme($name, $color) {
   $primary: $color;
-  $darkened: darken($color, 10%);
+  $darkened: shade($color, 10%);
+  $lightened: tint($color, 10%);
 
   .#{$name} {
   
@@ -78,12 +79,54 @@
       }
     }
 
-    .subheader {
+    .btn,
+    a.btn {
+      color: $white;
       background-color: $primary;
 
-      .btn {
-        background-color: $gold;
+      &:before {
+        background-color: $primary;
       }
+
+      &:hover,
+      &:focus {
+        background-color: $rockridge-gray;
+
+        &:before {
+          background-color: $lightened;
+        }
+      }
+
+      &:active {
+        background-color: $lightened;
+
+        &:before {
+          background-color: $rockridge-gray;      
+        }
+      }
+
+    }
+
+    .btn-secondary,
+    a.btn-secondary {
+      background-color: $gray-lighter;
+      color: $primary;
+
+      &:before {
+        background-color: $gray-lighter;
+      }
+
+      &:hover,
+      &:focus {
+        &:before {
+          background-color: $lightened;
+        }
+      }
+
+    }
+
+    .subheader {
+      background-color: $primary;
     }
 
     .menu-item {

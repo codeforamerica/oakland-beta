@@ -79,12 +79,12 @@ a.btn {
 // These buttons are white with a colored outline by default
 .btn-secondary,
 a.btn-secondary {
-  background-color: transparent;
+  background-color: $gray-lighter;
   color: $forestland;
-  border: 1px solid $forestland;
+  border: 1px solid transparent;
 
   &:before {
-    background-color: transparent;
+    background-color: $gray-lighter;
   }
 
   &:hover,

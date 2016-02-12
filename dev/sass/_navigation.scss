@@ -8,7 +8,7 @@ $global-nav-width: 213px;
 	width: 100%;
 	height: 100vh;
 	top: 0;
-	z-index: 100000;
+	z-index: 10;
 	background-color: $color-side-nav-bg;
 	display: none;
 	transition: right 300ms ease;

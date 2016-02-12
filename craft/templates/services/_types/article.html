@@ -12,21 +12,44 @@
 
       <article class="container">
         <h1>{{ entry.title }}</h1>
-        <div class="grid-row">
-          <div class="two-thirds">
-            {% if entry.leadIn != "" %}
-            <p class="lead">{{ entry.leadIn}}</p>
+        {% if entry.leadIn != "" %}
+        <p class="lead">{{ entry.leadIn}}</p>
+        {% endif %}
+        <div class="grid-row cta-section">
+          {% if entry.callToAction %}
+            {% if entry.callToAction|length == 1 %}
+              {% set blockwidth = "one-half" %}
             {% endif %}
-
-            {% if entry.CTATitle != "" %}
-            <a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a>
+            {% if entry.callToAction|length == 2 %}
+              {% set blockwidth = "one-half" %}
             {% endif %}
-            
-            {% if entry.callToActionPhoneNumber != "" %}
-            <p class="phone-cta">or call <a href="tel: {{ entry.callToActionPhoneNumber }}">{{ entry.callToActionPhoneNumber }}</a></p>
+            {% if entry.callToAction|length == 3 %}
+              {% set blockwidth = "one-third" %}
             {% endif %}
-          </div>
+            {% for cta in entry.callToAction %}
+            {% if cta.type == "onlineLink" %}
+              <div class="cta-block {{ blockwidth }}">
+                {% if cta['onlineTitle'] is defined %}<h6>{{cta.onlineTitle}}</h6>{% endif %}
+                <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.linkUrl}}">{{cta.linkTitle}}</a>
+              </div>
+              {% endif %}
+              {% if cta.type == "phoneNumber" %}
+              <div class="cta-block {{ blockwidth }}">
+                {% if cta['phoneNumberTitle'] is defined %}<h6>{{cta.phoneNumberTitle}}</h6>{% endif %}
+                <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="tel:{{cta.number}}">{{cta.number}}</a>
+              </div>
+              {% endif %}
+              {% if cta.type == "physicalAddress" %}
+              <div class="cta-block {{ blockwidth }}">
+                {% if cta['physicalAddressTitle'] is defined %}<h6>{{cta.physicalAddressTitle}}</h6>{% endif %}
+                <div class="text-small">
+                  {{cta.address}}
+                </div>
+              </div>
+              {% endif %}
+            {% endfor %}
         </div>
+        {% endif %}
         <div class="grid-row">
           <div class="two-thirds">
             {{ entry.body }}

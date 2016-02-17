@@ -563,27 +563,37 @@ input::-webkit-inner-spin-button {
 // Custom search for home hero
 //
 .main-search {
+  position: relative;
+  background: transparent;
   width: 100%;
+  padding: 0;
+  display: none;
+  margin-bottom: 0;
+
+  @include media($bp-md) {
+    display: inline-block;
+    vertical-align: middle;
+  }
 
   label {
-    width: 100%;
-    position: relative;
+    margin-bottom: 0;
   }
 
-  #site-search {
+  input[type="text"] {
+    border-color: $gray-light !important;
     width: 100%;
-
-    @include media($bp-md) {
-      width: 50%;
-      max-width: 580px;
-    }
+    max-width: none;
+    padding-right: 2.1875rem;
+    font-size: $font-size-h3;
   }
 
-  // input[type="submit"] {
-  //   position: absolute;
-  //   right: 0;
-  //   top: 0;
-  // }
+  .search-icon {
+    position: absolute;
+    right: 0.625rem;
+    top: .8rem;
+    color: $oakland-green;
+    font-size: $font-size-h3;
+  }
 }
 
 // A specialized link for form element info. Based on the .menu-item found in _menu.scss

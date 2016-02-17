@@ -72,7 +72,10 @@
 	}
 
 	.hero-caption {
-		@include shift(8);
+		@include media($bp-md) {
+			@include shift(8);
+		}
+		
 		text-align: right;
 		color: #fff;
 		font-size: $font-size-small;

@@ -2194,16 +2194,30 @@ input::-webkit-inner-spin-button {
     min-height: 26px; }
 
 .main-search {
-  width: 100%; }
+  position: relative;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  display: none;
+  margin-bottom: 0; }
+  @media screen and (min-width: 48em) {
+    .main-search {
+      display: inline-block;
+      vertical-align: middle; } }
   .main-search label {
+    margin-bottom: 0; }
+  .main-search input[type="text"] {
+    border-color: #e9eae7 !important;
     width: 100%;
-    position: relative; }
-  .main-search #site-search {
-    width: 100%; }
-    @media screen and (min-width: 48em) {
-      .main-search #site-search {
-        width: 50%;
-        max-width: 580px; } }
+    max-width: none;
+    padding-right: 2.1875rem;
+    font-size: 1.5rem; }
+  .main-search .search-icon {
+    position: absolute;
+    right: 0.625rem;
+    top: .8rem;
+    color: #4fbc26;
+    font-size: 1.5rem; }
 
 .form-info {
   position: relative;
@@ -2443,10 +2457,12 @@ aside.with-bg {
   .subheader .breadcrumb-wrap ~ .container {
     margin-top: 5.25rem; }
   .subheader .hero-caption {
-    margin-left: 68.1222707424%;
     text-align: right;
     color: #fff;
     font-size: 1rem; }
+    @media screen and (min-width: 48em) {
+      .subheader .hero-caption {
+        margin-left: 68.1222707424%; } }
     .subheader .hero-caption p {
       margin-bottom: 0; }
 
@@ -2903,19 +2919,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -402px; } }
+        background-position: 0px -721px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -76px; } }
+        background-position: 0px -752px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -581px; } }
+        background-position: 0px -397px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3229,7 +3245,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -305px; } }
+      background-position: 0px -761px; } }
 
 .previous-next-links {
   background-size: cover;

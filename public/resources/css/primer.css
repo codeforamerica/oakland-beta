@@ -2919,19 +2919,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -721px; } }
+        background-position: 0px -695px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -752px; } }
+        background-position: 0px -724px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -397px; } }
+        background-position: 0px -416px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3103,9 +3103,6 @@ a.btn-small {
       background-color: #4fbc26; }
   .menu-item h1, .menu-item h2, .menu-item h3, .menu-item h4, .menu-item h5, .menu-item h6 {
     text-decoration: underline; }
-  .menu-item span {
-    color: #404040;
-    display: block; }
 
 .section-menu {
   position: relative; }
@@ -3245,7 +3242,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -761px; } }
+      background-position: 0px -405px; } }
 
 .previous-next-links {
   background-size: cover;

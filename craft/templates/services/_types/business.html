@@ -54,7 +54,7 @@
           <p><i>Click on the steps below to learn more about each park of the process.</i></p> 
         </div>
         {% if entry.children.first().mostPopularLinks|length > 0 %}
-        <aside class="column-shift five-twelfths with-bg">
+        <aside class="one-half with-bg">
           <h5>Popular Links</h5>
           <ol>
           {% for link in entry.children.first().mostPopularLinks %}
@@ -64,13 +64,16 @@
         </aside>
         {% endif %}
       </div>
-      <ol class="step-list grid-row">
+      <ol class="step-list grid-row big-menu">
         {% for step in entry.children.first().children() %}
-        <li class="step-item one-fourth">
+        <li class="step-item one-third">
           <div class="step-number">{{ loop.index }}</div>
           <div class="step-content">
-            <h5><a href="{{ step.url }}">{{ step.title }} <span class="lnr lnr-arrow-right"></span></a></h5>
-            <p>{{ step.leadIn }}</p>
+            <a href="{{step.url}}" class="menu-item">
+              <h3>{{ step.title }} <span class="lnr lnr-arrow-right"></span></h3>
+              <p>{{ step.leadIn }}</p>
+            </a>
+
           </div>
         </li>
         {% endfor %}
@@ -106,9 +109,9 @@
       <div class="grid-row">
         <div class="big-menu">
           {% for topic in entry.children.nth(1).children %}
-          <div class="menu-item one-fourth">
+          <div class="menu-item one-third">
             <a href="{{ topic.url }}">
-              <h5>{{ topic.title }} </h5>
+              <h3>{{ topic.title }} </h3>
               <p>{{ topic.leadIn }}</p>
             </a>
           </div>
@@ -130,7 +133,15 @@
   <section id="section-3" class="section">
     <div class="container">
       <h2>Permits and Forms, A-Z</h2>
-      
+      <div class="grid-row menu">
+        {% for form in craft.entries.section("forms").relatedTo(entry).order("title asc") %}
+          <div class="one-third menu-item">
+            <a href="{{ form.url }}">
+              <h5>{{ form.title }}</h5>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </section>
 </main>

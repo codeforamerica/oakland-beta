@@ -1,0 +1,76 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+    <main class="business">
+
+    <div class="main-overlay"></div>
+    <article>
+       <section class="subheader">
+         <div class="breadcrumb-wrap">
+           <nav class="breadcrumbs">
+             <a href="{{ siteUrl }}">Oakland</a>
+             <span><a href="#">Starter Kits</a></span>
+             <span>{{ entry.title }}</span>
+           </nav>
+         </div>
+         
+         <div class="container">
+           <div class="grid-row">
+             <div class="section-info two-thirds column-shift">
+               <h1>Starter Kit: {{ entry.title }}</h1>
+               <p>{{ entry.starterKitDescription }}</p>
+             </div>
+
+             <div class="section-menu one-fourth">
+               {% for step in entry.stepsList %}
+                   <a class="menu-item" href="#{{ step.stepTitle | lower | kebab }}">{{ step.stepTitle }}</a>
+               {% endfor %}
+                    <a href="#related-forms" class="menu-item">Permits and Forms</a>
+             </div>
+             
+           </div>
+
+
+         </div>
+
+      </section> 
+         
+           
+       {% for step in entry.stepsList %}
+         <section class="section" id="{{ step.stepTitle | lower | kebab }}">
+           <div class="container">
+             <div class="grid-row">
+               <div class="one-fourth"><h2>{{ step.stepTitle }}</h2></div>
+               <div class="two-thirds column-shift">
+                 {{ step.body}}
+               </div>
+             </div>
+             <hr>
+           </div>
+         </section>
+       {% endfor %}
+
+
+       <section class="section" id="related-forms">
+         <div class="container">
+           <div class="grid-row">
+             <div class="one-fourth">
+                <h2>Permits and Forms</h2>
+              </div>
+              <div class="two-thirds column-shift">
+                <div class="menu">
+                  {% for form in entry.relatedForms %}
+                  <a href="{{ form.url }}" class="menu-item">{{ form.title }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+
+             </div>
+           </div>
+         </div>
+       </section>
+    </article>
+    </main>   
+
+{% endblock %}

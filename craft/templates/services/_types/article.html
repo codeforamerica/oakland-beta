@@ -39,6 +39,12 @@
                 <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.linkUrl}}">{{cta.linkTitle}}</a>
               </div>
               {% endif %}
+              {% if cta.type == "formLink" %}
+                <div class="cta-block {{ blockwidth }}">
+                  {% if cta['formLabel'] is defined %}<h6>{{cta.formLabel}}</h6>{% endif %}
+                  <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.formLink.first().formPdf.first().url }}">{{cta.formButtonText}}</a>
+                </div>
+                {% endif %}
               {% if cta.type == "phoneNumber" %}
               <div class="cta-block {{ blockwidth }}">
                 {% if cta['phoneNumberTitle'] is defined %}<h6>{{cta.phoneNumberTitle}}</h6>{% endif %}

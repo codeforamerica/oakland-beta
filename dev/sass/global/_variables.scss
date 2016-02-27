@@ -1,0 +1,141 @@
+//----- TYPOGRAPHY -----//
+$body-font: 			Fakt, Helvetica, arial, sans-serif !default;
+$header-font: 			FaktLight, Helvetica, arial, sans-serif !default;
+$dept-font: 			FaktSlab, Helvetica, arial, sans-serif !default;
+$mono-font: 			Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
+
+
+
+//----- TYPE HIERARCHY -----//
+$font-size-html:		14px;
+$font-size-body:		rem(19);
+$font-size-h1: 			rem(36);
+$font-size-h2: 			rem(30);
+$font-size-h3: 			rem(24);
+$font-size-h4: 			rem(21);
+$font-size-h5: 			rem(19);
+$font-size-h6: 			rem(16);
+$font-size-small:		rem(16);
+$font-size-code:		rem(12);
+
+
+
+//----- BRAND COLORS -----//
+$oakland-green: 		#4fbc26 !default;
+$fruitvale-mint: 		#d1e7d5 !default;
+$telegraph-yellow: 		#ffff57 !default;
+$high-cloud: 			#e9eae7 !default;
+$clinton-stone:			#cfd0ce !default;
+$nimitz-steel: 			#757773 !default;
+$rockridge-gray:		#293028 !default;
+$forestland:			#004c0d !default;
+
+
+
+//----- TERTIARY COLORS -----//
+// These are grouped by color and ordered Deep, Bright, Light
+// e.g.
+// // Reds
+// Deep Red: #HEX
+// Bright Red: #HEX
+// Light Red: #HEX
+
+// Reds
+$longfellow-rosewood: 	#800600 !default;
+$chinatown-red: 		#d9332b !default;
+$melrose:				#ffd4d4 !default;
+
+// Blues
+$water-blue:			#0e5478 !default;
+$lakeshore:				#008dd9 !default;
+$brook:					#cce1ff !default;
+
+// Purples
+$jack-london-purple:	#581666 !default;
+$orchard-plum:			#c246bc !default;
+$meadow-brook-thistle:	#f7d2f6 !default;
+
+// Yellows
+$gold:					#f7b600 !default;
+$summer-yellow:			#ffd800 !default;
+$allendale:				#ffffeb !default;
+
+// Pinks
+$allendale-wine:		#521c2b !default;
+$jingletown-pink:		#b80062 !default;
+$magnolia:				#ffdbe9 !default;
+
+// Greens
+$grass-valley:			#104741 !default;
+$liberty-green:			#009783 !default;
+$merritt-mint:			#b9f0e1 !default;
+
+// Oranges
+$woodminster:			#47311e !default;
+$golden-gate:			#ee6334 !default;
+$maple-orange:			#ffe1bf !default;
+
+// Bluer Blues
+$merritt-lake:			#003366 !default;
+$broadway-blue:			#3870ff !default;
+$sequoyah-heights:		#e5ecff !default;
+
+// Grays
+$gray-lighter:			#f4f5f4 !default;
+$gray-light:			$high-cloud !default;
+$gray:					$clinton-stone !default;
+$gray-dark:				$nimitz-steel !default;
+$gray-darker:			$rockridge-gray !default;
+$black:					#000000 !default;
+$white:					#ffffff !default;
+
+
+
+//----- BACKGROUND COLORS -----//
+$color-side-nav-bg: 	$rockridge-gray;
+
+
+
+//----- TEXT COLORS -----//
+$color-text-body:		#404040;
+$color-text-meta:		$nimitz-steel;
+
+
+
+//----- UTILITY COLORS -----//
+$error:					#e02f27 !default;
+$alert:					$error !default;
+$warning:				#c27a2a !default;
+$muted:					$gray !default;
+$success:				$oakland-green !default;
+$news:					$oakland-green !default;
+
+
+
+//----- THEME COLOR MAP -----//
+// The key should be the class name you want to use (generally a department name)
+// The value should be one of the Deep Tertiary color variables listed above
+$themes: (
+						default: $oakland-green,
+						parking: $water-blue,
+						public-works: $water-blue,
+                        business: $longfellow-rosewood,
+                        digital-front-door: $jack-london-purple,
+                        emergency-services: $merritt-lake,
+                        jobs: $allendale-wine
+) !default;
+
+
+
+//----- HEADER HEIGHT GLOBAL SIZES -----//
+$header-height-sm: 		128px; // For mobile to medium size
+$header-height-lg:		10.875rem; // For medium size and up
+
+
+
+//----- RESPONSIVE BREAKPOINTS -----//
+// using mobile-first, so building up with min-width
+$bp-sm: 				30em;
+$bp-md: 				48em;
+$bp-lg: 				60em;
+$bp-xl: 				93.75em;

@@ -1,0 +1,128 @@
+// Specific link types
+
+// Previous/Next links
+// ----------------------------
+
+// The .pager-footer class should applied to the same
+// <footer> element as .content-footer ( see _sections.scss_
+// when being used for the prev/next links.
+// This applies the bg pattern beneath the links
+.pager-footer {
+	
+  &:before {
+    content: "";
+    background-image: url(../img/bg-pattern-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    /* IE 5-7 */
+    filter: alpha(opacity=35);
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
+    opacity: 0.35;
+
+	  @include media($bp-md) {
+	    background-image: url(../img/bg-pattern-large.png);
+	    background-position: 0px random(975) - 975 + px;
+	  }
+  }
+}
+
+// These are the actual prev/next link styles and containers
+.previous-next-links {
+	background-size: cover;
+	width: 100%;
+	height: 5.25rem;
+	position: relative;
+	padding: 0;
+}
+
+.prev-link,
+.next-link {
+	position: absolute;
+	color: $white !important;
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+	padding-top: 1.25rem;
+	font-family: $header-font;
+	font-size: 1.5rem;
+	line-height: 1;
+	background-color: $forestland;
+  background-color: rgba($forestland, 0.95);
+
+	&:hover,
+	&:focus {
+		background-color: $rockridge-gray;
+		background-color: rgba($rockridge-gray, 0.95);
+		text-decoration: none;
+	}
+  
+  &:active {
+  	background-color: $oakland-green;
+		background-color: rgba($oakland-green, 0.95);
+		text-decoration: none;
+		color: $white;
+	}
+
+	span.lnr {
+		font-size: 1.25rem;
+		vertical-align: top;
+		font-weight: bold;
+	}
+
+	span,
+	small {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.prev-link {
+	padding-left: 15%;
+	margin-left: -15%;
+	width: 30%;
+
+	@include media($bp-md) {
+	  padding-left: 50%;
+	  margin-left: -50%;
+	  width: 100%;
+	}
+
+  small {
+  	margin-left: 1.5625rem;
+  }
+
+  .prev-next-text,
+  .prev-next-small {
+  	display: none;
+
+  	@include media($bp-md) {
+  		display: inline-block;
+  	}
+  }
+}
+
+.next-link {
+  right: 0;
+  padding-right: 65%;
+  margin-right: -55%;
+  width: 140%;
+  text-align: right;
+
+  @include media($bp-md) {
+	  padding-right: 50%;
+	  margin-right: -50%;
+	  width: 100%;
+  }
+
+	small {
+		margin-right: 1.5625rem;
+	}
+}

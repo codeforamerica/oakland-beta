@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-html;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  @include media($bp-md) {
+    font-size: 16px;
+  }
+
+  @include media($bp-xl) {
+    font-size: 20px;
+  }
+}
+
+// html,
+// body {
+//   height: 100%;
+//   overflow: auto;
+//   margin: 0;
+// }
+
+input,
+select,
+textarea,
+button {
+  font-size: $font-size-body;
+  line-height: 1.5em;
+  font-family: $body-font;
+}
+
+body {
+  font-size: $font-size-body;
+  line-height: 1.5em;
+  font-family: $body-font;
+  color: $color-text-body;
+  background-color: #fff;
+  position: relative;  
+}
+
+.docs-example {
+  font-family: $body-font;
+}
+
+a {
+  color: $oakland-green;
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+p {
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+// Horizontal lines
+//
+hr {
+  margin: 0;
+  height: 0;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid $gray-lighter;
+  @include clearfix();
+}

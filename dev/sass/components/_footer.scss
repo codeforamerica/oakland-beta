@@ -1,0 +1,92 @@
+.site-footer {
+	margin-top: 4rem;
+	background: $gray;
+	padding-top: 2rem;
+	font-size: $font-size-small;
+
+	@include media($bp-md) {
+		padding-top: 2.625rem;
+	}
+
+	// standardize spacing between footer sections
+	.grid-row {
+		margin-bottom: 2.625rem;
+
+		// target direct children of grid-row, i.e. columns
+		> * {
+			margin-bottom: 0;
+		}
+	}
+
+	h4 {
+		font-weight: normal;
+		margin-bottom: 2.625rem;
+	}
+
+	.footer-links {
+		padding: 0;
+
+		li {
+			margin-bottom: 1rem;
+		}
+
+		a {
+			font-size: $font-size-small;
+			line-height: 1.2;
+			color: $color-text-body;
+
+			&:hover, &:focus {
+				color: $color-text-body;
+				text-decoration: underline;
+			}
+
+			&:active {
+			color: $gray-darker;
+			}
+		}
+	}
+
+	.logo-wrap {
+		padding-top: 0;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: -$gutter;
+			top: 0;
+			bottom: 0;
+			width: 2px;
+			background-color: $oakland-green;
+		}
+	}
+
+	.site-logo {
+		max-width: 173px;
+		max-width: 10.8125rem;
+		height: auto;
+		padding-bottom: 2.5rem;
+	}
+
+	hr {
+		border-bottom: 2px solid darken($gray, 10%);
+	}
+}
+
+// The bottom section of the site footer
+.footer-omega {
+	margin-bottom: 0;
+	position: relative;
+	margin-top: 2.5rem;
+	color: $color-text-body;
+
+	.right {
+		a {
+			font-size: 1rem;
+			color: $color-text-body;
+
+			&:active {
+				color: $color-text-body;
+			}
+		}
+	}
+}

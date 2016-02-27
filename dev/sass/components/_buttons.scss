@@ -1,0 +1,123 @@
+// Reset button styles
+button {
+  padding: 0;
+  margin: 0;
+}
+
+// Standard Buttons - these may end up inheriting section colors.
+// Need to implement color variables later
+.btn,
+a.btn {
+  display: inline-block;
+  vertical-align: middle;
+  color: $white;
+  background-color: $forestland;
+  border: none;
+  font-size: $font-size-h3;
+  line-height: 1.5;
+  padding: 1rem;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  position: relative;
+  text-align: left;
+  margin-bottom: 1.5rem;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $forestland;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $rockridge-gray;
+
+    &:before {
+      background-color: $oakland-green;
+    }
+  }
+
+  &:active {
+    background-color: $oakland-green;
+
+    &:before {
+      background-color: $rockridge-gray;      
+    }
+  }
+
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active,
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus,
+  &.disabled:active {
+    pointer-events: none;
+    background-color: $gray-lighter;
+    background-color: rgba($clinton-stone, 0.2);
+    cursor: default;
+
+    &:before {
+      background-color: $gray-lighter;
+      background-color: rgba($clinton-stone, 0.2);
+    }
+  }
+
+  span {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+
+// These buttons are white with a colored outline by default
+.btn-secondary,
+a.btn-secondary {
+  background-color: $gray-lighter;
+  color: $forestland;
+  border: 1px solid transparent;
+
+  &:before {
+    background-color: $gray-lighter;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $white;
+    border: 1px solid $white;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      background-color: $oakland-green;
+    }
+  }
+
+  &:active {
+    &:before {
+      background-color: $rockridge-gray;
+    }
+  }
+}
+
+// Full width block buttons
+.btn-block,
+a.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.btn-small,
+a.btn-small {
+  font-size: $font-size-h4;
+}

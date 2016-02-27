@@ -1,0 +1,63 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<main class="initiative">
+
+  <div class="main-overlay"></div>
+
+  <section class="subheader">
+
+    <div class="hero-image" style="background-image: url('{{ entry.initiativeHero.first().url }}')"></div>
+
+    <div class="breadcrumb-wrap">
+
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">Oakland</a>
+        <a href="#">Initiatives</a>
+        <span>{{ entry.title }}</span>
+      </nav>
+
+    </div>
+
+    <div class="container">
+
+      <div class="grid-row">
+
+        <div class="section-info two-thirds">
+          <p class="initiative-subtitle">City Initiative</p>
+          <h1>{{ entry.title }}</h1>
+          <p>{{ entry.initiativeSummary }}</p>
+        </div>
+
+      </div><!-- .grid-row -->
+
+    </div><!-- .container -->
+
+  </section><!-- .subheader -->
+
+  {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
+  <section class="section">
+
+    <div class="container">
+
+      <div class="grid-row">
+
+          <h2>News and Updates</h2>
+
+          {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
+          <div class="post-excerpt one-third">        
+          <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
+          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
+          <p>{{ newsArticle.leadIn }}</p>
+          </div>
+          {% endfor %}
+
+      </div>
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
+</main>
+
+{% endblock %}

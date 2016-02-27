@@ -2919,19 +2919,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -695px; } }
+        background-position: 0px -536px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -724px; } }
+        background-position: 0px -86px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -416px; } }
+        background-position: 0px -249px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3242,7 +3242,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -405px; } }
+      background-position: 0px -84px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3562,3 +3562,66 @@ h1 + .lead {
 .news h1 + .post-data {
   margin-top: -2em;
   margin-bottom: 2em; }
+
+.official .official-header {
+  margin-top: 3em; }
+
+.official .official-name {
+  color: #4fbc26;
+  margin-bottom: 0; }
+
+.official .official-vision-statement {
+  font-style: italic; }
+
+.official .connect-icons a {
+  margin-right: 1em; }
+
+.official .official-portrait {
+  border-radius: 50%;
+  width: 100%; }
+
+.official .initiative-link {
+  display: block;
+  position: relative;
+  color: #fff;
+  height: 170px;
+  background-size: cover;
+  background-position: center center; }
+  .official .initiative-link:before {
+    -webkit-transition: background-color 0.2s ease-out;
+    -moz-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.25); }
+  .official .initiative-link.main-initiative {
+    height: 280px;
+    margin-bottom: 1.5rem; }
+  .official .initiative-link h3 {
+    position: absolute;
+    bottom: .5em;
+    left: 1em;
+    right: 1em;
+    margin-bottom: 0; }
+  .official .initiative-link:hover:before {
+    background-color: rgba(0, 0, 0, 0.4); }
+
+.initiative .subheader {
+  position: relative;
+  background-color: #000; }
+  .initiative .subheader .hero-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .4;
+    background-size: cover;
+    background-position: center 20%; }
+  .initiative .subheader .initiative-subtitle {
+    color: #4fbc26;
+    margin-bottom: 0; }

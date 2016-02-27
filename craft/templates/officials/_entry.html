@@ -75,7 +75,7 @@
           <div class="post-excerpt one-third">        
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
-          <p>{{ newsArticle.leadIn }}</p>
+          <p>{{ newsArticle.summary }}</p>
           </div>
           {% endfor %}
 

@@ -2919,19 +2919,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -536px; } }
+        background-position: 0px -619px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -86px; } }
+        background-position: 0px -567px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -249px; } }
+        background-position: 0px -123px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3242,7 +3242,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -84px; } }
+      background-position: 0px -457px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3577,8 +3577,12 @@ h1 + .lead {
   margin-right: 1em; }
 
 .official .official-portrait {
-  border-radius: 50%;
-  width: 100%; }
+  width: 100%;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto; }
+  .official .official-portrait img {
+    border-radius: 50%; }
 
 .official .initiative-link {
   display: block;

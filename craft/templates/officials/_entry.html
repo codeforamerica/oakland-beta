@@ -13,7 +13,12 @@
         <span>{{ entry.title }}</span>
       </nav>
       <div class="grid-row official-header">
-        <div class="seven-twelfths">
+        <div class="one-third">
+          <figure class="official-portrait">
+            <img src="{{ entry.portrait.first().url }}" alt="{{ entry.portrait.first().caption }}">
+          </figure>
+        </div>
+        <div class="column-shift seven-twelfths">
           <h1 class="official-name">{{ entry.title }}</h1>
           <p class="official-job-title">{{ entry.jobTitle }}</p>
           <p class="official-vision-statement">{{ entry.visionStatement }}</p>
@@ -22,9 +27,6 @@
             <a href="{{entry.twitterProfile}}">Twitter</a>
             <a href="{{entry.email}}">Email</a>
           </div>
-        </div>
-        <div class="column-shift one-third">
-          <img class="official-portrait" src="{{ entry.portrait.first().url }}" alt="{{ entry.portrait.first().caption }}">
         </div>
       </div>
       <hr>

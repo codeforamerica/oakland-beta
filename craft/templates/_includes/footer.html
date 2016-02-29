@@ -28,6 +28,14 @@
         <h4>Oakland Government</h4>
         <div class="grid-row">
           <ul class="footer-links list-no-style one-third">
+            <li><a href="{{siteUrl}}officials">Elected Officials</a></li>
+            {% for entry in craft.entries.section('departments') %}
+            {% if loop.index % 3 == 0 %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          <ul class="footer-links list-no-style one-third">
             {% for entry in craft.entries.section('departments') %}
             {% if loop.index % 3 == 1 %}
             <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
@@ -37,13 +45,6 @@
           <ul class="footer-links list-no-style one-third">
             {% for entry in craft.entries.section('departments') %}
             {% if loop.index % 3 == 2 %}
-            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-            {% endif %}
-            {% endfor %}
-          </ul>
-          <ul class="footer-links list-no-style one-third">
-            {% for entry in craft.entries.section('departments') %}
-            {% if loop.index % 3 == 0 %}
             <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
             {% endif %}
             {% endfor %}

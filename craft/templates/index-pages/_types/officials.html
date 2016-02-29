@@ -1,0 +1,40 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<main class="officials-index">
+
+  <div class="main-overlay"></div>
+
+  <section>
+    <div class="container">
+
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">Oakland</a>
+        <span>Elected Officials</span>
+      </nav>
+
+      <h1>Elected Officials</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      {% for official in craft.entries.section('electedOfficials') %}
+      <a href="{{ official.url }}" class="grid-row official">
+        <div class="one-fourth">
+          <figure class="official-portrait">
+            <img src="{{ official.portrait.first().url }}" alt="official.portrait.first().description">
+          </figure>
+        </div>
+        <div class="column-shift seven-twelfths">
+          <h4 class="official-name">{{ official.title }}</h4>
+          <p class="official-job-title">{{ official.jobTitle }}</p>
+          <p class="official-vision-statement">{{ official.visionStatement }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </a>
+  </section>
+
+</main> 
+{% endblock %}   

@@ -58,6 +58,47 @@
   </section>
   {% endif %}
 
+  {% if entry.initiativeRelatedServices | length > 0 %}
+  <section class="section">
+    <div class="container">
+      <h2>Services and Resources</h2>
+      <div class="grid-row">
+        <div class="big-menu one-third">
+          {% for entry in entry.initiativeRelatedServices %}
+          {% if loop.index % 3 == 1 %}
+          <a class="menu-item" href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.leadIn}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="big-menu one-third">
+          {% for entry in entry.initiativeRelatedServices %}
+          {% if loop.index % 3 == 2 %}
+          <a class="menu-item" href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.leadIn}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="big-menu one-third">
+          {% for entry in entry.initiativeRelatedServices %}
+          {% if loop.index % 3 == 0 %}
+          <a class="menu-item" href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.leadIn}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
 </main>
 
 {% endblock %}

@@ -1,3 +1,28 @@
+.officials-index {
+    .official {
+        display: block;
+        color: inherit;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        padding-top: 1.5em;
+        padding-bottom: 0;
+        margin-left: -1.5em;
+        margin-right: -1.5em;
+        text-decoration: none;
+        &:hover {
+            background-color: $gray-lighter;
+        }
+    }
+
+    .official-name {
+        text-decoration: underline;
+    }
+
+    .official-portrait {
+        margin-top: 0;
+    }
+}
+
 .official {
 
     .official-header {

@@ -2919,19 +2919,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -619px; } }
+        background-position: 0px -289px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -567px; } }
+        background-position: 0px -391px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -123px; } }
+        background-position: 0px -665px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3242,7 +3242,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -457px; } }
+      background-position: 0px -635px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3562,6 +3562,25 @@ h1 + .lead {
 .news h1 + .post-data {
   margin-top: -2em;
   margin-bottom: 2em; }
+
+.officials-index .official {
+  display: block;
+  color: inherit;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 1.5em;
+  padding-bottom: 0;
+  margin-left: -1.5em;
+  margin-right: -1.5em;
+  text-decoration: none; }
+  .officials-index .official:hover {
+    background-color: #f4f5f4; }
+
+.officials-index .official-name {
+  text-decoration: underline; }
+
+.officials-index .official-portrait {
+  margin-top: 0; }
 
 .official .official-header {
   margin-top: 3em; }

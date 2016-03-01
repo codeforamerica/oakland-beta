@@ -22,126 +22,130 @@
 {% block content %}
 
 {% set current_hero = entry.hero.order('RAND()').first() %}
+<main class="homepage">
+  <section class="subheader" style="background-image: url({{ current_hero.url }});">
 
-<section class="subheader" style="background-image: url({{ current_hero.url }});">
-
-  <div class="container">
-    <div class="grid-row">
-      <div class="section-info two-thirds">
-        <h1>{{ entry.welcome }}</h1>
-        <p>{{ entry.body }}</p>
-      </div>
-      <nav class="section-menu one-third">
-        <a class="menu-item" href="#section-1">Services and Resources</a>
-        <a class="menu-item" href="#section-2">City News and Updates</a>
-        <a class="menu-item" href="#section-4">City of Oakland Mayor</a>
-      </nav>
-    </div>
-    <div class="grid-row">
-      <div class="hero-caption one-third">
-        <p>{{ current_hero.caption }}</p>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<div class="main-overlay"></div>
-
-<section id="section-1" class="section">
-  <div class="container">
-    <h2>Services and Resources</h2>
-    <div class="grid-row">
-      <div class="two-thirds">
-        {% for entry in craft.entries.section('services').level(1) %}
-        {% if loop.index % 2 == 1 %}
-        <nav class="big-menu one-half">
-          <div class="menu-item">
-            <a href="{{ entry.url }}">
-              <h3>{{ entry.title }}</h3>
-              <p>{{ entry.leadIn }}</p>
-            </a>
-          </div>
-        </nav>
-        {% endif %}
-        {% endfor %}
-        {% for entry in craft.entries.section('services').level(1) %}
-        {% if loop.index % 2 == 0 %}
-        <nav class="big-menu one-half">
-          <div class="menu-item">
-            <a href="{{ entry.url }}">
-              <h3>{{ entry.title }}</h3>
-              <p>{{ entry.leadIn }}</p>
-            </a>
-          </div>
-        </nav>
-        {% endif %}
-        {% endfor %}
-      </div>
-      
-      <aside class="one-third with-bg">
-        <h5>Most Popular</h5>
-        <ol>
-          {% for service in mostPopularServices.mostPopularServices %}
-          <li><a href="{{ service.url }}">{{ service.title }}</a></li>
-          {% endfor %}
-        </ol>
-      </aside>
-    </div>
-    <hr>
-  </div>
-</section>
-
-<section id="section-2" class="section">
-
-  <div class="container">
-
-    <div class="grid-row">
-
-      <div class="two-thirds">
-        <h2>City News and Updates</h2>
-        {% for entry in craft.entries.section('news').limit(2) %}
-        <div class="post-excerpt">
-          <p class="post-data"><a href="{{ entry.relatedDepartment.first().url }}">{{ entry.relatedDepartment.first().title }}</a> - <time datetime>{{ entry.dateCreated.localeDate()|date('M j, Y') }}</time></p>
-          <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
-          <p>{{ entry.summary }}</p>
+    <div class="container">
+      <div class="grid-row">
+        <div class="section-info two-thirds">
+          <h1>{{ entry.welcome }}</h1>
+          <p>{{ entry.body }}</p>
         </div>
-        {% endfor %}
+        <nav class="section-menu one-third">
+          <a class="menu-item" href="#section-1">Services and Resources</a>
+          <a class="menu-item" href="#section-2">City News and Updates</a>
+          <a class="menu-item" href="#section-4">City of Oakland Mayor</a>
+        </nav>
       </div>
+      <div class="grid-row">
+        <div class="hero-caption one-third">
+          <p>{{ current_hero.caption }}</p>
+        </div>
+      </div>
+    </div>
 
-      <aside class="one-third">
-        <h4 class="aside-title">Other News</h4>
-        <ul class="list-no-style">
-          {% for entry in craft.entries.section('news').offset(2) %}
-          <li>
-            <a href="{{ entry.url }}">{{ entry.title }}</a>
-          </li>
+  </section>
+
+  <div class="main-overlay"></div>
+
+  <section id="section-1" class="section">
+    <div class="container">
+      <h2>Services and Resources</h2>
+      <div class="grid-row">
+        <div class="two-thirds">
+          {% for entry in craft.entries.section('services').level(1) %}
+          {% if loop.index % 2 == 1 %}
+          <nav class="big-menu one-half">
+            <div class="menu-item">
+              <a href="{{ entry.url }}">
+                <h3>{{ entry.title }}</h3>
+                <p>{{ entry.leadIn }}</p>
+              </a>
+            </div>
+          </nav>
+          {% endif %}
           {% endfor %}
-        </ul>
-      </aside>
+          {% for entry in craft.entries.section('services').level(1) %}
+          {% if loop.index % 2 == 0 %}
+          <nav class="big-menu one-half">
+            <div class="menu-item">
+              <a href="{{ entry.url }}">
+                <h3>{{ entry.title }}</h3>
+                <p>{{ entry.leadIn }}</p>
+              </a>
+            </div>
+          </nav>
+          {% endif %}
+          {% endfor %}
+        </div>
+        
+        <aside class="one-third with-bg">
+          <h5>Most Popular</h5>
+          <ol>
+            {% for service in mostPopularServices.mostPopularServices %}
+            <li><a href="{{ service.url }}">{{ service.title }}</a></li>
+            {% endfor %}
+          </ol>
+        </aside>
+      </div>
+      <hr>
+    </div>
+  </section>
+
+  <section id="section-2" class="section news-section">
+
+    <div class="container">
+
+      <div class="grid-row">
+
+        <div class="seven-twelfths">
+          <h2>City News and Updates</h2>
+          {% for newsArticle in craft.entries.section('news').limit(1) %}
+          <div class="post-excerpt">
+            {% if newsArticle.mainImage | length > 0 %}
+            <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+            {% endif %}  
+            <p class="post-data"><a href="{{ newsArticle.relatedDepartment.first().url }}">{{ newsArticle.relatedDepartment.first().title }}</a> - <time datetime>{{ newsArticle.dateCreated.localeDate()|date('M j, Y') }}</time></p>
+            <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
+            <p>{{ newsArticle.summary }}</p>
+          </div>
+          {% endfor %}
+        </div>
+
+        <aside class="one-third column-shift">
+          <h5 class="aside-title">Other News (<a href="{{ siteUrl }}news">see all</a>)</h5>
+          <ul class="list-no-style">
+            {% for entry in craft.entries.section('news').offset(1) %}
+            <li>
+              <a class="other-news-link" href="{{ entry.url }}">{{ entry.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </aside>
+
+      </div>
+
+      <hr>
 
     </div>
 
-    <hr>
+  </section>
 
-  </div>
-
-</section>
-
-<section id="section-4" class="section">
-  <div class="container">
-    <h2>City of Oakland Mayor</h2>
-    <div class="grid-row">
-      <div class="one-third">
-        <img src="resources/img/mayor.jpg" alt="Mayor Libby Schaaf">
-      </div>
-      <div class="two-thirds">
-        <a href="{{ siteUrl}}officials/libby-schaaf">Mayor Libby Schaaf</a><br>
-        <p>Oakland City Council</p>
-        <p>She is an American Public Works Association Leadership Fellow with more than 30 years of public and private sector experience, including the past 22 years with the City of Oakland.</p>
+  <section id="section-4" class="section">
+    <div class="container">
+      <h2>City of Oakland Mayor</h2>
+      <div class="grid-row">
+        <div class="one-third">
+          <img src="resources/img/mayor.jpg" alt="Mayor Libby Schaaf">
+        </div>
+        <div class="two-thirds">
+          <a href="{{ siteUrl}}officials/libby-schaaf">Mayor Libby Schaaf</a><br>
+          <p>Oakland City Council</p>
+          <p>She is an American Public Works Association Leadership Fellow with more than 30 years of public and private sector experience, including the past 22 years with the City of Oakland.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
 {% endblock %}

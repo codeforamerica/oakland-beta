@@ -1,0 +1,42 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<main class="news-index">
+
+  <div class="main-overlay"></div>
+
+  <section>
+    <div class="container">
+
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">Oakland</a>
+        <span>City News</span>
+      </nav>
+
+      <h1>City News and Updates</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      {% for newsArticle in craft.entries.section('news') %} 
+      <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
+      <div class="post-excerpt grid-row">
+        <div class="seven-twelfths">
+          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3> 
+          <p>{{ newsArticle.summary }}</p>
+        </div>
+        {% if newsArticle.mainImage | length > 0 %}
+        <div class="one-third column-shift">
+          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+        </div>
+        {% endif %} 
+
+      </div>
+      <hr>
+      {% endfor %}
+    </div>
+  </section>
+
+</main> 
+{% endblock %}   

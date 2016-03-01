@@ -2919,19 +2919,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -289px; } }
+        background-position: 0px -164px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -391px; } }
+        background-position: 0px -186px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -665px; } }
+        background-position: 0px -780px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3242,7 +3242,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -635px; } }
+      background-position: 0px -506px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3412,6 +3412,10 @@ a.btn-small {
 .css-truncate.expandable.zeroclipboard-is-hover .css-truncate-target, .css-truncate.expandable.zeroclipboard-is-hover.css-truncate-target,
 .css-truncate.expandable:hover .css-truncate-target, .css-truncate.expandable:hover.css-truncate-target {
   max-width: 10000px !important; }
+
+.homepage .news-section h5 {
+  margin-top: .5em;
+  margin-bottom: 2em; }
 
 .template-jobs .job-search {
   position: relative;

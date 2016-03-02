@@ -63,6 +63,7 @@
     </div>
   </section>
 
+  {% if entry.relatedServices | length > 0 %}
   <section id="section-2" class="section">
     <div class="container">
       <h2>Services and Resources</h2>
@@ -98,19 +99,16 @@
           {% endfor %}
         </div>
       </div>
-
       <hr>
     </div>
   </section>
+  {% endif %}
 
+  {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
   <section id="section-3" class="section">
-
     <div class="container">
-
       <div class="grid-row">
-
           <h2>News and Updates</h2>
-
           {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
           <div class="post-excerpt one-third">        
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
@@ -118,13 +116,11 @@
           <p>{{ newsArticle.summary }}</p>
           </div>
           {% endfor %}
-
       </div>
-
       <hr>
-
     </div>
   </section>
+  {% endif %}
 
   <section id="section-4" class="section">
     <div class="container">

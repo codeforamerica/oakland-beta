@@ -67,13 +67,9 @@
 
   {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
   <section class="section">
-
     <div class="container">
-
+      <h2>News and Updates</h2>
       <div class="grid-row">
-
-          <h2>News and Updates</h2>
-
           {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
           <div class="post-excerpt one-third">        
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
@@ -81,7 +77,6 @@
           <p>{{ newsArticle.summary }}</p>
           </div>
           {% endfor %}
-
       </div>
       <hr>
     </div>

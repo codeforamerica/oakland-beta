@@ -9,11 +9,14 @@
 
 .page-header {
 	display: block;
-	display: flex;
 	width: 100%;
 	position: relative;
 	margin-bottom: 2.5rem;
+}
 
+.multi-logo-wrap {
+	position: relative;
+	display: inline-block;
 	// This creates the green bar to the left of the logo
 	&:after {
 		content: "";
@@ -26,23 +29,11 @@
 	}
 }
 
-.multi-logo-wrap {
-	display: inline-block;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-
-	@include media($bp-md) {
-		flex-direction: row;
-	}
-}
-
 .site-logo-wrap {
 	display: inline-block;
   white-space: nowrap;
 	padding-top: 2.5rem;
 	position: relative;
-	flex-shrink: 0;
 
 	@include media($bp-md) {
 		width: auto;
@@ -94,17 +85,18 @@
 	// Search and Off Canvas menu button
 	// -----------------------------------
 	.header-actions {
-		align-self: center;
-		flex-shrink: 0;
-		margin-left: auto; // pushes it to the right inside flex container
+		
+		display: block;
+		width: 100%;
+		padding-top: 2.5rem;
 
 		@include media($bp-md) {
 			display: inline-block;
 			vertical-align: middle;
 			float: right;
 			width: auto;
-			padding-top: 2.5rem;
 			margin-bottom: 0;
+			margin-left: auto; // pushes it to the right inside flex container
 		}
 	}
 
@@ -113,7 +105,6 @@
 		background: transparent;
 		width: auto;
 		padding: 0;
-		display: none;
 		margin-bottom: 0;
 
 		@include media($bp-md) {
@@ -127,8 +118,11 @@
 
 		input {
 			border-color: $gray-lighter !important;
-			width: 17.1875rem;
+			max-width: none;
 			padding-right: 2.1875rem;
+			@include media($bp-md) {
+				width: 17.1875rem;
+			}
 		}
 
 		.search-icon {
@@ -140,21 +134,6 @@
 		}
 	}
 
-	.mobile-search {
-		display: inline-block;
-		margin-top: 2rem;
-		margin-bottom: 2rem;
-		width: 100%;
-
-		input {
-			width: 100%;
-			max-width: none;
-		}
-
-		@include media($bp-md) {
-			display: none;
-		}
-	}
 
 	.header-nav-button {
 		display: inline-block;

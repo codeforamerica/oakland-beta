@@ -2522,11 +2522,14 @@ img {
 
 .page-header {
   display: block;
-  display: flex;
   width: 100%;
   position: relative;
   margin-bottom: 2.5rem; }
-  .page-header:after {
+
+.multi-logo-wrap {
+  position: relative;
+  display: inline-block; }
+  .multi-logo-wrap:after {
     content: "";
     position: absolute;
     left: -1.25rem;
@@ -2535,21 +2538,11 @@ img {
     width: 2px;
     background-color: #4fbc26; }
 
-.multi-logo-wrap {
-  display: inline-block;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column; }
-  @media screen and (min-width: 48em) {
-    .multi-logo-wrap {
-      flex-direction: row; } }
-
 .site-logo-wrap {
   display: inline-block;
   white-space: nowrap;
   padding-top: 2.5rem;
-  position: relative;
-  flex-shrink: 0; }
+  position: relative; }
   @media screen and (min-width: 48em) {
     .site-logo-wrap {
       width: auto;
@@ -2590,24 +2583,23 @@ img {
         background-color: #4fbc26; } }
 
 .header-actions {
-  align-self: center;
-  flex-shrink: 0;
-  margin-left: auto; }
+  display: block;
+  width: 100%;
+  padding-top: 2.5rem; }
   @media screen and (min-width: 48em) {
     .header-actions {
       display: inline-block;
       vertical-align: middle;
       float: right;
       width: auto;
-      padding-top: 2.5rem;
-      margin-bottom: 0; } }
+      margin-bottom: 0;
+      margin-left: auto; } }
 
 .header-search {
   position: relative;
   background: transparent;
   width: auto;
   padding: 0;
-  display: none;
   margin-bottom: 0; }
   @media screen and (min-width: 48em) {
     .header-search {
@@ -2617,26 +2609,17 @@ img {
     margin-bottom: 0; }
   .header-search input {
     border-color: #f4f5f4 !important;
-    width: 17.1875rem;
+    max-width: none;
     padding-right: 2.1875rem; }
+    @media screen and (min-width: 48em) {
+      .header-search input {
+        width: 17.1875rem; } }
   .header-search .search-icon {
     position: absolute;
     right: 0.625rem;
     top: .8rem;
     color: #4fbc26;
     font-size: 1.0625rem; }
-
-.mobile-search {
-  display: inline-block;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  width: 100%; }
-  .mobile-search input {
-    width: 100%;
-    max-width: none; }
-  @media screen and (min-width: 48em) {
-    .mobile-search {
-      display: none; } }
 
 .header-nav-button {
   display: inline-block;
@@ -2920,19 +2903,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -425px; } }
+        background-position: 0px -196px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -695px; } }
+        background-position: 0px -261px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -724px; } }
+        background-position: 0px -715px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3243,7 +3226,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -681px; } }
+      background-position: 0px -392px; } }
 
 .previous-next-links {
   background-size: cover;

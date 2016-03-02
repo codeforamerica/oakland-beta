@@ -10,7 +10,7 @@
 
 return array(
 	'*' => array(
-		'devMode' => true
+		'devMode' => true,
         'maxUploadFileSize' => 104857600
 	),
 	'dev' => array(

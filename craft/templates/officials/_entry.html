@@ -33,10 +33,12 @@
     </div>
   </section>
 
+  {% set relatedInitiatives = craft.entries.section('initiatives').relatedTo(entry) %}
+  {% if relatedInitiatives | length > 0 %}
   <section class="section">
     <div class="container">
       <h2>Priorities</h2>
-      {% set relatedInitiatives = craft.entries.section('initiatives').relatedTo(entry) %}
+      
       {% if relatedInitiatives | length % 2 == 0 %}
       <div class="grid-row">
         {% for initiative in relatedInitiatives %}
@@ -61,6 +63,7 @@
       <hr>
     </div>
   </section>
+  {% endif %}
 
   {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
   <section class="section">

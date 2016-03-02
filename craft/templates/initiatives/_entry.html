@@ -35,6 +35,48 @@
 
   </section><!-- .subheader -->
 
+  {% set relatedReports = craft.entries.section('reports').relatedTo(entry) %}
+  {% if relatedReports | length > 0 %}
+  <section class="section">
+    <div class="container">
+      <h2>Reports</h2>
+      <div class="grid-row">
+        <div class="big-menu one-third">
+          {% for report in relatedReports %}
+          {% if loop.index % 3 == 1 %}
+          <a class="menu-item" href="{{ report.url }}">
+            <h3>{{ report.title }}</h3>
+            <p>{{report.reportSummary}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="big-menu one-third">
+          {% for report in relatedReports %}
+          {% if loop.index % 3 == 2 %}
+          <a class="menu-item" href="{{ report.url }}">
+            <h3>{{ report.title }}</h3>
+            <p>{{report.reportSummary}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="big-menu one-third">
+          {% for report in relatedReports %}
+          {% if loop.index % 3 == 0 %}
+          <a class="menu-item" href="{{ report.url }}">
+            <h3>{{ report.title }}</h3>
+            <p>{{report.reportSummary}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
   {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
   <section class="section">
 

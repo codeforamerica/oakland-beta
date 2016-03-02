@@ -38,7 +38,7 @@
         </nav>
       </div>
       <div class="grid-row">
-        <div class="hero-caption one-third">
+        <div class="hero-caption one-half">
           <p>{{ current_hero.caption }}</p>
         </div>
       </div>
@@ -115,7 +115,7 @@
         <aside class="one-third column-shift">
           <h5 class="aside-title">Other News (<a href="{{ siteUrl }}news">see all</a>)</h5>
           <ul class="list-no-style">
-            {% for entry in craft.entries.section('news').offset(1) %}
+            {% for entry in craft.entries.section('news').offset(1).limit(6) %}
             <li>
               <a class="other-news-link" href="{{ entry.url }}">{{ entry.title }}</a>
             </li>

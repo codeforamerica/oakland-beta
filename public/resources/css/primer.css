@@ -1540,7 +1540,8 @@ blockquote {
 .lead {
   font-size: 1.5rem;
   font-weight: 300;
-  color: #757773; }
+  color: #757773;
+  line-height: 1.5em; }
 
 .text-muted {
   color: #cfd0ce; }
@@ -2462,7 +2463,7 @@ aside.with-bg {
     font-size: 1rem; }
     @media screen and (min-width: 48em) {
       .subheader .hero-caption {
-        margin-left: 68.1222707424%; } }
+        margin-left: 51.0917030568%; } }
     .subheader .hero-caption p {
       margin-bottom: 0; }
 
@@ -2919,19 +2920,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -164px; } }
+        background-position: 0px -425px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -186px; } }
+        background-position: 0px -695px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -780px; } }
+        background-position: 0px -724px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3242,7 +3243,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -506px; } }
+      background-position: 0px -681px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3542,22 +3543,29 @@ a.btn-small {
 .business .section-vignette-3:before {
   background-image: url("../img/shan_dong.jpg"); }
 
-h1 + .lead {
+article h1 {
+  margin-top: 1em; }
+
+article h1 + .lead {
   margin-top: -1.5em;
   margin-bottom: 2em; }
 
-.cta-section {
+article h1 + .post-data {
+  margin-top: -2em;
+  margin-bottom: 2em; }
+
+article .cta-section {
   border-bottom: 4px solid #f4f5f4;
   padding-bottom: 3em;
   margin-top: 1em;
   margin-bottom: 3em; }
-  .cta-section .cta-block {
+  article .cta-section .cta-block {
     margin-bottom: 0;
     padding-right: 1em; }
-    .cta-section .cta-block .btn {
+    article .cta-section .cta-block .btn {
       width: 100%;
       text-align: center; }
-    .cta-section .cta-block p:last-child {
+    article .cta-section .cta-block p:last-child {
       margin-bottom: 0; }
 
 .news h1 {

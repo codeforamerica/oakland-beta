@@ -73,7 +73,7 @@
 
 	.hero-caption {
 		@include media($bp-md) {
-			@include shift(8);
+			@include shift(6);
 		}
 		
 		text-align: right;

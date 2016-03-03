@@ -16,7 +16,7 @@ return array(
 	),
 	'live' => array(
 		'siteUrl' => array(
-			'en' => 'https://beta.oaklandca.gov/',
+			'en_us' => 'https://beta.oaklandca.gov/',
 			'es' => 'https://beta.oaklandca.gov/es/',
 			'ch' => 'https://beta.oaklandca.gov/ch/'
 		)
@@ -24,7 +24,9 @@ return array(
 
 	'dev' => array(
 		'siteUrl' => array(
-			'en' => 'http://localhost:8888/oakland-beta/public/'
+			'en_us' => 'http://localhost:8888/oakland-beta/public/',
+			'es' => 'http://localhost:8888/oakland-beta/public/es/',
+			'ch' => 'http://localhost:8888/oakland-beta/public/ch/'
 		)
 	)
 	

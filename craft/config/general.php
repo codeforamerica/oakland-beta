@@ -12,7 +12,7 @@ return array(
 	'*' => array(
 		'devMode' => true,
         'maxUploadFileSize' => 104857600,
-        'omitScriptNameInUrls' => false,
+        'omitScriptNameInUrls' => true,
         'usePathInfo' => true
 	),
 

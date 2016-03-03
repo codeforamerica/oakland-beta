@@ -11,7 +11,8 @@
 return array(
 	'*' => array(
 		'devMode' => true,
-        'maxUploadFileSize' => 104857600
+        'maxUploadFileSize' => 104857600,
+        'omitScriptNameInUrls' => true
 	),
 
 	'live' => array(

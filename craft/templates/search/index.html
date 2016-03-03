@@ -9,24 +9,127 @@
     {% set query = craft.request.getParam('q') %}
     {% set entries = craft.entries.search(query).order('score') %}
 
-    <div class="container">
-      <nav class="breadcrumbs">
-        <a href="{{ siteUrl }}">Oakland</a>
-        <span>Search Results</span>
-      </nav>
-    </div>
+    <nav class="breadcrumbs">
+      <a href="{{ siteUrl }}">Oakland</a>
+      <span>Search Results</span>
+    </nav>
 
     <h1>{{ entries | length }} pages match your search for <strong>{{ query }}</strong></h1>
 
     {% if entries|length %}
-        <div class="big-menu">
-        {% for entry in entries %}
-          <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-        {% endfor %}
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>Top Hit</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            <a class="menu-item" href="{{ entries.first().url }}">{{ entries.first().title }} ({{ entries.first().type}})</a>
+          </div>
         </div>
+        
+        {% if entries.section('services') | length > 0 %}
+        <hr>
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>Services and Resources</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            {% for entry in entries.section('services') %}
+            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+
+        {% if entries.section('forms') | length > 0 %}
+        <hr>
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>Forms</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            {% for entry in entries.section('forms') %}
+            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if entries.section('initiatives') | length > 0 %}
+        <hr>
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>Initiatives</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            {% for entry in entries.section('initiatives') %}
+            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if entries.section('reports') | length > 0 %}
+        <hr>
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>Reports</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            {% for entry in entries.section('reports') %}
+            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if entries.section('departments') | length > 0 %}
+        <hr>
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>Departments</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            {% for entry in entries.section('departments') %}
+            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if entries.section('officials') | length > 0 %}
+        <hr>
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>Elected Officials</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            {% for entry in entries.section('officials') %}
+            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if entries.section('news') | length > 0 %}
+        <hr>
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>News and Updates</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            {% for entry in entries.section('news') %}
+            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
     {% else %}
         <p>Your search for “{{ query }}” didn’t return any results.</p>
     {% endif %}
+
+
   </div>
 
 </main>

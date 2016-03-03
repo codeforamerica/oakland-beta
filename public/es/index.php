@@ -21,10 +21,10 @@ switch ($_SERVER['HTTP_HOST'])
 }
 
 // Path to your craft/ folder
-$craftPath = '../craft';
+$craftPath = '../../craft';
 
-// Tell Craft to serve the English content
-define('CRAFT_LOCALE', 'en_us');
+// Tell Craft to serve the Spanish content
+define('CRAFT_LOCALE', 'es');
 
 // Do not edit below this line
 $path = rtrim($craftPath, '/').'/app/index.php';

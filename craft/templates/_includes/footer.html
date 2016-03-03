@@ -58,7 +58,7 @@
             <a href="#"><small>Terms of Use</small></a>
           </div>
           <a href="#" class="logo-wrap">
-            <img class="site-logo" src="{{ siteUrl }}/resources/img/coo-logo-black.svg" onerror="this.src='{{ siteUrl }}/resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+            <img class="site-logo" src="{{ craft.config.rootUrl }}/resources/img/coo-logo-black.svg" onerror="this.src='{{ craft.config.rootUrl }}/resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
           </a>
         </div>
       </div>
@@ -66,14 +66,14 @@
 
     <span class="js-media-query-med"></span>
 
-    <script src="{{ siteUrl }}/resources/js/jquery.min.js"></script>
+    <script src="{{ craft.config.rootUrl }}/resources/js/jquery.min.js"></script>
     <script>
       if ( ! window.jQuery ) {
-        document.write('script src="{{ siteUrl }}/resources/js/jquery.min.js"><\/script>');
+        document.write('script src="{{ craft.config.rootUrl }}/resources/js/jquery.min.js"><\/script>');
       }
     </script>
-    <script src="{{ siteUrl }}/resources/js/jquery.waypoints.min.js"></script>
-    <script src="{{ siteUrl }}/resources/js/oakland.js"></script>
+    <script src="{{ craft.config.rootUrl }}/resources/js/jquery.waypoints.min.js"></script>
+    <script src="{{ craft.config.rootUrl }}/resources/js/oakland.js"></script>
 
     <!-- Google Analytics -->
     <script>

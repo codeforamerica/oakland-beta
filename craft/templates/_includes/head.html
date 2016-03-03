@@ -9,12 +9,12 @@
   {% if entry.title is defined %}{{ entry.title }} &middot; {% endif %}  City of Oakland
 </title>
 
-<link rel="stylesheet" href="{{ siteUrl }}resources/css/primer.css">
+<link rel="stylesheet" href="{{ craft.config.rootUrl }}resources/css/primer.css">
 <link rel="stylesheet" href="//cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
 <!-- Favicons -->
-<link rel="apple-touch-icon-precomposed" href="{{ siteUrl }}resources/img/apple-touch-icon-precomposed.png">
-<link rel="icon" href="{{siteUrl}}/resources/img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" href="{{ craft.config.rootUrl }}resources/img/apple-touch-icon-precomposed.png">
+<link rel="icon" href="{{ craft.config.rootUrl }}resources/img/favicon.ico" type="image/x-icon">
 
 <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>

@@ -28,7 +28,7 @@
     <div class="container">
       <div class="grid-row">
         <div class="section-info two-thirds">
-          <h1>Welcome to the City of Oakland</h1>
+          <h1>{{ "Welcome to Oakland" | translate }}</h1>
           <p>{{ entry.body }}</p>
         </div>
         <nav class="section-menu one-third">
@@ -136,7 +136,7 @@
       <h2>City of Oakland Mayor</h2>
       <div class="grid-row">
         <div class="one-third">
-          <img src="resources/img/mayor.jpg" alt="Mayor Libby Schaaf">
+          <img src="{{ craft.config.rootUrl }}resources/img/mayor.jpg" alt="Mayor Libby Schaaf">
         </div>
         <div class="two-thirds">
           <a href="{{ siteUrl}}officials/libby-schaaf">Mayor Libby Schaaf</a><br>

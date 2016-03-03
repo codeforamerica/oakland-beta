@@ -14,20 +14,23 @@ return array(
         'maxUploadFileSize' => 104857600,
         'omitScriptNameInUrls' => true
 	),
+
 	'live' => array(
 		'siteUrl' => array(
 			'en_us' => 'https://beta.oaklandca.gov/',
 			'es' => 'https://beta.oaklandca.gov/es/',
-			'ch' => 'https://beta.oaklandca.gov/ch/'
-		)
+			'zh' => 'https://beta.oaklandca.gov/zh/'
+		),
+		'rootUrl' => 'https://beta.oaklandca.gov/'
 	),
 
 	'dev' => array(
 		'siteUrl' => array(
 			'en_us' => 'http://localhost:8888/oakland-beta/public/',
 			'es' => 'http://localhost:8888/oakland-beta/public/es/',
-			'ch' => 'http://localhost:8888/oakland-beta/public/ch/'
-		)
+			'zh' => 'http://localhost:8888/oakland-beta/public/zh/'
+		),
+		'rootUrl' => 'http://localhost:8888/oakland-beta/public/'
 	)
 	
 );

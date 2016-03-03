@@ -24,7 +24,7 @@ switch ($_SERVER['HTTP_HOST'])
 $craftPath = '../../craft';
 
 // Tell Craft to serve the Chinese content
-define('CRAFT_LOCALE', 'es');
+define('CRAFT_LOCALE', 'zh');
 
 // Do not edit below this line
 $path = rtrim($craftPath, '/').'/app/index.php';

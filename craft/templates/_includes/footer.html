@@ -1,6 +1,6 @@
 <footer class="site-footer" role="contentinfo">
       <div class="container">
-        <h4>Services and Resources</h4>
+        <h4>{{"Services and Resources" | translate }}</h4>
         <div class="grid-row">
           <ul class="footer-links list-no-style one-third">
             {% for entry in craft.entries.section('services').level(1) %}
@@ -25,10 +25,10 @@
           </ul>
         </div>
         <hr>
-        <h4>Oakland Government</h4>
+        <h4>{{"Oakland Government" | translate }}</h4>
         <div class="grid-row">
           <ul class="footer-links list-no-style one-third">
-            <li><a href="{{siteUrl}}officials">Elected Officials</a></li>
+            <li><a href="{{siteUrl}}officials">{{"Elected Officials" | translate }}</a></li>
             {% for entry in craft.entries.section('departments') %}
             {% if loop.index % 3 == 0 %}
             <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
@@ -53,9 +53,9 @@
         <hr>
         <div class="footer-omega">
           <div class="one-third right column-last">
-            <small>&copy; {{ now | date("Y") }} City of Oakland</small><br>
-            <a href="#"><small>Privacy Policy</small></a>
-            <a href="#"><small>Terms of Use</small></a>
+            <small>&copy; {{ now | date("Y") }} {{"City of Oakland" | translate }}</small><br>
+            <a href="#"><small>{{"Privacy Policy" | translate }}</small></a>
+            <a href="#"><small>{{"Terms of Use" | translate }}</small></a>
           </div>
           <a href="#" class="logo-wrap">
             <img class="site-logo" src="{{ craft.config.rootUrl }}/resources/img/coo-logo-black.svg" onerror="this.src='{{ craft.config.rootUrl }}/resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />

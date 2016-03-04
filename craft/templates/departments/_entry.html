@@ -10,8 +10,8 @@
     <div class="breadcrumb-wrap">
 
       <nav class="breadcrumbs">
-        <a href="{{ siteUrl }}">Oakland</a>
-        <a href="#">Departments</a>
+        <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+        <a href="#">{{"Departments" | translate }}</a>
         <span>{{ entry.title }}</span>
       </nav>
 
@@ -27,10 +27,10 @@
         </div>
 
         <nav class="section-menu one-fourth">
-          <a class="menu-item" href="#section-1">Contact Us</a>
-          <a class="menu-item" href="#section-2">Services and Resources</a>
-          <a class="menu-item" href="#section-3">News and Updates</a>
-          <a class="menu-item" href="#section-4">Our Management</a>
+          <a class="menu-item" href="#section-1">{{"Contact Us" | translate}}</a>
+          <a class="menu-item" href="#section-2">{{"Services and Resources" | translate }}</a>
+          <a class="menu-item" href="#section-3">{{"News and Updates" | translate }}</a>
+          <a class="menu-item" href="#section-4">{{"Our Management" | translate }}</a>
         </nav>
 
       </div><!-- .grid-row -->
@@ -41,21 +41,21 @@
 
   <section id="section-1" class="section">
     <div class="container">
-      <h2>Contact Us</h2>
+      <h2>{{"Contact Us" | translate }}</h2>
       <div class="grid-row">
         <div class="one-half">
-          <h4>Address</h4>
+          <h4>{{"Address" | translate }}</h4>
           <p>{{entry.departmentAddress}}</p>
           <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.departmentAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
         </div>
         <div class="column-shift five-twelfths">
           {% if entry.departmentEmail|length > 0 %}
-          <h4>Email</h4>
+          <h4>{{"Email" | translate }}</h4>
           <p>{{entry.departmentEmail}}</p>
           {% endif %}
-          <h4>Phone Numbers</h4>
+          <h4>{{"Phone Numbers" | translate }}</h4>
           <p>{{entry.departmentPhoneNumber}}</p>
-          <h4>Hours</h4>
+          <h4>{{"Hours" | translate }}</h4>
           <p>{{entry.departmentHours}}</p>
         </div>
       </div>
@@ -66,7 +66,7 @@
   {% if entry.relatedServices | length > 0 %}
   <section id="section-2" class="section">
     <div class="container">
-      <h2>Services and Resources</h2>
+      <h2>{{"Services and Resources" | translate }}</h2>
       <div class="grid-row">
         <div class="big-menu one-third">
           {% for entry in entry.relatedServices %}
@@ -108,7 +108,7 @@
   <section id="section-3" class="section">
     <div class="container">
       <div class="grid-row">
-          <h2>News and Updates</h2>
+          <h2>{{"News and Updates" | translate }}</h2>
           {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
           <div class="post-excerpt one-third">        
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
@@ -124,7 +124,7 @@
 
   <section id="section-4" class="section">
     <div class="container">
-      <h2>Our Management</h2>
+      <h2>{{"Our Management" | translate }}</h2>
       <div class="grid-row">
         {% if entry.departmentHeadPortrait|length > 0 %}
         <div class="one-third">

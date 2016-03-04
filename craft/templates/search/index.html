@@ -10,16 +10,16 @@
     {% set entries = craft.entries.search(query).order('score') %}
 
     <nav class="breadcrumbs">
-      <a href="{{ siteUrl }}">Oakland</a>
-      <span>Search Results</span>
+      <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+      <span>{{"Search Results" | translate }}</span>
     </nav>
 
-    <h1>{{ entries | length }} pages match your search for <strong>{{ query }}</strong></h1>
+    <h1>{{ entries | length }} {{"pages match your search for" | translate }} <strong>{{ query }}</strong></h1>
 
     {% if entries|length %}
         <div class="grid-row big-menu">
           <div class="one-fourth">
-            <h5>Top Hit</h5>
+            <h5>{{"Top Hit" | translate}}</h5>
           </div>
           <div class="two-thirds column-shift">
             <a class="menu-item" href="{{ entries.first().url }}">{{ entries.first().title }} ({{ entries.first().type.name }})</a>
@@ -30,7 +30,7 @@
         <hr>
         <div class="grid-row big-menu">
           <div class="one-fourth">
-            <h5>Services and Resources</h5>
+            <h5>{{"Services and Resources" | translate }}</h5>
           </div>
           <div class="two-thirds column-shift">
             {% for entry in entries.section('services') %}
@@ -45,7 +45,7 @@
         <hr>
         <div class="grid-row big-menu">
           <div class="one-fourth">
-            <h5>Forms</h5>
+            <h5>{{"Forms" | translate }}</h5>
           </div>
           <div class="two-thirds column-shift">
             {% for entry in entries.section('forms') %}
@@ -59,7 +59,7 @@
         <hr>
         <div class="grid-row big-menu">
           <div class="one-fourth">
-            <h5>Initiatives</h5>
+            <h5>{{"Initiatives" | translate }}</h5>
           </div>
           <div class="two-thirds column-shift">
             {% for entry in entries.section('initiatives') %}
@@ -73,7 +73,7 @@
         <hr>
         <div class="grid-row big-menu">
           <div class="one-fourth">
-            <h5>Reports</h5>
+            <h5>{{"Reports" | translate }}</h5>
           </div>
           <div class="two-thirds column-shift">
             {% for entry in entries.section('reports') %}
@@ -87,7 +87,7 @@
         <hr>
         <div class="grid-row big-menu">
           <div class="one-fourth">
-            <h5>Departments</h5>
+            <h5>{{"Departments" | translate }}</h5>
           </div>
           <div class="two-thirds column-shift">
             {% for entry in entries.section('departments') %}
@@ -101,7 +101,7 @@
         <hr>
         <div class="grid-row big-menu">
           <div class="one-fourth">
-            <h5>Elected Officials</h5>
+            <h5>{{"Elected Officials" | translate }}</h5>
           </div>
           <div class="two-thirds column-shift">
             {% for entry in entries.section('officials') %}
@@ -115,7 +115,7 @@
         <hr>
         <div class="grid-row big-menu">
           <div class="one-fourth">
-            <h5>News and Updates</h5>
+            <h5>{{"News and Updates" | translate }}</h5>
           </div>
           <div class="two-thirds column-shift">
             {% for entry in entries.section('news') %}
@@ -126,7 +126,7 @@
         {% endif %}
 
     {% else %}
-        <p>Your search for “{{ query }}” didn’t return any results.</p>
+        <p>{{"Your search for" | translate }} “{{ query }}” {{"didn’t return any results." | translate }}</p>
     {% endif %}
 
 

@@ -8,8 +8,8 @@
   <section class="section">
     <div class="container">
       <nav class="breadcrumbs">
-        <a href="{{ siteUrl }}">Oakland</a>
-        <a href="{{siteUrl}}officials">Elected Officials</a>
+        <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+        <a href="{{siteUrl}}officials">{{"Elected Officials" | translate }}</a>
         <span>{{ entry.title }}</span>
       </nav>
       <div class="grid-row official-header">
@@ -25,7 +25,7 @@
           <div class="connect-icons">
             {% if entry.facebookProfile %}<a href="{{entry.facebookProfile}}">Facebook</a>{% endif %}
             {% if entry.twitterProfile %}<a href="{{entry.twitterProfile}}">Twitter</a>{% endif %}
-            {% if entry.email %}<a href="{{entry.email}}">Email</a>{% endif %}
+            {% if entry.email %}<a href="{{entry.email}}">{{"Email" | translate }}</a>{% endif %}
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
   {% if relatedInitiatives | length > 0 %}
   <section class="section">
     <div class="container">
-      <h2>Priorities</h2>
+      <h2>{{"Priorities" | translate }}</h2>
       
       {% if relatedInitiatives | length % 2 == 0 %}
       <div class="grid-row">
@@ -68,7 +68,7 @@
   {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
   <section class="section">
     <div class="container">
-      <h2>News and Updates</h2>
+      <h2>{{"News and Updates" | translate }}</h2>
       <div class="grid-row">
           {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
           <div class="post-excerpt one-third"> 
@@ -85,21 +85,21 @@
 
   <section class="section">
     <div class="container">
-      <h2>Get in Touch</h2>
+      <h2>{{"Get in Touch" | translate }}</h2>
       <div class="grid-row">
         <div class="one-half">
-          <h4>Address</h4>
+          <h4>{{"Address" | translate }}</h4>
           <p>{{entry.physicalAddress}}</p>
           <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.physicalAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
         </div>
         <div class="column-shift five-twelfths">
           {% if entry.email|length > 0 %}
-          <h4>Email</h4>
+          <h4>{{"Email" | translate }}</h4>
           <p>{{entry.email}}</p>
           {% endif %}
-          <h4>Phone Numbers</h4>
+          <h4>{{"Phone Numbers" | translate }}</h4>
           <p>{{entry.phoneNumber}}</p>
-          <h4>Hours</h4>
+          <h4>{{"Hours" | translate }}</h4>
           <p>{{entry.availability}}</p>
         </div>
       </div>
@@ -111,7 +111,7 @@
     <div class="container">
       <div class="grid-row">
         <div class="one-third">
-          <h2>About {{ entry.title }}</h2>
+          <h2>{{"About" | translate }} {{ entry.title }}</h2>
         </div>
         <div class="two-thirds">
           {{ entry.bio }}

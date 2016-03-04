@@ -37,13 +37,13 @@
               </a>
             </div>
             {% else %}
-            <h3>This section is currently empty.</h3>
+            <h3>{{"This section is currently empty." | translate }}</h3>
             {% endfor %}
           </nav>
         </div>
         {% if entry.mostPopularLinks|length > 0 %}
         <aside class="column-shift five-twelfths with-bg">
-          <h5>Popular Links</h5>
+          <h5>{{"Most Popular" | translate }}</h5>
           <ol>
           {% for link in entry.mostPopularLinks %}
               <li><a href="{{ link.url }}">{{ link.title }}</a></li>

@@ -12,8 +12,8 @@
     <div class="breadcrumb-wrap">
 
       <nav class="breadcrumbs">
-        <a href="{{ siteUrl }}">Oakland</a>
-        <a href="#">Initiatives</a>
+        <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+        <a href="#">{{"Initiatives" | translate}}</a>
         <span>{{ entry.title }}</span>
       </nav>
 
@@ -24,7 +24,7 @@
       <div class="grid-row">
 
         <div class="section-info two-thirds">
-          <p class="initiative-subtitle">City Initiative</p>
+          <p class="initiative-subtitle">{{"City Initiative" | translate }}</p>
           <h1>{{ entry.title }}</h1>
           <p>{{ entry.initiativeSummary }}</p>
         </div>
@@ -39,7 +39,7 @@
   {% if relatedReports | length > 0 %}
   <section class="section">
     <div class="container">
-      <h2>Reports</h2>
+      <h2>{{"Reports" | translate }}</h2>
       <div class="grid-row">
         <div class="big-menu one-third">
           {% for report in relatedReports %}
@@ -84,7 +84,7 @@
 
       <div class="grid-row">
 
-          <h2>News and Updates</h2>
+          <h2>{{"News and Updates" | translate }}</h2>
 
           {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
           <div class="post-excerpt one-third">   
@@ -106,7 +106,7 @@
   {% if entry.initiativeRelatedServices | length > 0 %}
   <section class="section">
     <div class="container">
-      <h2>Services and Resources</h2>
+      <h2>{{"Services and Resources" | translate }}</h2>
       <div class="grid-row">
         <div class="big-menu one-third">
           {% for entry in entry.initiativeRelatedServices %}

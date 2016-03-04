@@ -29,12 +29,12 @@
       <div class="grid-row">
         <div class="section-info two-thirds">
           <h1>{{ "Welcome to Oakland" | translate }}</h1>
-          <p>{{ entry.body }}</p>
+          <p>{{ "The best place to find official services and information from the City of Oakland." | translate }}</p>
         </div>
         <nav class="section-menu one-third">
-          <a class="menu-item" href="#section-1">Services and Resources</a>
-          <a class="menu-item" href="#section-2">City News and Updates</a>
-          <a class="menu-item" href="#section-4">City of Oakland Mayor</a>
+          <a class="menu-item" href="#section-1">{{ "Services and Resources" | translate }}</a>
+          <a class="menu-item" href="#section-2">{{ "News and Updates" | translate }}</a>
+          <a class="menu-item" href="#section-4">{{ "City of Oakland Mayor" | translate }}</a>
         </nav>
       </div>
       <div class="grid-row">
@@ -50,7 +50,7 @@
 
   <section id="section-1" class="section">
     <div class="container">
-      <h2>Services and Resources</h2>
+      <h2>{{"Services and Resources" | translate }}</h2>
       <div class="grid-row">
         <div class="two-thirds">
           {% for entry in craft.entries.section('services').level(1) %}
@@ -80,7 +80,7 @@
         </div>
         
         <aside class="one-third with-bg">
-          <h5>Most Popular</h5>
+          <h5>{{"Most Popular" | translate }}</h5>
           <ol>
             {% for service in mostPopularServices.mostPopularServices %}
             <li><a href="{{ service.url }}">{{ service.title }}</a></li>
@@ -99,7 +99,7 @@
       <div class="grid-row">
 
         <div class="seven-twelfths">
-          <h2>City News and Updates</h2>
+          <h2>{{"News and Updates" | translate }}</h2>
           {% for newsArticle in craft.entries.section('news').limit(1) %}
           <div class="post-excerpt">
             {% if newsArticle.mainImage | length > 0 %}
@@ -113,7 +113,7 @@
         </div>
 
         <aside class="one-third column-shift">
-          <h5 class="aside-title">Other News (<a href="{{ siteUrl }}news">see all</a>)</h5>
+          <h5 class="aside-title">{{"Other News" | translate }} (<a href="{{ siteUrl }}news">{{"see all" | translate }}</a>)</h5>
           <ul class="list-no-style">
             {% for entry in craft.entries.section('news').offset(1).limit(6) %}
             <li>
@@ -133,7 +133,7 @@
 
   <section id="section-4" class="section">
     <div class="container">
-      <h2>City of Oakland Mayor</h2>
+      <h2>{{"City of Oakland Mayor" | translate }}</h2>
       <div class="grid-row">
         <div class="one-third">
           <img src="{{ craft.config.rootUrl }}resources/img/mayor.jpg" alt="Mayor Libby Schaaf">

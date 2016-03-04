@@ -1,5 +1,5 @@
   <nav class="breadcrumbs">
-    <a href="{{ siteUrl }}">Oakland</a>
+    <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
     {% for ancestor in entry.getAncestors() %}
     <span><a href="{{ ancestor.url }}">{{ ancestor.title }}</a></span>
     {% endfor %}

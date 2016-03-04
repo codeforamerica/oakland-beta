@@ -4,10 +4,10 @@
   <div class="beta-banner">
     <div class="container">
       <div class="grid-row">
-        <div class="one-half">This site is a work in progress.</div>
+        <div class="one-half">{{"This site is a work in progress." | translate }}</div>
         <div class="one-half">
-          <a href="http://www2.oaklandnet.com">Official Website</a>
-          <a href="{{ craft.config.rootUrl }}digital-playbook/">Learn More</a>
+          <a href="http://www2.oaklandnet.com">{{"Official Website" | translate }}</a>
+          <a href="{{ craft.config.rootUrl }}digital-playbook/">{{"Learn More" | translate }}</a>
         </div>
       </div>
 
@@ -25,7 +25,7 @@
         <div class="header-actions">
           <form role="search" class="header-search" method="get" action="{{ url('search/') }}">
             <label>
-              <input type="text" name="q" placeholder="How can we help?" title="Search for:">
+              <input type="text" name="q" placeholder="{{'How can we help?' | translate }}" title="Search for:">
             </label>
             <span class="lnr lnr-magnifier search-icon"></span>
           </form>

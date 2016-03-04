@@ -8,8 +8,8 @@
 
       <div class="container">
         <nav class="breadcrumbs">
-          <a href="{{ siteUrl }}">Oakland</a>
-          <span><a href="#">Forms</a></span>
+          <a href="{{ siteUrl }}">{{"Oakland" | translate}}</a>
+          <span><a href="#">{{"Forms" | translate }}</a></span>
           <span>{{ entry.title }}</span>
         </nav>
       </div>
@@ -18,7 +18,7 @@
         <h1>{{ entry.title }}</h1>
         <div class="grid-row">
           <div class="two-thirds">
-            <a href="{{entry.formPdf.first().url}}" class="btn"><span class="lnr lnr-download"></span> Download the Form</a>
+            <a href="{{entry.formPdf.first().url}}" class="btn"><span class="lnr lnr-download"></span> {{"Download the Form" | translate}}</a>
           </div>
         </div>
         <div class="grid-row">

@@ -134,6 +134,26 @@
 		}
 	}
 
+	.header-langauge-switcher {
+		display: inline-block;
+		vertical-align: middle;
+		margin-top: 1em;
+
+		@include media($bp-md) {
+			margin-top: 0;
+		}
+
+		a {
+			color: $color-text-body;
+			font-size: $font-size-small;
+			margin-right: 1em;
+			@include media($bp-md) {
+				margin-right: 0;
+				margin-left: 1em;
+			}
+		}
+	}
+
 
 	.header-nav-button {
 		display: inline-block;

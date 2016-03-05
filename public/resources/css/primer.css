@@ -2621,6 +2621,22 @@ img {
     color: #4fbc26;
     font-size: 1.0625rem; }
 
+.header-langauge-switcher {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 1em; }
+  @media screen and (min-width: 48em) {
+    .header-langauge-switcher {
+      margin-top: 0; } }
+  .header-langauge-switcher a {
+    color: #404040;
+    font-size: 1rem;
+    margin-right: 1em; }
+    @media screen and (min-width: 48em) {
+      .header-langauge-switcher a {
+        margin-right: 0;
+        margin-left: 1em; } }
+
 .header-nav-button {
   display: inline-block;
   vertical-align: middle;
@@ -2903,19 +2919,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -754px; } }
+        background-position: 0px -552px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -392px; } }
+        background-position: 0px -237px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -455px; } }
+        background-position: 0px -544px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3226,7 +3242,7 @@ a.btn-small {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -780px; } }
+      background-position: 0px -683px; } }
 
 .previous-next-links {
   background-size: cover;

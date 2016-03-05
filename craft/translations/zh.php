@@ -3,7 +3,7 @@
 return array(
 	## General
 	"Oakland" => "奥克兰",
-	"City of Oakland" => "Ciudad de Oakland",
+	"City of Oakland" => "奥克兰市",
 	"Departments" => "部门",
 	"News and Updates" => "新闻与更新",
 	"Services and Resources" => "服务和资源",

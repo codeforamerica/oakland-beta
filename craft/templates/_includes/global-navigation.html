@@ -31,13 +31,13 @@
           </form>
           <div class="header-langauge-switcher">
             {% if craft.locale != 'en_us' %}
-            <a href="{{ craft.config.rootUrl }}">English</a>
+            <a href="{{ craft.entries.id(entry.id).locale('en_us').first().getUrl() }} ">English</a>
             {% endif %}
             {% if craft.locale != 'es' %}
-            <a href="{{ craft.config.rootUrl }}es/">Español</a>
+            <a href="{{ craft.entries.id(entry.id).locale('es').first().getUrl() }}">Español</a>
             {% endif %}
             {% if craft.locale != 'zh' %}
-            <a href="{{ craft.config.rootUrl }}zh/">中文</a>
+            <a href="{{ craft.entries.id(entry.id).locale('zh').first().getUrl() }}">中文</a>
             {% endif %}
           </div>
         </div>

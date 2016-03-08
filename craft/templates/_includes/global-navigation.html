@@ -30,13 +30,13 @@
             <span class="lnr lnr-magnifier search-icon"></span>
           </form>
           <div class="header-langauge-switcher">
-            {% if craft.locale != 'en_us' %}
+            {% if craft.locale != 'en_us' and craft.entries.id(entry.id).locale('en_us') %}
             <a href="{{ craft.entries.id(entry.id).locale('en_us').first().getUrl() }} ">English</a>
             {% endif %}
-            {% if craft.locale != 'es' %}
+            {% if craft.locale != 'es' and craft.entries.id(entry.id).locale('es') %}
             <a href="{{ craft.entries.id(entry.id).locale('es').first().getUrl() }}">Español</a>
             {% endif %}
-            {% if craft.locale != 'zh' %}
+            {% if craft.locale != 'zh' and craft.entries.id(entry.id).locale('zh') %}
             <a href="{{ craft.entries.id(entry.id).locale('zh').first().getUrl() }}">中文</a>
             {% endif %}
           </div>

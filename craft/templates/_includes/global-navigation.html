@@ -29,18 +29,17 @@
             </label>
             <span class="lnr lnr-magnifier search-icon"></span>
           </form>
-          {{ craft.entries.id(entry.id).locale('en_us') | length }}
 
           <div class="header-langauge-switcher">
-            {% if craft.locale != 'en_us' and craft.entries.id(entry.id).locale('en_us') | length > 0 %}
-            <a href="{{ craft.entries.id(entry.id).locale('en_us').first().getUrl() }} ">English</a>
+          {% for locale in craft.i18n.getSiteLocales() %}
+            {% if craft.locale != locale %}
+              {% if craft.entries.id(entry.id).locale(locale.id) | length > 0 %}
+              <a href="{{ craft.entries.id(entry.id).locale(locale.id).first().getUrl() }}">{{ craft.config.currentLgg[locale.id] }}</a>
+              {% else %}
+              <a href="{{ craft.config.siteUrl[locale.id] }} ">{{ craft.config.currentLgg[locale.id] }}</a>
+              {% endif %}
             {% endif %}
-            {% if craft.locale != 'es' and craft.entries.id(entry.id).locale('es') | length > 0 %}
-            <a href="{{ craft.entries.id(entry.id).locale('es').first().getUrl() }}">Español</a>
-            {% endif %}
-            {% if craft.locale != 'zh' and craft.entries.id(entry.id).locale('zh') | length > 0 %}
-            <a href="{{ craft.entries.id(entry.id).locale('zh').first().getUrl() }}">中文</a>
-            {% endif %}
+          {% endfor %}
           </div>
         </div>
       </header>

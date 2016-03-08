@@ -13,7 +13,12 @@ return array(
 		'devMode' => true,
         'maxUploadFileSize' => 104857600,
         'omitScriptNameInUrls' => true,
-        'usePathInfo' => true
+        'usePathInfo' => true,
+        'currentLgg' => array(
+                'en_us' => 'English',
+                'es'    => 'Español',
+                'zh'    => '中文'
+            ),
 	),
 
 	'live' => array(

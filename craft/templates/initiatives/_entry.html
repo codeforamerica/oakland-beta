@@ -149,6 +149,21 @@
   </section>
   {% endif %}
 
+  {% if entry.initiativeAbout %}
+  <section class="section">
+    <div class="container">
+      <div class="grid-row">
+        <div class="one-third">
+          <h2>{{"About" | translate }} {{ entry.title }}</h2>
+        </div>
+        <div class="two-thirds">
+          {{ entry.initiativeAbout }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
 </main>
 
 {% endblock %}

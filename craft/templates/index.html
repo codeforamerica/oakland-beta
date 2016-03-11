@@ -132,16 +132,19 @@
   </section>
 
   <section id="section-4" class="section">
-    <div class="container">
+    {% set mayor = craft.entries.slug('libby-schaaf').first() %}
+    <div class="container official">
       <h2>{{"City of Oakland Mayor" | translate }}</h2>
       <div class="grid-row">
         <div class="one-third">
-          <img src="{{ craft.config.rootUrl }}resources/img/mayor.jpg" alt="Mayor Libby Schaaf">
+          <div class="official-portrait">
+            <img class="official-portrait" src="{{ mayor.portrait.first().url }}" alt="{{ mayor.portrait.first().title }}">
+          </div>
         </div>
-        <div class="two-thirds">
-          <a href="{{ siteUrl}}officials/libby-schaaf">Mayor Libby Schaaf</a><br>
-          <p>Oakland City Council</p>
-          <p>She is an American Public Works Association Leadership Fellow with more than 30 years of public and private sector experience, including the past 22 years with the City of Oakland.</p>
+        <div class="seven-twelfths column-shift">
+          <h3 class="official-name"><a href="{{ siteUrl}}officials/libby-schaaf">{{ mayor.title }}</a></h3>
+          <p class="official-job-title">{{ mayor.jobTitle }}</p>
+          <p class="official-vision-statement">{{ mayor.visionStatement }}</p>
         </div>
       </div>
     </div>

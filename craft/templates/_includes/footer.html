@@ -58,7 +58,13 @@
             <a href="#"><small>{{"Terms of Use" | translate }}</small></a>
           </div>
           <a href="#" class="logo-wrap">
-            <img class="site-logo" src="{{ craft.config.rootUrl }}/resources/img/coo-logo-black.svg" onerror="this.src='{{ craft.config.rootUrl }}/resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+            {% if craft.locale == 'en_us' %}
+            <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-black.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+            {% elseif craft.locale == 'es' %}
+            <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-spanish.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+            {% elseif craft.locale == 'zh' %}
+            <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-chinese.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+            {% endif %}
           </a>
         </div>
       </div>

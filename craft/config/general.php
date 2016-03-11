@@ -10,7 +10,6 @@
 
 return array(
 	'*' => array(
-		'devMode' => true,
         'maxUploadFileSize' => 104857600,
         'omitScriptNameInUrls' => true,
         'usePathInfo' => true
@@ -26,6 +25,7 @@ return array(
 	),
 
 	'dev' => array(
+		'devMode' => true,
 		'siteUrl' => array(
 			'en_us' => 'http://localhost:8888/oakland-beta/public/',
 			'es' => 'http://localhost:8888/oakland-beta/public/es/',

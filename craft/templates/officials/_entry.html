@@ -25,6 +25,7 @@
           <div class="connect-icons">
             {% if entry.facebookProfile %}<a href="{{entry.facebookProfile}}">Facebook</a>{% endif %}
             {% if entry.twitterProfile %}<a href="{{entry.twitterProfile}}">Twitter</a>{% endif %}
+            {% if entry.instagramProfile %}<a href="{{entry.instagramProfile}}">Instragram</a>{% endif %}
             {% if entry.email %}<a href="{{entry.email}}">{{"Email" | translate }}</a>{% endif %}
           </div>
         </div>
@@ -70,7 +71,7 @@
     <div class="container">
       <h2>{{"News and Updates" | translate }}</h2>
       <div class="grid-row">
-          {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
+          {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
           <div class="post-excerpt one-third"> 
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>

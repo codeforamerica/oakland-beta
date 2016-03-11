@@ -2,9 +2,9 @@
 
 {% block content %}
 {% if entry.getAncestors() | length > 0 %}
-  {% set top_level_service = entry.getAncestors().first().title|kebab %}
+  {% set top_level_service = entry.getAncestors().first().slug|kebab %}
 {% else %}
-  {% set top_level_service = entry.title|kebab %}
+  {% set top_level_service = entry.slug|kebab %}
 {% endif %}
 
 <main class="{{top_level_service|lower}}">

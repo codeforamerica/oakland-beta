@@ -19,7 +19,13 @@
       <header class="page-header" role="banner">
         <div class="multi-logo-wrap">
           <a href="{{ siteUrl }}" class="site-logo-wrap">
+            {% if craft.locale == 'en_us' %}
             <img class="site-logo logo-black" src="{{ craft.config.rootUrl }}resources/img/coo-logo-black.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+            {% elseif craft.locale == 'es' %}
+            <img class="site-logo logo-black" src="{{ craft.config.rootUrl }}resources/img/coo-logo-spanish.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+            {% elseif craft.locale == 'zh' %}
+            <img class="site-logo logo-black" src="{{ craft.config.rootUrl }}resources/img/coo-logo-chinese.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+            {% endif %}
           </a>
         </div>
         <div class="header-actions">
@@ -29,16 +35,17 @@
             </label>
             <span class="lnr lnr-magnifier search-icon"></span>
           </form>
+
           <div class="header-langauge-switcher">
-            {% if craft.locale != 'en_us' %}
-            <a href="{{ craft.config.rootUrl }}">English</a>
+          {% for locale in craft.i18n.getSiteLocales() %}
+            {% if craft.locale != locale %}
+              {% if craft.entries.id(entry.id).locale(locale.id) | length > 0 %}
+              <a href="{{ craft.entries.id(entry.id).locale(locale.id).first().getUrl() }}">{{ craft.config.currentLgg[locale.id] }}</a>
+              {% else %}
+              <a href="{{ craft.config.siteUrl[locale.id] }} ">{{ craft.config.currentLgg[locale.id] }}</a>
+              {% endif %}
             {% endif %}
-            {% if craft.locale != 'es' %}
-            <a href="{{ craft.config.rootUrl }}es/">Español</a>
-            {% endif %}
-            {% if craft.locale != 'zh' %}
-            <a href="{{ craft.config.rootUrl }}zh/">中文</a>
-            {% endif %}
+          {% endfor %}
           </div>
         </div>
       </header>

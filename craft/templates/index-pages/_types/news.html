@@ -1,6 +1,13 @@
 {% extends '_base.html' %}
 
 {% block content %}
+{% set newsEntries = craft.entries.section('news') %}
+{% if craft.request.getParam('q') %}
+  {% set query = craft.request.getParam('q') %}
+  {% set relatedEntry = craft.entries.slug(query).first() %}
+  {% set newsEntries = craft.entries.section('news').relatedTo(relatedEntry) %}
+{% endif %}
+
 <main class="news-index">
 
   <div class="main-overlay"></div>
@@ -10,16 +17,16 @@
 
       <nav class="breadcrumbs">
         <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
-        <span>{{"News and Updates" | translate }}</span>
+        <span>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"News and Updates" | translate }}</span>
       </nav>
 
-      <h1>{{"News and Updates" | translate }}</h1>
+      <h1>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"News and Updates" | translate }}</h1>
     </div>
   </section>
 
   <section>
     <div class="container">
-      {% for newsArticle in craft.entries.section('news') %} 
+      {% for newsArticle in newsEntries %} 
       <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
       <div class="post-excerpt grid-row">
         <div class="seven-twelfths">

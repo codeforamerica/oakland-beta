@@ -107,9 +107,16 @@
   {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
   <section id="section-3" class="section">
     <div class="container">
-      <div class="grid-row">
+      <div class="grid-row no-padding">
+        <div class="three-fourths">
           <h2>{{"News and Updates" | translate }}</h2>
-          {% for newsArticle in craft.entries.section('news').relatedTo(entry) %}  
+        </div>
+        <div class="one-fourth text-right">
+          <a href="{{ craft.entries.slug('news').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
+        </div>
+      </div>
+      <div class="grid-row">
+          {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
           <div class="post-excerpt one-third">        
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>

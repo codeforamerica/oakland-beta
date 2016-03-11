@@ -25,6 +25,12 @@
 .grid-row {
   @include row();
   margin-bottom: 2rem;
+  &.no-padding {
+    margin-bottom: 0;
+    > * {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .column {

@@ -106,7 +106,7 @@
             {% if newsArticle.mainImage | length > 0 %}
             <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
             {% endif %}  
-            <p class="post-data"><a href="{{ newsArticle.relatedDepartment.first().url }}">{{ newsArticle.relatedDepartment.first().title }}</a> - <time datetime>{{ newsArticle.dateCreated.localeDate()|date('M j, Y') }}</time></p>
+            <p class="post-data"><time datetime>{{ newsArticle.dateCreated.localeDate()|date('M j, Y') }}</time></p>
             <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
             <p>{{ newsArticle.summary }}</p>
           </div>

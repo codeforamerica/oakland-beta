@@ -28,9 +28,15 @@
 
         <nav class="section-menu one-fourth">
           <a class="menu-item" href="#section-1">{{"Contact Us" | translate}}</a>
+          {% if entry.relatedServices | length > 0 %}
           <a class="menu-item" href="#section-2">{{"Services and Resources" | translate }}</a>
+          {% endif %}
+          {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
           <a class="menu-item" href="#section-3">{{"News and Updates" | translate }}</a>
+          {% endif %}
+          {% if entry.departmentHead %}
           <a class="menu-item" href="#section-4">{{"Our Management" | translate }}</a>
+          {% endif %}
         </nav>
 
       </div><!-- .grid-row -->
@@ -43,20 +49,26 @@
     <div class="container">
       <h2>{{"Contact Us" | translate }}</h2>
       <div class="grid-row">
+        {% if entry.departmentAddress %}
         <div class="one-half">
           <h4>{{"Address" | translate }}</h4>
           <p>{{entry.departmentAddress}}</p>
           <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.departmentAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
         </div>
+        {% endif %}
         <div class="column-shift five-twelfths">
-          {% if entry.departmentEmail|length > 0 %}
+        {% if entry.departmentEmail|length > 0 %}
           <h4>{{"Email" | translate }}</h4>
           <p>{{entry.departmentEmail}}</p>
-          {% endif %}
+        {% endif %}
+        {% if entry.departmentPhoneNumber %}
           <h4>{{"Phone Numbers" | translate }}</h4>
           <p>{{entry.departmentPhoneNumber}}</p>
+        {% endif %}
+        {% if entry.departmentHours %}
           <h4>{{"Hours" | translate }}</h4>
           <p>{{entry.departmentHours}}</p>
+        {% endif %}
         </div>
       </div>
       <hr>
@@ -117,7 +129,10 @@
       </div>
       <div class="grid-row">
           {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
-          <div class="post-excerpt one-third">        
+          <div class="post-excerpt one-third">
+          {% if newsArticle.mainImage | length > 0 %}
+          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+          {% endif %}       
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
           <p>{{ newsArticle.summary }}</p>
@@ -129,6 +144,7 @@
   </section>
   {% endif %}
 
+  {% if entry.departmentHead %}
   <section id="section-4" class="section">
     <div class="container">
       <h2>{{"Our Management" | translate }}</h2>
@@ -140,11 +156,12 @@
         {% endif %}
         <div class="two-thirds">
           {{ entry.departmentHead }}
-          <p>{{ entry.departmentHeadBio }}</p>
+          <p>{{ entry.departmentHeadBio | default(null) }}</p>
         </div>
       </div>
     </div>
   </section>
+  {% endif %}
 
 </main> 
 {% endblock %}   

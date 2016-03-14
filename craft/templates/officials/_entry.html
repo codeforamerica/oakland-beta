@@ -81,6 +81,9 @@
       <div class="grid-row">
           {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
           <div class="post-excerpt one-third"> 
+          {% if newsArticle.mainImage | length > 0 %}
+          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+          {% endif %}  
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
           <p>{{ newsArticle.summary }}</p>

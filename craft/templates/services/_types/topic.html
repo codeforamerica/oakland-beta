@@ -19,7 +19,9 @@
       <div class="grid-row">
         <div class="section-info two-thirds">
           <h1>{{ entry.title }}</h1>
+          {% if entry.leadIn %}
           <p>{{ entry.leadIn }}</p>
+          {% endif %}
         </div>
       </div>
     </div>

@@ -30,8 +30,10 @@
             {{ entry.body }}
           </div>
           <div class="one-fourth column-shift">
+            {% if entry.mediaContacts %}
             <h3>{{"Media contacts" | translate }}</h3>
             {{ entry.mediaContacts }}
+            {% endif %}
             <p><a class="btn btn-secondary btn-small" href="{{ entry.pressReleasePdf.first().url }}">{{"Download this press release as a PDF" | translate }}</a></p>
           </div>
         </div>

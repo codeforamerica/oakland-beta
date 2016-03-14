@@ -13,12 +13,14 @@
         <span>{{ entry.title }}</span>
       </nav>
       <div class="grid-row official-header">
+        {% if entry.portrait | length > 0 %}
         <div class="one-third">
           <figure class="official-portrait">
             <img src="{{ entry.portrait.first().url }}" alt="{{ entry.portrait.first().caption }}">
           </figure>
         </div>
-        <div class="column-shift seven-twelfths">
+        {% endif %}
+        <div class="{% if entry.portrait | length > 0 %}column-shift {% endif %}seven-twelfths">
           <h1 class="official-name">{{ entry.title }}</h1>
           <p class="official-job-title">{{ entry.jobTitle }}</p>
           <p class="official-vision-statement">{{ entry.visionStatement }}</p>
@@ -99,26 +101,33 @@
     <div class="container">
       <h2>{{"Get in Touch" | translate }}</h2>
       <div class="grid-row">
+        {% if entry.physicalAddress %}
         <div class="one-half">
           <h4>{{"Address" | translate }}</h4>
           <p>{{entry.physicalAddress}}</p>
           <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.physicalAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
         </div>
-        <div class="column-shift five-twelfths">
-          {% if entry.email|length > 0 %}
+        {% endif %}
+        <div class="{% if entry.physicalAddress %}column-shift {% endif %}five-twelfths">
+        {% if entry.email|length > 0 %}
           <h4>{{"Email" | translate }}</h4>
           <p>{{entry.email}}</p>
-          {% endif %}
+        {% endif %}
+        {% if entry.phoneNumber %}
           <h4>{{"Phone Numbers" | translate }}</h4>
           <p>{{entry.phoneNumber}}</p>
+        {% endif %}
+        {% if entry.availability %}
           <h4>{{"Hours" | translate }}</h4>
           <p>{{entry.availability}}</p>
+        {% endif %}
         </div>
       </div>
       <hr>
     </div>
   </section>
 
+  {% if entry.bio %}
   <section class="section official-bio">
     <div class="container">
       <div class="grid-row">
@@ -131,6 +140,7 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
 </main> 
 {% endblock %}   

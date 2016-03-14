@@ -7,7 +7,9 @@
 
   <section class="subheader">
 
+    {% if entry.initiativeHero | length > 0 %}
     <div class="hero-image" style="background-image: url('{{ entry.initiativeHero.first().url }}')"></div>
+    {% endif %}
 
     <div class="breadcrumb-wrap">
 

@@ -139,6 +139,7 @@ blockquote {
 // --------------------------------------------------
 a {
   color: $oakland-green;
+  text-decoration: none;
 
   &:hover, &:focus {
     text-decoration: underline;

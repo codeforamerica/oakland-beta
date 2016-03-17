@@ -78,6 +78,9 @@ return array(
 	"Published on" => "Publicado en",
 	"Download the Report" => "Descargar el Informe",
 
+	## Policy pages
+	"Download the Policy" => "Descargar la Política",
+
 	## Topic Pages
 	"This section is currently empty." => "Esta sección está actualmente vacía."
 

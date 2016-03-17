@@ -2,6 +2,7 @@
 
 {% block content %}
 {% set newsEntries = craft.entries.section('news') %}
+{% set relatedEntry = null %}
 {% if craft.request.getParam('q') %}
   {% set query = craft.request.getParam('q') %}
   {% set relatedEntry = craft.entries.slug(query).first() %}

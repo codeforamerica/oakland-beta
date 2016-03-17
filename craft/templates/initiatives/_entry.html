@@ -37,48 +37,6 @@
 
   </section><!-- .subheader -->
 
-  {% set relatedReports = craft.entries.section('reports').relatedTo(entry) %}
-  {% if relatedReports | length > 0 %}
-  <section class="section">
-    <div class="container">
-      <h2>{{"Reports" | translate }}</h2>
-      <div class="grid-row">
-        <div class="big-menu one-third">
-          {% for report in relatedReports %}
-          {% if loop.index % 3 == 1 %}
-          <a class="menu-item" href="{{ report.url }}">
-            <h3>{{ report.title }}</h3>
-            <p>{{report.reportSummary}}</p>
-          </a>
-          {% endif %}
-          {% endfor %}
-        </div>
-        <div class="big-menu one-third">
-          {% for report in relatedReports %}
-          {% if loop.index % 3 == 2 %}
-          <a class="menu-item" href="{{ report.url }}">
-            <h3>{{ report.title }}</h3>
-            <p>{{report.reportSummary}}</p>
-          </a>
-          {% endif %}
-          {% endfor %}
-        </div>
-        <div class="big-menu one-third">
-          {% for report in relatedReports %}
-          {% if loop.index % 3 == 0 %}
-          <a class="menu-item" href="{{ report.url }}">
-            <h3>{{ report.title }}</h3>
-            <p>{{report.reportSummary}}</p>
-          </a>
-          {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-      <hr>
-    </div>
-  </section>
-  {% endif %}
-
   {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
   <section class="section">
 
@@ -104,6 +62,48 @@
           </div>
           {% endfor %}
 
+      </div>
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
+  {% set relatedReports = craft.entries.section('reports').relatedTo(entry) %}
+  {% set relatedPolicies = craft.entries.section('policies').relatedTo(entry) %}
+  {% if relatedReports | length > 0 or relatedPolicies | length > 0 %}
+  <section class="section">
+    <div class="container">
+      <div class="grid-row">
+        
+        {% if relatedReports | length > 0 %}
+        <div class="five-twelfths">
+          <h2>{{"Reports" | translate }}</h2>
+          <div class="menu">
+            {% for report in relatedReports %}
+            {% if loop.index % 3 == 1 %}
+            <a class="menu-item" href="{{ report.url }}">
+              <h5>{{ report.title }}</h5>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+        
+        {% if relatedPolicies | length > 0 %}
+        <div class="column-shift five-twelfths">
+          <h2>{{"Policies" | translate }}</h2>
+          <div class="menu">
+            {% for policy in relatedPolicies %}
+            {% if loop.index % 3 == 1 %}
+            <a class="menu-item" href="{{ policy.url }}">
+              <h5>{{ policy.title }}</h5>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
       </div>
       <hr>
     </div>

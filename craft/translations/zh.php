@@ -78,6 +78,9 @@ return array(
 	"Published on" => "发表于",
 	"Download the Report" => "下载报告",
 
+	## Policy pages
+	"Download the Policy" => "下载策略",
+
 	## Topic Pages
 	"This section is currently empty." => "这部分是空的。"
 

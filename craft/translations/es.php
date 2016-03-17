@@ -10,6 +10,7 @@ return array(
 	"Elected Officials" => "Oficiales Electos",
 	"Initiatives" => "Iniciativas",
 	"Reports" => "Informes",
+	"Policies" => "Políticas",
 	"Forms" => "Formas",
 	"Address" => "Dirección",
 	"Email" => "Email",

@@ -10,6 +10,7 @@ return array(
 	"Elected Officials" => "当选官员",
 	"Initiatives" => "倡议",
 	"Reports" => "报告",
+	"Policies" => "政策",
 	"Forms" => "形式",
 	"Address" => "地址",
 	"Email" => "电子邮件",

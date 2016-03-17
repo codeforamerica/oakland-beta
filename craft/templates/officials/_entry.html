@@ -24,12 +24,6 @@
           <h1 class="official-name">{{ entry.title }}</h1>
           <p class="official-job-title">{{ entry.jobTitle }}</p>
           <p class="official-vision-statement">{{ entry.visionStatement }}</p>
-          <div class="connect-icons">
-            {% if entry.facebookProfile %}<a href="{{entry.facebookProfile}}">Facebook</a>{% endif %}
-            {% if entry.twitterProfile %}<a href="{{entry.twitterProfile}}">Twitter</a>{% endif %}
-            {% if entry.instagramProfile %}<a href="{{entry.instagramProfile}}">Instragram</a>{% endif %}
-            {% if entry.email %}<a href="{{entry.email}}">{{"Email" | translate }}</a>{% endif %}
-          </div>
         </div>
       </div>
       <hr>
@@ -109,13 +103,21 @@
         </div>
         {% endif %}
         <div class="{% if entry.physicalAddress %}column-shift {% endif %}five-twelfths">
+        <h4>On the Web</h4>
+        <p>
+        {% if entry.facebookProfile %}<a href="{{entry.facebookProfile}}">Facebook</a><br>{% endif %}
+        {% if entry.twitterProfile %}<a href="{{entry.twitterProfile}}">Twitter</a><br>{% endif %}
+        {% if entry.instagramProfile %}<a href="{{entry.instagramProfile}}">Instragram</a><br>{% endif %}
+        </p>
         {% if entry.email|length > 0 %}
           <h4>{{"Email" | translate }}</h4>
           <p>{{entry.email}}</p>
         {% endif %}
-        {% if entry.phoneNumber %}
+        {% if entry.phoneNumber or entry.twitterProfile or entry.instagramProfile or entry.instagramProfile %}
           <h4>{{"Phone Numbers" | translate }}</h4>
           <p>{{entry.phoneNumber}}</p>
+        {% endif %}
+        {% if entry.facebookProfile %}
         {% endif %}
         {% if entry.availability %}
           <h4>{{"Hours" | translate }}</h4>

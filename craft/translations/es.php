@@ -9,6 +9,7 @@ return array(
 	"Services and Resources" => "Servicios y Recursos",
 	"Elected Officials" => "Oficiales Electos",
 	"Initiatives" => "Iniciativas",
+	"Events" => "eventos",
 	"Reports" => "Informes",
 	"Policies" => "Políticas",
 	"Forms" => "Formas",

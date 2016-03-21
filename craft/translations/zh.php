@@ -9,6 +9,7 @@ return array(
 	"Services and Resources" => "服务和资源",
 	"Elected Officials" => "当选官员",
 	"Initiatives" => "倡议",
+	"Events" => "事件",
 	"Reports" => "报告",
 	"Policies" => "政策",
 	"Forms" => "形式",

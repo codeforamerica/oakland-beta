@@ -1,0 +1,48 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+    <main class="event">
+
+    <div class="main-overlay"></div>
+
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+          <span><a href="{{ siteUrl }}events">{{"Events" | translate }}</a></span>
+          <span>{{ entry.title }}</span>
+        </nav>
+      </div>
+
+      <article class="container">
+        <h1>{{ entry.title }}</h1>
+        <p class="lead">{{ entry.eventDate | date("l, F d, Y")}}{% if entry.eventEndDate %} - {{ entry.eventEndDate | date("l, F d, Y")}}{% endif %}{% if entry.eventStartTime %} | {{ entry.eventStartTime.localeTime() }}{% endif %}{% if entry.eventEndTime %} - {{ entry.eventEndTime.localeTime() }}{% endif %}</p>
+        
+        <div class="grid-row">
+          <div class="one-half">
+            <h3>Details</h3>
+            {{ entry.body }}
+            <h3>Location</h3>
+            {{ entry.eventLocation }}
+            <h3>For More Information</h3>
+            {{ entry.eventContact }}
+          </div>
+          <div class="column-shift five-twelfths">
+            <img src="{{ entry.eventPhoto.first().url}}" alt="" class="event-photo">
+            <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.eventLocation | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="two-thirds">
+            
+          </div>
+          <div class="one-third">
+
+          </div>
+        </div>
+
+      </article>
+    </main>    
+
+{% endblock %}

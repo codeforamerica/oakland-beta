@@ -1,0 +1,51 @@
+{% extends '_base.html' %}
+
+{% block content %}
+{% set eventsEntry = craft.entries.section('events') %}
+{% set relatedEntry = null %}
+{% if craft.request.getParam('q') %}
+  {% set query = craft.request.getParam('q') %}
+  {% set relatedEntry = craft.entries.slug(query).first() %}
+  {% set eventsEntry = craft.entries.section('events').relatedTo(relatedEntry) %}
+{% endif %}
+
+<main class="events-index">
+
+  <div class="main-overlay"></div>
+
+  <section>
+    <div class="container">
+
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+        <span>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"Events" | translate }}</span>
+      </nav>
+
+      <h1>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"Events" | translate }}</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      {% for event in eventsEntry %} 
+      <p class="post-data"><time datetime="">{{ event.eventDate | date("l, F d, Y")}}{% if event.eventEndDate %} - {{ event.eventEndDate | date("l, F d, Y")}}{% endif %}{% if event.eventStartTime %} | {{ event.eventStartTime.localeTime() }}{% endif %}{% if event.eventEndTime %} - {{ event.eventEndTime.localeTime() }}{% endif %}</time></p>
+      <div class="post-excerpt grid-row">
+        <div class="seven-twelfths">
+          <h3><a href="{{ event.url }}">{{ event.title }}</a></h3> 
+          {{ event.body | trimit(180) }}
+          <p><a href="event.url">Read More</a></p>
+        </div>
+        {% if event.eventPhoto | length > 0 %}
+        <div class="one-third column-shift">
+          <img class="post-image" src="{{ event.eventPhoto.first().url }}" alt="{{ event.eventPhoto.first().caption }}"> 
+        </div>
+        {% endif %} 
+
+      </div>
+      <hr>
+      {% endfor %}
+    </div>
+  </section>
+
+</main> 
+{% endblock %}   

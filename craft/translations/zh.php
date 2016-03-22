@@ -8,6 +8,7 @@ return array(
 	"News and Updates" => "新闻与更新",
 	"Services and Resources" => "服务和资源",
 	"Elected Officials" => "当选官员",
+	"Teams" => "小组",
 	"Initiatives" => "倡议",
 	"Events" => "事件",
 	"Reports" => "报告",

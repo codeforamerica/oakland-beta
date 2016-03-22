@@ -8,6 +8,7 @@ return array(
 	"News and Updates" => "Noticias y Actualizaciones",
 	"Services and Resources" => "Servicios y Recursos",
 	"Elected Officials" => "Oficiales Electos",
+	"Teams" => "equipos",
 	"Initiatives" => "Iniciativas",
 	"Events" => "eventos",
 	"Reports" => "Informes",

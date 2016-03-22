@@ -111,6 +111,20 @@
         </div>
         {% endif %}
 
+        {% if entries.section('teams') | length > 0 %}
+        <hr>
+        <div class="grid-row big-menu">
+          <div class="one-fourth">
+            <h5>{{"Teams" | translate }}</h5>
+          </div>
+          <div class="two-thirds column-shift">
+            {% for entry in entries.section('teams') %}
+            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
         {% if entries.section('news') | length > 0 %}
         <hr>
         <div class="grid-row big-menu">

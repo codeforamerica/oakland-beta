@@ -68,6 +68,41 @@
   </section>
   {% endif %}
 
+  {% if craft.entries.section('events').relatedTo(entry) | length > 0 %}
+
+  {% set eventParams = {
+      section: "events",
+      order: 'eventDate asc',
+      eventDate: '>=' ~ now,
+      limit: '3',
+      relatedTo: entry
+    }
+  %}
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-row no-padding">
+        <div class="three-fourths">
+          <h2>{{"Upcoming Events" | translate }}</h2>
+        </div>
+        <div class="one-fourth text-right">
+          <a href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
+        </div>
+      </div>
+      
+      <div class="grid-row">
+          {% for event in craft.entries(eventParams) %}  
+          <div class="post-excerpt one-third"> 
+            <h3><a href="{{ event.url }}">{{ event.title }}</a></h3>
+            <p class="post-data"><time datetime="">{{ event.eventDate | date("l, F d, Y")}}{% if event.eventEndDate %} - {{ event.eventEndDate | date("l, F d, Y")}}{% endif %}{% if event.eventStartTime %} | {{ event.eventStartTime.localeTime() }}{% endif %}{% if event.eventEndTime %} - {{ event.eventEndTime.localeTime() }}{% endif %}</time></p>
+          </div>
+          {% endfor %}
+      </div>
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
   {% set relatedReports = craft.entries.section('reports').relatedTo(entry) %}
   {% set relatedPolicies = craft.entries.section('policies').relatedTo(entry) %}
   {% if relatedReports | length > 0 or relatedPolicies | length > 0 %}

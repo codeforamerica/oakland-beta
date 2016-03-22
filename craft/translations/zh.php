@@ -11,6 +11,7 @@ return array(
 	"Teams" => "小组",
 	"Initiatives" => "倡议",
 	"Events" => "事件",
+	"Upcoming Events" => "即将举行的活动",
 	"Reports" => "报告",
 	"Policies" => "政策",
 	"Forms" => "形式",

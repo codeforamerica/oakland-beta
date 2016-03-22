@@ -11,6 +11,7 @@ return array(
 	"Teams" => "equipos",
 	"Initiatives" => "Iniciativas",
 	"Events" => "eventos",
+	"Upcoming Events" => "Próximos Eventos",
 	"Reports" => "Informes",
 	"Policies" => "Políticas",
 	"Forms" => "Formas",

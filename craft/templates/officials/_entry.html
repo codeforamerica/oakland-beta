@@ -1,32 +1,64 @@
 {% extends '_base.html' %}
 
 {% block content %}
+
+{% set story = entry.officialFeatureStories.order('RAND()').first() %}
+{% set storyHeader = story.title %}
+{% set storyLink = story.url %}
+{% set storySummary = "" %}
+{% set storyHero = "" %}
+
+{% if story.section.handle == "news" %}
+  {% set storySummary = story.summary %}
+  {% set storyHero = story.mainImage.first().url %}
+{% elseif story.section.handle == "initiatives" %}
+  {% set storySummary = story.initiativeSummary %}
+  {% set storyHero = story.initiativeHero.first().url %}
+{% endif %}
+
 <main class="official">
 
   <div class="main-overlay"></div>
 
-  <section class="section">
-    <div class="container">
+  <section class="subheader">
+    <div class="official-feature-story-hero" style="background-image: url('{{ storyHero }}')"></div>
+
+    <div class="breadcrumb-wrap">
       <nav class="breadcrumbs">
         <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
         <a href="{{siteUrl}}officials">{{"Elected Officials" | translate }}</a>
         <span>{{ entry.title }}</span>
       </nav>
-      <div class="grid-row official-header">
+    </div>
+
+    <div class="container">
+      <div class="grid-row">
+        <div class="official-feature-story">
+            <div class="official-feature-story-hero"></div>
+            <h3><a href="{{ storyLink }}">{{ storyHeader }}</a></h3>
+            <p>{{ storySummary | trimit(180) }}</p>
+            <p><a href="{{ storyLink }}">Read More</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section official-header">
+    <div class="container">
+      <div class="grid-row">
         {% if entry.portrait | length > 0 %}
         <div class="one-third">
-          <figure class="official-portrait">
+          <figure class="official-portrait official-page-portrait">
             <img src="{{ entry.portrait.first().url }}" alt="{{ entry.portrait.first().caption }}">
           </figure>
+          <h1 class="official-name">{{ entry.title }}</h1>
+          <p class="official-job-title">{{ entry.jobTitle }}</p>
         </div>
         {% endif %}
         <div class="{% if entry.portrait | length > 0 %}column-shift {% endif %}seven-twelfths">
-          <h1 class="official-name">{{ entry.title }}</h1>
-          <p class="official-job-title">{{ entry.jobTitle }}</p>
+
           <p class="official-vision-statement">{{ entry.visionStatement }}</p>
         </div>
       </div>
-      <hr>
     </div>
   </section>
 
@@ -34,7 +66,7 @@
   {% if relatedInitiatives | length > 0 %}
   <section class="section">
     <div class="container">
-      <h2>{{"Priorities" | translate }}</h2>
+      <h2>{{"Prioritied Initiatives" | translate }}</h2>
       
       {% if relatedInitiatives | length % 2 == 0 %}
       <div class="grid-row">
@@ -99,7 +131,7 @@
         <div class="one-half">
           <h4>{{"Address" | translate }}</h4>
           <p>{{entry.physicalAddress}}</p>
-          <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.physicalAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
+          <iframe height="300" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.physicalAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
         </div>
         {% endif %}
         <div class="{% if entry.physicalAddress %}column-shift {% endif %}five-twelfths">
@@ -107,7 +139,8 @@
         <p>
         {% if entry.facebookProfile %}<a href="{{entry.facebookProfile}}">Facebook</a><br>{% endif %}
         {% if entry.twitterProfile %}<a href="{{entry.twitterProfile}}">Twitter</a><br>{% endif %}
-        {% if entry.instagramProfile %}<a href="{{entry.instagramProfile}}">Instragram</a><br>{% endif %}
+        {% if entry.instagramProfile %}<a href="{{entry.instagramProfile}}">Instagram</a><br>{% endif %}
+        {% if entry.instagramProfile %}<a href="{{entry.officialNewsletter}}">Newsletter</a><br>{% endif %}
         </p>
         {% if entry.email|length > 0 %}
           <h4>{{"Email" | translate }}</h4>
@@ -123,6 +156,13 @@
           <h4>{{"Hours" | translate }}</h4>
           <p>{{entry.availability}}</p>
         {% endif %}
+        {% if entry.officialDonateContact or entry.officialVolunteerContact %}
+          <h4>Get Involved</h4>
+          <p>
+            {% if entry.officialDonateContact %}<a href="entry.officialDonateContact">Donate</a><br/>{% endif %}
+            {% if entry.officialVolunteerContact %}<a href="entry.officialVolunteerContact">Volunteer</a>{% endif %}
+          </p>
+        {% endif %}
         </div>
       </div>
       <hr>
@@ -135,6 +175,10 @@
       <div class="grid-row">
         <div class="one-third">
           <h2>{{"About" | translate }} {{ entry.title }}</h2>
+          {% if entry.officialTeam | length > 0 %}
+            <p><a href="{{entry.officialTeam.first().url}}">{{"Meet the Team" | translate}}</a></p>
+          {% endif %}
+          <p><a href=""></a></p>
         </div>
         <div class="two-thirds">
           {{ entry.bio }}

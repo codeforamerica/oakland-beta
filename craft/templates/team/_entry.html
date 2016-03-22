@@ -1,0 +1,49 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+<main class="team">
+
+  <div class="main-overlay"></div>
+
+  <section>
+    <div class="container">
+
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+        <a href="#">{{"Teams" | translate }}</a>
+        <span>{{ entry.title}}</span>
+      </nav>
+
+      <h1>{{ entry.title }}</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      {% for block in entry.team %}
+      {% if block.type == "heading" %}
+      <h2>{{ block.headingText }}</h2>
+      {% elseif block.type == "teamMember" %}
+      <div class="grid-row">
+        <div class="one-fourth">
+          {% if block.portrait | length > 0 %}
+          <img class="team-member-portrait" src="{{ block.portrait.first().url }}" alt="{{ block.portrait.first().title }}">
+          {% endif %}
+        </div>
+        <div class="column-shift seven-twelfths">
+            <h4 class="team-member-name">{{ block.teamMemberName }}</h4>
+            {% if block.jobTitle %}<p class="team-member-job-title">{{ block.jobTitle }}</p>{% endif %}
+            {% if block.email %}<p class="team-member-email">{{ block.email }}</p>{% endif %}
+            {% if block.phoneNumber %}<p class="team-member-phone">{{ block.phoneNumber }}</p>{% endif %}
+            {% if block.bio %}<p class="team-member-bio">{{ block.bio }}</p>{% endif %}
+        </div>
+      </div>
+      <hr>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+</main> 
+{% endblock %}   

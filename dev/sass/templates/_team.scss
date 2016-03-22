@@ -1,0 +1,18 @@
+.team {
+    .team-member-portrait {
+        border-radius: 50%;
+    }
+
+    .team-member-name {
+        color: $oakland-green;
+    }
+
+    .team-member-job-title, .team-member-email, .team-member-phone {
+        margin-bottom: 0;
+        color: $gray-dark;
+    }
+
+    .team-member-bio {
+        margin-top: 1em;
+    }
+}

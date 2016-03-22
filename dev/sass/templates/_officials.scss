@@ -12,24 +12,89 @@
         &:hover {
             background-color: $gray-lighter;
         }
+
+        .official-name {
+            text-decoration: underline;
+            color: $oakland-green;
+        }
+
+        .official-portrait {
+            margin-top: 0;
+        }
     }
 
-    .official-name {
-        text-decoration: underline;
-    }
 
-    .official-portrait {
-        margin-top: 0;
-    }
 }
 
 .official {
 
+    .subheader {
+        background-color: #000;
+        padding-bottom: 2em;
+        padding-top: 4em;
+        @include media($bp-md) {
+            padding-top: 8em;
+        }
+    }
+
+    .official-feature-story-hero {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        background-size: cover;
+        background-position: center 20%;
+        opacity: .6;
+    }
+
+    .official-feature-story {
+        color: #fff;
+        @include media($bp-md) {
+            @include shift(5);
+            @include column-span(7);
+        }
+
+        h4, p, a {
+            position: relative;
+            z-index: 2;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    }
+
+
     .official-header {
-        margin-top: 3em;
+        margin-top: -2.2em;
+        padding-top: 2em;
+        margin-bottom: 2em;
+        padding-bottom: 0;
+        position: relative;
+        color: #fff;
+        background-color: $jack-london-purple;
+        background-color: rgba($jack-london-purple, .95);
+        &:before {
+            content: 'asdfasdfs';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1; 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('../img/bg-pattern-large.png');
+        }
+
+        .grid-row {
+            margin-bottom: 0;
+        }
     }
     .official-name {
-        color: $oakland-green;
         margin-bottom: 0;
     }
 
@@ -38,8 +103,10 @@
     }
 
     .official-vision-statement {
+        margin-bottom: 0;
         font-style: italic;
     }
+
 
     .connect-icons {
         a {
@@ -57,6 +124,14 @@
         img {
             border-radius: 50%;
         }
+
+    }
+    .official-page-portrait {
+        max-width: 180px;
+        @include media($bp-md) {
+           margin-top: -6.6em;
+           margin-left: 0;
+       } 
     }
 
     .initiative-link {

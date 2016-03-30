@@ -74,7 +74,7 @@ return array(
 
 
 	## Elected Offical Pages
-	"Prioritied Initiatives" => "优先级倡议",
+	"Prioritized Initiatives" => "优先级倡议",
 	"Get in Touch" => "保持联系",
 	"About" => "关于",
 	"Meet the Team" => "团队见面",

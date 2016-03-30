@@ -74,7 +74,7 @@ return array(
 
 
 	## Elected Offical Pages
-	"Prioritied Initiatives" => "Iniciativas priorizadas",
+	"Prioritized Initiatives" => "Iniciativas priorizadas",
 	"Get in Touch" => "Estar en contacto",
 	"About" => "Acerca de",
 	"Meet the Team" => "Conocer al Equipo",

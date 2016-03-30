@@ -2,27 +2,31 @@
 
 {% block content %}
 
-{% set story = entry.officialFeatureStories.order('RAND()').first() %}
-{% set storyHeader = story.title %}
-{% set storyLink = story.url %}
-{% set storySummary = "" %}
-{% set storyHero = "" %}
+{% if entry.officialFeatureStories | length > 0 %}
+  {% set story = entry.officialFeatureStories.order('RAND()').first() %}
+  {% set storyHeader = story.title %}
+  {% set storyLink = story.url %}
+  {% set storySummary = "" %}
+  {% set storyHero = "" %}
 
-{% if story.section.handle == "news" %}
-  {% set storySummary = story.summary %}
-  {% set storyHero = story.mainImage.first().url %}
-{% elseif story.section.handle == "initiatives" %}
-  {% set storySummary = story.initiativeSummary %}
-  {% set storyHero = story.initiativeHero.first().url %}
+  {% if story.section.handle == "news" %}
+    {% set storySummary = story.summary %}
+    {% set storyHero = story.mainImage.first().url %}
+  {% elseif story.section.handle == "initiatives" %}
+    {% set storySummary = story.initiativeSummary %}
+    {% set storyHero = story.initiativeHero.first().url %}
+  {% endif %}
 {% endif %}
+
 
 <main class="official">
 
   <div class="main-overlay"></div>
 
   <section class="subheader">
+    {% if entry.officialFeatureStories | length > 0 %}
     <div class="official-feature-story-hero" style="background-image: url('{{ storyHero }}')"></div>
-
+    {% endif %}
     <div class="breadcrumb-wrap">
       <nav class="breadcrumbs">
         <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
@@ -30,7 +34,7 @@
         <span>{{ entry.title }}</span>
       </nav>
     </div>
-
+    {% if entry.officialFeatureStories | length > 0 %}
     <div class="container">
       <div class="grid-row">
         <div class="official-feature-story">
@@ -41,6 +45,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
   </section>
   <section class="section official-header">
     <div class="container">
@@ -54,7 +59,7 @@
           <p class="official-job-title">{{ entry.jobTitle }}</p>
         </div>
         {% endif %}
-        <div class="{% if entry.portrait | length > 0 %}column-shift {% endif %}seven-twelfths">
+        <div class="{% if entry.portrait | length > 0 %}column-shift {% endif %}seven-twelfths column-last">
 
           <p class="official-vision-statement">{{ entry.visionStatement }}</p>
         </div>
@@ -66,12 +71,12 @@
   {% if relatedInitiatives | length > 0 %}
   <section class="section">
     <div class="container">
-      <h2>{{"Prioritied Initiatives" | translate }}</h2>
+      <h2>{{"Prioritized Initiatives" | translate }}</h2>
       
       {% if relatedInitiatives | length % 2 == 0 %}
       <div class="grid-row">
         {% for initiative in relatedInitiatives %}
-        <a href="{{initiative.url}}" class="one-half initiative-link" style="background-image: url('{{ initiative.initiativeHero.first().url }}')">
+        <a href="{{initiative.url}}" class="one-half initiative-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().url }}')">
           <h3>{{ initiative.title }}</h3>
         </a>
         {% endfor %}
@@ -101,14 +106,14 @@
         <div class="three-fourths">
           <h2>{{"News and Updates" | translate }}</h2>
         </div>
-        <div class="one-fourth text-right">
+        <div class="one-fourth text-right column-last">
           <a href="{{ craft.entries.slug('news').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
         </div>
       </div>
       
       <div class="grid-row">
           {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
-          <div class="post-excerpt one-third"> 
+          <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
           {% if newsArticle.mainImage | length > 0 %}
           <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
           {% endif %}  
@@ -140,14 +145,14 @@
         <div class="three-fourths">
           <h2>{{"Upcoming Events" | translate }}</h2>
         </div>
-        <div class="one-fourth text-right">
+        <div class="one-fourth text-right column-last">
           <a href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
         </div>
       </div>
       
       <div class="grid-row">
           {% for event in craft.entries(eventParams) %}  
-          <div class="post-excerpt one-third"> 
+          <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
             <h3><a href="{{ event.url }}">{{ event.title }}</a></h3>
             <p class="post-data"><time datetime="">{{ event.eventDate | date("l, F d, Y")}}{% if event.eventEndDate %} - {{ event.eventEndDate | date("l, F d, Y")}}{% endif %}{% if event.eventStartTime %} | {{ event.eventStartTime.localeTime() }}{% endif %}{% if event.eventEndTime %} - {{ event.eventEndTime.localeTime() }}{% endif %}</time></p>
           </div>
@@ -169,7 +174,7 @@
           <iframe height="300" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.physicalAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
         </div>
         {% endif %}
-        <div class="{% if entry.physicalAddress %}column-shift {% endif %}five-twelfths">
+        <div class="{% if entry.physicalAddress %}column-shift {% endif %}five-twelfths column-last">
         <h4>On the Web</h4>
         <p>
         {% if entry.facebookProfile %}<a href="{{entry.facebookProfile}}">Facebook</a><br>{% endif %}
@@ -215,7 +220,7 @@
           {% endif %}
           <p><a href=""></a></p>
         </div>
-        <div class="two-thirds">
+        <div class="two-thirds column-last">
           {{ entry.bio }}
         </div>
       </div>

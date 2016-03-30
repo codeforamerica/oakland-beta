@@ -55,7 +55,7 @@
         <div class="two-thirds">
           {% for entry in craft.entries.section('services').level(1) %}
           {% if loop.index % 2 == 1 %}
-          <nav class="big-menu one-half">
+          <nav class="big-menu one-half column-last">
             <div class="menu-item">
               <a href="{{ entry.url }}">
                 <h3>{{ entry.title }}</h3>
@@ -79,7 +79,7 @@
           {% endfor %}
         </div>
         
-        <aside class="one-third with-bg">
+        <aside class="one-third column-last with-bg">
           <h5>{{"Most Popular" | translate }}</h5>
           <ol>
             {% for service in mostPopularServices.mostPopularServices %}
@@ -113,7 +113,7 @@
           {% endfor %}
         </div>
 
-        <aside class="one-third column-shift">
+        <aside class="one-third column-shift column-last">
           <h5 class="aside-title">{{"Other News" | translate }} (<a href="{{ siteUrl }}news">{{"see all" | translate }}</a>)</h5>
           <ul class="list-no-style">
             {% for entry in craft.entries.section('news').offset(1).limit(6) %}
@@ -142,7 +142,7 @@
             <img class="official-portrait" src="{{ mayor.portrait.first().url }}" alt="{{ mayor.portrait.first().title }}">
           </div>
         </div>
-        <div class="seven-twelfths column-shift">
+        <div class="seven-twelfths column-shift column-last">
           <h3 class="official-name"><a href="{{ siteUrl}}officials/libby-schaaf">{{ mayor.title }}</a></h3>
           <p class="official-job-title">{{ mayor.jobTitle }}</p>
           <p class="official-vision-statement">{{ mayor.visionStatement }}</p>

@@ -36,7 +36,7 @@
           <p><a href="event.url">Read More</a></p>
         </div>
         {% if event.eventPhoto | length > 0 %}
-        <div class="one-third column-shift">
+        <div class="one-third column-shift column-last">
           <img class="post-image" src="{{ event.eventPhoto.first().url }}" alt="{{ event.eventPhoto.first().caption }}"> 
         </div>
         {% endif %} 

@@ -35,7 +35,7 @@
           <p>{{ newsArticle.summary }}</p>
         </div>
         {% if newsArticle.mainImage | length > 0 %}
-        <div class="one-third column-shift">
+        <div class="one-third column-shift column-last">
           <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
         </div>
         {% endif %} 

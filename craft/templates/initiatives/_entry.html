@@ -47,14 +47,14 @@
         <div class="three-fourths">
           <h2>{{"News and Updates" | translate }}</h2>
         </div>
-        <div class="one-fourth text-right">
+        <div class="one-fourth text-right column-last">
           <a href="{{ craft.entries.slug('news').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
         </div>
       </div>
       <div class="grid-row">
 
           {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
-          <div class="post-excerpt one-third">   
+          <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}">   
             {% if newsArticle.mainImage | length > 0 %}
             <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
             {% endif %}  
@@ -87,14 +87,14 @@
         <div class="three-fourths">
           <h2>{{"Upcoming Events" | translate }}</h2>
         </div>
-        <div class="one-fourth text-right">
+        <div class="one-fourth text-right column-last">
           <a href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
         </div>
       </div>
       
       <div class="grid-row">
           {% for event in craft.entries(eventParams) %}  
-          <div class="post-excerpt one-third"> 
+          <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
             <h3><a href="{{ event.url }}">{{ event.title }}</a></h3>
             <p class="post-data"><time datetime="">{{ event.eventDate | date("l, F d, Y")}}{% if event.eventEndDate %} - {{ event.eventEndDate | date("l, F d, Y")}}{% endif %}{% if event.eventStartTime %} | {{ event.eventStartTime.localeTime() }}{% endif %}{% if event.eventEndTime %} - {{ event.eventEndTime.localeTime() }}{% endif %}</time></p>
           </div>
@@ -128,7 +128,7 @@
         {% endif %}
         
         {% if relatedPolicies | length > 0 %}
-        <div class="column-shift five-twelfths">
+        <div class="column-shift five-twelfths column-last">
           <h2>{{"Policies" | translate }}</h2>
           <div class="menu">
             {% for policy in relatedPolicies %}
@@ -172,7 +172,7 @@
           {% endif %}
           {% endfor %}
         </div>
-        <div class="big-menu one-third">
+        <div class="big-menu one-third column-last">
           {% for entry in entry.initiativeRelatedServices %}
           {% if loop.index % 3 == 0 %}
           <a class="menu-item" href="{{ entry.url }}">

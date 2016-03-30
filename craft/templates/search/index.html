@@ -21,7 +21,7 @@
           <div class="one-fourth">
             <h5>{{"Top Hit" | translate}}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             <a class="menu-item" href="{{ entries.first().url }}">{{ entries.first().title }} ({{ entries.first().type.name }})</a>
           </div>
         </div>
@@ -32,7 +32,7 @@
           <div class="one-fourth">
             <h5>{{"Services and Resources" | translate }}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             {% for entry in entries.section('services') %}
             <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
             {% endfor %}
@@ -47,7 +47,7 @@
           <div class="one-fourth">
             <h5>{{"Forms" | translate }}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             {% for entry in entries.section('forms') %}
             <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
             {% endfor %}
@@ -61,7 +61,7 @@
           <div class="one-fourth">
             <h5>{{"Initiatives" | translate }}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             {% for entry in entries.section('initiatives') %}
             <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
             {% endfor %}
@@ -75,7 +75,7 @@
           <div class="one-fourth">
             <h5>{{"Reports" | translate }}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             {% for entry in entries.section('reports') %}
             <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
             {% endfor %}
@@ -89,7 +89,7 @@
           <div class="one-fourth">
             <h5>{{"Departments" | translate }}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             {% for entry in entries.section('departments') %}
             <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
             {% endfor %}
@@ -103,7 +103,7 @@
           <div class="one-fourth">
             <h5>{{"Elected Officials" | translate }}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             {% for entry in entries.section('officials') %}
             <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
             {% endfor %}
@@ -117,7 +117,7 @@
           <div class="one-fourth">
             <h5>{{"Teams" | translate }}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             {% for entry in entries.section('teams') %}
             <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
             {% endfor %}
@@ -131,7 +131,7 @@
           <div class="one-fourth">
             <h5>{{"News and Updates" | translate }}</h5>
           </div>
-          <div class="two-thirds column-shift">
+          <div class="two-thirds column-shift column-last">
             {% for entry in entries.section('news') %}
             <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
             {% endfor %}

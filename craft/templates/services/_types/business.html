@@ -66,7 +66,7 @@
       </div>
       <ol class="step-list grid-row big-menu">
         {% for step in entry.children.first().children() %}
-        <li class="step-item one-third">
+        <li class="step-item one-third {% if loop.index % 3 == 0 %}column-last{% endif %}">
           <div class="step-number">{{ loop.index }}</div>
           <div class="step-content">
             <a href="{{step.url}}" class="menu-item">
@@ -96,7 +96,7 @@
       <div class="grid-row">
         <p class="one-half">You’ve gotten your business off the ground and now you are ready to take it to the next level. Learn more and take advantage of city resources to help you maintain and grow your business.</p>
         {% if entry.children.nth(1).mostPopularLinks|length > 0 %}
-        <aside class="column-shift five-twelfths with-bg">
+        <aside class="column-shift five-twelfths with-bg column-shift">
           <h5>Popular Links</h5>
           <ol>
           {% for link in entry.children.first().mostPopularLinks %}
@@ -109,7 +109,7 @@
       <div class="grid-row">
         <div class="big-menu">
           {% for topic in entry.children.nth(1).children %}
-          <div class="menu-item one-third">
+          <div class="menu-item one-third {% if loop.index % 3 == 0 %}column-last{% endif %}">
             <a href="{{ topic.url }}">
               <h3>{{ topic.title }} </h3>
               <p>{{ topic.leadIn }}</p>
@@ -135,7 +135,7 @@
       <h2>Permits and Forms, A-Z</h2>
       <div class="grid-row menu">
         {% for form in craft.entries.section("forms").relatedTo(entry).order("title asc") %}
-          <div class="one-third menu-item">
+          <div class="one-third menu-item {% if loop.index % 3 == 0 %}column-last{% endif %}">
             <a href="{{ form.url }}">
               <h5>{{ form.title }}</h5>
             </a>

@@ -27,18 +27,9 @@
             <h3>For More Information</h3>
             {{ entry.eventContact }}
           </div>
-          <div class="column-shift five-twelfths">
+          <div class="column-shift five-twelfths column-last">
             <img src="{{ entry.eventPhoto.first().url}}" alt="" class="event-photo">
             <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.eventLocation | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
-          </div>
-        </div>
-
-        <div class="grid-row">
-          <div class="two-thirds">
-            
-          </div>
-          <div class="one-third">
-
           </div>
         </div>
 

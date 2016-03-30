@@ -31,7 +31,7 @@
           <img class="team-member-portrait" src="{{ block.portrait.first().url }}" alt="{{ block.portrait.first().title }}">
           {% endif %}
         </div>
-        <div class="column-shift seven-twelfths">
+        <div class="column-shift seven-twelfths column-last">
             <h4 class="team-member-name">{{ block.teamMemberName }}</h4>
             {% if block.jobTitle %}<p class="team-member-job-title">{{ block.jobTitle }}</p>{% endif %}
             {% if block.email %}<p class="team-member-email">{{ block.email }}</p>{% endif %}

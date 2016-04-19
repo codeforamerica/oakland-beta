@@ -61,6 +61,8 @@ return array(
 	## Department Pages
 	"Our Management" => "Nuestra Gestión",
 	"Contact Us" => "Contáctenos",
+	"Content from this department has not been brought over from the previous Oakland website. We appreciate your patience while continue to improve our digital experience for the public." => "El contenido de este departamento no se ha traído desde el sitio web de Oakland anterior. Apreciamos su paciencia mientras siga mejorando nuestra experiencia digital para el público.",
+
 
 	## Form Pages
 	"Download the Form" => "Descargar el Formulario",

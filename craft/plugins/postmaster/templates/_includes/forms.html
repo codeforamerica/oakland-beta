@@ -1,0 +1,49 @@
+{% macro checkboxSelect(config) %}
+	{% include "postmaster/_includes/forms/checkboxSelect" with config only %}
+{% endmacro %}
+
+{% macro checkboxSelectField(config) %}
+	
+	{% import "_includes/forms" as forms %}
+
+	{{ forms.field(config, _self.checkboxSelect(config)) }}
+
+{% endmacro %}
+
+{% macro select(config) %}
+
+	{% include "postmaster/_includes/forms/select" with config only %}
+
+{% endmacro %}
+
+{% macro selectField(config) %}
+	
+	{% import "_includes/forms" as forms %}
+
+	{{ forms.field(config, _self.select(config)) }}
+
+{% endmacro %}
+
+{% macro emailFields(config) %}
+	
+	{% include "postmaster/_includes/forms/emailFields" with config only %}
+
+{% endmacro %}
+
+{% macro templateFields(config) %}
+	
+	{% include "postmaster/_includes/forms/templateFields" with config only %}
+
+{% endmacro %}
+
+{% macro editableTable(config) %}
+	
+	{% include "postmaster/_includes/forms/emailFields" with config only %}
+
+{% endmacro %}
+
+{% macro editableTableField(config) %}
+	{% import "_includes/forms" as forms %}
+	{% set input %}{% include "postmaster/_includes/forms/editableTable" with config only %}{% endset %}
+	{{ forms.field(config, input) }}
+{% endmacro %}

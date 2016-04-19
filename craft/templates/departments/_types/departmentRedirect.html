@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<main class="{{ entry.slug }}">
+  <div class="main-overlay"></div>
+
+  <section id="section-1" class="section">
+    <div class="container">
+      <div class="grid-row">
+        <div class="one-whole">
+          <nav class="breadcrumbs">
+            <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+            <a href="#">{{"Departments" | translate }}</a>
+            <span>{{ entry.title }}</span>
+          </nav>
+          <h1>{{ entry.title }}</h1>
+        </div>
+        <div class="one-half">
+          <a href="{{entry.redirectUrl}}" class="btn btn-large btn-external">Go to {{entry.title}} on the former Oakland website</a>
+        </div>
+        <div class="two-thirds">
+          <p>{{ "Content from this department has not been brought over from the former Oakland website. We appreciate your patience while continue to improve our digital experience for the public." | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main> 
+{% endblock %}   

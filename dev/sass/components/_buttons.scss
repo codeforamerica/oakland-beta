@@ -121,3 +121,18 @@ a.btn-block {
 a.btn-small {
   font-size: $font-size-h4;
 }
+
+.btn-external,
+a.btn-external {
+  padding-right: 4em;
+  &:after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    margin-top: -.75em;
+    font-family: $icon-font;
+    content: '\e853\e876';
+    font-size: 30px;
+  }
+}

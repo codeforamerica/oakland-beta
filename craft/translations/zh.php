@@ -61,6 +61,7 @@ return array(
 	## Department Pages
 	"Our Management" => "我们的管理",
 	"Contact Us" => "联系我们",
+	"Content from this department has not been brought over from the previous Oakland website. We appreciate your patience while continue to improve our digital experience for the public." => "从这个部内容尚未从先前的奥克兰网站带过来。感谢您的耐心，同时继续改善我们的公共数字体验。",
 
 	## Form Pages
 	"Download the Form" => "下载表格",

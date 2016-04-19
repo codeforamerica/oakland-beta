@@ -17,131 +17,60 @@
     <h1>{{ entries | length }} {{"pages match your search for" | translate }} <strong>{{ query }}</strong></h1>
 
     {% if entries|length %}
-        <div class="grid-row big-menu">
+        <div class="grid-row menu">
           <div class="one-fourth">
             <h5>{{"Top Hit" | translate}}</h5>
           </div>
           <div class="two-thirds column-shift column-last">
-            <a class="menu-item" href="{{ entries.first().url }}">{{ entries.first().title }} ({{ entries.first().type.name }})</a>
+            <a class="menu-item" href="{{ entries.first().url }}">{{ entries.first().title }} (in {{ entries.first().section.name }})</a>
           </div>
         </div>
-        
-        {% if entries.section('services') | length > 0 %}
-        <hr>
-        <div class="grid-row big-menu">
-          <div class="one-fourth">
-            <h5>{{"Services and Resources" | translate }}</h5>
-          </div>
-          <div class="two-thirds column-shift column-last">
-            {% for entry in entries.section('services') %}
-            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
 
+        {% set allSections = craft.sections.getAllSections() %}
 
-        {% if entries.section('forms') | length > 0 %}
-        <hr>
-        <div class="grid-row big-menu">
-          <div class="one-fourth">
-            <h5>{{"Forms" | translate }}</h5>
+        {% for currentSection in allSections %}
+          {% if entries.section(currentSection.handle) | length > 0 %}
+          <hr>
+          <div class="grid-row">
+            <div class="one-fourth">
+              <h5>{{ currentSection.name }}</h5>
+            </div>
+            <div class="two-thirds column-shift column-last">
+              {% for entry in entries.section(currentSection.handle) %}
+              <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
+              {% endfor %}
+            </div>
           </div>
-          <div class="two-thirds column-shift column-last">
-            {% for entry in entries.section('forms') %}
-            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-
-        {% if entries.section('initiatives') | length > 0 %}
-        <hr>
-        <div class="grid-row big-menu">
-          <div class="one-fourth">
-            <h5>{{"Initiatives" | translate }}</h5>
-          </div>
-          <div class="two-thirds column-shift column-last">
-            {% for entry in entries.section('initiatives') %}
-            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-
-        {% if entries.section('reports') | length > 0 %}
-        <hr>
-        <div class="grid-row big-menu">
-          <div class="one-fourth">
-            <h5>{{"Reports" | translate }}</h5>
-          </div>
-          <div class="two-thirds column-shift column-last">
-            {% for entry in entries.section('reports') %}
-            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-
-        {% if entries.section('departments') | length > 0 %}
-        <hr>
-        <div class="grid-row big-menu">
-          <div class="one-fourth">
-            <h5>{{"Departments" | translate }}</h5>
-          </div>
-          <div class="two-thirds column-shift column-last">
-            {% for entry in entries.section('departments') %}
-            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-
-        {% if entries.section('officials') | length > 0 %}
-        <hr>
-        <div class="grid-row big-menu">
-          <div class="one-fourth">
-            <h5>{{"Elected Officials" | translate }}</h5>
-          </div>
-          <div class="two-thirds column-shift column-last">
-            {% for entry in entries.section('officials') %}
-            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-
-        {% if entries.section('teams') | length > 0 %}
-        <hr>
-        <div class="grid-row big-menu">
-          <div class="one-fourth">
-            <h5>{{"Teams" | translate }}</h5>
-          </div>
-          <div class="two-thirds column-shift column-last">
-            {% for entry in entries.section('teams') %}
-            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-
-        {% if entries.section('news') | length > 0 %}
-        <hr>
-        <div class="grid-row big-menu">
-          <div class="one-fourth">
-            <h5>{{"News and Updates" | translate }}</h5>
-          </div>
-          <div class="two-thirds column-shift column-last">
-            {% for entry in entries.section('news') %}
-            <a class="menu-item" href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-        {% endif %}
-
+          {% endif %}
+        {% endfor %}
+      
     {% else %}
         <p>{{"Your search for" | translate }} “{{ query }}” {{"didn’t return any results." | translate }}</p>
     {% endif %}
+
+    <hr>
+    <div class="grid-row menu">
+      <div class="one-fourth">
+        <h5>{{"Top Results from the Former Oakland Website" | translate }}</h5>
+      </div>
+      <div class="two-thirds column-shift column-last">
+        <script>
+          (function() {
+            var cx = '001305156678861021700:dmhy1n9joyo';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:searchresults-only></gcse:searchresults-only>
+        <br>
+        <p class="text-small"><a href="http://www2.oaklandnet.com/Search/index.htm?cx=017801668647536616097%3Agrdicmryz10&cof=FORID%3A10&ie=UTF-8&q={{ query }}&sa=Search">See full results from www2.oaklandnet.com <span class="lnr lnr-arrow-right"></span></a></p>
+      </div>
+    </div>
 
 
   </div>

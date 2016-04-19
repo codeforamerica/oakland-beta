@@ -2923,19 +2923,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -661px; } }
+        background-position: 0px -487px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -32px; } }
+        background-position: 0px -781px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -26px; } }
+        background-position: 0px -552px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3260,7 +3260,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -855px; } }
+      background-position: 0px -637px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3405,6 +3405,20 @@ a.btn-external {
 
 .step-content p {
   line-height: 1.5em; }
+
+.gsc-above-wrapper-area, .gsc-resultsHeader, .gcsc-branding, .gsc-url-top, .gsc-table-result, .gsc-cursor-box {
+  display: none !important; }
+
+.gs-title, .gs-title b {
+  font-size: 1.1875rem !important;
+  font-family: Fakt, Helvetica, arial, sans-serif !important;
+  color: #4fbc26 !important;
+  text-decoration: none !important; }
+  .gs-title:hover, .gs-title b:hover {
+    text-decoration: underline !important; }
+
+.gsc-control-cse, .gsc-thumbnail-inside {
+  padding: 0 !important; }
 
 .flex-table {
   display: table; }

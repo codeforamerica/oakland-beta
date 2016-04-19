@@ -39,10 +39,12 @@
           <div class="header-langauge-switcher">
           {% for locale in craft.i18n.getSiteLocales() %}
             {% if craft.locale != locale %}
+              {% if entry is defined %}
               {% if craft.entries.id(entry.id).locale(locale.id) | length > 0 %}
               <a href="{{ craft.entries.id(entry.id).locale(locale.id).first().getUrl() }}">{{ craft.config.currentLgg[locale.id] }}</a>
               {% else %}
               <a href="{{ craft.config.siteUrl[locale.id] }} ">{{ craft.config.currentLgg[locale.id] }}</a>
+              {% endif %}
               {% endif %}
             {% endif %}
           {% endfor %}

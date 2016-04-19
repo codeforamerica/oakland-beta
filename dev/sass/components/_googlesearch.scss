@@ -1,0 +1,17 @@
+.gsc-above-wrapper-area, .gsc-resultsHeader, .gcsc-branding, .gsc-url-top, .gsc-table-result, .gsc-cursor-box {
+    display: none !important;
+}
+
+.gs-title, .gs-title b {
+    font-size: $font-size-body !important;
+    font-family: $body-font !important;
+    color: $oakland-green !important;
+    text-decoration: none !important;
+    &:hover {
+        text-decoration: underline !important;
+    }
+}
+
+.gsc-control-cse, .gsc-thumbnail-inside {
+    padding: 0 !important;
+}

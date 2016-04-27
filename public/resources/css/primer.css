@@ -2472,12 +2472,13 @@ aside.with-bg {
   .subheader .breadcrumb-wrap ~ .container {
     margin-top: 5.25rem; }
   .subheader .hero-caption {
-    text-align: right;
+    margin-top: 2em;
     color: #fff;
     font-size: 1rem; }
     @media screen and (min-width: 48em) {
       .subheader .hero-caption {
-        margin-left: 51.0917030568%; } }
+        margin-left: 51.0917030568%;
+        text-align: right; } }
     .subheader .hero-caption p {
       margin-bottom: 0; }
 
@@ -2932,19 +2933,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -191px; } }
+        background-position: 0px -130px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -469px; } }
+        background-position: 0px -308px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -457px; } }
+        background-position: 0px -220px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3269,7 +3270,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -679px; } }
+      background-position: 0px -644px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3650,17 +3651,6 @@ article .cta-section {
   @media screen and (min-width: 48em) {
     .official .subheader {
       padding-top: 8em; } }
-
-.official .official-feature-story-hero {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  background-size: cover;
-  background-position: center 20%;
-  opacity: .6; }
 
 .official .official-feature-story {
   color: #fff; }

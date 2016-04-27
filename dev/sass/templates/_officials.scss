@@ -37,18 +37,6 @@
         }
     }
 
-    .official-feature-story-hero {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 0;
-        background-size: cover;
-        background-position: center 20%;
-        opacity: .6;
-    }
-
     .official-feature-story {
         color: #fff;
         @include media($bp-md) {

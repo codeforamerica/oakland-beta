@@ -41,7 +41,7 @@
       </div>
       <div class="grid-row">
         <div class="hero-caption one-half">
-          <p>{{ current_hero.caption }}</p>
+          <p>Photo: {{ current_hero.caption }}</p>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
         <div class="two-thirds">
           {% for entry in craft.entries.section('services').level(1) %}
           {% if loop.index % 2 == 1 %}
-          <nav class="big-menu one-half column-last">
+          <nav class="big-menu one-half">
             <div class="menu-item">
               <a href="{{ entry.url }}">
                 <h3>{{ entry.title }}</h3>
@@ -66,10 +66,8 @@
             </div>
           </nav>
           {% endif %}
-          {% endfor %}
-          {% for entry in craft.entries.section('services').level(1) %}
           {% if loop.index % 2 == 0 %}
-          <nav class="big-menu one-half">
+          <nav class="big-menu one-half column-last">
             <div class="menu-item">
               <a href="{{ entry.url }}">
                 <h3>{{ entry.title }}</h3>

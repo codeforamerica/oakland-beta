@@ -38,6 +38,10 @@
         <div class="one-third column-shift column-last">
           <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
         </div>
+        {% else %}
+        <div class="one-third column-shift column-last">
+          <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
+        </div>
         {% endif %} 
 
       </div>

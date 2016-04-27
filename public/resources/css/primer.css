@@ -2445,6 +2445,15 @@ aside.with-bg {
   padding-top: 0;
   margin-bottom: 2.5rem;
   position: relative; }
+  .subheader .hero-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .6;
+    background-size: cover;
+    background-position: center 20%; }
   .subheader .grid-row {
     margin-bottom: 0; }
   .subheader.sticky {
@@ -2923,19 +2932,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -487px; } }
+        background-position: 0px -191px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -781px; } }
+        background-position: 0px -469px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -552px; } }
+        background-position: 0px -457px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3260,7 +3269,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -637px; } }
+      background-position: 0px -679px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3444,6 +3453,9 @@ a.btn-external {
 .css-truncate.expandable.zeroclipboard-is-hover .css-truncate-target, .css-truncate.expandable.zeroclipboard-is-hover.css-truncate-target,
 .css-truncate.expandable:hover .css-truncate-target, .css-truncate.expandable:hover.css-truncate-target {
   max-width: 10000px !important; }
+
+.homepage .subheader {
+  background-color: #000; }
 
 .homepage .news-section h5 {
   margin-top: .5em;
@@ -3759,15 +3771,6 @@ article .cta-section {
 .initiative .subheader {
   position: relative;
   background-color: #000; }
-  .initiative .subheader .hero-image {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: .4;
-    background-size: cover;
-    background-position: center 20%; }
   .initiative .subheader .initiative-subtitle {
     color: #4fbc26;
     margin-bottom: 0; }

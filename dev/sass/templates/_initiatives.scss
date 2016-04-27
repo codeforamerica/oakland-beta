@@ -2,16 +2,6 @@
     .subheader {
         position: relative;
         background-color: #000;
-        .hero-image {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            opacity: .4;
-            background-size: cover;
-            background-position: center 20%;
-        }
 
         .initiative-subtitle {
             color: $oakland-green;

@@ -42,6 +42,17 @@
 	margin-bottom: 2.5rem;
 	position: relative;
 
+	.hero-image {
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    opacity: .6;
+	    background-size: cover;
+	    background-position: center 20%;
+	}
+
 	.grid-row {
 		margin-bottom: 0;
 	}

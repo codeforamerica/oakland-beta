@@ -23,7 +23,9 @@
 
 {% set current_hero = entry.hero.order('RAND()').first() %}
 <main class="homepage">
-  <section class="subheader" style="background-image: url({{ current_hero.url }});">
+  <section class="subheader">
+
+    <div class="hero-image" style="background-image: url({{ current_hero.url }});"></div>
 
     <div class="container">
       <div class="grid-row">

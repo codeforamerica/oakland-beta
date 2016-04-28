@@ -59,49 +59,97 @@
 // Add color themes to _variables.scss
 
 @mixin theme($name, $color) {
-  $primary: $color;
-  $darkened: shade($color, 10%);
-  $lightened: tint($color, 10%);
+
+  $deep: $forestland;
+  $bright: $oakland-green;
+  $light: $fruitvale-mint;
+
+  @if $color == $longfellow-rosewood {
+    $deep: $longfellow-rosewood;
+    $bright: $chinatown-red;
+    $light: $melrose;
+  }
+
+  @if $color == $water-blue {
+    $deep: $water-blue;
+    $bright: $lakeshore;
+    $light: $brook;
+  }
+
+  @if $color == $jack-london-purple {
+    $deep: $jack-london-purple;
+    $bright: $orchard-plum;
+    $light: $meadow-brook-thistle;
+  }
+
+  @if $color == $gold {
+    $deep: $gold;
+    $bright: $summer-yellow;
+    $light: $allendale;
+  }
+
+  @if $color == $allendale-wine {
+    $deep: $allendale-wine;
+    $bright: $jingletown-pink;
+    $light: $magnolia;
+  }
+
+  @if $color == $grass-valley {
+    $deep: $grass-valley;
+    $bright: $liberty-green;
+    $light: $merritt-mint;
+  }
+
+  @if $color == $woodminster {
+    $deep: $woodminster;
+    $bright: $golden-gate;
+    $light: $maple-orange;
+  }
+
+  @if $color == $merritt-lake {
+    $deep: $merritt-lake;
+    $bright: $broadway-blue;
+    $light: $sequoyah-heights;
+  }
 
   .#{$name} {
-  
 
     a {
-      color: $primary;
+      color: $bright;
 
       &:hover,
       &:focus {
-        color: $primary;
+        color: $bright;
       }
 
       &:active {
-        color: $darkened;
+        color: $deep;
       }
     }
 
     .btn,
     a.btn {
       color: $white;
-      background-color: $primary;
+      background-color: $deep;
 
       &:before {
-        background-color: $primary;
+        background-color: $deep;
       }
 
       &:hover,
       &:focus {
-        background-color: $rockridge-gray;
+        background-color: shade($deep, 20%);
 
         &:before {
-          background-color: $lightened;
+          background-color: $bright;
         }
       }
 
       &:active {
-        background-color: $lightened;
+        background-color: $bright;
 
         &:before {
-          background-color: $rockridge-gray;      
+          background-color: $deep;      
         }
       }
 
@@ -110,7 +158,7 @@
     .btn-secondary,
     a.btn-secondary {
       background-color: $gray-lighter;
-      color: $primary;
+      color: $deep;
 
       &:before {
         background-color: $gray-lighter;
@@ -119,33 +167,50 @@
       &:hover,
       &:focus {
         &:before {
-          background-color: $lightened;
+          background-color: tint($deep, 20%);
         }
       }
 
     }
 
     .subheader {
-      background-color: $primary;
+      background-color: $deep;
+      .btn, a.btn {
+        background-color: $bright;
+        &:hover {
+          background-color: shade($bright, 20%);
+          &:before {
+            background-color: $bright;
+          }
+        }
+
+        &:active {
+          background-color: tint($bright, 20%);
+          &:before {
+            background-color: $bright;
+          }
+        }
+
+      }
     }
 
     .menu-item {
-      color: $primary;
+      color: $bright;
 
       &:hover,
       &:focus {
-        color: $primary;
+        color: $bright;
 
         &:before {
-          background-color: $primary;
+          background-color: $bright;
         }
       }
 
       &:active {
-        color: $darkened;
+        color: $deep;
 
         &:before {
-          background-color: $darkened;
+          background-color: $deep;
         }
       }
     }

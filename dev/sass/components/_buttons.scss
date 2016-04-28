@@ -23,6 +23,7 @@ a.btn {
   margin-bottom: 1.5rem;
 
   &:before {
+    transition: all 0.15s ease;
     content: "";
     position: absolute;
     width: 2px;

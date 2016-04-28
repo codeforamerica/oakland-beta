@@ -54,6 +54,11 @@
         <div class="footer-omega">
           <div class="grid-row">
             <div class="one-third right column-last">
+              <small>&copy; {{ now | date("Y") }} {{"City of Oakland" | translate }}</small><br>
+              <a href="#"><small>{{"Privacy Policy" | translate }}</small></a>
+              <a href="#"><small>{{"Terms of Use" | translate }}</small></a>
+            </div>
+            <div class="one-third right">
               <p>
               {% if socialMedia.cityFacebookProfile %}<a class="icon-social icon-social-facebook" href="{{entry.facebookProfile}}">Facebook</a>{% endif %}
               {% if socialMedia.cityTwitterProfile %}<a class="icon-social icon-social-twitter" href="{{entry.twitterProfile}}">Twitter</a>{% endif %}
@@ -61,20 +66,15 @@
               {% if socialMedia.cityNewsletter %}<a class="icon-social icon-social-email" href="{{entry.officialNewsletter}}">Newsletter</a>{% endif %}
               </p>
             </div>
-            <div class="one-third right">
-              <small>&copy; {{ now | date("Y") }} {{"City of Oakland" | translate }}</small><br>
-              <a href="#"><small>{{"Privacy Policy" | translate }}</small></a>
-              <a href="#"><small>{{"Terms of Use" | translate }}</small></a>
-            </div>
-          <a href="#" class="logo-wrap">
-            {% if craft.locale == 'en_us' %}
-            <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-black.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
-            {% elseif craft.locale == 'es' %}
-            <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-spanish.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
-            {% elseif craft.locale == 'zh' %}
-            <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-chinese.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
-            {% endif %}
-          </a>
+            <a href="#" class="logo-wrap">
+              {% if craft.locale == 'en_us' %}
+              <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-black.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+              {% elseif craft.locale == 'es' %}
+              <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-spanish.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+              {% elseif craft.locale == 'zh' %}
+              <img class="site-logo" src="{{ craft.config.rootUrl }}resources/img/coo-logo-chinese.svg" onerror="this.src='{{ craft.config.rootUrl }}resources/img/coo-logo-black.png'; this.onerror=null;" alt="City of Oakland" />
+              {% endif %}
+            </a>
           </div>
         </div>
       </div>

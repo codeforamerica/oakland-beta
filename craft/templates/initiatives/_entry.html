@@ -48,7 +48,7 @@
           <h2>{{"News and Updates" | translate }}</h2>
         </div>
         <div class="one-fourth text-right column-last">
-          <a href="{{ craft.entries.slug('news').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('news').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
         </div>
       </div>
       <div class="grid-row">
@@ -90,7 +90,7 @@
           <h2>{{"Upcoming Events" | translate }}</h2>
         </div>
         <div class="one-fourth text-right column-last">
-          <a href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
         </div>
       </div>
       

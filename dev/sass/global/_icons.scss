@@ -70,6 +70,90 @@ $content-bg : $oakland-green;
   }
 }
 
+.icon-social {
+    @include transition(box-shadow .1s ease-out, background-color .1s ease-out);
+    position: relative;
+    display: inline-block;
+    margin-right: .8em;
+    height: 2.5em;
+    width: 2.5em;
+    text-align: center;
+    background-color: $gray-light;
+    border-radius: 50%;
+    text-indent: -9999px;
+    color: $gray-dark;
+    margin-bottom: .5em;
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        left: 50%;
+        margin-left: -1em;
+        top: 50%;
+        margin-top: -1em;
+        height: 2em;
+        width: 2em;
+        background-size: auto 22px;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    &:hover {
+        box-shadow: 0 0 3px rgba(0,0,0,.25);
+    }
+
+}
+
+.icon-social-facebook {
+    &:after {
+        background-image: url('../img/icon-facebook-dark.png');
+    }
+    &:hover {
+        background-color: $facebook;
+        &:after {
+            background-image: url('../img/icon-facebook.png');
+        }
+    }
+}
+
+.icon-social-twitter {
+    &:after {
+        background-size: 22px auto;
+        background-image: url('../img/icon-twitter-dark.png');
+    }
+    &:hover {
+        background-color: $twitter;
+        &:after {
+            background-image: url('../img/icon-twitter.png');
+        }
+    }
+}
+
+.icon-social-instagram {
+    &:after {
+        background-image: url('../img/icon-instagram-dark.png');
+    }
+    &:hover {
+        background-color: $instagram;
+        &:after {
+            background-image: url('../img/icon-instagram.png');
+        }
+    }
+}
+
+.icon-social-email {
+    &:after {
+        background-size: 22px auto;
+        background-image: url('../img/icon-mail-dark.png');
+    }
+    &:hover {
+        background-color: $email;
+        &:after {
+            background-image: url('../img/icon-mail.png');
+        }
+    }
+}
+
 // Linearicons icon font https://linearicons.com/free
 @font-face {
   font-family: Linearicons-Free;

@@ -107,7 +107,7 @@
           <h2>{{"News and Updates" | translate }}</h2>
         </div>
         <div class="one-fourth text-right column-last">
-          <a href="{{ craft.entries.slug('news').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('news').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
         </div>
       </div>
       
@@ -130,8 +130,6 @@
   </section>
   {% endif %}
 
-  {% if craft.entries.section('events').relatedTo(entry) | length > 0 %}
-
   {% set eventParams = {
       section: "events",
       order: 'eventDate asc',
@@ -141,6 +139,7 @@
     }
   %}
 
+  {% if craft.entries(eventParams) | length > 0%}
   <section class="section">
     <div class="container">
       <div class="grid-row no-padding">
@@ -148,7 +147,7 @@
           <h2>{{"Upcoming Events" | translate }}</h2>
         </div>
         <div class="one-fourth text-right column-last">
-          <a href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }}</a>
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
         </div>
       </div>
       
@@ -179,10 +178,10 @@
         <div class="{% if entry.physicalAddress %}column-shift {% endif %}five-twelfths column-last">
         <h4>On the Web</h4>
         <p>
-        {% if entry.facebookProfile %}<a href="{{entry.facebookProfile}}">Facebook</a><br>{% endif %}
-        {% if entry.twitterProfile %}<a href="{{entry.twitterProfile}}">Twitter</a><br>{% endif %}
-        {% if entry.instagramProfile %}<a href="{{entry.instagramProfile}}">Instagram</a><br>{% endif %}
-        {% if entry.instagramProfile %}<a href="{{entry.officialNewsletter}}">Newsletter</a><br>{% endif %}
+        {% if entry.facebookProfile %}<a class="icon-social icon-social-facebook" href="{{entry.facebookProfile}}">Facebook</a>{% endif %}
+        {% if entry.twitterProfile %}<a class="icon-social icon-social-twitter" href="{{entry.twitterProfile}}">Twitter</a>{% endif %}
+        {% if entry.instagramProfile %}<a class="icon-social icon-social-instagram" href="{{entry.instagramProfile}}">Instagram</a>{% endif %}
+        {% if entry.officialNewsletter %}<a class="icon-social icon-social-email" href="{{entry.officialNewsletter}}">Newsletter</a>{% endif %}
         </p>
         {% if entry.email|length > 0 %}
           <h4>{{"Email" | translate }}</h4>

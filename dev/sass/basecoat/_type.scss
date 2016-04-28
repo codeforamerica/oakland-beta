@@ -175,6 +175,18 @@ ol {
   padding-left: 0;
 }
 
+// Border Bottom List
+
+.list-border-bottom {
+  list-style: none;
+  padding-left: 0;
+  li:not(:last-child) {
+    padding-bottom: .5em;
+    border-bottom: 1px solid $gray-light;
+  }
+ 
+}
+
 ol ol,
 ul ol {
   list-style-type: lower-roman;

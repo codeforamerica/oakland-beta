@@ -114,14 +114,15 @@
         </div>
 
         <aside class="one-third column-shift column-last">
-          <h5 class="aside-title">{{"Other News" | translate }} (<a href="{{ siteUrl }}news">{{"see all" | translate }}</a>)</h5>
-          <ul class="list-no-style">
+          <h5 class="aside-title">{{"Other News" | translate }}</h5>
+          <ul class="list-border-bottom">
             {% for entry in craft.entries.section('news').offset(1).limit(6) %}
             <li>
               <a class="other-news-link" href="{{ entry.url }}">{{ entry.title }}</a>
             </li>
             {% endfor %}
           </ul>
+          <a class="btn btn-small btn-block btn-secondary" href="{{ siteUrl }}news">{{"see all" | translate }} {{"news" | translate }} <span class="lnr lnr-arrow-right"></span></a>
         </aside>
 
       </div>

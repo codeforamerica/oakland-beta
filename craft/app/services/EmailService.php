@@ -116,7 +116,8 @@ class EmailService extends BaseApplicationComponent
 			$emailModel->body     = Craft::t($key.'_body', null, null, 'en_us');
 		}
 
-		$tempTemplatesPath = '';
+		$templatesService = craft()->templates;
+		$oldTemplateMode = $templatesService->getTemplateMode();
 
 		if (craft()->getEdition() >= Craft::Client)
 		{
@@ -125,14 +126,15 @@ class EmailService extends BaseApplicationComponent
 
 			if (!empty($settings['template']))
 			{
-				$tempTemplatesPath = craft()->path->getSiteTemplatesPath();
+				$templatesService->setTemplateMode(TemplateMode::Site);
 				$template = $settings['template'];
 			}
 		}
 
 		if (empty($template))
 		{
-			$tempTemplatesPath = craft()->path->getCpTemplatesPath();
+			// Default to the _special/email.html template
+			$templatesService->setTemplateMode(TemplateMode::CP);
 			$template = '_special/email';
 		}
 
@@ -147,18 +149,14 @@ class EmailService extends BaseApplicationComponent
 			$emailModel->htmlBody.
 			"{% endset %}\n";
 
-		// Temporarily swap the templates path
-		$originalTemplatesPath = craft()->path->getTemplatesPath();
-		craft()->path->setTemplatesPath($tempTemplatesPath);
-
 		// Tell the template which email key was being requested
 		$variables['emailKey'] = $key;
 
 		// Send the email
 		$return = $this->_sendEmail($user, $emailModel, $variables);
 
-		// Return to the original templates path
-		craft()->path->setTemplatesPath($originalTemplatesPath);
+		// Return to the original template mode
+		$templatesService->setTemplateMode($oldTemplateMode);
 
 		return $return;
 	}
@@ -231,6 +229,16 @@ class EmailService extends BaseApplicationComponent
 		$this->raiseEvent('onSendEmail', $event);
 	}
 
+	/**
+	 * Fires an 'onSendEmailError' event.
+	 *
+	 * @param Event $event
+	 */
+	public function onSendEmailError(Event $event)
+	{
+		$this->raiseEvent('onSendEmailError', $event);
+	}
+
 	// Private Methods
 	// =========================================================================
 
@@ -251,7 +259,6 @@ class EmailService extends BaseApplicationComponent
 		{
 			throw new Exception(Craft::t('Could not determine how to send the email.  Check your email settings.'));
 		}
-
 
 		// Fire an 'onBeforeSendEmail' event
 		$event = new Event($this, array(
@@ -437,28 +444,30 @@ class EmailService extends BaseApplicationComponent
 
 			if (!$email->Send())
 			{
+				// Fire an 'onSendEmailError' event
+				$this->onSendEmailError(new Event($this, array(
+					'user' => $user,
+					'emailModel' => $emailModel,
+					'variables'	 => $variables,
+					'error' => $email->ErrorInfo
+				)));
+
 				throw new Exception(Craft::t('Email error: {error}', array('error' => $email->ErrorInfo)));
 			}
 
-			$success = true;
 			Craft::log('Successfully sent email with subject: '.$email->Subject, LogLevel::Info);
-		}
-		else
-		{
-			$success = false;
-		}
 
-		if ($success)
-		{
 			// Fire an 'onSendEmail' event
 			$this->onSendEmail(new Event($this, array(
 				'user' => $user,
 				'emailModel' => $emailModel,
 				'variables'	 => $variables
 			)));
+
+			return true;
 		}
 
-		return $success;
+		return false;
 	}
 
 	/**

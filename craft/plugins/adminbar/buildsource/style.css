@@ -15,8 +15,8 @@
   .admin_bar_wrapper.sticky {
     position: fixed;
     top: 0;
-    left: 0;
-    z-index: 100; }
+    left: 0; 
+    z-index: 10000;}
   .admin_bar_wrapper.admin_bar_devmode_enabled {
     padding-top: 4px; }
   .admin_bar_wrapper a {
@@ -97,8 +97,7 @@
     .admin_bar_wrapper.sticky {
       position: fixed;
       top: 0;
-      left: 0;
-      z-index: 100; }
+      left: 0; }
 
   .admin_bar_greeting {
     display: flex; }

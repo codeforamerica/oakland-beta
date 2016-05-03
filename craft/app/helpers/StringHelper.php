@@ -228,8 +228,8 @@ class StringHelper
 				352 => 'sh', 362 => 'uu', 369 => 'u',  381 => 'zh', 260 => 'A',
 				261 => 'a',  262 => 'C',  263 => 'c',  280 => 'E',  281 => 'e',
 				321 => 'L',  322 => 'l',  323 => 'N',  324 => 'n',  211 => 'O',
-				346 => 'S',  347 => 's',  379 => 'Z',  380 => 'z',  377 => 'Z',
-				388 => 'z',
+				346 => 'S',  347 => 's',  377 => 'Z',  378 => 'z',  379 => 'Z',
+				380 => 'z',  388 => 'z',
 			);
 
 			foreach (craft()->config->get('customAsciiCharMappings') as $ascii => $char)
@@ -692,14 +692,15 @@ class StringHelper
 	public static function splitOnWords($string)
 	{
 		// Split on anything that is not alphanumeric, or a period, underscore, or hyphen.
-		preg_match_all('/[\p{L}\p{N}\._-]+/u', $string, $matches);
+		// Reference: http://www.regular-expressions.info/unicode.html
+		preg_match_all('/[\p{L}\p{N}\p{M}\._-]+/u', $string, $matches);
 		return ArrayHelper::filterEmptyStringsFromArray($matches[0]);
 	}
 
 	/**
 	 * Strips HTML tags out of a given string.
 	 *
-	 * @param $str The string.
+	 * @param string $str The string.
 	 *
 	 * @return string
 	 */

@@ -27,6 +27,7 @@ $configArray = array(
 		'app.controllers.BaseElementsController',
 		'app.controllers.BaseEntriesController',
 		'app.controllers.CategoriesController',
+		'app.controllers.ChartsController',
 		'app.controllers.DashboardController',
 		'app.controllers.ElementIndexController',
 		'app.controllers.ElementIndexSettingsController',
@@ -57,6 +58,7 @@ $configArray = array(
 		'app.elementactions.DeleteAssetsElementAction',
 		'app.elementactions.DeleteElementAction',
 		'app.elementactions.DeleteUsersElementAction',
+		'app.elementactions.DownloadFileElementAction',
 		'app.elementactions.EditElementAction',
 		'app.elementactions.IElementAction',
 		'app.elementactions.NewChildElementAction',
@@ -95,6 +97,7 @@ $configArray = array(
 		'app.enums.RequirementResult',
 		'app.enums.SectionType',
 		'app.enums.TaskStatus',
+		'app.enums.TemplateMode',
 		'app.enums.UserStatus',
 		'app.enums.VersionUpdateStatus',
 		'app.etc.behaviors.AppBehavior',
@@ -218,6 +221,7 @@ $configArray = array(
 		'app.fieldtypes.DateFieldType',
 		'app.fieldtypes.DropdownFieldType',
 		'app.fieldtypes.EntriesFieldType',
+		'app.fieldtypes.IEagerLoadingFieldType',
 		'app.fieldtypes.IFieldType',
 		'app.fieldtypes.IPreviewableFieldType',
 		'app.fieldtypes.LightswitchFieldType',
@@ -238,6 +242,7 @@ $configArray = array(
 		'app.helpers.AppHelper',
 		'app.helpers.ArrayHelper',
 		'app.helpers.AssetsHelper',
+		'app.helpers.ChartHelper',
 		'app.helpers.CpHelper',
 		'app.helpers.DateTimeHelper',
 		'app.helpers.DbHelper',
@@ -490,6 +495,7 @@ $configArray = array(
 		'app.widgets.FeedWidget',
 		'app.widgets.GetHelpWidget',
 		'app.widgets.IWidget',
+		'app.widgets.NewUsersWidget',
 		'app.widgets.QuickPostWidget',
 		'app.widgets.RecentEntriesWidget',
 		'app.widgets.UpdatesWidget',
@@ -633,6 +639,7 @@ $components['images']['class']               = 'Craft\ImagesService';
 $components['matrix']['class']               = 'Craft\MatrixService';
 $components['migrations']['class']           = 'Craft\MigrationsService';
 $components['path']['class']                 = 'Craft\PathService';
+$components['charts']['class']            	 = 'Craft\ChartsService';
 $components['relations']['class']            = 'Craft\RelationsService';
 $components['resources'] = array(
 	'class'     => 'Craft\ResourcesService',
@@ -692,10 +699,10 @@ $components['plugins'] = array(
 
 // Craft Client components
 $components['editionComponents'][1]['emailMessages']['class']   = 'Craft\EmailMessagesService';
+$components['editionComponents'][1]['userPermissions']['class'] = 'Craft\UserPermissionsService';
 
 // Craft Pro components
 $components['editionComponents'][2]['userGroups']['class']      = 'Craft\UserGroupsService';
-$components['editionComponents'][2]['userPermissions']['class'] = 'Craft\UserPermissionsService';
 
 $components['messages']['class'] = 'Craft\PhpMessageSource';
 $components['coreMessages']['class'] = 'Craft\PhpMessageSource';

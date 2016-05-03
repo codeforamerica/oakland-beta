@@ -216,7 +216,7 @@ class UserModel extends BaseElementModel
 	{
 		$this->pending = false;
 		$this->archived = false;
-	}
+	}	
 
 	/**
 	 * Returns the URL to the user's photo.
@@ -229,7 +229,7 @@ class UserModel extends BaseElementModel
 	{
 		if ($this->photo)
 		{
-			$username = AssetsHelper::cleanAssetName($this->username, false);
+			$username = AssetsHelper::cleanAssetName($this->username, false, true);
 			return UrlHelper::getResourceUrl('userphotos/'.$username.'/'.$size.'/'.$this->photo);
 		}
 	}
@@ -292,9 +292,9 @@ class UserModel extends BaseElementModel
 	 */
 	public function can($permission)
 	{
-		if (craft()->getEdition() == Craft::Pro)
+		if (craft()->getEdition() >= Craft::Client)
 		{
-			if ($this->admin || $this->client)
+			if ($this->admin)
 			{
 				return true;
 			}

@@ -203,7 +203,7 @@ class LocalAssetSourceType extends BaseAssetSourceType
 	 */
 	public function putImageTransform(AssetFileModel $file, AssetTransformIndexModel $index, $sourceImage)
 	{
-		$folder =  $this->getSourceFileSystemPath().$file->getFolder()->path;
+		$folder =  $this->getSourceFileSystemPath().$file->folderPath;
 		$targetPath = $folder.craft()->assetTransforms->getTransformSubpath($file, $index);
 		return IOHelper::copyFile($sourceImage, $targetPath, true);
 	}
@@ -217,7 +217,7 @@ class LocalAssetSourceType extends BaseAssetSourceType
 	 */
 	public function getImageSourcePath(AssetFileModel $file)
 	{
-		return $this->getSourceFileSystemPath().$file->getFolder()->path.$file->filename;
+		return $this->getSourceFileSystemPath().$file->getPath();
 	}
 
 	/**
@@ -384,8 +384,9 @@ class LocalAssetSourceType extends BaseAssetSourceType
 	protected function defineSettings()
 	{
 		return array(
-			'path' => array(AttributeType::String, 'required' => true),
-			'url'  => array(AttributeType::String, 'required' => true, 'label' => 'URL'),
+			'path'       => array(AttributeType::String, 'required' => true),
+			'publicURLs' => array(AttributeType::Bool,   'default' => true),
+			'url'        => array(AttributeType::String, 'required' => true, 'label' => 'URL'),
 		);
 	}
 
@@ -476,7 +477,7 @@ class LocalAssetSourceType extends BaseAssetSourceType
 						craft()->assetTransforms->storeTransformIndexData($destinationIndex);
 					}
 
-					$from = $file->getFolder()->path.craft()->assetTransforms->getTransformSubpath($file, $index);
+					$from = $file->folderPath.craft()->assetTransforms->getTransformSubpath($file, $index);
 					$to   = $targetFolder->path.craft()->assetTransforms->getTransformSubpath($destination, $destinationIndex);
 
 					$this->copySourceFile($from, $to);
@@ -586,9 +587,8 @@ class LocalAssetSourceType extends BaseAssetSourceType
 	 */
 	private function _getFileSystemPath(AssetFileModel $file)
 	{
-		$folder = $file->getFolder();
 		$fileSourceType = craft()->assetSources->getSourceTypeById($file->sourceId);
 
-		return $this->getSourceFileSystemPath($fileSourceType).$folder->path.$file->filename;
+		return $this->getSourceFileSystemPath($fileSourceType).$file->getPath();
 	}
 }

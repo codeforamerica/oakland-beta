@@ -1,0 +1,175 @@
+/*
+ * Venti Modal
+ */
+class VentiSchedule {
+    constructor (options) {
+        this._options = options;
+        this._container = document.getElementById(options.id + "-venti-modal");
+        this._input = document.getElementById(options.id + "-venti-field");
+        this._freqSelect = this._container.querySelectorAll('.venti-frequency--select')[0];
+
+        this.initEvents();
+    }
+
+    get container () {
+        return this._container;
+    }
+
+    get overlay () {
+        return this._overlay;
+    }
+
+    get options () {
+        return this._options;
+    }
+
+    get freqSelect () {
+        return this._freqSelect;
+    }
+
+    set container (container) {
+        this._container = container;
+    }
+
+    set options (options) {
+        this._options = options;
+    }
+
+    set freqSelect (freqsel) {
+        this._freqSelect = freqsel;
+    }
+
+
+    initEvents () {
+        var $this = this,
+            mdl = $this._container,
+            dp = mdl.querySelectorAll('.venti-endson-datefield')[0],
+            excludeDp = mdl.querySelectorAll('.venti-exclude-datefield')[0],
+            includeDp = mdl.querySelectorAll('.venti-include-datefield')[0],
+            ends = mdl.querySelectorAll('.venti_endson')[0];
+
+        // Update scheduler state
+        this.freqSelect.addEventListener('change', function() {
+            var sel = this,
+                idx = sel.selectedIndex;
+            $this.updateState( sel.options[idx].value );
+        },false);
+
+        dp.addEventListener('focusout', function (evt) {
+            //console.log(evt);
+        },false);
+
+        // Action after exclude datepicker focusout event
+        excludeDp.addEventListener('focusout', function (evt) {
+            var thisDP = this;
+            setTimeout(function(){
+                $this.setDateElement(thisDP, evt);
+            },200);
+        },false);
+
+        // Action after incude datepicker focusout event
+        includeDp.addEventListener('focusout', function (evt) {
+            var thisDP = this;
+            setTimeout(function(){
+                $this.setDateElement(thisDP, evt);
+            },200);
+        },false);
+
+        $("#" + mdl.id).on('click', '.delete', function (){
+            $(this).parent().fadeOut( function (){
+                $(this).remove();
+            });
+        });
+
+
+        ends.addEventListener('click', function (evt) {
+            var parent = this,
+                elm = evt.target,
+                textInputs = parent.querySelectorAll('input[type=text]');
+
+            if( elm.className === "venti-endson__after" && elm.checked ) {
+
+                textInputs[0].disabled = false;
+                textInputs[0].classList.remove('disabled');
+                textInputs[1].disabled = true;
+                textInputs[1].classList.add('disabled');
+                textInputs[1].value = "";
+                 
+            } else if( elm.className === "venti-endson__date" && elm.checked ) {
+
+                textInputs[1].disabled = false;
+                textInputs[1].classList.remove('disabled');
+                textInputs[0].disabled = true;
+                textInputs[0].classList.add('disabled');
+                textInputs[0].value = "";
+                
+            } else if( elm.className === "venti-endson__never" && elm.checked ) {
+                for(var i = 0; i< textInputs.length; i++){
+                    textInputs[i].disabled = true;
+                    textInputs[i].classList.add('disabled');
+                    textInputs[i].value = "";
+                }
+            }
+
+        },false);
+    }
+    
+    clearSummary () {
+        var $this = this,
+            mdl = $this._container;
+        mdl.querySelectorAll('.venti-summary')[0].innerHTML = "";
+    }
+
+    updateState (value) {
+        var stateID = (parseInt(value) + 1);
+        this._container.dataset.state = stateID;
+    }
+
+    setStartOn () {
+        var $this = this,
+            input = $this._input,
+            mdl = $this._container,
+            startOnInput = mdl.querySelectorAll('.venti-starts-on')[0],
+            startDate = input.querySelectorAll('.venti-startdate--input')[0];
+
+        if(startDate.value !== ""){
+            startOnInput.value = startDate.value;
+        }
+    }
+
+    //[jQ]
+    setDateElement (obj, evt) {
+        var input = obj,
+            value = input.value,
+            tab = this.getNthParent(input,4),
+            elmList = $("#" + tab.id).find('.venti_elements'),
+            tempName = tab.dataset.template,
+            temp = $(tempName).text(),
+            elm = $(temp);
+
+        if(value.trim() !== ""){
+            elm.find('input').attr('value',value);
+            elm.find('.title').append(value);
+            elmList.append(elm);
+            input.value = "";
+        }
+    }
+
+    getRuleString (elm, callback) {
+        var $this = this,
+            mdl = $this._container,
+            formData = $("#" + mdl.id).find(".venti_modal-form").serialize();
+
+        Craft.postActionRequest('venti/ajax/getRuleString', formData, function (data) {
+            if(typeof callback == 'function'){
+                callback(data);
+            }
+        });
+    }
+
+    getNthParent(elm, idx) {
+        var el = elm, i = idx;
+        while(i-- && (el = el.parentNode));
+        return el;
+    }
+}

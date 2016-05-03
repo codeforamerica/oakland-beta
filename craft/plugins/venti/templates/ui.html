@@ -1,0 +1,95 @@
+{% import "_includes/forms" as forms %}
+
+{% includeCssResource "venti/css/venti.css" %}
+{% includeJsResource "venti/js/venti.min.js" %}
+
+<div class='venti_field {% if fieldData.allDay is defined %}{% if fieldData.allDay == 1 %}allDay{% endif %}{% endif %} {% if fieldData.repeat is defined %}{% if fieldData.repeat == 1 %}repeats{% endif %}{% endif %}' id="{{ name }}-venti-field" data-field-name="{{ name }}">
+
+    {{ forms.dateTimeField({
+        label: "Start Date"|t,
+        instructions: "When should the event start?"|t,
+        id: name ~ 'eventStartDate',
+        name: name~'[startDate]',
+        class: 'venti-startdate--input',
+        value: fieldData.startDate is defined ? fieldData.startDate,
+        errors:''
+    }) }}
+
+    {{ forms.dateTimeField({
+        label: "End Date"|t,
+        instructions: "When should the event end?"|t,
+        id: name ~ 'eventEndDate',
+        name: name~'[endDate]',
+        class: 'venti-enddate--input',
+        value: fieldData.endDate is defined ? fieldData.endDate,
+        errors: ''
+    }) }}
+<!--value ? value.errors('event') : null-->
+    <span>
+        <input
+            type='checkbox'
+            name='{{name}}[allDay]'
+            id='{{ name }}-venti-allday--input'
+            class='venti-allday--input'
+            value='1'
+            {% if fieldData.allDay is defined %}
+                {{ fieldData.allDay == 1 ? "checked" : "" }}
+            {% endif %}
+        />
+        <label for='{{ name }}-venti-allday--input'>{{ 'All day'|t }}</label>
+    </span>
+
+    <span>
+        <input
+            type='checkbox'
+             name='{{name}}[repeat]'
+             id='{{ name }}-eventRepeat'
+             class="venti-eventRepeat"
+             data-events-click
+             data-events-action='modal'
+             value='1'
+             {% if fieldData.repeat is defined %}
+                {{ fieldData.repeat == 1 ? "checked" : "" }}
+             {% endif %}
+        />
+        <label for='{{ name }}-eventRepeat'>{{ 'Repeat'|t }}
+            <div class='venti-summary--human'>{{ fieldData.summary is defined ? fieldData.summary : "" }}</div>
+        </label>
+        {% if fieldData.repeat is defined %}
+            {% if fieldData.repeat == 1 %}
+                    <a data-events-edit class="venti-eventRepeat-edit" style='display:inline;' {# data-venti-modal="{{name}}-venti-modal" #}>{{ 'Edit'|t }}</a>
+            {% else %}
+                    <a data-events-edit class="venti-eventRepeat-edit" style='display:none;' {# data-venti-modal="{{name}}-venti-modal" #}>{{ 'Edit'|t }}</a>
+            {% endif %}
+        {% endif %}
+        <input
+            type='hidden'
+            name='{{name}}[rRule]'
+            id='{{ name }}-rRule'
+            class="venti-rrule"
+            {% if fieldData.rRule is defined %}
+                value='{{ fieldData.rRule }}'
+                data-rule-string='{{ fieldData.rRule }}'
+            {% endif %}
+            data-rrule
+        />
+        <input
+            type='hidden'
+            name='{{name}}[summary]'
+            class='venti-summary'
+            id='{{ name }}-summary'
+            {% if fieldData.summary is defined %}
+                value='{{ fieldData.summary }}'
+            {% endif %}
+            data-summary
+        />
+    </span>
+</div>
+
+{% includejs %}
+        new VentiInput({
+                id: "fields-{{ name }}",
+                values: {{ fieldData|json_encode|raw }},
+                locale: "{{ locale | e('js') }}"
+            });
+{% endincludejs %}

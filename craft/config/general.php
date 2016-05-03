@@ -21,6 +21,7 @@ return array(
 	),
 
 	'live' => array(
+        'devMode' => true,
 		'siteUrl' => array(
 			'en_us' => 'https://beta.oaklandca.gov/',
 			'es' => 'https://beta.oaklandca.gov/es/',

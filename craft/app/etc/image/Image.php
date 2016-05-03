@@ -132,6 +132,14 @@ class Image extends BaseImage
 			throw new Exception(Craft::t('The file “{path}” does not appear to be an image.', array('path' => $path)));
 		}
 
+		// If we're using Imagick _and_ one that supports it, convert CMYK to RGB, save and re-open.
+		if (!craft()->images->isGd() && $this->_image->getImagick()->getImageColorspace() == \Imagick::COLORSPACE_CMYK && method_exists($this->_image->getImagick(), 'transformimagecolorspace'))
+		{
+			$this->_image->getImagick()->transformimagecolorspace(\Imagick::COLORSPACE_SRGB);
+			$this->_image->save();
+			return craft()->images->loadImage($path);
+		}
+
 		$this->_extension = $extension;
 		$this->_imageSourcePath = $path;
 
@@ -624,14 +632,7 @@ class Image extends BaseImage
 			case 'gif':
 			{
 				$options = array('animated' => $this->_isAnimatedGif);
-
-				if ($this->_isAnimatedGif)
-				{
-					// Imagine library does not provide this value and arbitrarily divides it by 10, when assigning,
-					// so we have to improvise a little
-					$options['animated.delay'] = $this->_image->getImagick()->getImageDelay() * 10;
-				}
-
+				
 				return $options;
 			}
 

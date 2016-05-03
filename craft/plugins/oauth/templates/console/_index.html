@@ -1,0 +1,48 @@
+{% extends "oauth/_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% set selectedTab = 'console' %}
+
+{% set content %}
+
+{% import "_includes/forms" as forms %}
+
+{% includeCssResource 'oauth/css/disableSave.css' %}
+
+<table id="fields" class="data fullwidth collapsible">
+    <thead>
+        <tr>
+            <th scope="col">{{ "Test Name"|t }}</th>
+            <th scope="col">{{ "Status"|t }}</th>
+            <th scope="col">{{ "OAuth Provider"|t }}</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for provider in providers %}
+
+            <tr>
+                <td><a href="{{ url('oauth/console/'~provider.handle) }}">{{provider.name}}</a></td>
+
+                <td>
+                    {% if tokens[provider.handle] is defined %}
+                        <span class="status on"></span> {{ "Connected"|t }}
+                    {% else %}
+                        <span class="status"></span><span class="light">{{ "Not connected"|t }}</span>
+                    {% endif %}
+                </td>
+
+                <td class="nowrap">
+                    {% if provider.isConfigured %}
+                        <span class="status on"></span> {{ "Configured"|t }}
+                    {% else %}
+                        <span class="status"></span><span class="light">{{ "Not Configured"|t }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endset %}

@@ -39,6 +39,7 @@
 	transition: all 0.3s ease-out;
 	height: auto;
 	padding-top: 0;
+	padding-bottom: 2em;
 	margin-bottom: 2.5rem;
 	position: relative;
 
@@ -66,6 +67,7 @@
 
 	h1 {
 		font-size: $font-size-h2;
+		margin-bottom: 1em;
 	}
 
 	&.done {

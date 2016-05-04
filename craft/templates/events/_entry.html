@@ -2,6 +2,8 @@
 
 {% block content %}
 
+  {% set event = craft.venti.getEventById(entry.id) %}
+
     <main class="event">
 
     <div class="main-overlay"></div>
@@ -16,7 +18,33 @@
 
       <article class="container">
         <h1>{{ entry.title }}</h1>
-        <p class="lead">{{ entry.eventDate | date("l, F d, Y")}}{% if entry.eventEndDate %} - {{ entry.eventEndDate | date("l, F d, Y")}}{% endif %}{% if entry.eventStartTime %} | {{ entry.eventStartTime.localeTime() }}{% endif %}{% if entry.eventEndTime %} - {{ entry.eventEndTime.localeTime() }}{% endif %}</p>
+        <p class="lead">
+          {# Is the event same date or multiday event? #}
+               {% if event.startDate|date('mdY') == event.endDate|date('mdY') %}
+                   {# Is the event all day #}
+                   {% if event.allDay == 1 %}
+                       {# If the event is repeat also show the repeat schedule(summary) #}
+                       {% if event.isrepeat == 1 %}
+                           {{ event.startDate|date('l, F d, Y') }} {{ event.summary }}
+                       {% else %}
+                           {{ event.startDate|date('l, F d, Y') }}
+                       {% endif %}
+                   {% else %}
+                       {# If the event is repeat also show the repeat schedule(summary) #}
+                       {% if event.isrepeat %}
+                           {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }}  {{ event.summary }}
+                       {% else %}
+                           {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }}
+                       {% endif %}
+                   {% endif %}
+               {% else %}
+                   {% if event.allDay == 1 %}
+                       {{ event.startDate|date('l, F d, Y') }} - {{ event.endDate|date('l, F d, Y') }}
+                   {% else %}
+                       {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('l, F d, Y g:ia') }}
+                   {% endif %}
+               {% endif %}
+        </p>
         
         <div class="grid-row">
           <div class="one-half">

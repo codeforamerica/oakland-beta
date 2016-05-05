@@ -9,24 +9,24 @@
       <div class="container">
         <nav class="breadcrumbs">
           <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
-          <a href="#">{{"News and Updates" | translate }}</a>
+          <a href="{{ siteUrl }}news">{{"News and Updates" | translate }}</a>
           <span>{{ entry.title }}</span>
         </nav>
       </div>
 
       <section class="container">
         <div class="grid-row">
-          <div class="two-thirds">
+          <div class="two-thirds news-header">
             <h1>{{ entry.title }}</h1>
-            <p class="post-data">{{ entry.dateCreated.localeDate()|date('M j, Y') }}</p>
-            {% if entry.mainImage|length > 0 %}
-            <img src="{{ entry.mainImage.first().url }}" alt="entry.mainImage.first().caption">
-            {% endif %}
+            <p class="post-data">{{ entry.dateCreated.localeDate()  | date('l, M d, Y') }} | News Update</p>
           </div>
         </div>
         
         <div class="grid-row">
           <div class="two-thirds">
+            {% if entry.mainImage|length > 0 %}
+            <img class="news-main-image" src="{{ entry.mainImage.first().url }}" alt="entry.mainImage.first().caption">
+            {% endif %}
             {{ entry.body }}
           </div>
         </div>

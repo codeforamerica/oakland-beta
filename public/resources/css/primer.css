@@ -3145,19 +3145,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -543px; } }
+        background-position: 0px -384px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -35px; } }
+        background-position: 0px -115px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -422px; } }
+        background-position: 0px -431px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3484,7 +3484,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -661px; } }
+      background-position: 0px -30px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -3727,12 +3727,16 @@ button.filterbox-search-button {
   background-color: #f4f5f4;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   padding: 1em;
-  min-width: 13em;
-  z-index: 10; }
+  min-width: 15em;
+  z-index: 10;
+  max-height: 20em;
+  overflow: auto; }
   @media screen and (min-width: 48em) {
     .filterbox-drawer {
       margin-top: 1em;
       position: absolute; } }
+  .filterbox-drawer h6:not(:first-child) {
+    margin-top: 2em; }
 
 .filterbox-filter-is-open .filterbox-filter-label {
   color: #4fbc26; }
@@ -3805,6 +3809,9 @@ button.filterbox-search-button {
 .homepage .news-section h5 {
   margin-top: .5em;
   margin-bottom: 2em; }
+
+.homepage .news-section .btn-see-all-news {
+  margin-top: 2em; }
 
 .search h1 {
   margin-top: 1em;
@@ -3967,7 +3974,12 @@ article .cta-section {
   margin-top: 1em; }
 
 .news h1 + .post-data {
-  margin-top: -2em;
+  margin-top: -2em; }
+
+.news .news-header {
+  margin-bottom: 0; }
+
+.news .news-main-image {
   margin-bottom: 2em; }
 
 .officials-index .official {

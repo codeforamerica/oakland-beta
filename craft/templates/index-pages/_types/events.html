@@ -135,11 +135,11 @@
       <div class="filterbox-filters grid-row">
         <div class="filterbox-filter one-fourth">
           <p class="filterbox-filter-label">Dates <span class="lnr lnr-small lnr-chevron-down"></span></p>
-          <p class="filterbox-filter-selection">{% if starting_after %}{{starting_after|date('F d, Y')}}{% endif %}{% if ending_before %} - {{ ending_before|date('F d, Y')}}{% endif %}</p>
+          <p class="filterbox-filter-selection">{% if starting_after %}{{starting_after|date('M d, Y')}}{% endif %}{% if ending_before %} - {{ ending_before|date('M d, Y')}}{% endif %}</p>
           <div class="filterbox-drawer">
             <ul class="list-no-style">
                 <li><label for="starting-after">Starting After</label>
-              <input type="text" class="datepicker" name="starting-after" id="starting-after"value="{{starting_after}}"></li>
+              <input type="text" class="datepicker" name="starting-after" id="starting-after" value="{{starting_after}}"></li>
               <li><label for="ending-before">Ending Before</label>
               <input type="text" class="datepicker" name="ending-before" id="ending-before" value="{{ending_before}}"></li>
             </ul>
@@ -167,7 +167,7 @@
             </ul>
           </div>
         </div>
-        <div class="filterbox-filter one-fourth">
+        <div class="filterbox-filter one-fourth column-last">
           <a class="text-small right" href="{{siteUrl}}events">Reset Search</a>
         </div>
       </div>
@@ -210,7 +210,8 @@
                      {% else %}
                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('l, F d, Y g:ia') }}
                      {% endif %}
-                 {% endif %}</time></p>
+                 {% endif %}
+              </time></p>
           <h3><a href="{{ event.url }}">{{ event.title }}</a></h3> 
           <p>{{ event.body | trimit(180) }}</p>
           <p><a href="{{ event.url }}">Read More</a></p>

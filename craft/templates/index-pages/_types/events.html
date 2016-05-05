@@ -1,17 +1,102 @@
 {% extends '_base.html' %}
 
+{% block page_styles %}
+<link rel="stylesheet" href="{{ craft.config.rootUrl }}resources/css/jquery-ui.structure.min.css">
+{% endblock %}
+
 {% block page_scripts %}
+{# Build Filter Box #}
 <script src="{{ craft.config.rootUrl }}/resources/js/filterbox.js"></script>
+{# Instantiate Datepicker #}
+<script src="{{ craft.config.rootUrl }}/resources/js/jquery-ui.min.js"></script>
+<script>
+  $('.datepicker').datepicker({
+    "prevText": "",
+    "nextText": "",
+    "dateFormat": "yy-mm-dd"
+  });
+</script>
 {% endblock %}
 
 {% block content %}
-{% set eventsEntry = craft.venti.allEvents() %}
+
+{# Instantiate Filters #}
+{% set keywords = "" %}
+{% set starting_after = craft.request.getQuery('starting-after') %}
+{% set ending_before = craft.request.getQuery('ending-before') %}
+{% set keywords = "" %}
+{% set event_types = [] %}
+{% set event_slugs = [] %}
+{% set neighborhoods = [] %}
+{% set neighborhood_slugs = [] %}
 {% set relatedEntry = null %}
+{% set relatedToParams = ['and'] %}
+{% set eventByDates = "" %}
+{% set eventByDatesIds = [] %}
+
+{# If Related To having been selected (e.g., seeing all of an official's events) #}
 {% if craft.request.getParam('q') %}
   {% set query = craft.request.getParam('q') %}
   {% set relatedEntry = craft.entries.slug(query).first() %}
-  {% set eventsEntry = craft.venti.allEvents().relatedTo(relatedEntry) %}
+  {% set relatedToParams = relatedToParams | merge([{targetElement: relatedEntry}])%}
 {% endif %}
+
+{# If keywords were used #}
+{% if craft.request.getQuery('keyword') %}
+  {% set keywords = craft.request.getQuery('keyword') %}
+{% endif %}
+
+{# If dates were specified #}
+{% if starting_after != "" and ending_before != "" %}
+  {% set eventByDates = craft.venti.allEvents().between(starting_after, ending_before) %}
+{% elseif starting_after != "" %}
+  {% set eventByDates = craft.venti.allEvents().startDate('>=' ~ starting_after) %}
+{% elseif ending_before != "" %}
+  {% set eventByDates = craft.venti.allEvents().endDate('<=' ~ ending_before) %}
+{% endif %}
+
+{# Get Event Ids from Venti Calendar #}
+{% if eventByDates != "" %}
+  {% for event in eventByDates %}
+    {% set eventByDatesIds = eventByDatesIds | merge ([event.id]) %}
+  {% endfor %}
+{% else %}
+  {% set eventByDatesIds = null %}
+{% endif %}
+
+{# If Event Types having been selected #}
+{% if craft.request.getQuery('type') %}
+  {% set event_types = ['or'] %}
+  {% set event_slugs = craft.request.getQuery('type') %}
+  {% for event_type in craft.request.getQuery('type') %}
+    {% set event_types = event_types | merge([craft.categories.slug(event_type)]) %}
+  {% endfor %}
+  {% set relatedToParams = relatedToParams | merge([{targetElement: event_types}]) %}
+{% endif %}
+
+{# If Neighborhoods have been selected #}
+{% if craft.request.getQuery('neighborhood') %}
+  {% set neighborhoods = ['or'] %}
+  {% set neighborhood_slugs = craft.request.getQuery('neighborhood') %}
+  {% for neighborhood in craft.request.getQuery('neighborhood') %}
+    {% set neighborhoods = neighborhoods | merge([craft.categories.slug(neighborhood)]) %}
+  {% endfor %}
+  {% set relatedToParams = relatedToParams | merge([{targetElement: neighborhoods}]) %}
+{% endif %}
+
+
+{# Avoid passing an array with `['and']` only #}
+{% if relatedToParams | length < 2 %}
+  {% set relatedToParams = "" %}
+{% endif %}
+
+{# Build the ridiculously complicated search query #}
+{% set eventsEntry = craft.entries({
+  section: "events",
+  id: eventByDatesIds,
+  search: keywords,
+  relatedTo: relatedToParams
+})%}
 
 <main class="events-index">
 
@@ -26,7 +111,7 @@
     </div>
     <div class="container">
       <div class="grid-row">
-        <div class="width-two-thirds section-info">
+        <div class="two-thirds section-info">
           <h1>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"Events" | translate }}</h1>
           <p>Explore events happening around the City of Oakland.</p>
         </div>
@@ -35,49 +120,63 @@
     </div>
   </section>
 
-  <form class="filterbox">
+  <form class="filterbox" action="{{siteUrl}}events">
     <div class="container">
       <div class="grid-row">
-        <div class="width-one-whole">
+        <div class="one-whole">
           <p>Search by Keyword</p>
           <div class="filterbox-search">
-            <input class="filterbox-search-input" />
-            <a href="#" class="btn btn-small filterbox-search-button">Search <span class="lnr lnr-small lnr-arrow-right"></span></a>
+            <input class="filterbox-search-input" name="keyword" value="{{keywords}}" />
+            <button type="submit" class="btn btn-small filterbox-search-button">Search <span class="lnr lnr-small lnr-arrow-right"></span></button>
           </div>
-          <hr>
-          <ul class="filterbox-filters">
-            <li class="filterbox-filter">
-              <p class="filterbox-filter-label">Occuring After <span class="lnr lnr-small lnr-chevron-down"></span></p>
-              <div class="filterbox-drawer">
-                
-              </div>
-            </li>
-            <li class="filterbox-filter">
-              <p class="filterbox-filter-label">Occuring Before <span class="lnr lnr-small lnr-chevron-down"></span></p>
-              <div class="filterbox-drawer">
-                
-              </div>
-            </li>
-            <li class="filterbox-filter">
-              <p class="filterbox-filter-label">Event Type <span class="lnr lnr-small lnr-chevron-down"></span></p>
-              <div class="filterbox-drawer">
-                
-              </div>
-            </li>
-            <li class="filterbox-filter">
-              <p class="filterbox-filter-label">Neighborhood <span class="lnr lnr-small lnr-chevron-down"></span></p>
-              <div class="filterbox-drawer">
-                
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
-    </div>
+      <hr>
+      <div class="filterbox-filters grid-row">
+        <div class="filterbox-filter one-fourth">
+          <p class="filterbox-filter-label">Dates <span class="lnr lnr-small lnr-chevron-down"></span></p>
+          <p class="filterbox-filter-selection">{% if starting_after %}{{starting_after|date('F d, Y')}}{% endif %}{% if ending_before %} - {{ ending_before|date('F d, Y')}}{% endif %}</p>
+          <div class="filterbox-drawer">
+            <ul class="list-no-style">
+                <li><label for="starting-after">Starting After</label>
+              <input type="text" class="datepicker" name="starting-after" id="starting-after"value="{{starting_after}}"></li>
+              <li><label for="ending-before">Ending Before</label>
+              <input type="text" class="datepicker" name="ending-before" id="ending-before" value="{{ending_before}}"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="filterbox-filter one-fourth">
+          <p class="filterbox-filter-label">Event Type <span class="lnr lnr-small lnr-chevron-down"></span></p>
+          <p class="filterbox-filter-selection">{% if event_slugs | length > 0 %}{{event_slugs | length }} type(s) selected{% endif %}</p>
+          <div class="filterbox-drawer">
+            <ul class="list-no-style">
+              {% for type in craft.categories.group('eventTypes') %}
+              <li><label for="{{type.slug}}"><input type="checkbox" id="{{type.slug}}" value="{{type.slug}}" name="type[]" {% if type.slug in event_slugs %}checked{%endif%}>{{type.title}}</label></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="filterbox-filter one-fourth">
+          <p class="filterbox-filter-label">Neighborhood <span class="lnr lnr-small lnr-chevron-down"></span></p>
+          <p class="filterbox-filter-selection">{% if neighborhood_slugs | length > 0 %}{{neighborhood_slugs | length }} neighborhood(s) selected{% endif %}</p>
+          <div class="filterbox-drawer">
+            <ul class="list-no-style">
+              {% for neighborhood in craft.categories.group('neighborhoods').level(2) %}
+              <li><label for="{{neighborhood.slug}}"><input type="checkbox" id="{{neighborhood.slug}}" value="{{neighborhood.slug}}" name="neighborhood[]" {% if neighborhood.slug in neighborhood_slugs %}checked{%endif%}>{{neighborhood.title}}</label></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="filterbox-filter one-fourth">
+          <a class="text-small right" href="{{siteUrl}}events">Reset Search</a>
+        </div>
+      </div>
+     </div>
   </form>
 
   <section>
     <div class="container">
+      {% if eventsEntry | length > 0 %}
       {% for event in eventsEntry %} 
 
       <div class="post-excerpt grid-row">
@@ -87,34 +186,31 @@
           {% endif %}
         </div>
         <div class="seven-twelfths column-shift column-last">
-          <p class="post-data"><time datetime="">
-            {# Is the event same date or multiday event? #}
-                 {% if event.startDate|date('mdY') == event.endDate|date('mdY') %}
+          <p class="post-data"><time datetime=""> {# Is the event same date or multiday event? #}
+                 {% if event.eventDateAndTime.startDate.date|date('mdY') == event.eventDateAndTime.endDate.date|date('mdY') %}
                      {# Is the event all day #}
-                     {% if event.allDay == 1 %}
+                     {% if event.eventDateAndTime.allDay is defined %}
                          {# If the event is repeat also show the repeat schedule(summary) #}
-                         {% if event.isrepeat == 1 %}
-                             {{ event.startDate|date('l, F d, Y') }} {{ event.summary }}
+                         {% if event.eventDateAndTime.rRule == 1 %}
+                             {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }} {{ event.eventDateAndTime.summary }}
                          {% else %}
-                             {{ event.startDate|date('l, F d, Y') }}
+                             {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }}
                          {% endif %}
                      {% else %}
                          {# If the event is repeat also show the repeat schedule(summary) #}
-                         {% if event.isrepeat %}
-                             {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }}  {{ event.summary }}
+                         {% if event.eventDateAndTime.rRule %}
+                             {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('g:ia') }}  {{ event.eventDateAndTime.summary }}
                          {% else %}
-                             {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }}
+                             {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('g:ia') }}
                          {% endif %}
                      {% endif %}
                  {% else %}
-                     {% if event.allDay == 1 %}
-                         {{ event.startDate|date('l, F d, Y') }} - {{ event.endDate|date('l, F d, Y') }}
+                     {% if event.eventDateAndTime.allDay is defined %}
+                         {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }} - {{ event.eventDateAndTime.endDate.date|date('l, F d, Y') }}
                      {% else %}
-                         {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('l, F d, Y g:ia') }}
+                         {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('l, F d, Y g:ia') }}
                      {% endif %}
-                 {% endif %}
-               </time>
-             </p>
+                 {% endif %}</time></p>
           <h3><a href="{{ event.url }}">{{ event.title }}</a></h3> 
           <p>{{ event.body | trimit(180) }}</p>
           <p><a href="{{ event.url }}">Read More</a></p>
@@ -123,6 +219,9 @@
       </div>
       <hr>
       {% endfor %}
+      {% else %}
+      <h2>No Results Found</h2>
+      {% endif %}
     </div>
   </section>
 

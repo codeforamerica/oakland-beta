@@ -1,5 +1,5 @@
 .filterbox {
-	background-color: $gray-lighter;
+	background-color: $gray-light;
 	margin-top: -2em;
 	margin-bottom: 4em;
 	padding: {
@@ -8,7 +8,7 @@
 	}
 
 	hr {
-		border-color: $gray-light;
+		border-color: $gray-lighter;
 		margin-top: 1.5em;
 		margin-bottom: 1.5em;
 	}
@@ -51,7 +51,7 @@
 	}
 }
 
-a.btn.filterbox-search-button {
+button.filterbox-search-button {
 	margin-bottom: 0;
 	
 	text-align: center;
@@ -71,8 +71,6 @@ a.btn.filterbox-search-button {
 
 .filterbox-filter {
 	position: relative;
-	display: inline-block;
-	margin-right: 3em;
 	margin-bottom: 0;
 }
 
@@ -84,21 +82,28 @@ a.btn.filterbox-search-button {
 	}
 }
 
+.filterbox-filter-selection {
+	color: $gray-dark;
+}
+
 .filterbox-drawer {
 	@include transition(opacity .1s ease-out);
-	position: absolute;
 	visibility: hidden;
 	opacity: 0;
+	height: 0;
 	background-color: $gray-lighter;
 	box-shadow: 0 0 3px rgba(0,0,0, .25);
 	padding: 1em;
 	min-width: 13em;
 	z-index: 10;
-	margin-top: 2em;
+	@include media($bp-md) {
+		margin-top: 1em;
+		position: absolute;
+	}
 }
 
 .filterbox-filter-is-open {
-	.filterbox-filter-label {
+		.filterbox-filter-label {
 		color: $oakland-green;
 		.lnr {
 			@include transform(rotate(180deg));
@@ -107,5 +112,7 @@ a.btn.filterbox-search-button {
 	.filterbox-drawer {
 		visibility: visible;
 		opacity: 1;
+		height: auto;
+		margin-bottom: 2em;
 	}
 }

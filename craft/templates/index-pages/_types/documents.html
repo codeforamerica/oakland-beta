@@ -22,10 +22,11 @@
 
 {# Instantiate Filters #}
 {% set keywords = "" %}
-{% set news_types = [] %}
-{% set departments_officials = ['or'] %}
+{% set document_types = ['or'] %}
+{% set departments_initiatives = ['or'] %}
+{% set document_type_slugs = [] %}
 {% set department_slugs = [] %}
-{% set official_slugs = [] %}
+{% set initiative_slugs = [] %}
 {% set published_after = craft.request.getQuery('published-after') %}
 {% set published_before = craft.request.getQuery('published-before') %}
 {% set dateParams = ['and'] %}
@@ -36,7 +37,7 @@
 {% if craft.request.getParam('q') %}
   {% set query = craft.request.getParam('q') %}
   {% set relatedEntry = craft.entries.slug(query).first() %}
-  {% set newsEntries = craft.entries.section('news').relatedTo(relatedEntry) %}
+  {% set documentEntries = craft.entries.section('documents').relatedTo(relatedEntry) %}
 {% endif %}
 
 {# If keywords are specified #}
@@ -45,8 +46,13 @@
 {% endif %}
 
 {# If News Types are specififed #}
-{% if craft.request.getQuery('news-types') | length > 0 %}
-  {% set news_types = craft.request.getQuery('news-types') %}
+{% if craft.request.getQuery('document-types') | length > 0 %}
+  {% set document_type_slugs = craft.request.getQuery('document-types') %}
+  {% for type in document_type_slugs %}
+    {% set document_types = document_types | merge([craft.categories.slug(type)]) %}
+  {% endfor %}
+
+  {% set relatedToParams = relatedToParams | merge([{targetElement: document_types}]) %}
 {% endif %}
 
 {# If publish dates are specified #}
@@ -62,20 +68,20 @@
 {% if craft.request.getQuery('departments') %}
 {% set department_slugs = craft.request.getQuery('departments') %}
   {% for department in department_slugs %}
-    {% set departments_officials = departments_officials | merge([craft.entries.slug(department)]) %}
+    {% set departments_initiatives = departments_initiatives | merge([craft.entries.slug(department)]) %}
   {% endfor %}
 {% endif %}
 
-{# If officials are specificed #}
-{% if craft.request.getQuery('officials') %}
-  {% set official_slugs = craft.request.getQuery('officials') %}
-  {% for official in official_slugs %}
-    {% set departments_officials = departments_officials | merge([craft.entries.slug(official)]) %}
+{# If initiatives are specificed #}
+{% if craft.request.getQuery('initiatives') %}
+  {% set initiative_slugs = craft.request.getQuery('initiatives') %}
+  {% for initiative in initiative_slugs %}
+    {% set departments_initiatives = departments_initiatives | merge([craft.entries.slug(initiative)]) %}
   {% endfor %}
 {% endif %}
 
-{% if departments_officials | length > 1 %}
-  {% set relatedToParams = relatedToParams | merge([{targetElement: departments_officials}]) %}
+{% if departments_initiatives | length > 1 %}
+  {% set relatedToParams = relatedToParams | merge([{targetElement: departments_initiatives}]) %}
 {% endif %}
 
 
@@ -89,15 +95,14 @@
 {% endif %}
 
 {# Build the ridiculously complicated search query #}
-{% set newsEntries = craft.entries({
-  section: "news",
+{% set documentEntries = craft.entries({
+  section: "documents",
   search: keywords,
-  type: news_types,
-  dateCreated: dateParams,
+  documentPublishDate: dateParams,
   relatedTo: relatedToParams
 }) %}
 
-<main class="news-index">
+<main class="documents-index">
 
   <div class="main-overlay"></div>
 
@@ -105,21 +110,21 @@
     <div class="breadcrumb-wrap">
       <nav class="breadcrumbs">
         <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
-        <span>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"News and Updates" | translate }}</span>
+        <span>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"Documents" | translate }}</span>
       </nav>
     </div>
     <div class="container">
       <div class="grid-row">
         <div class="two-thirds section-info">
-          <h1>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"News and Updates" | translate }}</h1>
-          <p>Official press releases and updates from the City of Oakland.</p>
+          <h1>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"Documents" | translate }}</h1>
+          <p>Search public records, reports, policies, ordiances, forms, and more.</p>
         </div>
       </div>
       
     </div>
   </section>
 
-  <form class="filterbox" action="{{siteUrl}}news">
+  <form class="filterbox" action="{{siteUrl}}documents">
     <div class="container">
       <div class="grid-row">
         <div class="one-whole">
@@ -133,12 +138,12 @@
       <hr>
       <div class="filterbox-filters grid-row">
         <div class="filterbox-filter one-fourth">
-          <p class="filterbox-filter-label">News Type <span class="lnr lnr-small lnr-chevron-down"></span></p>
-          <p class="filterbox-filter-selection">{% if news_types | length > 0 %}{{ news_types | length }} type(s) selected{% endif %}</p>
+          <p class="filterbox-filter-label">Document Type <span class="lnr lnr-small lnr-chevron-down"></span></p>
+          <p class="filterbox-filter-selection">{% if document_type_slugs | length > 0 %}{{ document_type_slugs | length }} type(s) selected{% endif %}</p>
           <div class="filterbox-drawer">
             <ul class="list-no-style">
-              {% for type in craft.sections.getSectionByHandle('news').getEntryTypes() %}
-                <li><label for="{{ type.handle }}"><input type="checkbox" name="news-types[]" value="{{ type.handle}}" id="{{type.handle}}" {% if type.handle in news_types %}checked{% endif %}>{{type.name}}</label></li>
+              {% for type in craft.categories.group('documentTypes') %}
+                <li><label for="{{ type.slug }}"><input type="checkbox" name="document-types[]" value="{{ type.slug}}" id="{{type.slug}}" {% if type.slug in document_type_slugs %}checked{% endif %}>{{type.title}}</label></li>
               {% endfor %}
             </ul>
 
@@ -161,13 +166,13 @@
           </div>
         </div>
         <div class="filterbox-filter one-fourth">
-          <p class="filterbox-filter-label">Department / Official <span class="lnr lnr-small lnr-chevron-down"></span></p>
-          <p class="filterbox-filter-selection">{% if departments_officials | length > 1 %}{{departments_officials | length - 1}} type(s) selected{% endif %}</p>
+          <p class="filterbox-filter-label">Department / Initiative <span class="lnr lnr-small lnr-chevron-down"></span></p>
+          <p class="filterbox-filter-selection">{% if departments_initiatives | length > 1 %}{{departments_initiatives | length - 1}} type(s) selected{% endif %}</p>
           <div class="filterbox-drawer">
-            <h6>Officials</h6>
+            <h6>Initiative</h6>
             <ul class="list-no-style">
-              {% for official in craft.entries.section('electedOfficials') %}
-              <li><label for="{{ official.slug }}"><input type="checkbox" name="officials[]" value="{{ official.slug}}" id="{{official.slug}}" {% if official.slug in official_slugs %}checked{% endif %}>{{official.title}}</label></li>
+              {% for initiative in craft.entries.section('initiatives') %}
+              <li><label for="{{ initiative.slug }}"><input type="checkbox" name="initiatives[]" value="{{ initiative.slug}}" id="{{initiative.slug}}" {% if initiative.slug in initiative_slugs %}checked{% endif %}>{{initiative.title}}</label></li>
               {% endfor %}
             </ul>
             <h6>Departments</h6>
@@ -179,7 +184,7 @@
           </div>
         </div>
         <div class="filterbox-filter one-fourth column-last">
-          <a href="{{siteUrl}}news" class="text-small right">Reset Search</a>
+          <a href="{{siteUrl}}documents" class="text-small right">Reset Search</a>
           
         </div>
       </div>
@@ -188,22 +193,13 @@
 
   <section>
     <div class="container">
-      {% for newsArticle in newsEntries %} 
+      {% for document in documentEntries %} 
 
       <div class="post-excerpt grid-row">
-        {% if newsArticle.mainImage | length > 0 %}
-        <div class="one-third">
-          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
-        </div>
-        {% else %}
-        <div class="one-third">
-          <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
-        </div>
-        {% endif %} 
-        <div class="seven-twelfths column-shift column-last">
-          <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.localeDate() | date('l, M d, Y') }}</time> | {{ newsArticle.type.name }}</p>
-          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3> 
-          <p>{{ newsArticle.summary }}</p>
+        <div class="one-whole">
+          <p class="post-data"><time datetime="">{{ document.documentPublishDate.localeDate() | date('l, M d, Y') }}</time> | {{ document.documentType.first().title }}</p>
+          <h3><a href="{{ document.url }}">{{ document.title }}</a></h3> 
+          <p>{{ document.documentDescriptionSummary }}</p>
         </div>
       </div>
       <hr>

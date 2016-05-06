@@ -14,6 +14,7 @@ return array(
 	"Upcoming Events" => "即将举行的活动",
 	"Reports" => "报告",
 	"Policies" => "政策",
+	"Documents" => "文件",
 	"Forms" => "形式",
 	"Address" => "地址",
 	"Email" => "电子邮件",

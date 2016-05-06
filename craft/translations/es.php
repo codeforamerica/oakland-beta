@@ -14,6 +14,7 @@ return array(
 	"Upcoming Events" => "Próximos Eventos",
 	"Reports" => "Informes",
 	"Policies" => "Políticas",
+	"Documents" => "Documentos",
 	"Forms" => "Formas",
 	"Address" => "Dirección",
 	"Email" => "Email",

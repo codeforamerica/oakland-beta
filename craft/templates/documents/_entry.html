@@ -1,0 +1,34 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+    <main class="document">
+
+    <div class="main-overlay"></div>
+
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+          <span><a href="{{siteUrl}}documents">{{"Documents" | translate }}</a></span>
+          <span>{{ entry.title }}</span>
+        </nav>
+      </div>
+
+      <article class="container">
+        <h1>{{ entry.title }}</h1>
+        <p class="post-data">{{"Published on" | translate }} {{ entry.documentPublishDate.localeDate()|date('M j, Y') }} | {{ entry.documentType.first().title }}</p>
+
+        <div class="grid-row">
+          <div class="two-thirds">
+            <a href="{{entry.documentPdfLink}}" class="btn"><span class="lnr lnr-download"></span> {{"Download the" | translate }} {{ entry.documentType.first().title }}</a>
+          </div>
+        </div>
+        <div class="grid-row">
+          <div class="two-thirds">
+            {{ entry.documentDescriptionSummary }}
+          </div>
+        </div>
+      </article>
+    </main>    
+
+{% endblock %}

@@ -72,16 +72,7 @@
   </section>
   {% endif %}
 
-  {% if craft.entries.section('events').relatedTo(entry) | length > 0 %}
-
-  {% set eventParams = {
-      section: "events",
-      order: 'eventDate asc',
-      eventDate: '>=' ~ now,
-      limit: '3',
-      relatedTo: entry
-    }
-  %}
+  {% if craft.venti.allEvents().startDate('>=' ~ now).relatedTo(entry) | length > 0%}
 
   <section class="section">
     <div class="container">
@@ -95,7 +86,7 @@
       </div>
       
       <div class="grid-row">
-          {% for event in craft.entries(eventParams) %}  
+          {% for event in craft.venti.allEvents().startDate('>=' ~ now).relatedTo(entry).limit(3) %}
           <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
             <h3><a href="{{ event.url }}">{{ event.title }}</a></h3>
             <p class="post-data"><time datetime="">

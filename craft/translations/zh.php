@@ -15,6 +15,7 @@ return array(
 	"Reports" => "报告",
 	"Policies" => "政策",
 	"Documents" => "文件",
+	"Recent Added Documents" => "最近添加的文档",
 	"Forms" => "形式",
 	"Address" => "地址",
 	"Email" => "电子邮件",

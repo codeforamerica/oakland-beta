@@ -25,12 +25,12 @@
           {% if entry.callToAction %}
             {% if entry.callToAction|length == 1 %}
               {% set blockwidth = "one-half" %}
-            {% endif %}
-            {% if entry.callToAction|length == 2 %}
+            {% elseif entry.callToAction|length == 2 %}
               {% set blockwidth = "one-half" %}
-            {% endif %}
-            {% if entry.callToAction|length == 3 %}
+            {% elseif entry.callToAction|length == 3 %}
               {% set blockwidth = "one-third" %}
+            {% else %}
+              {% set blockwidth = "" %}
             {% endif %}
             {% for cta in entry.callToAction %}
             {% if cta.type == "onlineLink" %}
@@ -57,6 +57,12 @@
                 <div class="text-small">
                   {{cta.address}}
                 </div>
+              </div>
+              {% endif %}
+              {% if cta.type == "documentLink" %}
+              <div class="cta-block {{ blockwidth }}">
+                {% if cta['documentLabel'] is defined %}<h6>{{cta.documentLabel}}</h6>{% endif %}
+                <a class="btn btn-small{% if not cta.primaryCallToAction %} btn-secondary{% endif %}" href="{{cta.documentLink.first().documentPdfLink }}">{{cta.documentButtonLabel}}</a>
               </div>
               {% endif %}
             {% endfor %}

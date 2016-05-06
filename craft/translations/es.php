@@ -15,6 +15,7 @@ return array(
 	"Reports" => "Informes",
 	"Policies" => "Políticas",
 	"Documents" => "Documentos",
+	"Recent Added Documents" => "Recientemente Añadidos Documentos",
 	"Forms" => "Formas",
 	"Address" => "Dirección",
 	"Email" => "Email",

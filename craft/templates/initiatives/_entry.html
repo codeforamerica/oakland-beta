@@ -123,44 +123,55 @@
   </section>
   {% endif %}
 
-  {% set relatedReports = craft.entries.section('reports').relatedTo(entry) %}
-  {% set relatedPolicies = craft.entries.section('policies').relatedTo(entry) %}
-  {% if relatedReports | length > 0 or relatedPolicies | length > 0 %}
+  {% set relatedDocuments = craft.entries.section('documents').relatedTo(entry) %}
+  {% if relatedDocuments | length > 0 %}
   <section class="section">
     <div class="container">
-      <div class="grid-row">
-        
-        {% if relatedReports | length > 0 %}
-        <div class="five-twelfths">
-          <h2>{{"Reports" | translate }}</h2>
-          <div class="menu">
-            {% for report in relatedReports %}
-            {% if loop.index % 3 == 1 %}
-            <a class="menu-item" href="{{ report.url }}">
-              <h5>{{ report.title }}</h5>
-            </a>
-            {% endif %}
-            {% endfor %}
-          </div>
+      <div class="grid-row no-padding">
+        <div class="three-fourths">
+          <h2>{{"Recent Added Documents" | translate }}</h2>
         </div>
-        {% endif %}
-        
-        {% if relatedPolicies | length > 0 %}
-        <div class="column-shift five-twelfths column-last">
-          <h2>{{"Policies" | translate }}</h2>
-          <div class="menu">
-            {% for policy in relatedPolicies %}
-            {% if loop.index % 3 == 1 %}
-            <a class="menu-item" href="{{ policy.url }}">
-              <h5>{{ policy.title }}</h5>
-            </a>
-            {% endif %}
-            {% endfor %}
-          </div>
+        <div class="one-fourth text-right column-last">
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('documents').first().url }}?initiatives[]={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
         </div>
-        {% endif %}
       </div>
-      <hr>
+        
+        <div class="grid-row">
+          <div class="big-menu one-third">
+            {% for entry in relatedDocuments %}
+            {% if loop.index % 3 == 1 %}
+            <a class="menu-item post-excerpt" href="{{ entry.url }}">
+              <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+              <h3>{{ entry.title }}</h3>
+              <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <div class="big-menu one-third">
+            {% for entry in relatedDocuments %}
+            {% if loop.index % 3 == 2 %}
+            <a class="menu-item post-excerpt" href="{{ entry.url }}">
+              <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+              <h3>{{ entry.title }}</h3>
+              <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <div class="big-menu one-third column-last">
+            {% for entry in relatedDocuments %}
+            {% if loop.index % 3 == 0 %}
+            <a class="menu-item post-excerpt" href="{{ entry.url }}">
+              <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+              <h3>{{ entry.title }}</h3>
+              <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <hr>
     </div>
   </section>
   {% endif %}

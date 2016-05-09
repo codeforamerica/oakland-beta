@@ -3145,19 +3145,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -240px; } }
+        background-position: 0px -54px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -263px; } }
+        background-position: 0px -120px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -567px; } }
+        background-position: 0px -653px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3308,6 +3308,11 @@ a.btn-external {
     font-family: Linearicons-Free;
     content: '\e853\e876';
     font-size: 30px; }
+
+.pagination-link, .pagination-current {
+  display: inline-block;
+  margin: 0 .5em;
+  min-width: 1.5em; }
 
 .menu-item {
   position: relative;
@@ -3484,7 +3489,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -464px; } }
+      background-position: 0px -890px; } }
 
 .previous-next-links {
   background-size: cover;

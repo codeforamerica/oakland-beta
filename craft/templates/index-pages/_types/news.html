@@ -188,7 +188,9 @@
 
   <section>
     <div class="container">
-      {% for newsArticle in newsEntries %} 
+      {% if newsEntries | length > 0 %}
+      {% paginate newsEntries.limit(10) as pageInfo, pageEntries %}
+      {% for newsArticle in pageEntries %} 
 
       <div class="post-excerpt grid-row">
         {% if newsArticle.mainImage | length > 0 %}
@@ -208,6 +210,31 @@
       </div>
       <hr>
       {% endfor %}
+
+      {% if pageInfo.totalPages > 1 %}
+      <div class="pagination">
+        <a class="pagination-link" href="{{ pageInfo.firstUrl }}">First</a>
+        {% if pageInfo.prevUrl %}<a class="pagination-link" href="{{ pageInfo.prevUrl }}?{{ craft.request.getQueryStringWithoutPath() }}">Previous</a>{% endif %}
+
+        {% for page, url in pageInfo.getPrevUrls(5) %}
+            <a class="pagination-link" href="{{ url }}?{{ craft.request.getQueryStringWithoutPath() }}">{{ page }}</a>
+        {% endfor %}
+
+        <span class="pagination-current">{{ pageInfo.currentPage }}</span>
+
+        {% for page, url in pageInfo.getNextUrls(5) %}
+            <a class="pagination-link" href="{{ url }}?{{ craft.request.getQueryStringWithoutPath() }}">{{ page }}</a>
+        {% endfor %}
+
+        {% if pageInfo.nextUrl %}<a class="pagination-link" href="{{ pageInfo.nextUrl }}?{{ craft.request.getQueryStringWithoutPath() }}">Next</a>{% endif %}
+        <a class="pagination-link" href="{{ pageInfo.lastUrl }}?{{ craft.request.getQueryStringWithoutPath() }}">Last</a>
+      </div>
+      {% endif %}
+
+      {% else %}
+      <h2>No Results Found</h2>
+      {% endif %}
+      
     </div>
   </section>
 

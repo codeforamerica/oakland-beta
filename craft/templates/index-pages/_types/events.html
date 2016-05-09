@@ -177,7 +177,8 @@
   <section>
     <div class="container">
       {% if eventsEntry | length > 0 %}
-      {% for event in eventsEntry %} 
+      {% paginate eventsEntry.limit(10) as pageInfo, pageEntries %}
+      {% for event in pageEntries %} 
 
       <div class="post-excerpt grid-row">
         <div class="one-third">
@@ -216,9 +217,29 @@
           <p>{{ event.body | trimit(180) }}</p>
           <p><a href="{{ event.url }}">Read More</a></p>
         </div>
-
       </div>
       <hr>
+
+      {% if pageInfo.totalPages > 1 %}
+      <div class="pagination">
+        <a class="pagination-link" href="{{ pageInfo.firstUrl }}">First</a>
+        {% if pageInfo.prevUrl %}<a class="pagination-link" href="{{ pageInfo.prevUrl }}?{{ craft.request.getQueryStringWithoutPath() }}">Previous</a>{% endif %}
+
+        {% for page, url in pageInfo.getPrevUrls(5) %}
+            <a class="pagination-link" href="{{ url }}?{{ craft.request.getQueryStringWithoutPath() }}">{{ page }}</a>
+        {% endfor %}
+
+        <span class="pagination-current">{{ pageInfo.currentPage }}</span>
+
+        {% for page, url in pageInfo.getNextUrls(5) %}
+            <a class="pagination-link" href="{{ url }}?{{ craft.request.getQueryStringWithoutPath() }}">{{ page }}</a>
+        {% endfor %}
+
+        {% if pageInfo.nextUrl %}<a class="pagination-link" href="{{ pageInfo.nextUrl }}?{{ craft.request.getQueryStringWithoutPath() }}">Next</a>{% endif %}
+        <a class="pagination-link" href="{{ pageInfo.lastUrl }}?{{ craft.request.getQueryStringWithoutPath() }}">Last</a>
+      </div>
+      {% endif %}
+      
       {% endfor %}
       {% else %}
       <h2>No Results Found</h2>

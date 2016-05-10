@@ -29,9 +29,9 @@ return array(
 	"The best place to find official services and information from the City of Oakland." => "El mejor lugar para encontrar los servicios oficiales e información de la ciudad de Oakland.",
 	"City of Oakland Mayor" => "Ciudad de Oakland Alcalde",
 	"Other News" => "Otras Noticias",
-	"What can we help you with?" => "",
-	"What's happening in Oakland" => "",
-	"Meet our Mayor" = "",
+	"What can we help you with?" => "¿Qué podemos ayudarte?",
+	"What's happening in Oakland" => "¿Qué está pasando en Oakland",
+	"Meet our Mayor" = "Conoce a nuestro Alcalde",
 	
 
 	## Global Nagivation

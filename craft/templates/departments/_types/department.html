@@ -130,14 +130,16 @@
       <div class="grid-row">
           {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
           <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}">
-          {% if newsArticle.mainImage | length > 0 %}
-          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
-          {% else %}
-          <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
-          {% endif %}       
-          <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
-          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
-          <p>{{ newsArticle.summary }}</p>
+            <a href="{{ newsArticle.url }}">
+            {% if newsArticle.mainImage | length > 0 %}
+            <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+            {% else %}
+            <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
+            {% endif %} 
+            </a>   
+            <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
+            <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
+            <p>{{ newsArticle.summary }}</p>
           </div>
           {% endfor %}
       </div>

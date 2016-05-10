@@ -27,8 +27,10 @@ return array(
 	## Homepage
 	"Welcome to Oakland" => "欢迎来到奥克兰",
 	"The best place to find official services and information from the City of Oakland." => "最好的地方，从城市奥克兰找到官方服务和信息。",
-	"City of Oakland Mayor" => "奥克兰市长",
 	"Other News" => "其他新闻",
+	"What can we help you with?" => "",
+	"What's happening in Oakland" => "",
+	"Meet our Mayor" =? "",
 	
 
 	## Global Nagivation

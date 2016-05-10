@@ -102,7 +102,7 @@
   relatedTo: relatedToParams
 }) %}
 
-<main class="documents-index">
+<main class="documents-index document">
 
   <div class="main-overlay"></div>
 
@@ -194,7 +194,7 @@
   <section>
     <div class="container">
       {% if documentEntries | length > 0 %}
-      {% paginate documentEntries.limit(2) as pageInfo, pageEntries %}
+      {% paginate documentEntries.limit(10) as pageInfo, pageEntries %}
       {% for document in pageEntries %} 
 
       <div class="post-excerpt grid-row">
@@ -228,7 +228,7 @@
       {% endif %}
 
       {% else %}
-      <h2>No Results Found</h2>
+      <h2>No Documents Found</h2>
       {% endif %}
     </div>
   </section>

@@ -3,19 +3,12 @@
 .container {
   @include outer-container();
   position: relative;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   box-sizing: content-box;
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-
-  @include media(1100px) {
-    margin: 0 auto;
-  }
-
-  @include media($bp-xl) {
-    max-width: 1200px;
-  }
+  max-width: $site-max-width;
+  margin: 0 auto;
+    
 }
 
 // Grid system

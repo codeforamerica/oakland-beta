@@ -9,3 +9,39 @@
         }
     }
 }
+
+.initiative-link {
+    display: block;
+    position: relative;
+    color: #fff;
+    height: 170px;
+    background-size: cover;
+    background-position: center center;
+    &:before {
+        @include transition(background-color .2s ease-out);
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,.3);
+    }
+
+    &.main-initiative {
+        height: 280px;
+        margin-bottom: 1.5rem;
+    }
+    h3 {
+        position: absolute;
+        bottom: .5em;
+        left: 1em;
+        right: 1em;
+        margin-bottom: 0;
+    }
+    &:hover {
+        &:before {
+            background-color: rgba(0,0,0,.4);
+        }
+    }
+}

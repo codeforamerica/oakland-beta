@@ -57,23 +57,16 @@
 	}
 
 	.breadcrumb-wrap & {
-		max-width: 57.25rem;
 		box-sizing: content-box;
-		margin: 0 1.25rem;
 		padding: 1.5rem 0 0;
+		margin: 0 auto;
+		max-width: $site-max-width;
 
 		@include media($bp-md) {
 			margin: 0 2.5rem;
 			max-width: 916px;
 		}
 
-		@include media(1100px) {
-			margin: 0 auto;
-		}
-
-		@include media($bp-xl) {
-			max-width: 1200px;
-		}
 
 		&:after {
 			background-color: $white;

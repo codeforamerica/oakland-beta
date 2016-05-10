@@ -97,7 +97,7 @@
   relatedTo: relatedToParams
 }) %}
 
-<main class="news-index">
+<main class="news news-index">
 
   <div class="main-overlay"></div>
 
@@ -193,19 +193,21 @@
       {% for newsArticle in pageEntries %} 
 
       <div class="post-excerpt grid-row">
-        {% if newsArticle.mainImage | length > 0 %}
+        
         <div class="one-third">
+          <a href="{{ newsArticle.url }}">
+          {% if newsArticle.mainImage | length > 0 %}
           <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
-        </div>
-        {% else %}
-        <div class="one-third">
+          {% else %}
           <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
-        </div>
-        {% endif %} 
+          {% endif %} 
+          </a>
+        </div>  
         <div class="seven-twelfths column-shift column-last">
           <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.localeDate() | date('l, M d, Y') }}</time> | {{ newsArticle.type.name }}</p>
           <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3> 
           <p>{{ newsArticle.summary }}</p>
+          <p><a href="{{ newsArticle.url }}">Read More</a></p>
         </div>
       </div>
       <hr>

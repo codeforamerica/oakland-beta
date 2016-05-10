@@ -53,6 +53,8 @@
   {% set eventByDates = craft.venti.allEvents().startDate('>=' ~ starting_after) %}
 {% elseif ending_before != "" %}
   {% set eventByDates = craft.venti.allEvents().endDate('<=' ~ ending_before) %}
+{% else %}
+  {% set eventByDates = craft.venti.allEvents.startDate('>=' ~ now) %}
 {% endif %}
 
 {# Get Event Ids from Venti Calendar #}
@@ -98,7 +100,7 @@
   relatedTo: relatedToParams
 })%}
 
-<main class="events-index">
+<main class="events-index event">
 
   <div class="main-overlay"></div>
 
@@ -182,9 +184,13 @@
 
       <div class="post-excerpt grid-row">
         <div class="one-third">
-          {% if event.eventPhoto | length > 0 %}
-          <img class="post-image" src="{{ event.eventPhoto.first().url }}" alt="{{ event.eventPhoto.first().caption }}"> 
-          {% endif %}
+          <a href="{{event.url}}">
+            {% if event.eventPhoto | length > 0 %}
+            <img class="post-image" src="{{ event.eventPhoto.first().url }}" alt="{{ event.eventPhoto.first().caption }}"> 
+            {% else %}
+            <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
+            {% endif %}
+          </a>
         </div>
         <div class="seven-twelfths column-shift column-last">
           <p class="post-data"><time datetime=""> {# Is the event same date or multiday event? #}
@@ -242,7 +248,7 @@
       
       {% endfor %}
       {% else %}
-      <h2>No Results Found</h2>
+      <h2>No Events Found</h2>
       {% endif %}
     </div>
   </section>

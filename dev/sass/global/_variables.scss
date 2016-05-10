@@ -1,3 +1,6 @@
+//----- GLOBAL VARIABLES -----//
+$site-max-width: 1024px;
+
 //----- TYPOGRAPHY -----//
 $body-font: 			Fakt, Helvetica, arial, sans-serif !default;
 $header-font: 			FaktLight, Helvetica, arial, sans-serif !default;
@@ -130,7 +133,10 @@ $themes: (
                         digital-front-door: $jack-london-purple,
                         emergency-services: $merritt-lake,
                         jobs: $allendale-wine,
-                        housing: $grass-valley
+                        housing: $grass-valley,
+                        news: $jack-london-purple,
+                        document: $water-blue,
+                        event: $merritt-lake
 ) !default;
 
 

@@ -2720,10 +2720,7 @@ input::-webkit-inner-spin-button {
   top: 0;
   left: 0;
   right: 0;
-  margin: 0 1.25rem; }
-  @media screen and (min-width: 48em) {
-    .breadcrumb-wrap {
-      margin: 0; } }
+  margin: 0 auto; }
 
 .breadcrumbs {
   line-height: 1;
@@ -2739,14 +2736,9 @@ input::-webkit-inner-spin-button {
     bottom: 0;
     background-color: #cfd0ce; }
   .breadcrumb-wrap .breadcrumbs {
-    box-sizing: content-box;
     padding: 1.5rem 0 0;
     margin: 0 auto;
     max-width: 1024px; }
-    @media screen and (min-width: 48em) {
-      .breadcrumb-wrap .breadcrumbs {
-        margin: 0 2.5rem;
-        max-width: 916px; } }
     .breadcrumb-wrap .breadcrumbs:after {
       background-color: #ffffff; }
     .breadcrumb-wrap .breadcrumbs a {
@@ -3325,19 +3317,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -740px; } }
+        background-position: 0px -390px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -759px; } }
+        background-position: 0px -517px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -145px; } }
+        background-position: 0px -501px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3669,7 +3661,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -577px; } }
+      background-position: 0px -6px; } }
 
 .previous-next-links {
   background-size: cover;

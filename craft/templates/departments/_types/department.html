@@ -11,7 +11,7 @@
 
       <nav class="breadcrumbs">
         <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
-        <a href="#">{{"Departments" | translate }}</a>
+        <a href="{{siteUrl}}departments">{{"Departments" | translate }}</a>
         <span>{{ entry.title }}</span>
       </nav>
 
@@ -124,7 +124,7 @@
           <h2>{{"News and Updates" | translate }}</h2>
         </div>
         <div class="one-fourth text-right column-last">
-          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('news').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('news').first().url }}?departments[]={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
         </div>
       </div>
       <div class="grid-row">

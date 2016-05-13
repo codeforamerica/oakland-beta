@@ -126,9 +126,9 @@ $email:					#E93E30;
 // The key should be the class name you want to use (generally a department name)
 // The value should be one of the Deep Tertiary color variables listed above
 $themes: (
-						default: $oakland-green,
-						parking: $water-blue,
-						public-works: $water-blue,
+			default: $oakland-green,
+			parking: $water-blue,
+			public-works: $water-blue,
                         business: $longfellow-rosewood,
                         digital-front-door: $jack-london-purple,
                         emergency-services: $merritt-lake,
@@ -136,7 +136,8 @@ $themes: (
                         housing: $grass-valley,
                         news: $jack-london-purple,
                         document: $water-blue,
-                        event: $merritt-lake
+                        event: $merritt-lake,
+                        boards-and-commissions: $woodminster
 ) !default;
 
 

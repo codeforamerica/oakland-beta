@@ -23,15 +23,15 @@ return array(
 	"Hours" => "Horas",
 	"Most Popular" => "Más popular",
 	"see all" => "ver todo",
+	"Meet the Team" => "Conocer al Equipo",
 
 	## Homepage
 	"Welcome to Oakland" => "La Bienvenida a Oakland",
 	"The best place to find official services and information from the City of Oakland." => "El mejor lugar para encontrar los servicios oficiales e información de la ciudad de Oakland.",
-	"City of Oakland Mayor" => "Ciudad de Oakland Alcalde",
 	"Other News" => "Otras Noticias",
 	"What can we help you with?" => "¿Qué podemos ayudarte?",
 	"What's happening in Oakland" => "¿Qué está pasando en Oakland",
-	"Meet our Mayor" = "Conoce a nuestro Alcalde",
+	"Meet our Mayor" => "Conoce a nuestro Alcalde",
 	
 
 	## Global Nagivation
@@ -84,7 +84,13 @@ return array(
 	"Prioritized Initiatives" => "Iniciativas priorizadas",
 	"Get in Touch" => "Estar en contacto",
 	"About" => "Acerca de",
-	"Meet the Team" => "Conocer al Equipo",
+
+	# Boards and Commissions
+	"Boards and Commissions" => "",
+	"About this Board / Commission" => "",
+
+	# Staff Members
+	"City Staff" => "",
 
 	## Report pages
 	"Published on" => "Publicado en",

@@ -24,6 +24,7 @@ return array(
 	"Most Popular" => "最受欢迎",
 	"see all" => "查看全部",
 	"Meet the Team" => "团队见面",
+	"Meet the Rest of the Team" => "",
 
 	## Homepage
 	"Welcome to Oakland" => "欢迎来到奥克兰",

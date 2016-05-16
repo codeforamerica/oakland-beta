@@ -214,6 +214,9 @@
         <div class="two-thirds column-last">
           {{ entry.departmentHead }}
           <p>{{ entry.departmentHeadBio | default(null) }}</p>
+          {% if entry.departmentTeam | length > 0 %}
+          <a href="{{ entry.departmentTeam.first().url }}" class="btn btn-secondary btn-small">Meet the Rest of the Team <span class="lnr lnr-arrow-right"></span></a>
+          {% endif %}
         </div>
       </div>
     </div>

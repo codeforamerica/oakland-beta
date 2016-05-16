@@ -24,6 +24,7 @@ return array(
 	"Most Popular" => "Más popular",
 	"see all" => "ver todo",
 	"Meet the Team" => "Conocer al Equipo",
+	"Meet the Rest of the Team" => "",
 
 	## Homepage
 	"Welcome to Oakland" => "La Bienvenida a Oakland",

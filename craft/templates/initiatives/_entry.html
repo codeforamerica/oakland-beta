@@ -225,6 +225,9 @@
       <div class="grid-row">
         <div class="one-third">
           <h2>{{"About" | translate }} {{ entry.title }}</h2>
+          {% if entry.initiativeTeam | length > 0 %}
+          <a href="{{ entry.initiativeTeam.first().url }}" class="btn btn-secondary btn-small">Meet the Team <span class="lnr lnr-arrow-right"></span></a>
+          {% endif %}
         </div>
         <div class="two-thirds">
           {{ entry.initiativeAbout }}

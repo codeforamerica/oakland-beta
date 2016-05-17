@@ -37,6 +37,8 @@
         <div class="one-fourth">
           {% if member.staffPortrait | length > 0 %}
           <img class="team-member-portrait" src="{{ member.staffPortrait.first().getUrl(portrait) }}" alt="{{ member.staffPortrait.first().title }}">
+          {% else %}
+          <img class="team-member-portrait" src="{{ craft.config.rootUrl }}resources/img/staff_placeholder.png" alt="No Picture Available">
           {% endif %}
         </div>
         <div class="column-shift seven-twelfths column-last">

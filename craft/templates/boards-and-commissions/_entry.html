@@ -296,7 +296,7 @@
         <div class="one-third">
           <h2>{{"About this Board / Commission" | translate }}</h2>
           {% if entry.boardTeam | length > 0 %}
-            <p><a href="{{entry.boardTeam.first().url}}">{{"Meet the Team" | translate}}</a></p>
+            <p><a class="btn btn-secondary btn-small" href="{{entry.boardTeam.first().url}}">{{"Meet the Team" | translate}} <span class="lnr lnr-arrow-right"></span></a></p>
           {% endif %}
         </div>
         <div class="two-thirds">

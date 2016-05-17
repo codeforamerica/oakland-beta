@@ -1,7 +1,13 @@
 {% extends '_base.html' %}
 
 {% block content %}
-
+{% set portrait = {
+    mode: 'crop',
+    width: 200,
+    height: 200,
+    quality: 80,
+    position: 'top-center'
+} %}
 <main class="team">
 
   <div class="main-overlay"></div>
@@ -24,22 +30,26 @@
       {% for block in entry.team %}
       {% if block.type == "heading" %}
       <h2>{{ block.headingText }}</h2>
-      {% elseif block.type == "teamMember" %}
+      {% elseif block.type == "staffMember" %}
+      {% set staffMembers = block.staffMember %}
+      {% for member in staffMembers %}
       <div class="grid-row">
         <div class="one-fourth">
-          {% if block.portrait | length > 0 %}
-          <img class="team-member-portrait" src="{{ block.portrait.first().url }}" alt="{{ block.portrait.first().title }}">
+          {% if member.staffPortrait | length > 0 %}
+          <img class="team-member-portrait" src="{{ member.staffPortrait.first().getUrl(portrait) }}" alt="{{ member.staffPortrait.first().title }}">
+          {% else %}
+          <img class="team-member-portrait" src="{{ craft.config.rootUrl }}resources/img/staff_placeholder.png" alt="No Picture Available">
           {% endif %}
         </div>
         <div class="column-shift seven-twelfths column-last">
-            <h4 class="team-member-name">{{ block.teamMemberName }}</h4>
-            {% if block.jobTitle %}<p class="team-member-job-title">{{ block.jobTitle }}</p>{% endif %}
-            {% if block.email %}<p class="team-member-email">{{ block.email }}</p>{% endif %}
-            {% if block.phoneNumber %}<p class="team-member-phone">{{ block.phoneNumber }}</p>{% endif %}
-            {% if block.bio %}<p class="team-member-bio">{{ block.bio }}</p>{% endif %}
+            <h4 class="team-member-name">{{ member.staffFirstName }} {{ member.staffLastName }}</h4>
+            {% if member.staffJobTitle %}<p class="team-member-job-title">{{ member.staffJobTitle }}</p>{% endif %}
+            {% if member.staffEmailAddress %}<p class="team-member-email">{{ member.staffEmailAddress }}</p>{% endif %}
+            {% if member.staffBio %}<p class="team-member-bio">{{ member.staffBio }}</p>{% endif %}
         </div>
       </div>
       <hr>
+      {% endfor %}
       {% endif %}
       {% endfor %}
     </div>

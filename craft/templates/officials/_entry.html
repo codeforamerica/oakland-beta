@@ -236,7 +236,7 @@
         <div class="one-third">
           <h2>{{"About" | translate }} {{ entry.title }}</h2>
           {% if entry.officialTeam | length > 0 %}
-            <p><a href="{{entry.officialTeam.first().url}}">{{"Meet the Team" | translate}}</a></p>
+            <p><a class="btn btn-secondary btn-small" href="{{entry.officialTeam.first().url}}">{{"Meet the Team" | translate}} <span class="lnr lnr-arrow-right"></span></a></p>
           {% endif %}
           <p><a href=""></a></p>
         </div>

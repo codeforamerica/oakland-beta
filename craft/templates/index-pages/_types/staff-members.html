@@ -7,56 +7,29 @@
 {% block page_scripts %}
 {# Build Filter Box #}
 <script src="{{ craft.config.rootUrl }}/resources/js/filterbox.js"></script>
-{# Instantiate Datepicker #}
-<script src="{{ craft.config.rootUrl }}/resources/js/jquery-ui.min.js"></script>
-<script>
-  $('.datepicker').datepicker({
-    "prevText": "",
-    "nextText": "",
-    "dateFormat": "yy-mm-dd"
-  });
-</script>
 {% endblock %}
 
 {% block content %}
 
+{% set portrait = {
+    mode: 'crop',
+    width: 200,
+    height: 200,
+    quality: 80,
+    position: 'top-center'
+} %}
+
 {# Instantiate Filters #}
 {% set keywords = "" %}
-{% set news_types = [] %}
 {% set departments_officials_boards = ['or'] %}
 {% set department_slugs = [] %}
 {% set board_slugs = [] %}
 {% set official_slugs = [] %}
-{% set published_after = craft.request.getQuery('published-after') %}
-{% set published_before = craft.request.getQuery('published-before') %}
-{% set dateParams = ['and'] %}
 {% set relatedEntry = null %}
-{% set relatedToParams = ['and'] %}
-
-{# If Related To having been selected (e.g., seeing all of an departments news) #}
-{% if craft.request.getParam('q') %}
-  {% set query = craft.request.getParam('q') %}
-  {% set relatedEntry = craft.entries.slug(query).first() %}
-  {% set newsEntries = craft.entries.section('news').relatedTo(relatedEntry) %}
-{% endif %}
 
 {# If keywords are specified #}
 {% if craft.request.getQuery('keywords') %}
   {% set keywords = craft.request.getQuery('keywords') %}
-{% endif %}
-
-{# If News Types are specififed #}
-{% if craft.request.getQuery('news-types') | length > 0 %}
-  {% set news_types = craft.request.getQuery('news-types') %}
-{% endif %}
-
-{# If publish dates are specified #}
-{% if published_after != "" %}
-  {% set dateParams = dateParams | merge(['>=' ~ published_after]) %}
-{% endif %}
-
-{% if published_before != "" %}
-  {% set dateParams = dateParams | merge(['<=' ~ published_before]) %}
 {% endif %}
 
 {# If departments are specificed #}
@@ -83,30 +56,19 @@
   {% endfor %}
 {% endif %}
 
-{% if departments_officials_boards | length > 1 %}
-  {% set relatedToParams = relatedToParams | merge([{targetElement: departments_officials_boards}]) %}
-{% endif %}
-
-
 {# Avoid passing an array with `['and']` only #}
-{% if relatedToParams | length < 2 %}
-  {% set relatedToParams = "" %}
-{% endif %}
-
-{% if dateParams | length < 2 %}
-  {% set dateParams = "" %}
+{% if departments_officials_boards | length < 2 %}
+  {% set departments_officials_boards = "" %}
 {% endif %}
 
 {# Build the ridiculously complicated search query #}
-{% set newsEntries = craft.entries({
-  section: "news",
+{% set staffEntries = craft.entries({
+  section: "staffMembers",
   search: keywords,
-  type: news_types,
-  dateCreated: dateParams,
-  relatedTo: relatedToParams
+  relatedTo: departments_officials_boards
 }) %}
 
-<main class="news news-index">
+<main class="staff staff-index">
 
   <div class="main-overlay"></div>
 
@@ -114,21 +76,21 @@
     <div class="breadcrumb-wrap">
       <nav class="breadcrumbs">
         <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
-        <span>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"News and Updates" | translate }}</span>
+        <span>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"Staff Directory" | translate }}</span>
       </nav>
     </div>
     <div class="container">
       <div class="grid-row">
         <div class="two-thirds section-info">
-          <h1>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"News and Updates" | translate }}</h1>
-          <p>Official press releases and updates from the City of Oakland.</p>
+          <h1>{% if relatedEntry %}{{ relatedEntry.title }} | {% endif %}{{"Staff Directory" | translate }}</h1>
+          <p>Find a staff member at the City of Oakland.</p>
         </div>
       </div>
       
     </div>
   </section>
 
-  <form class="filterbox" action="{{siteUrl}}news">
+  <form class="filterbox" action="{{siteUrl}}staff-members">
     <div class="container">
       <div class="grid-row">
         <div class="one-whole">
@@ -141,34 +103,6 @@
       </div>
       <hr>
       <div class="filterbox-filters grid-row">
-        <div class="filterbox-filter one-fourth">
-          <p class="filterbox-filter-label">News Type <span class="lnr lnr-small lnr-chevron-down"></span></p>
-          <p class="filterbox-filter-selection">{% if news_types | length > 0 %}{{ news_types | length }} type(s) selected{% endif %}</p>
-          <div class="filterbox-drawer">
-            <ul class="list-no-style">
-              {% for type in craft.sections.getSectionByHandle('news').getEntryTypes() %}
-                <li><label for="{{ type.handle }}"><input type="checkbox" name="news-types[]" value="{{ type.handle}}" id="{{type.handle}}" {% if type.handle in news_types %}checked{% endif %}>{{type.name}}</label></li>
-              {% endfor %}
-            </ul>
-
-          </div>
-        </div>
-        <div class="filterbox-filter one-fourth">
-          <p class="filterbox-filter-label">Publish Date <span class="lnr lnr-small lnr-chevron-down"></span></p>
-          <p class="filterbox-filter-selection">{% if published_after %}{{published_after|date('M d, Y')}}{% endif %}{% if published_before %} - {{ published_before|date('M d, Y')}}{% endif %}</p>
-          <div class="filterbox-drawer">
-            <ul class="list-no-style">
-              <li>
-                <p>No Earlier Than</p>
-                <input type="text" class="datepicker" name="published-after" id="published-after" value="{{ published_after }}">
-              </li>
-              <li>
-                <p>No Later Than</p>
-                <input type="text" class="datepicker" name="published-before" id="published-before" value="{{ published_before }}">
-              </li>
-            </ul>
-          </div>
-        </div>
         <div class="filterbox-filter one-fourth">
           <p class="filterbox-filter-label">City Office <span class="lnr lnr-small lnr-chevron-down"></span></p>
           <p class="filterbox-filter-selection">{% if departments_officials_boards | length > 1 %}{{departments_officials_boards | length - 1}} type(s) selected{% endif %}</p>
@@ -192,8 +126,8 @@
             </ul>
           </div>
         </div>
-        <div class="filterbox-filter one-fourth column-last">
-          <a href="{{siteUrl}}news" class="text-small right">Reset Search</a>
+        <div class="filterbox-filter three-fourths column-last">
+          <a href="{{siteUrl}}staff-members" class="text-small right">Reset Search</a>
           
         </div>
       </div>
@@ -202,26 +136,24 @@
 
   <section>
     <div class="container">
-      {% if newsEntries | length > 0 %}
-      {% paginate newsEntries.limit(10) as pageInfo, pageEntries %}
-      {% for newsArticle in pageEntries %} 
+      {% if staffEntries | length > 0 %}
+      {% paginate staffEntries.limit(10) as pageInfo, pageEntries %}
+      {% for staffMember in pageEntries %} 
 
-      <div class="post-excerpt grid-row">
+      <div class="staff grid-row no-padding">
         
-        <div class="one-third">
-          <a href="{{ newsArticle.url }}">
-          {% if newsArticle.mainImage | length > 0 %}
-          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+        <div class="one-twelfths">
+          <a href="{{ staffMember.url }}">
+          {% if staffMember.staffPortrait | length > 0 %}
+          <img class="team-member-portrait" src="{{ staffMember.staffPortrait.first().getUrl(portrait) }}" alt="{{ staffMember.staffPortrait.first().caption }}"> 
           {% else %}
-          <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
+          <img class="team-member-portrait" src="{{ craft.config.rootUrl }}resources/img/staff_placeholder.png">
           {% endif %} 
           </a>
         </div>  
-        <div class="seven-twelfths column-shift column-last">
-          <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.localeDate() | date('l, M d, Y') }}</time> | {{ newsArticle.type.name }}</p>
-          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3> 
-          <p>{{ newsArticle.summary }}</p>
-          <p><a href="{{ newsArticle.url }}">Read More</a></p>
+        <div class="five-sixths column-shift column-last">
+          <h3><a href="{{ staffMember.url }}">{{ staffMember.title }}</a></h3>
+          <p>{{ staffMember.staffJobTitle }}, {{ staffMember.staffDepartmentOfficialCommission.first().title }}</p>
         </div>
       </div>
       <hr>

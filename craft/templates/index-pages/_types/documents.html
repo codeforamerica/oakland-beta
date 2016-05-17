@@ -23,10 +23,11 @@
 {# Instantiate Filters #}
 {% set keywords = "" %}
 {% set document_types = ['or'] %}
-{% set departments_initiatives = ['or'] %}
+{% set departments_initiatives_boards = ['or'] %}
 {% set document_type_slugs = [] %}
 {% set department_slugs = [] %}
 {% set initiative_slugs = [] %}
+{% set board_slugs = [] %}
 {% set published_after = craft.request.getQuery('published-after') %}
 {% set published_before = craft.request.getQuery('published-before') %}
 {% set dateParams = ['and'] %}
@@ -68,7 +69,7 @@
 {% if craft.request.getQuery('departments') %}
 {% set department_slugs = craft.request.getQuery('departments') %}
   {% for department in department_slugs %}
-    {% set departments_initiatives = departments_initiatives | merge([craft.entries.slug(department)]) %}
+    {% set departments_initiatives_boards = departments_initiatives_boards | merge([craft.entries.slug(department)]) %}
   {% endfor %}
 {% endif %}
 
@@ -76,12 +77,20 @@
 {% if craft.request.getQuery('initiatives') %}
   {% set initiative_slugs = craft.request.getQuery('initiatives') %}
   {% for initiative in initiative_slugs %}
-    {% set departments_initiatives = departments_initiatives | merge([craft.entries.slug(initiative)]) %}
+    {% set departments_initiatives_boards = departments_initiatives_boards | merge([craft.entries.slug(initiative)]) %}
   {% endfor %}
 {% endif %}
 
-{% if departments_initiatives | length > 1 %}
-  {% set relatedToParams = relatedToParams | merge([{targetElement: departments_initiatives}]) %}
+{# If boards are specificed #}
+{% if craft.request.getQuery('boards') %}
+  {% set board_slugs = craft.request.getQuery('boards') %}
+  {% for board in board_slugs %}
+    {% set departments_initiatives_boards = departments_initiatives_boards | merge([craft.entries.slug(board)]) %}
+  {% endfor %}
+{% endif %}
+
+{% if departments_initiatives_boards | length > 1 %}
+  {% set relatedToParams = relatedToParams | merge([{targetElement: departments_initiatives_boards}]) %}
 {% endif %}
 
 
@@ -166,8 +175,8 @@
           </div>
         </div>
         <div class="filterbox-filter one-fourth">
-          <p class="filterbox-filter-label">Department / Initiative <span class="lnr lnr-small lnr-chevron-down"></span></p>
-          <p class="filterbox-filter-selection">{% if departments_initiatives | length > 1 %}{{departments_initiatives | length - 1}} type(s) selected{% endif %}</p>
+          <p class="filterbox-filter-label">Category <span class="lnr lnr-small lnr-chevron-down"></span></p>
+          <p class="filterbox-filter-selection">{% if departments_initiatives_boards | length > 1 %}{{departments_initiatives_boards | length - 1}} type(s) selected{% endif %}</p>
           <div class="filterbox-drawer">
             <h6>Initiative</h6>
             <ul class="list-no-style">
@@ -179,6 +188,12 @@
             <ul class="list-no-style">
               {% for department in craft.entries.section('departments') %}
               <li><label for="{{ department.slug }}"><input type="checkbox" name="departments[]" value="{{ department.slug}}" id="{{department.slug}}" {% if department.slug in department_slugs %}checked{% endif %}>{{department.title}}</label></li>
+              {% endfor %}
+            </ul>
+            <h6>Boards and Commissions</h6>
+            <ul class="list-no-style">
+              {% for board in craft.entries.section('boardsAndCommissions') %}
+              <li><label for="{{ board.slug }}"><input type="checkbox" name="boards[]" value="{{ board.slug}}" id="{{board.slug}}" {% if board.slug in board_slugs %}checked{% endif %}>{{board.title}}</label></li>
               {% endfor %}
             </ul>
           </div>

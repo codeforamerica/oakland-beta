@@ -23,6 +23,8 @@ return array(
 	"Hours" => "小时",
 	"Most Popular" => "最受欢迎",
 	"see all" => "查看全部",
+	"Meet the Team" => "团队见面",
+	"Meet the Rest of the Team" => "",
 
 	## Homepage
 	"Welcome to Oakland" => "欢迎来到奥克兰",
@@ -30,7 +32,7 @@ return array(
 	"Other News" => "其他新闻",
 	"What can we help you with?" => "我们能帮到你什么？",
 	"What's happening in Oakland" => "发生了什么事在奥克兰",
-	"Meet our Mayor" = "认识我们的市长",
+	"Meet our Mayor" => "认识我们的市长",
 	
 
 	## Global Nagivation
@@ -82,7 +84,13 @@ return array(
 	"Prioritized Initiatives" => "优先级倡议",
 	"Get in Touch" => "保持联系",
 	"About" => "关于",
-	"Meet the Team" => "团队见面",
+
+	# Boards and Commissions
+	"Boards and Commissions" => "",
+	"About this Board / Commission" => "",
+
+	# Staff Members
+	"City Staff" => "",
 
 	## Report pages
 	"Published on" => "发表于",

@@ -1,0 +1,311 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<main class="boards-and-commissions">
+
+  <div class="main-overlay"></div>
+
+  <section class="subheader">
+
+    <div class="breadcrumb-wrap">
+
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+        <a href="#">{{"Boards and Commissions" | translate }}</a>
+        <span>{{ entry.title }}</span>
+      </nav>
+
+    </div>
+
+    <div class="container">
+      <div class="grid-row">
+        <div class="section-info two-thirds column-shift">
+          <h1>{{ entry.title }}</h1>
+          <p>{{ entry.boardSummary }}</p>
+        </div>
+
+        <nav class="section-menu one-fourth">
+          <a class="menu-item" href="#section-1">{{"Contact Us" | translate}}</a>
+          {% if craft.entries.section('events').relatedTo(entry) | length > 0 %}
+          <a class="menu-item" href="#section-2">{{"Upcoming Events" | translate }}</a>
+          {% endif %}
+          {% if entry.boardRelatedServices | length > 0 %}
+          <a class="menu-item" href="#section-3">{{"Services and Resources" | translate }}</a>
+          {% endif %}
+          {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
+          <a class="menu-item" href="#section-4">{{"News and Updates" | translate }}</a>
+          {% endif %}
+          {% if craft.entries.section('documents').relatedTo(entry) | length > 0 %}
+          <a class="menu-item" href="#section-5">{{"Recently Added Documents" | translate }}</a>
+          {% endif %}
+          {% if entry.boardRelatedInitiatives | length > 0 %}
+          <a class="menu-item" href="#section-6">{{"Initiatives" | translate }}</a>
+          {% endif %}
+          {% if entry.boardMoreAbout %}
+          <a class="menu-item" href="#section-7">{{"About this Board / Commission" | translate }}</a>
+          {% endif %}
+        </nav>
+
+      </div><!-- .grid-row -->
+
+    </div><!-- .container -->
+
+  </section><!-- .subheader -->
+
+  <section id="section-1" class="section">
+    <div class="container">
+      <h2>{{"Contact Us" | translate }}</h2>
+      <div class="grid-row">
+        {% if entry.boardPhysicalAddress %}
+        <div class="one-half">
+          <h4>{{"Address" | translate }}</h4>
+          <p>{{entry.boardPhysicalAddress}}</p>
+          <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.boardPhysicalAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
+        </div>
+        {% endif %}
+        <div class="column-shift five-twelfths column-last">
+        {% if entry.boardMainContactEmail|length > 0 %}
+          <h4>{{"Email" | translate }}</h4>
+          <p>{{entry.boardMainContactEmail}}</p>
+        {% endif %}
+        {% if entry.boardPhoneNumbers %}
+          <h4>{{"Phone Numbers" | translate }}</h4>
+          <p>{{entry.boardPhoneNumbers}}</p>
+        {% endif %}
+        {% if entry.boardBusinessHours %}
+          <h4>{{"Hours" | translate }}</h4>
+          <p>{{entry.boardBusinessHours}}</p>
+        {% endif %}
+        </div>
+      </div>
+      <hr>
+    </div>
+  </section>
+
+  {% if craft.venti.allEvents().startDate('>=' ~ now).relatedTo(entry) | length > 0%}
+  <section class="section" id="section-2">
+    <div class="container">
+      <div class="grid-row no-padding">
+        <div class="three-fourths">
+          <h2>{{"Upcoming Events" | translate }}</h2>
+        </div>
+        <div class="one-fourth text-right column-last">
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
+        </div>
+      </div>
+      
+      <div class="grid-row">
+          {% for event in craft.venti.allEvents().startDate('>=' ~ now).relatedTo(entry).limit(3) %}  
+          <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
+            <h3><a href="{{ event.url }}">{{ event.title }}</a></h3>
+            <p class="post-data"><time datetime="">
+              {% if event.eventDateAndTime.startDate.date|date('mdY') == event.eventDateAndTime.endDate.date|date('mdY') %}
+                  {# Is the event all day #}
+                  {% if event.eventDateAndTime.allDay is defined %}
+                      {# If the event is repeat also show the repeat schedule(summary) #}
+                      {% if event.eventDateAndTime.rRule == 1 %}
+                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }} {{ event.eventDateAndTime.summary }}
+                      {% else %}
+                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }}
+                      {% endif %}
+                  {% else %}
+                      {# If the event is repeat also show the repeat schedule(summary) #}
+                      {% if event.eventDateAndTime.rRule %}
+                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('g:ia') }}  {{ event.eventDateAndTime.summary }}
+                      {% else %}
+                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('g:ia') }}
+                      {% endif %}
+                  {% endif %}
+              {% else %}
+                  {% if event.eventDateAndTime.allDay is defined %}
+                      {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }} - {{ event.eventDateAndTime.endDate.date|date('l, F d, Y') }}
+                  {% else %}
+                      {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('l, F d, Y g:ia') }}
+                  {% endif %}
+              {% endif %}
+            </time></p>
+          </div>
+          {% endfor %}
+      </div>
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if entry.boardRelatedServices | length > 0 %}
+  <section id="section-3" class="section">
+    <div class="container">
+      <h2>{{"Services and Resources" | translate }}</h2>
+      <div class="grid-row">
+        <div class="big-menu one-third">
+          {% for entry in entry.boardRelatedServices %}
+          {% if loop.index % 3 == 1 %}
+          <a class="menu-item" href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.leadIn}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="big-menu one-third">
+          {% for entry in entry.boardRelatedServices %}
+          {% if loop.index % 3 == 2 %}
+          <a class="menu-item" href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.leadIn}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="big-menu one-third column-last">
+          {% for entry in entry.boardRelatedServices %}
+          {% if loop.index % 3 == 0 %}
+          <a class="menu-item" href="{{ entry.url }}">
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.leadIn}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
+  <section id="section-4" class="section">
+    <div class="container">
+      <div class="grid-row no-padding">
+        <div class="three-fourths">
+          <h2>{{"News and Updates" | translate }}</h2>
+        </div>
+        <div class="one-fourth text-right column-last">
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('news').first().url }}?boards[]={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
+        </div>
+      </div>
+      <div class="grid-row">
+          {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
+          <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}">
+            <a href="{{ newsArticle.url }}">
+            {% if newsArticle.mainImage | length > 0 %}
+            <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+            {% else %}
+            <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
+            {% endif %} 
+            </a>   
+            <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
+            <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
+            <p>{{ newsArticle.summary }}</p>
+          </div>
+          {% endfor %}
+      </div>
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
+  {% set relatedDocuments = craft.entries.section('documents').relatedTo(entry) %}
+  {% if relatedDocuments | length > 0 %}
+  <section class="section" id="section-5">
+    <div class="container">
+      <div class="grid-row no-padding">
+        <div class="three-fourths">
+          <h2>{{"Recent Added Documents" | translate }}</h2>
+        </div>
+        <div class="one-fourth text-right column-last">
+          <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('documents').first().url }}?boards[]={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
+        </div>
+      </div>
+        
+        <div class="grid-row">
+          <div class="big-menu one-third">
+            {% for entry in relatedDocuments %}
+            {% if loop.index % 3 == 1 %}
+            <a class="menu-item post-excerpt" href="{{ entry.url }}">
+              <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+              <h3>{{ entry.title }}</h3>
+              <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <div class="big-menu one-third">
+            {% for entry in relatedDocuments %}
+            {% if loop.index % 3 == 2 %}
+            <a class="menu-item post-excerpt" href="{{ entry.url }}">
+              <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+              <h3>{{ entry.title }}</h3>
+              <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <div class="big-menu one-third column-last">
+            {% for entry in relatedDocuments %}
+            {% if loop.index % 3 == 0 %}
+            <a class="menu-item post-excerpt" href="{{ entry.url }}">
+              <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+              <h3>{{ entry.title }}</h3>
+              <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <hr>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if entry.boardRelatedInitiatives | length > 0 %}
+  <section class="section" id="section-6">
+    <div class="container">
+      <h2>{{"Initiatives" | translate }}</h2>
+      
+      {% if entry.boardRelatedInitiatives | length % 2 == 0 %}
+      <div class="grid-row">
+        {% for initiative in entry.boardRelatedInitiatives %}
+        <a href="{{initiative.url}}" class="one-half initiative-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().url }}')">
+          <h3>{{ initiative.title }}</h3>
+        </a>
+        {% endfor %}
+      </div>     
+
+      {% else %}
+      <a href="{{ entry.boardRelatedInitiatives.first().url }}" class="initiative-link main-initiative" style="background-image: url('{{ entry.boardRelatedInitiatives.first().initiativeHero.first().url }}')">
+        <h3>{{ entry.boardRelatedInitiatives.first().title }}</h3>
+      </a>
+      <div class="grid-row">
+        {% for initiative in entry.boardRelatedInitiatives.offset(1) %}
+        <a href="{{ initiative.url }}" class="one-half initiative-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().url }}')">
+          <h3>{{ initiative.title }}</h3>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <hr>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if entry.boardMoreAbout %}
+  <section id="section-7" class="section">
+    <div class="container">
+      <div class="grid-row">
+        <div class="one-third">
+          <h2>{{"About this Board / Commission" | translate }}</h2>
+          {% if entry.boardTeam | length > 0 %}
+            <p><a class="btn btn-secondary btn-small" href="{{entry.boardTeam.first().url}}">{{"Meet the Team" | translate}} <span class="lnr lnr-arrow-right"></span></a></p>
+          {% endif %}
+        </div>
+        <div class="two-thirds">
+          {{ entry.boardMoreAbout }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+</main> 
+{% endblock %}   

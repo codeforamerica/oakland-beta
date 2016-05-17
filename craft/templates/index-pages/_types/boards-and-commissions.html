@@ -1,7 +1,7 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<main class="departments-index">
+<main class="boards-index">
 
   <div class="main-overlay"></div>
 
@@ -10,20 +10,20 @@
 
       <nav class="breadcrumbs">
         <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
-        <span>{{"Departments" | translate }}</span>
+        <span>{{"Boards and Commissions" | translate }}</span>
       </nav>
 
-      <h1>{{"Departments" | translate }}</h1>
+      <h1>{{"Boards and Commissions" | translate }}</h1>
     </div>
   </section>
 
   <section>
     <div class="container">
       <div class="grid-row big-menu">
-        {% for department in craft.entries.section('departments') %}
-        <a href="{{ department.url }}" class="two-thirds menu-item">
-            <h3 class="department-name">{{ department.title }}</h3>
-            <p>{{ department.about }}</p>
+        {% for board in craft.entries.section('boardsAndCommissions') %}
+        <a href="{{ board.url }}" class="two-thirds menu-item">
+            <h3 class="board-name">{{ board.title }}</h3>
+            <p>{{ board.boardSummary }}</p>
         </a>
         {% endfor %}
       </div>

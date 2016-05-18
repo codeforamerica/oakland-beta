@@ -99,28 +99,28 @@
           <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
             <h3><a href="{{ event.url }}">{{ event.title }}</a></h3>
             <p class="post-data"><time datetime="">
-              {% if event.eventDateAndTime.startDate.date|date('mdY') == event.eventDateAndTime.endDate.date|date('mdY') %}
+              {% if event.startDate.date|date('mdY') == event.endDate.date|date('mdY') %}
                   {# Is the event all day #}
-                  {% if event.eventDateAndTime.allDay is defined %}
+                  {% if event.allDay is defined %}
                       {# If the event is repeat also show the repeat schedule(summary) #}
-                      {% if event.eventDateAndTime.rRule == 1 %}
-                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }} {{ event.eventDateAndTime.summary }}
+                      {% if event.rRule == 1 %}
+                          {{ event.startDate.date|date('l, F d, Y') }} {{ event.summary }}
                       {% else %}
-                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }}
+                          {{ event.startDate.date|date('l, F d, Y') }}
                       {% endif %}
                   {% else %}
                       {# If the event is repeat also show the repeat schedule(summary) #}
-                      {% if event.eventDateAndTime.rRule %}
-                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('g:ia') }}  {{ event.eventDateAndTime.summary }}
+                      {% if event.rRule %}
+                          {{ event.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.endDate.date|date('g:ia') }}  {{ event.summary }}
                       {% else %}
-                          {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('g:ia') }}
+                          {{ event.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.endDate.date|date('g:ia') }}
                       {% endif %}
                   {% endif %}
               {% else %}
-                  {% if event.eventDateAndTime.allDay is defined %}
-                      {{ event.eventDateAndTime.startDate.date|date('l, F d, Y') }} - {{ event.eventDateAndTime.endDate.date|date('l, F d, Y') }}
+                  {% if event.allDay is defined %}
+                      {{ event.startDate.date|date('l, F d, Y') }} - {{ event.endDate.date|date('l, F d, Y') }}
                   {% else %}
-                      {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('l, F d, Y g:ia') }}
+                      {{ event.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.endDate.date|date('l, F d, Y g:ia') }}
                   {% endif %}
               {% endif %}
             </time></p>

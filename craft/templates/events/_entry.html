@@ -3,6 +3,9 @@
 {% block content %}
 
   {% set event = craft.venti.getEventById(entry.id) %}
+  {% if event.rRule %}
+    {% set event = craft.venti.nextEvent(entry.id) %}
+  {% endif %}
 
     <main class="event">
 
@@ -19,7 +22,10 @@
       <article class="container">
         <h1>{{ entry.title }}</h1>
         <p class="lead">
-          {# Is the event same date or multiday event? #}
+          {% if event.isrepeat %}
+            {{ event.summary }} <br/> (Next is {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }})
+          {% else %}
+            {# Is the event same date or multiday event? #}
                {% if event.startDate|date('mdY') == event.endDate|date('mdY') %}
                    {# Is the event all day #}
                    {% if event.allDay == 1 %}
@@ -30,12 +36,7 @@
                            {{ event.startDate|date('l, F d, Y') }}
                        {% endif %}
                    {% else %}
-                       {# If the event is repeat also show the repeat schedule(summary) #}
-                       {% if event.isrepeat %}
-                           {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }}  {{ event.summary }}
-                       {% else %}
-                           {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }}
-                       {% endif %}
+                      {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }}
                    {% endif %}
                {% else %}
                    {% if event.allDay == 1 %}
@@ -44,6 +45,7 @@
                        {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('l, F d, Y g:ia') }}
                    {% endif %}
                {% endif %}
+            {% endif %}
         </p>
         
         <div class="grid-row">
@@ -56,7 +58,9 @@
             {{ entry.eventContact }}
           </div>
           <div class="column-shift five-twelfths column-last">
+            {% if entry.eventPhoto | length > 0 %}
             <img src="{{ entry.eventPhoto.first().url}}" alt="" class="event-photo">
+            {% endif %}
             <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.eventLocation | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
           </div>
         </div>

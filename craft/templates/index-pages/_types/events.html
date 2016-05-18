@@ -188,7 +188,7 @@
             {% if event.eventPhoto | length > 0 %}
             <img class="post-image" src="{{ event.eventPhoto.first().url }}" alt="{{ event.eventPhoto.first().caption }}"> 
             {% else %}
-            <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
+            <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/event_placeholder.png">
             {% endif %}
           </a>
         </div>
@@ -206,7 +206,8 @@
                      {% else %}
                          {# If the event is repeat also show the repeat schedule(summary) #}
                          {% if event.eventDateAndTime.rRule %}
-                             {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('g:ia') }}  {{ event.eventDateAndTime.summary }}
+                              {% set nextEvent = craft.venti.nextEvent(event.id) %}
+                             {{ event.eventDateAndTime.summary }} (Next is {{ nextEvent.startDate.date|date('l, F d, Y, g:ia') }} - {{ nextEvent.endDate.date|date('g:ia') }}) 
                          {% else %}
                              {{ event.eventDateAndTime.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.eventDateAndTime.endDate.date|date('g:ia') }}
                          {% endif %}

@@ -153,6 +153,31 @@
 		}
 	}
 
+	.google-langauge-dropdown {
+		margin-left: 1em;
+
+		.goog-te-gadget-simple {
+			background-color: transparent;
+			border: 0;
+		}
+		.goog-te-menu-value {
+			font-family: $body-font;
+			font-weight: 300;
+			font-size: $font-size-small;
+			margin-left: .5em;
+			span:first-child {
+				&:after {
+					content: '\e874';
+					font-size: .8em;
+					margin-left: .3em;
+					font-family: $icon-font;
+				}
+			}
+			span:not(:first-child) {
+				display: none;
+			}
+		}
+	}
 
 	.header-nav-button {
 		display: inline-block;

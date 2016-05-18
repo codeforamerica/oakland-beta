@@ -3100,6 +3100,24 @@ img {
         margin-right: 0;
         margin-left: 1em; } }
 
+.google-langauge-dropdown {
+  margin-left: 1em; }
+  .google-langauge-dropdown .goog-te-gadget-simple {
+    background-color: transparent;
+    border: 0; }
+  .google-langauge-dropdown .goog-te-menu-value {
+    font-family: Fakt, Helvetica, arial, sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    margin-left: .5em; }
+    .google-langauge-dropdown .goog-te-menu-value span:first-child:after {
+      content: '\e874';
+      font-size: .8em;
+      margin-left: .3em;
+      font-family: Linearicons-Free; }
+    .google-langauge-dropdown .goog-te-menu-value span:not(:first-child) {
+      display: none; }
+
 .header-nav-button {
   display: inline-block;
   vertical-align: middle;
@@ -3382,19 +3400,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -788px; } }
+        background-position: 0px -787px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -795px; } }
+        background-position: 0px -306px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -108px; } }
+        background-position: 0px -327px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3726,7 +3744,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -218px; } }
+      background-position: 0px -952px; } }
 
 .previous-next-links {
   background-size: cover;

@@ -64,6 +64,10 @@
         </div>
         {% endif %}
         <div class="column-shift five-twelfths column-last">
+        {% if entry.boardApplyButtonLink %}
+          <h4>{{"Join" | translate }}</h4>
+          <p><a class="btn btn-secondary btn-small" href="{{entry.boardApplyButtonLink}}">Apply on Granicus</a></p>
+        {% endif %}
         {% if entry.boardMainContactEmail|length > 0 %}
           <h4>{{"Email" | translate }}</h4>
           <p>{{entry.boardMainContactEmail}}</p>

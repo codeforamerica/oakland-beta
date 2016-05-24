@@ -935,6 +935,24 @@ html {
   .icon-social-instagram:hover:after {
     background-image: url("../img/icon-instagram.png"); }
 
+.icon-social-youtube:after {
+  background-size: 22px auto;
+  background-image: url("../img/icon-youtube-dark.png"); }
+
+.icon-social-youtube:hover {
+  background-color: #e52d27; }
+  .icon-social-youtube:hover:after {
+    background-image: url("../img/icon-youtube.png"); }
+
+.icon-social-flickr:after {
+  background-size: 22px auto;
+  background-image: url("../img/icon-flickr-dark.png"); }
+
+.icon-social-flickr:hover {
+  background-color: #FC329B; }
+  .icon-social-flickr:hover:after {
+    background-image: url("../img/icon-flickr.png"); }
+
 .icon-social-email:after {
   background-size: 22px auto;
   background-image: url("../img/icon-mail-dark.png"); }
@@ -3400,19 +3418,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -441px; } }
+        background-position: 0px -742px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -239px; } }
+        background-position: 0px -605px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -71px; } }
+        background-position: 0px -377px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3744,7 +3762,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -67px; } }
+      background-position: 0px -707px; } }
 
 .previous-next-links {
   background-size: cover;

@@ -141,6 +141,33 @@ $content-bg : $oakland-green;
     }
 }
 
+.icon-social-youtube {
+    &:after {
+        background-size: 22px auto;
+        background-image: url('../img/icon-youtube-dark.png');
+    }
+    &:hover {
+        background-color: $youtube;
+        &:after {
+            background-image: url('../img/icon-youtube.png');
+        }
+    }
+}
+
+.icon-social-flickr {
+    &:after {
+        background-size: 22px auto;
+        background-image: url('../img/icon-flickr-dark.png');
+    }
+    &:hover {
+        background-color: $flickr;
+        &:after {
+            background-image: url('../img/icon-flickr.png');
+        }
+    }
+}
+
+
 .icon-social-email {
     &:after {
         background-size: 22px auto;

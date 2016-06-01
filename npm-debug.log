@@ -1,0 +1,35 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'package.json' ]
+2 info using npm@2.1.4
+3 info using node@v0.10.32
+4 verbose node symlink /usr/local/bin/node
+5 silly cache add args [ 'package.json', null ]
+6 verbose cache add spec package.json
+7 silly cache add parsed spec { raw: 'package.json',
+7 silly cache add   scope: null,
+7 silly cache add   name: 'package.json',
+7 silly cache add   rawSpec: '',
+7 silly cache add   spec: '/Users/norrishung/Sites/oakland-beta/package.json',
+7 silly cache add   type: 'local' }
+8 silly addLocalTarball shasum (computed) eb0d7cd05f8c07cb186f00254a2da983daeee95f
+9 verbose addTmpTarball /Users/norrishung/Sites/oakland-beta/package.json not in flight; adding
+10 verbose addTmpTarball validating metadata from /Users/norrishung/Sites/oakland-beta/package.json
+11 verbose tar unpack /Users/norrishung/Sites/oakland-beta/package.json
+12 verbose tar unpacking to /var/folders/z5/b2x_n3dj4zq1q_2lvggszvjc0000gn/T/npm-35890-11838d2f/unpack-f3b9f41e618f
+13 verbose gentlyRm vacuuming /var/folders/z5/b2x_n3dj4zq1q_2lvggszvjc0000gn/T/npm-35890-11838d2f/unpack-f3b9f41e618f
+14 silly gunzTarPerm modes [ '755', '644' ]
+15 error not a package /Users/norrishung/Sites/oakland-beta/package.json
+16 error addLocal Could not install /Users/norrishung/Sites/oakland-beta/package.json
+17 verbose stack Error: ENOENT, open '/var/folders/z5/b2x_n3dj4zq1q_2lvggszvjc0000gn/T/npm-35890-11838d2f/unpack-f3b9f41e618f/package.json'
+18 verbose cwd /Users/norrishung/Sites/oakland-beta
+19 error Darwin 15.4.0
+20 error argv "node" "/usr/local/bin/npm" "install" "package.json"
+21 error node v0.10.32
+22 error npm  v2.1.4
+23 error path /var/folders/z5/b2x_n3dj4zq1q_2lvggszvjc0000gn/T/npm-35890-11838d2f/unpack-f3b9f41e618f/package.json
+24 error code ENOENT
+25 error errno 34
+26 error ENOENT, open '/var/folders/z5/b2x_n3dj4zq1q_2lvggszvjc0000gn/T/npm-35890-11838d2f/unpack-f3b9f41e618f/package.json'
+27 error If you need help, you may report this error at:
+27 error     <http://github.com/npm/npm/issues>
+28 verbose exit [ 34, true ]

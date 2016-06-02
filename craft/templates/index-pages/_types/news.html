@@ -37,7 +37,7 @@
 {% if craft.request.getParam('q') %}
   {% set query = craft.request.getParam('q') %}
   {% set relatedEntry = craft.entries.slug(query).first() %}
-  {% set newsEntries = craft.entries.section('news').relatedTo(relatedEntry) %}
+  {% set relatedToParams = relatedToParams | merge([{targetElement: relatedEntry}]) %}
 {% endif %}
 
 {# If keywords are specified #}
@@ -109,6 +109,7 @@
 <main class="news news-index">
 
   <div class="main-overlay"></div>
+
 
   <section class="subheader">
     <div class="breadcrumb-wrap">

@@ -1,0 +1,32 @@
+{% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
+<section class="section">
+  <div class="container">
+    <div class="grid-row no-padding">
+      <div class="three-fourths">
+        <h2>{{"News and Updates" | translate }}</h2>
+      </div>
+      <div class="one-fourth text-right column-last">
+        <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('news').first().url }}?{{search_query}}={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
+      </div>
+    </div>
+    
+    <div class="grid-row">
+        {% for newsArticle in craft.entries.section('news').relatedTo(entry).limit(3) %}  
+        <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
+          <a href="{{ newsArticle.url }}">
+          {% if newsArticle.mainImage | length > 0 %}
+          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+          {% else %}
+          <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
+          {% endif %} 
+          </a>
+          <p class="post-data"><time datetime="">{{ newsArticle.dateCreated.nice() }}</time></p>
+          <h3><a href="{{ newsArticle.url }}">{{ newsArticle.title }}</a></h3>
+          <p>{{ newsArticle.summary }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+  </div>
+</section>
+{% endif %}

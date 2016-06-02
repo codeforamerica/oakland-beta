@@ -27,15 +27,15 @@
         </div>
 
         <nav class="section-menu one-fourth">
-          <a class="menu-item" href="#section-1">{{"Contact Us" | translate}}</a>
+          <a class="menu-item" href="#section-contact">{{"Contact Us" | translate}}</a>
           {% if entry.relatedServices | length > 0 %}
-          <a class="menu-item" href="#section-2">{{"Services and Resources" | translate }}</a>
+          <a class="menu-item" href="#section-related-services">{{"Services and Resources" | translate }}</a>
           {% endif %}
           {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
-          <a class="menu-item" href="#section-3">{{"News and Updates" | translate }}</a>
+          <a class="menu-item" href="#section-related-news">{{"News and Updates" | translate }}</a>
           {% endif %}
           {% if entry.departmentHead %}
-          <a class="menu-item" href="#section-4">{{"Our Management" | translate }}</a>
+          <a class="menu-item" href="#section-management">{{"Our Management" | translate }}</a>
           {% endif %}
         </nav>
 
@@ -45,7 +45,7 @@
 
   </section><!-- .subheader -->
 
-  <section id="section-1" class="section">
+  <section id="section-contact" class="section">
     <div class="container">
       <h2>{{"Contact Us" | translate }}</h2>
       <div class="grid-row">
@@ -82,7 +82,7 @@
   {% include '_includes/related-documents.html' with {'search_query': 'departments[]'} %}
 
   {% if entry.departmentHead %}
-  <section id="section-4" class="section">
+  <section id="section-management" class="section">
     <div class="container">
       <h2>{{"Our Management" | translate }}</h2>
       <div class="grid-row">

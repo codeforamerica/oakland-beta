@@ -25,24 +25,24 @@
         </div>
 
         <nav class="section-menu one-fourth">
-          <a class="menu-item" href="#section-1">{{"Contact Us" | translate}}</a>
+          <a class="menu-item" href="#section-contact">{{"Contact Us" | translate}}</a>
           {% if craft.entries.section('events').relatedTo(entry) | length > 0 %}
-          <a class="menu-item" href="#section-2">{{"Upcoming Events" | translate }}</a>
+          <a class="menu-item" href="#section-related-events">{{"Upcoming Events" | translate }}</a>
           {% endif %}
           {% if entry.boardRelatedServices | length > 0 %}
-          <a class="menu-item" href="#section-3">{{"Services and Resources" | translate }}</a>
+          <a class="menu-item" href="#section-related-services">{{"Services and Resources" | translate }}</a>
           {% endif %}
           {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
-          <a class="menu-item" href="#section-4">{{"News and Updates" | translate }}</a>
+          <a class="menu-item" href="#section-related-news">{{"News and Updates" | translate }}</a>
           {% endif %}
           {% if craft.entries.section('documents').relatedTo(entry) | length > 0 %}
-          <a class="menu-item" href="#section-5">{{"Recently Added Documents" | translate }}</a>
+          <a class="menu-item" href="#section-related-documents">{{"Recently Added Documents" | translate }}</a>
           {% endif %}
           {% if entry.boardRelatedInitiatives | length > 0 %}
-          <a class="menu-item" href="#section-6">{{"Initiatives" | translate }}</a>
+          <a class="menu-item" href="#section-related-initiatives">{{"Initiatives" | translate }}</a>
           {% endif %}
           {% if entry.boardMoreAbout %}
-          <a class="menu-item" href="#section-7">{{"About this Board / Commission" | translate }}</a>
+          <a class="menu-item" href="#section-about">{{"About this Board / Commission" | translate }}</a>
           {% endif %}
         </nav>
 
@@ -52,7 +52,7 @@
 
   </section><!-- .subheader -->
 
-  <section id="section-1" class="section">
+  <section id="section-contact" class="section">
     <div class="container">
       <h2>{{"Contact Us" | translate }}</h2>
       <div class="grid-row">
@@ -95,7 +95,7 @@
   {% include '_includes/related-documents.html' with {'search_query': 'boards[]'} %}
 
   {% if entry.boardRelatedInitiatives | length > 0 %}
-  <section class="section" id="section-6">
+  <section class="section" id="section-related-initiatives">
     <div class="container">
       <h2>{{"Initiatives" | translate }}</h2>
       
@@ -126,7 +126,7 @@
   {% endif %}
 
   {% if entry.boardMoreAbout %}
-  <section id="section-7" class="section">
+  <section id="section-about" class="section">
     <div class="container">
       <div class="grid-row">
         <div class="one-third">

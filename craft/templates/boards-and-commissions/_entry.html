@@ -94,36 +94,7 @@
 
   {% include '_includes/related-documents.html' with {'search_query': 'boards[]'} %}
 
-  {% if entry.boardRelatedInitiatives | length > 0 %}
-  <section class="section" id="section-related-initiatives">
-    <div class="container">
-      <h2>{{"Initiatives" | translate }}</h2>
-      
-      {% if entry.boardRelatedInitiatives | length % 2 == 0 %}
-      <div class="grid-row">
-        {% for initiative in entry.boardRelatedInitiatives %}
-        <a href="{{initiative.url}}" class="one-half initiative-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().url }}')">
-          <h3>{{ initiative.title }}</h3>
-        </a>
-        {% endfor %}
-      </div>     
-
-      {% else %}
-      <a href="{{ entry.boardRelatedInitiatives.first().url }}" class="initiative-link main-initiative" style="background-image: url('{{ entry.boardRelatedInitiatives.first().initiativeHero.first().url }}')">
-        <h3>{{ entry.boardRelatedInitiatives.first().title }}</h3>
-      </a>
-      <div class="grid-row">
-        {% for initiative in entry.boardRelatedInitiatives.offset(1) %}
-        <a href="{{ initiative.url }}" class="one-half initiative-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().url }}')">
-          <h3>{{ initiative.title }}</h3>
-        </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-      <hr>
-    </div>
-  </section>
-  {% endif %}
+  {% include '_includes/related-initiatives.html' with {'relatedInitiatives': entry.boardRelatedInitiatives} %}
 
   {% if entry.boardMoreAbout %}
   <section id="section-about" class="section">

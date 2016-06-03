@@ -1,3 +1,11 @@
+{% set newsThumbnail = {
+    mode: 'crop',
+    width: 900,
+    height: 600,
+    quality: 80,
+    position: 'center-center'
+} %}
+
 {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
 <section class="section" id="section-related-news">
   <div class="container">
@@ -15,7 +23,7 @@
         <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
           <a href="{{ newsArticle.url }}">
           {% if newsArticle.mainImage | length > 0 %}
-          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+          <img class="post-image" src="{{ newsArticle.mainImage.first().getUrl(newsThumbnail) }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
           {% else %}
           <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
           {% endif %} 

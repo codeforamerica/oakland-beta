@@ -1,0 +1,47 @@
+{% set featuredInitiativeBg = {
+    mode: 'crop',
+    width: 2048,
+    height: 560,
+    quality: 80,
+    position: 'center-center'
+} %}
+
+{% set initiativeBg = {
+    mode: 'crop',
+    width: 1000,
+    height: 340,
+    quality: 80,
+    position: 'center-center'
+} %}
+
+
+{% if relatedInitiatives | length > 0 %}
+<section class="section" id="section-related-initiatives">
+  <div class="container">
+    <h2>{{"Initiatives" | translate }}</h2>
+    
+    {% if relatedInitiatives | length % 2 == 0 %}
+    <div class="grid-row">
+      {% for initiative in relatedInitiatives %}
+      <a href="{{initiative.url}}" class="one-half initiative-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().getUrl(initiativeBg) }}')">
+        <h3>{{ initiative.title }}</h3>
+      </a>
+      {% endfor %}
+    </div>     
+
+    {% else %}
+    <a href="{{ relatedInitiatives.first().url }}" class="initiative-link main-initiative" style="background-image: url('{{ relatedInitiatives.first().initiativeHero.first().getUrl(featuredInitiativeBg) }}')">
+      <h3>{{ relatedInitiatives.first().title }}</h3>
+    </a>
+    <div class="grid-row">
+      {% for initiative in relatedInitiatives.offset(1) %}
+      <a href="{{ initiative.url }}" class="one-half initiative-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().getUrl(initiativeBg)  }}')">
+        <h3>{{ initiative.title }}</h3>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <hr>
+  </div>
+</section>
+{% endif %}

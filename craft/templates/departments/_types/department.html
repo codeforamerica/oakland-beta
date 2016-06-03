@@ -82,13 +82,21 @@
   {% include '_includes/related-documents.html' with {'search_query': 'departments[]'} %}
 
   {% if entry.departmentHead %}
+
+  {% set portrait = {
+      mode: 'crop',
+      width: 800,
+      quality: 80,
+      position: 'center-center'
+  } %}
+
   <section id="section-management" class="section">
     <div class="container">
       <h2>{{"Our Management" | translate }}</h2>
       <div class="grid-row">
         {% if entry.departmentHeadPortrait|length > 0 %}
         <div class="one-third">
-          <img src="{{ entry.departmentHeadPortrait.first().url }}" alt="Department Head Photo">
+          <img src="{{ entry.departmentHeadPortrait.first().getUrl(portrait) }}" alt="Department Head Photo">
         </div>
         {% endif %}
         <div class="two-thirds column-last">

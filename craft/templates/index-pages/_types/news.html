@@ -106,6 +106,14 @@
   relatedTo: relatedToParams
 }) %}
 
+{% set newsThumbnail = {
+    mode: 'crop',
+    width: 700,
+    height: 500,
+    quality: 80,
+    position: 'center-center'
+} %}
+
 <main class="news news-index">
 
   <div class="main-overlay"></div>
@@ -212,7 +220,7 @@
         <div class="one-third">
           <a href="{{ newsArticle.url }}">
           {% if newsArticle.mainImage | length > 0 %}
-          <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+          <img class="post-image" src="{{ newsArticle.mainImage.first().getUrl(newsThumbnail) }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
           {% else %}
           <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
           {% endif %} 

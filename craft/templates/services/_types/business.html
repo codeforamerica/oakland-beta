@@ -29,17 +29,16 @@
         <nav class="section-menu one-fourth">
           <a class="menu-item" href="#section-1">Starting Your Business</a>
           <a class="menu-item" href="#section-2">Managing and Growing Your Business</a>
-          <a class="menu-item" href="#section-3">Permits and Forms, A-Z</a>
       </nav>
       </div>
     </div>
   </section>
-  <section class="section section-vignette section-vignette-1">
+  <section class="section section-vignette" style="background-image:url('{{entry.quote1Image.first().url}}')">
     <div class="container">
       <div class="grid-row">
         <div class="one-half align-right">
-          <p class="quote">My sister and I felt the need to share the food we loved so much as children to our friends and family.</p>
-          <p class="quote-author">Andy Lee, Shan Dong Restaurant</p>
+          <p class="quote">{{entry.quote1Text}}</p>
+          <p class="quote-author">{{entry.quote1Author}}</p>
         </div>
       </div>
     </div>
@@ -49,9 +48,7 @@
       <h2>Starting Your Business</h2>
       <div class="grid-row">
         <div class="one-half">
-          <p>Starting your own business can be one of the most exciting and rewarding moments in your life. Know what it means to start a business in Oakland and let the city help you do it right.</p>
-
-          <p><i>Click on the steps below to learn more about each park of the process.</i></p> 
+          {{entry.startingABusinessDescription}} 
         </div>
         {% if entry.children.first().mostPopularLinks|length > 0 %}
         <aside class="one-half with-bg">
@@ -80,12 +77,12 @@
       </ol>
     </div>
   </section>
-  <section class="section section-vignette section-vignette-2">
+  <section class="section section-vignette" style="background-image:url('{{entry.quote2Image.first().url}}')">
     <div class="container">
       <div class="grid-row">
         <div class="one-half">
-          <p class="quote">My sister and I felt the need to share the food we loved so much as children to our friends and family.</p>
-          <p class="quote-author">Andy Lee, Shan Dong Restaurant</p>
+          <p class="quote">{{entry.quote2Text}}</p>
+          <p class="quote-author">{{entry.quote2Author}}</p>
         </div>
       </div>
     </div>
@@ -94,7 +91,7 @@
     <div class="container">
       <h2>Managing and Growing Your Business</h2>
       <div class="grid-row">
-        <p class="one-half">You’ve gotten your business off the ground and now you are ready to take it to the next level. Learn more and take advantage of city resources to help you maintain and grow your business.</p>
+        {{entry.managingGrowingYourBusinessDescription}} 
         {% if entry.children.nth(1).mostPopularLinks|length > 0 %}
         <aside class="column-shift five-twelfths with-bg column-shift">
           <h5>Popular Links</h5>
@@ -120,27 +117,13 @@
       </div>
     </div>
   </section>
-  <section class="section section-vignette section-vignette-2">
+  <section class="section section-vignette" style="background-image:url('{{entry.quote3Image.first().url}}')">
     <div class="container">
       <div class="grid-row">
         <div class="one-half">
-          <p class="quote">My sister and I felt the need to share the food we loved so much as children to our friends and family.</p>
-          <p class="quote-author">Andy Lee, Shan Dong Restaurant</p>
+          <p class="quote">{{entry.quote3Text}}</p>
+          <p class="quote-author">{{entry.quote3Author}}</p>
         </div>
-      </div>
-    </div>
-  </section>
-  <section id="section-3" class="section">
-    <div class="container">
-      <h2>Permits and Forms, A-Z</h2>
-      <div class="grid-row menu">
-        {% for form in craft.entries.section("forms").relatedTo(entry).order("title asc") %}
-          <div class="one-third menu-item {% if loop.index % 3 == 0 %}column-last{% endif %}">
-            <a href="{{ form.url }}">
-              <h5>{{ form.title }}</h5>
-            </a>
-          </div>
-        {% endfor %}
       </div>
     </div>
   </section>

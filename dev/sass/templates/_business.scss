@@ -5,8 +5,9 @@
         padding-top: 2em;
         padding-bottom: 2em;
         margin-bottom: 2em;
-        background-color: #000;
         position: relative;
+        background-position: center center;
+        background-size: cover;
 
         &:before {
             content: '';
@@ -16,9 +17,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-size: cover;
-            background-position: center center;
-            opacity: .7;
+            background-color: rgba(0,0,0,.3);
         }
 
         .align-right {
@@ -34,24 +33,6 @@
         .quote-author {
             color: #fff;
             font-size: $font-size-body;
-        }
-    }
-
-    .section-vignette-1 {
-        &:before {
-            background-image: url('../img/shan_dong.jpg');
-        }
-    }
-
-    .section-vignette-2 {
-        &:before {
-            background-image: url('../img/modern_coffee.jpg');
-        }
-    }
-
-    .section-vignette-3 {
-        &:before {
-            background-image: url('../img/shan_dong.jpg');
         }
     }
 }

@@ -3418,19 +3418,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -742px; } }
+        background-position: 0px -384px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -605px; } }
+        background-position: 0px -711px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -377px; } }
+        background-position: 0px -551px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3762,7 +3762,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -707px; } }
+      background-position: 0px -291px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -4190,8 +4190,9 @@ button.filterbox-search-button {
   padding-top: 2em;
   padding-bottom: 2em;
   margin-bottom: 2em;
-  background-color: #000;
-  position: relative; }
+  position: relative;
+  background-position: center center;
+  background-size: cover; }
   .business .section-vignette:before {
     content: '';
     display: block;
@@ -4200,9 +4201,7 @@ button.filterbox-search-button {
     bottom: 0;
     left: 0;
     right: 0;
-    background-size: cover;
-    background-position: center center;
-    opacity: .7; }
+    background-color: rgba(0, 0, 0, 0.3); }
   .business .section-vignette .align-right {
     float: right; }
   .business .section-vignette .quote {
@@ -4213,15 +4212,6 @@ button.filterbox-search-button {
   .business .section-vignette .quote-author {
     color: #fff;
     font-size: 1.1875rem; }
-
-.business .section-vignette-1:before {
-  background-image: url("../img/shan_dong.jpg"); }
-
-.business .section-vignette-2:before {
-  background-image: url("../img/modern_coffee.jpg"); }
-
-.business .section-vignette-3:before {
-  background-image: url("../img/shan_dong.jpg"); }
 
 article h1 {
   margin-top: 1em; }

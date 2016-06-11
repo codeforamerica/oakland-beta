@@ -1,0 +1,52 @@
+{% set relatedDocuments = craft.entries.section('documents').relatedTo(entry) %}
+{% if relatedDocuments | length > 0 %}
+<section class="section" id="section-related-documents">
+  <div class="container">
+    <div class="grid-row no-padding">
+      <div class="three-fourths">
+        <h2>{{"Recent Added Documents" | translate }}</h2>
+      </div>
+      <div class="one-fourth text-right column-last">
+        <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('documents').first().url }}?{{search_query}}={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
+      </div>
+    </div>
+      
+      <div class="grid-row">
+        <div class="big-menu one-third">
+          {% for entry in relatedDocuments %}
+          {% if loop.index % 3 == 1 %}
+          <a class="menu-item post-excerpt" href="{{ entry.url }}">
+            <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="big-menu one-third">
+          {% for entry in relatedDocuments %}
+          {% if loop.index % 3 == 2 %}
+          <a class="menu-item post-excerpt" href="{{ entry.url }}">
+            <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="big-menu one-third column-last">
+          {% for entry in relatedDocuments %}
+          {% if loop.index % 3 == 0 %}
+          <a class="menu-item post-excerpt" href="{{ entry.url }}">
+            <p class="post-data">{{ entry.documentType.first().title }} | {{ entry.documentPublishDate | date('l, M d Y') }}</p>
+            <h3>{{ entry.title }}</h3>
+            <p>{{entry.documentDescriptionSummary | trimit(120)}}</p>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <hr>
+  </div>
+</section>
+{% endif %}

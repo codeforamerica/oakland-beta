@@ -22,6 +22,31 @@
 {% block content %}
 
 {% set current_hero = entry.hero.order('RAND()').first() %}
+
+{% set featuredNewsThumbnail = {
+    mode: 'crop',
+    width: 1200,
+    height: 800,
+    quality: 80,
+    position: 'center-center'
+} %}
+
+{% set initiativeBg = {
+    mode: 'crop',
+    width: 800,
+    height: 400,
+    quality: 80,
+    position: 'center-center'
+} %}
+
+{% set mayorPortrait = {
+    mode: 'crop',
+    width: 500,
+    height: 500,
+    quality: 80,
+    position: 'top-center'
+} %}
+
 <main class="homepage">
   <section class="subheader">
 
@@ -119,7 +144,7 @@
           <div class="post-excerpt">
             <a href="{{ newsArticle.url }}">
             {% if newsArticle.mainImage | length > 0 %}
-            <img class="post-image" src="{{ newsArticle.mainImage.first().url }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
+            <img class="post-image" src="{{ newsArticle.mainImage.first().getUrl(featuredNewsThumbnail) }}" alt="{{ newsArticle.mainImage.first().caption }}"> 
             {% else %}
             <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/news_placeholder.png">
             {% endif %} 
@@ -158,7 +183,7 @@
         </div>
         <div class="grid-row">
           {% for initiative in entry.highlightedInitiatives %}
-          <a href="{{initiative.url}}" class="one-third initiative-link {% if loop.index % 3 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().url }}')">
+          <a href="{{initiative.url}}" class="one-third initiative-link {% if loop.index % 3 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().getUrl(initiativeBg) }}')">
             <h3>{{ initiative.title }}</h3>
           </a>
           {% endfor %}
@@ -174,7 +199,7 @@
       <div class="grid-row">
         <div class="one-third">
           <div class="official-portrait">
-            <img class="official-portrait" src="{{ mayor.portrait.first().url }}" alt="{{ mayor.portrait.first().title }}">
+            <img class="official-portrait" src="{{ mayor.portrait.first().getUrl(mayorPortrait) }}" alt="{{ mayor.portrait.first().title }}">
           </div>
         </div>
         <div class="seven-twelfths column-shift column-last">

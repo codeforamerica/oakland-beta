@@ -100,6 +100,13 @@
   relatedTo: relatedToParams
 })%}
 
+{% set eventHero = {
+    mode: 'crop',
+    width: 900,
+    quality: 80,
+    position: 'center-center'
+} %}
+
 <main class="events-index event">
 
   <div class="main-overlay"></div>
@@ -186,7 +193,7 @@
         <div class="one-third">
           <a href="{{event.url}}">
             {% if event.eventPhoto | length > 0 %}
-            <img class="post-image" src="{{ event.eventPhoto.first().url }}" alt="{{ event.eventPhoto.first().caption }}"> 
+            <img class="post-image" src="{{ event.eventPhoto.first().getUrl(eventHero) }}" alt="{{ event.eventPhoto.first().caption }}"> 
             {% else %}
             <img class="post-image" src="{{ craft.config.rootUrl }}resources/img/event_placeholder.png">
             {% endif %}

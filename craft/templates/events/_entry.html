@@ -7,6 +7,13 @@
     {% set event = craft.venti.nextEvent(entry.id) %}
   {% endif %}
 
+  {% set eventHero = {
+      mode: 'crop',
+      width: 900,
+      quality: 80,
+      position: 'center-center'
+  } %}
+
     <main class="event">
 
     <div class="main-overlay"></div>
@@ -59,7 +66,7 @@
           </div>
           <div class="column-shift five-twelfths column-last">
             {% if entry.eventPhoto | length > 0 %}
-            <img src="{{ entry.eventPhoto.first().url}}" alt="" class="event-photo">
+            <img src="{{ entry.eventPhoto.first().getUrl(eventHero)}}" alt="" class="event-photo">
             {% endif %}
             <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.eventLocation | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
           </div>

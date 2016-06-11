@@ -2,6 +2,14 @@
 
 {% block content %}
 
+{% set initiativeBg = {
+    mode: 'crop',
+    width: 800,
+    height: 400,
+    quality: 80,
+    position: 'center-center'
+} %}
+
 <main class="initiatives-index">
 
   <div class="main-overlay"></div>
@@ -20,7 +28,7 @@
     <div class="container">
       <div class="grid-row">
         {% for initiative in craft.entries.section('initiatives') %}
-        <a href="{{initiative.url}}" class="one-third initiative-link {% if loop.index % 3 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().url }}')">
+        <a href="{{initiative.url}}" class="one-third initiative-link {% if loop.index % 3 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().getUrl(initiativeBg) }}')">
           <h3>{{ initiative.title }}</h3>
         </a>
         {% endfor %}

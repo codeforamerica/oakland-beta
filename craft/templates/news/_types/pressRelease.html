@@ -2,6 +2,15 @@
 
 {% block content %}
 
+
+{% set newsHero = {
+    mode: 'crop',
+    width: 1400,
+    height: 1000,
+    quality: 80,
+    position: 'center-center'
+} %}
+
     <main class="news">
 
     <div class="main-overlay"></div>
@@ -25,7 +34,7 @@
         <div class="grid-row">
           <div class="two-thirds">
             {% if entry.mainImage|length > 0 %}
-            <img class="news-main-image" src="{{ entry.mainImage.first().url }}" alt="Main Image">
+            <img class="news-main-image" src="{{ entry.mainImage.first().getUrl(newsHero) }}" alt="Main Image">
             {% endif %}
             {{ entry.body }}
           </div>

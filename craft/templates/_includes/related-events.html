@@ -1,0 +1,49 @@
+{% if craft.venti.allEvents().startDate('>=' ~ now).relatedTo(entry) | length > 0 %}
+<section class="section" id="section-related-events">
+  <div class="container">
+    <div class="grid-row no-padding">
+      <div class="three-fourths">
+        <h2>{{"Upcoming Events" | translate }}</h2>
+      </div>
+      <div class="one-fourth text-right column-last">
+        <a class="btn btn-small btn-block btn-secondary" href="{{ craft.entries.slug('events').first().url }}?q={{ entry.slug }}">{{ "see all" | translate }} <span class="lnr lnr-arrow-right"></span></a>
+      </div>
+    </div>
+    
+    <div class="grid-row">
+        {% for event in craft.venti.allEvents().startDate('>=' ~ now).relatedTo(entry).limit(3) %}  
+        <div class="post-excerpt one-third {% if loop.index % 3 == 0 %}column-last{% endif %}"> 
+          <h3><a href="{{ event.url }}">{{ event.title }}</a></h3>
+          <p class="post-data"><time datetime="">
+            {% if event.startDate.date|date('mdY') == event.endDate.date|date('mdY') %}
+                {# Is the event all day #}
+                {% if event.allDay is defined %}
+                    {# If the event is repeat also show the repeat schedule(summary) #}
+                    {% if event.rRule == 1 %}
+                        {{ event.startDate.date|date('l, F d, Y') }} {{ event.summary }}
+                    {% else %}
+                        {{ event.startDate.date|date('l, F d, Y') }}
+                    {% endif %}
+                {% else %}
+                    {# If the event is repeat also show the repeat schedule(summary) #}
+                    {% if event.rRule %}
+                        {{ event.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.endDate.date|date('g:ia') }}  {{ event.summary }}
+                    {% else %}
+                        {{ event.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.endDate.date|date('g:ia') }}
+                    {% endif %}
+                {% endif %}
+            {% else %}
+                {% if event.allDay is defined %}
+                    {{ event.startDate.date|date('l, F d, Y') }} - {{ event.endDate.date|date('l, F d, Y') }}
+                {% else %}
+                    {{ event.startDate.date|date('l, F d, Y, g:ia') }} - {{ event.endDate.date|date('l, F d, Y g:ia') }}
+                {% endif %}
+            {% endif %}
+          </time></p>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+  </div>
+</section>
+{% endif %}

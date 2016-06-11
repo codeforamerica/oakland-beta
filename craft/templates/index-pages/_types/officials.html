@@ -1,6 +1,14 @@
 {% extends '_base.html' %}
 
 {% block content %}
+
+{% set portrait = {
+    mode: 'crop',
+    width: 500,
+    height: 500,
+    quality: 80,
+    position: 'top-center'
+} %}
 <main class="officials-index">
 
   <div class="main-overlay"></div>
@@ -23,7 +31,7 @@
       <a href="{{ official.url }}" class="grid-row official">
         <div class="one-fourth">
           <figure class="official-portrait">
-            <img src="{{ official.portrait.first().url }}" alt="official.portrait.first().description">
+            <img src="{{ official.portrait.first().getUrl(portrait) }}" alt="official.portrait.first().description">
           </figure>
         </div>
         <div class="column-shift seven-twelfths column-last">

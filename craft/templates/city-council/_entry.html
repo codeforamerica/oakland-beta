@@ -26,7 +26,7 @@
         </div>
 
         <nav class="section-menu one-fourth">
-          <a class="menu-item" href="#section-councilmembers">{{"City Councilmembers" | translate}}</a>
+          <a class="menu-item" href="#section-councilmembers">{{"Elected Officials" | translate}}</a>
           {% if entry.councilRelatedServices | length > 0 %}
           <a class="menu-item" href="#section-related-services">{{"Services and Resources" | translate }}</a>
           {% endif %}
@@ -53,10 +53,10 @@
   } %}
 
   <div class="container" class="section" id="section-councilmembers">
-    <h2>City Councilmembers</h2>
+    <h2>Elected Officials</h2>
     <div class="grid-row">
       {% for official in entry.councilElectedOfficials %}
-      <div class="one-half official {% if loop.index % 2 == 0 %}column-last{% endif %}">
+      <a href="{{official.url}}" class="one-half official {% if loop.index % 2 == 0 %}column-last{% endif %}">
         <div class="official-portrait">
           <img src="{{official.portrait.first().getUrl(portrait)}}" alt="{{official.portrait.first().title}}">
         </div>
@@ -64,7 +64,7 @@
           <h3 class="official-name">{{official.title}}</h3>
           <p class="official-title">{{official.jobTitle}}</p>
         </div>
-      </div>
+      </a>
       {% endfor %}
     </div>
     <hr/>
@@ -72,9 +72,9 @@
 
   {% include '_includes/related-services.html' with {'relatedServices': entry.councilRelatedServices} %}
 
-  {% include '_includes/related-news.html' with {'search_query': 'council[]'} %}
+  {% include '_includes/related-news.html' with {'search_query': 'councils[]'} %}
   
-  {% include '_includes/related-documents.html' with {'search_query': 'council[]'} %}
+  {% include '_includes/related-documents.html' with {'search_query': 'councils[]'} %}
 
   {% if entry.councilAbout %}
   <section id="section-about" class="section">

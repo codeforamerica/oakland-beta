@@ -23,10 +23,11 @@
 {# Instantiate Filters #}
 {% set keywords = "" %}
 {% set news_types = [] %}
-{% set departments_officials_boards = ['or'] %}
+{% set city_offices = ['or'] %}
 {% set department_slugs = [] %}
 {% set board_slugs = [] %}
 {% set official_slugs = [] %}
+{% set council_slugs = [] %}
 {% set published_after = craft.request.getQuery('published-after') %}
 {% set published_before = craft.request.getQuery('published-before') %}
 {% set dateParams = ['and'] %}
@@ -63,7 +64,7 @@
 {% if craft.request.getQuery('departments') %}
 {% set department_slugs = craft.request.getQuery('departments') %}
   {% for department in department_slugs %}
-    {% set departments_officials_boards = departments_officials_boards | merge([craft.entries.slug(department)]) %}
+    {% set city_offices = city_offices | merge([craft.entries.slug(department)]) %}
   {% endfor %}
 {% endif %}
 
@@ -71,7 +72,15 @@
 {% if craft.request.getQuery('officials') %}
   {% set official_slugs = craft.request.getQuery('officials') %}
   {% for official in official_slugs %}
-    {% set departments_officials_boards = departments_officials_boards | merge([craft.entries.slug(official)]) %}
+    {% set city_offices = city_offices | merge([craft.entries.slug(official)]) %}
+  {% endfor %}
+{% endif %}
+
+{# If city council is specificed #}
+{% if craft.request.getQuery('councils') %}
+  {% set council_slugs = craft.request.getQuery('councils') %}
+  {% for council in council_slugs %}
+    {% set city_offices = city_offices | merge([craft.entries.slug(council)]) %}
   {% endfor %}
 {% endif %}
 
@@ -79,12 +88,12 @@
 {% if craft.request.getQuery('boards') %}
   {% set board_slugs = craft.request.getQuery('boards') %}
   {% for board in board_slugs %}
-    {% set departments_officials_boards = departments_officials_boards | merge([craft.entries.slug(board)]) %}
+    {% set city_offices = city_offices | merge([craft.entries.slug(board)]) %}
   {% endfor %}
 {% endif %}
 
-{% if departments_officials_boards | length > 1 %}
-  {% set relatedToParams = relatedToParams | merge([{targetElement: departments_officials_boards}]) %}
+{% if city_offices | length > 1 %}
+  {% set relatedToParams = relatedToParams | merge([{targetElement: city_offices}]) %}
 {% endif %}
 
 
@@ -180,10 +189,13 @@
         </div>
         <div class="filterbox-filter one-fourth">
           <p class="filterbox-filter-label">City Office <span class="lnr lnr-small lnr-chevron-down"></span></p>
-          <p class="filterbox-filter-selection">{% if departments_officials_boards | length > 1 %}{{departments_officials_boards | length - 1}} type(s) selected{% endif %}</p>
+          <p class="filterbox-filter-selection">{% if city_offices | length > 1 %}{{city_offices | length - 1}} type(s) selected{% endif %}</p>
           <div class="filterbox-drawer">
-            <h6>Officials</h6>
+            <h6>City Council / Officials</h6>
             <ul class="list-no-style">
+              {% for council in craft.entries.section('councils') %}
+              <li><label for="{{ council.slug }}"><input type="checkbox" name="councils[]" value="{{ council.slug}}" id="{{council.slug}}" {% if council.slug in council_slugs %}checked{% endif %}>{{council.title}}</label></li>
+              {% endfor %}
               {% for official in craft.entries.section('electedOfficials') %}
               <li><label for="{{ official.slug }}"><input type="checkbox" name="officials[]" value="{{ official.slug}}" id="{{official.slug}}" {% if official.slug in official_slugs %}checked{% endif %}>{{official.title}}</label></li>
               {% endfor %}

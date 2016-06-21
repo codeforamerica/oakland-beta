@@ -22,14 +22,14 @@
         <nav class="breadcrumbs">
           <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
           <span><a href="{{ siteUrl }}events">{{"Events" | translate }}</a></span>
-          <span>{{ entry.title }}</span>
+          <span>{{ event.title }}</span>
         </nav>
       </div>
 
       <article class="container">
-        <h1>{{ entry.title }}</h1>
+        <h1>{{ event.title }}</h1>
         <p class="lead">
-          {% if event.isrepeat %}
+          {% if event.isrepeat == 1 %}
             {{ event.summary }} <br/> (Next is {{ event.startDate|date('l, F d, Y, g:ia') }} - {{ event.endDate|date('g:ia') }})
           {% else %}
             {# Is the event same date or multiday event? #}
@@ -58,17 +58,17 @@
         <div class="grid-row">
           <div class="one-half">
             <h3>Details</h3>
-            {{ entry.body }}
+            {{ event.body }}
             <h3>Location</h3>
-            {{ entry.eventLocation }}
+            {{ event.eventLocation }}
             <h3>For More Information</h3>
-            {{ entry.eventContact }}
+            {{ event.eventContact }}
           </div>
           <div class="column-shift five-twelfths column-last">
-            {% if entry.eventPhoto | length > 0 %}
-            <img src="{{ entry.eventPhoto.first().getUrl(eventHero)}}" alt="" class="event-photo">
+            {% if event.eventPhoto | length > 0 %}
+            <img src="{{ event.eventPhoto.first().getUrl(eventHero)}}" alt="" class="event-photo">
             {% endif %}
-            <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.eventLocation | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
+            <iframe height="250" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ event.eventLocation | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
           </div>
         </div>
 

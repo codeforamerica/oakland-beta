@@ -30,6 +30,20 @@ class Venti_EventRecord extends BaseRecord
     }
 
 
+    // /**
+    //  * @inheritDoc BaseRecord::defineIndexes()
+    //  *
+    //  * @return array
+    //  */
+    // public function defineIndexes()
+    // {
+    //     return array(
+    //         array('columns' => array('eid')),
+    //         array('columns' => array('eventid')),
+    //     );
+    // }
+
+
     public function defineRelations()
     {
         return array(

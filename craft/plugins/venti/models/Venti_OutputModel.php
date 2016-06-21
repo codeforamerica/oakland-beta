@@ -4,10 +4,16 @@ namespace Craft;
 class Venti_OutputModel extends BaseElementModel
 {
 
-    public function __toString()
-    {
-        return $this->name;
-    }
+    const LIVE     = 'live';
+    const PENDING  = 'pending';
+    const EXPIRED  = 'expired';
+
+    /**
+     * @var string
+     */
+    protected $elementType = 'Venti_Event';
+
+
 
     /**
      * Returns the element's full URL.
@@ -22,6 +28,38 @@ class Venti_OutputModel extends BaseElementModel
             $url = UrlHelper::getSiteUrl($path, null, null, $this->locale);
             return $url;
         }
+    }
+
+    /**
+     * @inheritDoc BaseElementModel::getStatus()
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        $status = parent::getStatus();
+
+        if ($status == static::ENABLED && $this->postDate)
+        {
+            $currentTime = DateTimeHelper::currentTimeStamp();
+            $postDate    = $this->postDate->getTimestamp();
+            $expiryDate  = ($this->expiryDate ? $this->expiryDate->getTimestamp() : null);
+
+            if ($postDate <= $currentTime && (!$expiryDate || $expiryDate > $currentTime))
+            {
+                return static::LIVE;
+            }
+            else if ($postDate > $currentTime)
+            {
+                return static::PENDING;
+            }
+            else
+            {
+                return static::EXPIRED;
+            }
+        }
+
+        return $status;
     }
 
 
@@ -40,6 +78,8 @@ class Venti_OutputModel extends BaseElementModel
             'summary'       => AttributeType::String,
             'isrepeat'      => AttributeType::Number,
             'locale'        => AttributeType::String,
+            'postDate'      => AttributeType::DateTime,
+            'expiryDate'    => AttributeType::DateTime,
         ));
     }
 

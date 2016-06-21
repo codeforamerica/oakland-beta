@@ -78,15 +78,15 @@ class Venti_EventElementType extends BaseElementType
     public function defineCriteriaAttributes()
     {
         return array(
-            'eid'           => AttributeType::Mixed,
-            'eventid'       => AttributeType::Mixed,
+            'eid'           => AttributeType::Number,
+            'eventid'       => AttributeType::Number,
             'startDate'     => AttributeType::Mixed,
             'endDate'       => AttributeType::Mixed,
             'rRule'         => AttributeType::Mixed,
             'repeat'        => AttributeType::Mixed,
-            'allDay'        => AttributeType::Mixed,
+            'allDay'        => AttributeType::Number,
             'summary'       => AttributeType::Mixed,
-            'isrepeat'      => AttributeType::Mixed,
+            'isrepeat'      => AttributeType::Number,
             'locale'		=> AttributeType::Mixed,
             'order'         => array(AttributeType::String, 'default' => 'venti.startDate asc'),
             'between'       => AttributeType::Mixed,
@@ -110,7 +110,7 @@ class Venti_EventElementType extends BaseElementType
             ->addSelect('venti.startDate, venti.endDate, venti.allDay, venti.isrepeat, venti.eid, venti.eventid, venti.repeat, venti.rRule, venti.summary, venti.locale, entries.postDate, entries.expiryDate')
             ->leftJoin('venti_events venti', 'venti.eventid = elements.id')
             ->leftJoin('entries entries', 'entries.id = eventid')
-            ->group('');
+            ->group('venti.startDate');
 
 
         if ($criteria->locale) 
@@ -125,7 +125,12 @@ class Venti_EventElementType extends BaseElementType
 
         if ($criteria->id)
         {
-            $query->andWhere(DbHelper::parseDateParam('venti.eventid', $criteria->eventid, $query->params));
+            $query->andWhere(DbHelper::parseParam('venti.eventid', $criteria->eventid, $query->params));
+        }
+
+        if ($criteria->eventid)
+        {
+            $query->andWhere(DbHelper::parseParam('venti.eventid', $criteria->eventid, $query->params));
         }
 
         if ($criteria->endDate)
@@ -217,9 +222,7 @@ class Venti_EventElementType extends BaseElementType
      */
     public function populateElementModel($row)
     {
-        $row['type'] = "Venti_Event";
-        //\CVarDumper::dump($row, 5, true);exit;
-        
+        $row['type'] = "Venti_Event";   
         return Venti_OutputModel::populateModel($row);
     }
 

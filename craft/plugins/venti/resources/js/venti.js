@@ -301,6 +301,8 @@ var VentiSchedule = (function () {
 
     _createClass(VentiSchedule, [{
         key: "initEvents",
+
+        //[jQ]
         value: function initEvents() {
             var $this = this,
                 mdl = $this._container,
@@ -390,10 +392,15 @@ var VentiSchedule = (function () {
                 input = $this._input,
                 mdl = $this._container,
                 startOnInput = mdl.querySelectorAll('.venti-starts-on')[0],
-                startDate = input.querySelectorAll('.venti-startdate--input')[0];
+                startOnTimeInput = mdl.querySelectorAll('.venti-starts-on')[1],
+                startDate = input.querySelectorAll('.venti-startdate--input')[0],
+                startTime = input.querySelectorAll('.venti-startdate--input')[1];
 
             if (startDate.value !== "") {
                 startOnInput.value = startDate.value;
+                if (startTime.value !== "") {
+                    startOnTimeInput.value = startTime.value;
+                }
             }
         }
 
@@ -416,6 +423,8 @@ var VentiSchedule = (function () {
                 input.value = "";
             }
         }
+
+        //[jQ]
     }, {
         key: "getRuleString",
         value: function getRuleString(elm, callback) {

@@ -1,25 +1,33 @@
-.officials-index {
+.city-council {
     .official {
-        display: block;
-        color: inherit;
-        padding-left: 1.5em;
-        padding-right: 1.5em;
-        padding-top: 1.5em;
-        padding-bottom: 0;
-        margin-left: -1.5em;
-        margin-right: -1.5em;
-        text-decoration: none;
+        @include clearfix();
+        padding: .5em;
+
         &:hover {
+            cursor: pointer;
             background-color: $gray-lighter;
         }
 
         .official-name {
-            text-decoration: underline;
-            color: $oakland-green;
+            margin-top: .75em;
+            margin-bottom: 0;
+        }
+
+        .official-title {
+            color: $gray-dark;
+            margin-bottom: 0;
         }
 
         .official-portrait {
             margin-top: 0;
+            float: left;
+            width: 100px;
+            margin-right: .5em;
+            margin-bottom: 0;
+            img {
+                display: block;
+                margin-bottom: 0;
+            }
         }
     }
 

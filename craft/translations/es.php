@@ -8,6 +8,7 @@ return array(
 	"News and Updates" => "Noticias y Actualizaciones",
 	"Services and Resources" => "Servicios y Recursos",
 	"Elected Officials" => "Oficiales Electos",
+	"City Council" => "Ayuntamiento",
 	"Teams" => "equipos",
 	"Initiatives" => "Iniciativas",
 	"Events" => "eventos",
@@ -24,7 +25,8 @@ return array(
 	"Most Popular" => "Más popular",
 	"see all" => "ver todo",
 	"Meet the Team" => "Conocer al Equipo",
-	"Meet the Rest of the Team" => "",
+	"Meet the Rest of the Team" => "Cumplir con el Resto del Equipo",
+	"About" => "Acerca de",
 
 	## Homepage
 	"Welcome to Oakland" => "La Bienvenida a Oakland",
@@ -84,14 +86,15 @@ return array(
 	## Elected Offical Pages
 	"Prioritized Initiatives" => "Iniciativas priorizadas",
 	"Get in Touch" => "Estar en contacto",
-	"About" => "Acerca de",
+	"City Councilmembers" => "Miembros del Consejo",
+	"About City Council" => "Acerca de Ayuntamiento",
 
 	# Boards and Commissions
-	"Boards and Commissions" => "",
-	"About this Board / Commission" => "",
+	"Boards and Commissions" => "Juntas y Comisiones",
+	"About this Board / Commission" => "Sobre esta Junta / Comisión",
 
 	# Staff Members
-	"City Staff" => "",
+	"City Staff" => "Personal de la Ciudad",
 
 	## Report pages
 	"Published on" => "Publicado en",

@@ -8,6 +8,7 @@ return array(
 	"News and Updates" => "新闻与更新",
 	"Services and Resources" => "服务和资源",
 	"Elected Officials" => "当选官员",
+	"City Council" => "市议会",
 	"Teams" => "小组",
 	"Initiatives" => "倡议",
 	"Events" => "事件",
@@ -24,7 +25,8 @@ return array(
 	"Most Popular" => "最受欢迎",
 	"see all" => "查看全部",
 	"Meet the Team" => "团队见面",
-	"Meet the Rest of the Team" => "",
+	"Meet the Rest of the Team" => "满足团队的其他成员",
+	"About" => "关于",
 
 	## Homepage
 	"Welcome to Oakland" => "欢迎来到奥克兰",
@@ -83,14 +85,15 @@ return array(
 	## Elected Offical Pages
 	"Prioritized Initiatives" => "优先级倡议",
 	"Get in Touch" => "保持联系",
-	"About" => "关于",
+	"City Councilmembers" => "市议会议员",
+	"About City Council" => "关于市议会",
 
 	# Boards and Commissions
-	"Boards and Commissions" => "",
-	"About this Board / Commission" => "",
+	"Boards and Commissions" => "理事会和委员会",
+	"About this Board / Commission" => "关于该主板/委员会",
 
 	# Staff Members
-	"City Staff" => "",
+	"City Staff" => "市职员",
 
 	## Report pages
 	"Published on" => "发表于",

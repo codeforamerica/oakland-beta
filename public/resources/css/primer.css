@@ -833,6 +833,71 @@ html {
     .boards-and-commissions .menu-item:active:before {
       background-color: #47311e; }
 
+.city-council a {
+  color: #3870ff; }
+  .city-council a:hover, .city-council a:focus {
+    color: #3870ff; }
+  .city-council a:active {
+    color: #003366; }
+
+.city-council .btn,
+.city-council a.btn {
+  color: #ffffff;
+  background-color: #003366; }
+  .city-council .btn:before,
+  .city-council a.btn:before {
+    background-color: #003366; }
+  .city-council .btn:hover, .city-council .btn:focus,
+  .city-council a.btn:hover,
+  .city-council a.btn:focus {
+    background-color: #002952; }
+    .city-council .btn:hover:before, .city-council .btn:focus:before,
+    .city-council a.btn:hover:before,
+    .city-council a.btn:focus:before {
+      background-color: #3870ff; }
+  .city-council .btn:active,
+  .city-council a.btn:active {
+    background-color: #3870ff; }
+    .city-council .btn:active:before,
+    .city-council a.btn:active:before {
+      background-color: #003366; }
+
+.city-council .btn-secondary,
+.city-council a.btn-secondary {
+  background-color: #f4f5f4;
+  color: #003366; }
+  .city-council .btn-secondary:before,
+  .city-council a.btn-secondary:before {
+    background-color: #f4f5f4; }
+  .city-council .btn-secondary:hover:before, .city-council .btn-secondary:focus:before,
+  .city-council a.btn-secondary:hover:before,
+  .city-council a.btn-secondary:focus:before {
+    background-color: #335c85; }
+
+.city-council .subheader {
+  background-color: #003366; }
+  .city-council .subheader .btn, .city-council .subheader a.btn {
+    background-color: #3870ff; }
+    .city-council .subheader .btn:hover, .city-council .subheader a.btn:hover {
+      background-color: #2d5acc; }
+      .city-council .subheader .btn:hover:before, .city-council .subheader a.btn:hover:before {
+        background-color: #3870ff; }
+    .city-council .subheader .btn:active, .city-council .subheader a.btn:active {
+      background-color: #608dff; }
+      .city-council .subheader .btn:active:before, .city-council .subheader a.btn:active:before {
+        background-color: #3870ff; }
+
+.city-council .menu-item {
+  color: #3870ff; }
+  .city-council .menu-item:hover, .city-council .menu-item:focus {
+    color: #3870ff; }
+    .city-council .menu-item:hover:before, .city-council .menu-item:focus:before {
+      background-color: #3870ff; }
+  .city-council .menu-item:active {
+    color: #003366; }
+    .city-council .menu-item:active:before {
+      background-color: #003366; }
+
 .navicon-button {
   position: relative;
   padding: 8px 0;
@@ -3418,19 +3483,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -160px; } }
+        background-position: 0px -20px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -27px; } }
+        background-position: 0px -80px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -307px; } }
+        background-position: 0px -614px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3762,7 +3827,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -49px; } }
+      background-position: 0px -846px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -4250,23 +4315,33 @@ article .cta-section {
 .news .news-main-image {
   margin-bottom: 2em; }
 
-.officials-index .official {
-  display: block;
-  color: inherit;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  padding-top: 1.5em;
-  padding-bottom: 0;
-  margin-left: -1.5em;
-  margin-right: -1.5em;
-  text-decoration: none; }
-  .officials-index .official:hover {
+.city-council .official {
+  padding: .5em; }
+  .city-council .official:before {
+    display: table;
+    content: ""; }
+  .city-council .official:after {
+    display: table;
+    clear: both;
+    content: ""; }
+  .city-council .official:hover {
+    cursor: pointer;
     background-color: #f4f5f4; }
-  .officials-index .official .official-name {
-    text-decoration: underline;
-    color: #4fbc26; }
-  .officials-index .official .official-portrait {
-    margin-top: 0; }
+  .city-council .official .official-name {
+    margin-top: .75em;
+    margin-bottom: 0; }
+  .city-council .official .official-title {
+    color: #757773;
+    margin-bottom: 0; }
+  .city-council .official .official-portrait {
+    margin-top: 0;
+    float: left;
+    width: 100px;
+    margin-right: .5em;
+    margin-bottom: 0; }
+    .city-council .official .official-portrait img {
+      display: block;
+      margin-bottom: 0; }
 
 .official .subheader {
   background-color: #000;

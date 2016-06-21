@@ -28,14 +28,16 @@
         <h4>{{"Oakland Government" | translate }}</h4>
         <div class="grid-row">
           <ul class="list-no-style footer-links one-third">
-              <li><a class="" href="{{siteUrl}}officials">{{"Elected Officials" | translate }}</a></li>
+              <li><a href="{{mayorsPage.mayorsPage.first().url}}">{{"Mayor's Office" | translate }}</a></li>
+              <li><a href="{{siteUrl}}departments">{{"Departments" | translate }}</a></li>
+                          
+          </ul>
+          <ul class="list-no-style footer-links one-third">
+            <li><a href="{{craft.entries.slug('city-council').first().url}}">{{"City Council" | translate }}</a></li>  
+            <li><a href="{{siteUrl}}staff-members">{{"Staff Directory" | translate }}</a></li>
+          </ul>
+          <ul class="list-no-style footer-links one-third">
               <li><a href="{{siteUrl}}boards-and-commissions">{{"Boards and Commissions" | translate }}</a></li>
-          </ul>
-          <ul class="list-no-style footer-links one-third">
-            <li><a href="{{siteUrl}}departments">{{"Departments" | translate }}</a></li>
-          </ul>
-          <ul class="list-no-style footer-links one-third">
-              <li><a href="{{siteUrl}}staff-members">{{"Staff Directory" | translate }}</a></li>
           </ul>
         </div>
         <hr>

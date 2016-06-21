@@ -1,4 +1,4 @@
-.city-council {
+.city-council, .officials-index {
     .official {
         @include clearfix();
         padding: .5em;
@@ -6,11 +6,13 @@
         &:hover {
             cursor: pointer;
             background-color: $gray-lighter;
+            text-decoration: none;
         }
 
         .official-name {
             margin-top: .75em;
             margin-bottom: 0;
+            color: $gray-darker;
         }
 
         .official-title {
@@ -61,6 +63,10 @@
             color: #fff;
             text-decoration: underline;
         }
+    }
+
+    .hero-image {
+        background-color: $jack-london-purple;
     }
 
 

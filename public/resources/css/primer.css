@@ -3483,19 +3483,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -20px; } }
+        background-position: 0px -762px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -80px; } }
+        background-position: 0px -442px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -614px; } }
+        background-position: 0px -764px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3827,7 +3827,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -846px; } }
+      background-position: 0px -588px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -4315,31 +4315,33 @@ article .cta-section {
 .news .news-main-image {
   margin-bottom: 2em; }
 
-.city-council .official {
+.city-council .official, .officials-index .official {
   padding: .5em; }
-  .city-council .official:before {
+  .city-council .official:before, .officials-index .official:before {
     display: table;
     content: ""; }
-  .city-council .official:after {
+  .city-council .official:after, .officials-index .official:after {
     display: table;
     clear: both;
     content: ""; }
-  .city-council .official:hover {
+  .city-council .official:hover, .officials-index .official:hover {
     cursor: pointer;
-    background-color: #f4f5f4; }
-  .city-council .official .official-name {
+    background-color: #f4f5f4;
+    text-decoration: none; }
+  .city-council .official .official-name, .officials-index .official .official-name {
     margin-top: .75em;
-    margin-bottom: 0; }
-  .city-council .official .official-title {
+    margin-bottom: 0;
+    color: #293028; }
+  .city-council .official .official-title, .officials-index .official .official-title {
     color: #757773;
     margin-bottom: 0; }
-  .city-council .official .official-portrait {
+  .city-council .official .official-portrait, .officials-index .official .official-portrait {
     margin-top: 0;
     float: left;
     width: 100px;
     margin-right: .5em;
     margin-bottom: 0; }
-    .city-council .official .official-portrait img {
+    .city-council .official .official-portrait img, .officials-index .official .official-portrait img {
       display: block;
       margin-bottom: 0; }
 
@@ -4365,6 +4367,9 @@ article .cta-section {
   .official .official-feature-story a {
     color: #fff;
     text-decoration: underline; }
+
+.official .hero-image {
+  background-color: #581666; }
 
 .official .official-header {
   margin-top: -2.2em;

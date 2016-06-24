@@ -59,10 +59,26 @@
           <div class="one-half">
             <h3>Details</h3>
             {{ entry.body }}
+
             <h3>Location</h3>
             {{ entry.eventLocation }}
-            <h3>For More Information</h3>
-            {{ entry.eventContact }}
+
+            {% if entry.eventRecordedLiveVideoLink %}
+            <h3>Recorded / Live Video</h3>
+            <a href="{{entry.eventRecordedLiveVideoLink}}">Watch the Video</a>
+            {% endif %}
+
+            {% if entry.eventAttachedDocuments | length > 0 %}
+              <h3>Attached Documents</h3>
+              {% for document in entry.eventAttachedDocuments %}
+              <a href="{{document.url}}">{{document.title}}</a>
+              {% endfor %}
+            {% endif %}
+
+            {% if entry.eventContact %}
+              <h3>For More Information</h3>
+              {{ entry.eventContact }}
+            {% endif %}
           </div>
           <div class="column-shift five-twelfths column-last">
             {% if entry.eventPhoto | length > 0 %}

@@ -108,6 +108,7 @@
                                     <th id="{{ name }}-venti_starts.label">{{ 'Starts on'|t }}:</th>
                                     <td>
                                         <input autocomplete="off" name="{{ name }}[repeat][starts]" value="{% if values.starts is defined %}{{ values.starts }}{% endif %}" class='text nicetext venti-starts-on' id="{{ name }}-venti_starts" size="10" readonly="readonly">
+                                        <input name="{{ name }}[repeat][startsTime]" value="{% if values.startsTime is defined %}{{ values.startsTime }}{% endif %}" class='text nicetext venti-starts-on' id="{{ name }}-venti_starts-time"  type="hidden">
                                     </td>
                                 </tr>
                                 <tr>

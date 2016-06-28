@@ -164,7 +164,7 @@ class Venti_EventManageService extends BaseApplicationComponent
                 'repeat'      => (bool) $record->repeat,
                 'summary'     => $record->summary,
                 'rRule'       => $record->rRule,
-                'locale'      => $record->locale
+                'locale'      => $record->locale,
                 );
 
              return $event;
@@ -207,7 +207,6 @@ class Venti_EventManageService extends BaseApplicationComponent
                 )
             );
         }
-
         return $criteria->first();
     }
 
@@ -275,24 +274,23 @@ class Venti_EventManageService extends BaseApplicationComponent
 
         #-- returns null or datetime
         $endOn = craft()->venti_rule->getEndOn($rrule);
-
         $rule = new \Recurr\Rule($rrule, $startDateString, $endOn, $timezone);
         $transformer = new \Recurr\Transformer\ArrayTransformer();
         $transformerConfig = new \Recurr\Transformer\ArrayTransformerConfig();
         $transformerConfig->enableLastDayOfMonthFix();
         $transformer->setConfig($transformerConfig);
 
-        if ($endOn !== null) 
-        {
-            $constraint = new \Recurr\Transformer\Constraint\BetweenConstraint($start, $endOn, true);
-        }
-        else
-        {
-            $constraint = new \Recurr\Transformer\Constraint\AfterConstraint(new \DateTime(), true);
-        }
+        // if ($endOn !== null) 
+        // {
+        //     $constraint = new \Recurr\Transformer\Constraint\BetweenConstraint($start, $endOn, true);
+        // }
+        // else
+        // {
+        //     $constraint = new \Recurr\Transformer\Constraint\AfterConstraint(new \DateTime(), true);
+        // }
         
 
-        return $transformer->transform($rule, $constraint);
+        return $transformer->transform($rule);
     }
 
 
@@ -404,7 +402,7 @@ class Venti_EventManageService extends BaseApplicationComponent
         $rule       = $model->getAttribute('rRule');
         $dates      = $this->getRecurDates($startdate, $rule);
         $dates      = $dates->toArray();
-        //\CVarDumper::dump($rule, 5, true);exit;
+        
         if(null === ($record = $this->eventRecord->findByAttributes(array("eventid" => $id, "isrepeat" => 1, "locale" => $locale))))
         {
 

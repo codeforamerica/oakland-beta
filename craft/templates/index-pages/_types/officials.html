@@ -28,16 +28,13 @@
   <section>
     <div class="container">
       {% for official in craft.entries.section('electedOfficials') %}
-      <a href="{{ official.url }}" class="grid-row official">
-        <div class="one-fourth">
-          <figure class="official-portrait">
-            <img src="{{ official.portrait.first().getUrl(portrait) }}" alt="official.portrait.first().description">
-          </figure>
+      <a href="{{official.url}}" class="one-half official {% if loop.index % 2 == 0 %}column-last{% endif %}">
+        <div class="official-portrait">
+          <img src="{{official.portrait.first().getUrl(portrait)}}" alt="{{official.portrait.first().title}}">
         </div>
-        <div class="column-shift seven-twelfths column-last">
-          <h4 class="official-name">{{ official.title }}</h4>
-          <p class="official-job-title">{{ official.jobTitle }}</p>
-          <p class="official-vision-statement">{{ official.visionStatement }}</p>
+        <div class="official-info">
+          <h3 class="official-name">{{official.title}}</h3>
+          <p class="official-title">{{official.jobTitle}}</p>
         </div>
       </a>
       {% endfor %}

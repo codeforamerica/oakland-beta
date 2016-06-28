@@ -230,6 +230,7 @@ class Venti_RuleService extends BaseApplicationComponent
         $repeatOnDays   = array_key_exists('on', $params) ? $params['on'] : null;                // array
         $repeatBy       = array_key_exists('by', $params) ? $params['by'] : null;                // array
         $starts         = array_key_exists('starts', $params) ? $params['starts'] : null;
+        $startsTime     = array_key_exists('startsTime',$params) ? $params['startsTime'] : null;
         $endsOn         = array_key_exists('endsOn', $params) ? $params['endsOn'] : null;        // array
         $endDate        = array_key_exists('enddate', $params) ? $params['enddate']['date'] : null;
         $occur          = array_key_exists('occur', $params) ? $params['occur'] : null;
@@ -238,7 +239,7 @@ class Venti_RuleService extends BaseApplicationComponent
 
         $ruleString = [];
 
-
+        
         $rrule = [
             'FREQ'          => null,
             'DSTART'        => null,
@@ -405,9 +406,10 @@ class Venti_RuleService extends BaseApplicationComponent
             #-- Starts
             if ($starts != null)
             {
-                $stime = strtotime($starts);
-                //$sdate = new \DateTime($starts,new \DateTimeZone(craft()->getTimeZone()));
-                $rrule['DSTART'] = str_replace($needles, $fill, gmdate('c',$stime));
+                $stime = strtotime($starts ." ". $startsTime);
+                $sdate = new \DateTime($starts,new \DateTimeZone(craft()->getTimeZone()));
+                //$rrule['DSTART'] = str_replace($needles, $fill, gmdate('c',$stime));
+                $rrule['DSTART'] = $sdate->format("Ymd\THis\Z");
             }
 
 
@@ -454,8 +456,8 @@ class Venti_RuleService extends BaseApplicationComponent
 
                 for ($i=0; $i < count($include) ; $i++)
                 {
-                    $indate = new \DateTime($include[$i], new \DateTimeZone(craft()->getTimeZone()));
-                    array_push($in, $indate->format('Ymd'));
+                    $indate = new \DateTime($include[$i] . $startsTime, new \DateTimeZone(craft()->getTimeZone()));
+                    array_push($in, $indate->format("Ymd\THis"));
                 }
 
                 $rrule['RDATE'] = join(',',$in);

@@ -16,7 +16,7 @@ class VentiPlugin extends BasePlugin
 
     public function getVersion()
     {
-        return '1.2.13';
+        return '1.2.15';
     }
 
     public function getSchemaVersion()

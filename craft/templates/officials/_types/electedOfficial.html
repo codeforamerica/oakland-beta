@@ -1,0 +1,152 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+{% if entry.officialFeatureStories | length > 0 %}
+  {% set story = entry.officialFeatureStories.order('RAND()').first() %}
+  {% set storyHeader = story.title %}
+  {% set storyLink = story.url %}
+  {% set storySummary = "" %}
+  {% set storyHero = "" %}
+
+  {% if story.section.handle == "news" %}
+    {% set storySummary = story.summary %}
+    {% set storyHero = story.mainImage.first().url %}
+  {% elseif story.section.handle == "initiatives" %}
+    {% set storySummary = story.initiativeSummary %}
+    {% set storyHero = story.initiativeHero.first().url %}
+  {% endif %}
+{% endif %}
+
+{% set portrait = {
+    mode: 'crop',
+    width: 500,
+    height: 500,
+    quality: 80,
+    position: 'top-center'
+} %}
+
+<main class="official">
+
+  <div class="main-overlay"></div>
+
+  <section class="subheader">
+    {% if entry.officialFeatureStories | length > 0 %}
+    <div class="hero-image" style="background-image: url('{{ storyHero }}')"></div>
+    {% else %}
+    <div class="hero-image"></div>
+    {% endif %}
+    <div class="breadcrumb-wrap">
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+        <a href="{{siteUrl}}officials">{{"Elected Officials" | translate }}</a>
+        <span>{{ entry.title }}</span>
+      </nav>
+    </div>
+    {% if entry.officialFeatureStories | length > 0 %}
+    <div class="container">
+      <div class="grid-row">
+        <div class="official-feature-story">
+            <div class="official-feature-story-hero"></div>
+            <h3><a href="{{ storyLink }}">{{ storyHeader }}</a></h3>
+            <p>{{ storySummary | trimit(180) }}</p>
+            <p><a href="{{ storyLink }}">Read More</a></p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+  <section class="section official-header">
+    <div class="container">
+      <div class="grid-row">
+        {% if entry.portrait | length > 0 %}
+        <div class="one-third">
+          <figure class="official-portrait official-page-portrait">
+            <img src="{{ entry.portrait.first().getUrl(portrait) }}" alt="{{ entry.portrait.first().caption }}">
+          </figure>
+          <h1 class="official-name">{{ entry.title }}</h1>
+          <p class="official-job-title">{{ entry.jobTitle }}</p>
+        </div>
+        {% endif %}
+        <div class="{% if entry.portrait | length > 0 %}column-shift {% endif %}seven-twelfths column-last">
+
+          <p class="official-vision-statement">{{ entry.visionStatement }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include '_includes/related-initiatives.html' with {'relatedInitiatives': entry.relatedInitiatives} %}
+
+  {% include '_includes/related-news.html' with {'search_query': 'officials[]'} %}
+
+
+ {% include '_includes/related-events.html' %}
+
+  <section class="section">
+    <div class="container">
+      <h2>{{"Get in Touch" | translate }}</h2>
+      <div class="grid-row">
+        {% if entry.physicalAddress %}
+        <div class="one-half">
+          <h4>{{"Address" | translate }}</h4>
+          <p>{{entry.physicalAddress}}</p>
+          <iframe height="300" width="100%" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCOgOyOpgbUD2s0zMJJYrzfDpozY7bYYOo&q={{ entry.physicalAddress | replace('/<.*?>/', ' ') | replace(' ', '+') }}" frameborder="0"></iframe>
+        </div>
+        {% endif %}
+        <div class="{% if entry.physicalAddress %}column-shift {% endif %}five-twelfths column-last">
+        <h4>On the Web</h4>
+        <p>
+        {% if entry.facebookProfile %}<a class="icon-social icon-social-facebook" href="{{entry.facebookProfile}}">Facebook</a>{% endif %}
+        {% if entry.twitterProfile %}<a class="icon-social icon-social-twitter" href="{{entry.twitterProfile}}">Twitter</a>{% endif %}
+        {% if entry.instagramProfile %}<a class="icon-social icon-social-instagram" href="{{entry.instagramProfile}}">Instagram</a>{% endif %}
+        {% if entry.officialNewsletter %}<a class="icon-social icon-social-email" href="{{entry.officialNewsletter}}">Newsletter</a>{% endif %}
+        </p>
+        {% if entry.email|length > 0 %}
+          <h4>{{"Email" | translate }}</h4>
+          <p>{{entry.email}}</p>
+        {% endif %}
+        {% if entry.phoneNumber or entry.twitterProfile or entry.instagramProfile or entry.instagramProfile %}
+          <h4>{{"Phone Numbers" | translate }}</h4>
+          <p>{{entry.phoneNumber}}</p>
+        {% endif %}
+        {% if entry.facebookProfile %}
+        {% endif %}
+        {% if entry.availability %}
+          <h4>{{"Hours" | translate }}</h4>
+          <p>{{entry.availability}}</p>
+        {% endif %}
+        {% if entry.officialDonateContact or entry.officialVolunteerContact %}
+          <h4>Get Involved</h4>
+          <p>
+            {% if entry.officialDonateContact %}<a href="entry.officialDonateContact">Donate</a><br/>{% endif %}
+            {% if entry.officialVolunteerContact %}<a href="entry.officialVolunteerContact">Volunteer</a>{% endif %}
+          </p>
+        {% endif %}
+        </div>
+      </div>
+      <hr>
+    </div>
+  </section>
+
+  {% if entry.bio %}
+  <section class="section official-bio">
+    <div class="container">
+      <div class="grid-row">
+        <div class="one-third">
+          <h2>{{"About" | translate }} {{ entry.title }}</h2>
+          {% if entry.officialTeam | length > 0 %}
+            <p><a class="btn btn-secondary btn-small" href="{{entry.officialTeam.first().url}}">{{"Meet the Team" | translate}} <span class="lnr lnr-arrow-right"></span></a></p>
+          {% endif %}
+          <p><a href=""></a></p>
+        </div>
+        <div class="two-thirds column-last">
+          {{ entry.bio }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+</main> 
+{% endblock %}   

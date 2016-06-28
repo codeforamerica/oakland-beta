@@ -815,7 +815,7 @@ class EntryElementType extends BaseElementType
 
 				foreach ($entryTypes as $entryType)
 				{
-					$entryTypeOptions[] = array('label' => Craft::t($entryType->name), 'value' => Craft::t($entryType->id));
+					$entryTypeOptions[] = array('label' => Craft::t($entryType->name), 'value' => $entryType->id);
 				}
 
 				$html .= craft()->templates->renderMacro('_includes/forms', 'selectField', array(
@@ -928,6 +928,9 @@ EOD;
 			craft()->elements->updateElementSlugAndUri($element, true, true, true);
 		}
 	}
+
+	// Protected methods
+	// =========================================================================
 
 	/**
 	 * Preps the element criteria for a given table attribute

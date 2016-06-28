@@ -1,5 +1,7 @@
 <?php
 
+print_r($_SERVER['HTTP_HOST']);
+
 switch ($_SERVER['HTTP_HOST']) 
 {   
     // If the SERVER_NAME variable matches our case, 

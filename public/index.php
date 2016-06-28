@@ -7,12 +7,13 @@ switch ($_SERVER['HTTP_HOST'])
     // that identifies this environment that we can 
     // use in our multi-environment config
 
-    case 'pilot.oaklandca.gov' :
-        define('CRAFT_ENVIRONMENT', 'public');
-        break;
-
     case 'beta.oaklandca.gov' :
-        define('CRAFT_ENVIRONMENT', 'live');
+        if($_SERVER['HTTP_X_FORWARDED_HOST'] == 'pilot.oaklandca.gov') {
+            define('CRAFT_ENVIRONMENT', 'public');
+        }
+        else {
+            define('CRAFT_ENVIRONMENT', 'live');
+        }
         break;
 
     case 'localhost:8888' :

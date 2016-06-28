@@ -13,6 +13,12 @@ return array(
 	'*' => array(
 		'tablePrefix' => 'craft'
 	),
+	'public' => array(
+		'server' => $url["host"],
+		'user' => $url["user"],
+		'password' => $url["pass"],
+		'database' => substr($url["path"],1),
+	),
 	'live' => array(
 		'server' => $url["host"],
 		'user' => $url["user"],

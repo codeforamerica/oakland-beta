@@ -7,6 +7,10 @@ switch ($_SERVER['HTTP_HOST'])
     // that identifies this environment that we can 
     // use in our multi-environment config
 
+    case 'pilot.oaklandca.gov' :
+        define('CRAFT_ENVIRONMENT', 'public');
+        break;
+
     case 'beta.oaklandca.gov' :
         define('CRAFT_ENVIRONMENT', 'live');
         break;

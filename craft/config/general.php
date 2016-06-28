@@ -20,6 +20,15 @@ return array(
             ),
 	),
 
+	'public' => array(
+		'siteUrl' => array(
+			'en_us' => 'https://pilot.oaklandca.gov/',
+			'es' => 'https://pilot.oaklandca.gov/es/',
+			'zh' => 'https://pilot.oaklandca.gov/zh/'
+		),
+		'rootUrl' => 'https://pilot.oaklandca.gov/'
+	),
+
 	'live' => array(
 		'siteUrl' => array(
 			'en_us' => 'https://beta.oaklandca.gov/',

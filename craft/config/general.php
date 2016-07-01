@@ -10,6 +10,7 @@
 
 return array(
 	'*' => array(
+		'devMode' => true,
         'maxUploadFileSize' => 104857600,
         'omitScriptNameInUrls' => true,
         'usePathInfo' => true,
@@ -18,6 +19,15 @@ return array(
                 'es'    => 'Español',
                 'zh'    => '中文'
             ),
+	),
+
+	'public' => array(
+		'siteUrl' => array(
+			'en_us' => 'https://pilot.oaklandca.gov/',
+			'es' => 'https://pilot.oaklandca.gov/es/',
+			'zh' => 'https://pilot.oaklandca.gov/zh/'
+		),
+		'rootUrl' => 'https://pilot.oaklandca.gov/'
 	),
 
 	'live' => array(

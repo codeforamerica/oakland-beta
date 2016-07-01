@@ -179,6 +179,18 @@ abstract class BaseController extends \CController
 	}
 
 	/**
+	 * Requires that the user has an elevated session.
+	 *
+	 */
+	public function requireElevatedSession()
+	{
+		if (!craft()->userSession->hasElevatedSession())
+		{
+			throw new HttpException(403, Craft::t('This action may only be performed with an elevated session.'));
+		}
+	}
+
+	/**
 	 * Throws a 400 error if this isn’t a POST request
 	 *
 	 * @throws HttpException
@@ -269,7 +281,7 @@ abstract class BaseController extends \CController
 
 		if ($object)
 		{
-			$url = craft()->templates->renderObjectTemplate($url, $object);
+			$url = craft()->templates->renderObjectTemplate($url, $object, true);
 		}
 
 		$this->redirect($url);

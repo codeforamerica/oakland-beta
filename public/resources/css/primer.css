@@ -3483,19 +3483,19 @@ img {
     @media screen and (min-width: 48em) {
       .flash:before {
         background-image: url(../img/bg-pattern-large.png);
-        background-position: 0px -762px; } }
+        background-position: 0px -539px; } }
   .flash.flash-warn {
     background-color: #c27a2a;
     background-color: rgba(194, 122, 42, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-warn:before {
-        background-position: 0px -442px; } }
+        background-position: 0px -121px; } }
   .flash.flash-alert {
     background-color: #e02f27;
     background-color: rgba(224, 47, 39, 0.95); }
     @media screen and (min-width: 48em) {
       .flash.flash-alert:before {
-        background-position: 0px -764px; } }
+        background-position: 0px -319px; } }
   .flash .flash-type {
     display: inline-block;
     vertical-align: middle;
@@ -3827,7 +3827,7 @@ a.btn-external {
   @media screen and (min-width: 48em) {
     .pager-footer:before {
       background-image: url(../img/bg-pattern-large.png);
-      background-position: 0px -588px; } }
+      background-position: 0px -464px; } }
 
 .previous-next-links {
   background-size: cover;
@@ -4432,21 +4432,21 @@ article .cta-section {
 .team .team-member-bio, .staff .team-member-bio {
   margin-top: 1em; }
 
-.initiative .subheader {
+.issue .subheader {
   position: relative;
   background-color: #000; }
-  .initiative .subheader .initiative-subtitle {
+  .issue .subheader .issue-subtitle {
     color: #4fbc26;
     margin-bottom: 0; }
 
-.initiative-link {
+.issue-link {
   display: block;
   position: relative;
   color: #fff;
   height: 170px;
   background-size: cover;
   background-position: center center; }
-  .initiative-link:before {
+  .issue-link:before {
     -webkit-transition: background-color 0.2s ease-out;
     -moz-transition: background-color 0.2s ease-out;
     transition: background-color 0.2s ease-out;
@@ -4457,14 +4457,14 @@ article .cta-section {
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.3); }
-  .initiative-link.main-initiative {
+  .issue-link.main-issue {
     height: 280px;
     margin-bottom: 1.5rem; }
-  .initiative-link h3 {
+  .issue-link h3 {
     position: absolute;
     bottom: .5em;
     left: 1em;
     right: 1em;
     margin-bottom: 0; }
-  .initiative-link:hover:before {
+  .issue-link:hover:before {
     background-color: rgba(0, 0, 0, 0.4); }

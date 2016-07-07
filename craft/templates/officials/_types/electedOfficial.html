@@ -12,9 +12,9 @@
   {% if story.section.handle == "news" %}
     {% set storySummary = story.summary %}
     {% set storyHero = story.mainImage.first().url %}
-  {% elseif story.section.handle == "initiatives" %}
-    {% set storySummary = story.initiativeSummary %}
-    {% set storyHero = story.initiativeHero.first().url %}
+  {% elseif story.section.handle == "issues" %}
+    {% set storySummary = story.issueSummary %}
+    {% set storyHero = story.issueHero.first().url %}
   {% endif %}
 {% endif %}
 
@@ -76,7 +76,7 @@
     </div>
   </section>
 
-  {% include '_includes/related-initiatives.html' with {'relatedInitiatives': entry.relatedInitiatives} %}
+  {% include '_includes/related-issues.html' with {'relatedIssues': entry.relatedIssues} %}
 
   {% include '_includes/related-news.html' with {'search_query': 'officials[]'} %}
 

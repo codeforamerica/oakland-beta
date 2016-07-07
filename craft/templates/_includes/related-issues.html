@@ -1,0 +1,47 @@
+{% set featuredIssueBg = {
+    mode: 'crop',
+    width: 2048,
+    height: 560,
+    quality: 80,
+    position: 'center-center'
+} %}
+
+{% set issueBg = {
+    mode: 'crop',
+    width: 1000,
+    height: 340,
+    quality: 80,
+    position: 'center-center'
+} %}
+
+
+{% if relatedIssues | length > 0 %}
+<section class="section" id="section-related-issues">
+  <div class="container">
+    <h2>{{"Issues" | translate }}</h2>
+    
+    {% if relatedIssues | length % 2 == 0 %}
+    <div class="grid-row">
+      {% for issue in relatedIssues %}
+      <a href="{{issue.url}}" class="one-half issue-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ issue.issueHero.first().getUrl(issueBg) }}')">
+        <h3>{{ issue.title }}</h3>
+      </a>
+      {% endfor %}
+    </div>     
+
+    {% else %}
+    <a href="{{ relatedIssues.first().url }}" class="issue-link main-issue" style="background-image: url('{{ relatedIssues.first().issueHero.first().getUrl(featuredIssueBg) }}')">
+      <h3>{{ relatedIssues.first().title }}</h3>
+    </a>
+    <div class="grid-row">
+      {% for issue in relatedIssues.offset(1) %}
+      <a href="{{ issue.url }}" class="one-half issue-link {% if loop.index % 2 == 0 %}column-last{% endif %}" style="background-image: url('{{ issue.issueHero.first().getUrl(issueBg)  }}')">
+        <h3>{{ issue.title }}</h3>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <hr>
+  </div>
+</section>
+{% endif %}

@@ -26,7 +26,7 @@
 {% set city_offices = ['or'] %}
 {% set document_type_slugs = [] %}
 {% set department_slugs = [] %}
-{% set initiative_slugs = [] %}
+{% set issue_slugs = [] %}
 {% set council_slugs = [] %}
 {% set board_slugs = [] %}
 {% set published_after = craft.request.getQuery('published-after') %}
@@ -74,11 +74,11 @@
   {% endfor %}
 {% endif %}
 
-{# If initiatives are specificed #}
-{% if craft.request.getQuery('initiatives') %}
-  {% set initiative_slugs = craft.request.getQuery('initiatives') %}
-  {% for initiative in initiative_slugs %}
-    {% set city_offices = city_offices | merge([craft.entries.slug(initiative)]) %}
+{# If issues are specificed #}
+{% if craft.request.getQuery('issues') %}
+  {% set issue_slugs = craft.request.getQuery('issues') %}
+  {% for issue in issue_slugs %}
+    {% set city_offices = city_offices | merge([craft.entries.slug(issue)]) %}
   {% endfor %}
 {% endif %}
 
@@ -187,10 +187,10 @@
           <p class="filterbox-filter-label">Category <span class="lnr lnr-small lnr-chevron-down"></span></p>
           <p class="filterbox-filter-selection">{% if city_offices | length > 1 %}{{city_offices | length - 1}} type(s) selected{% endif %}</p>
           <div class="filterbox-drawer">
-            <h6>Initiative</h6>
+            <h6>Issue</h6>
             <ul class="list-no-style">
-              {% for initiative in craft.entries.section('initiatives') %}
-              <li><label for="{{ initiative.slug }}"><input type="checkbox" name="initiatives[]" value="{{ initiative.slug}}" id="{{initiative.slug}}" {% if initiative.slug in initiative_slugs %}checked{% endif %}>{{initiative.title}}</label></li>
+              {% for issue in craft.entries.section('issues') %}
+              <li><label for="{{ issue.slug }}"><input type="checkbox" name="issues[]" value="{{ issue.slug}}" id="{{issue.slug}}" {% if issue.slug in issue_slugs %}checked{% endif %}>{{issue.title}}</label></li>
               {% endfor %}
             </ul>
             <h6>Councils</h6>

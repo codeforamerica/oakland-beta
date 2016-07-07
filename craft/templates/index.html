@@ -31,7 +31,7 @@
     position: 'center-center'
 } %}
 
-{% set initiativeBg = {
+{% set issueBg = {
     mode: 'crop',
     width: 800,
     height: 400,
@@ -61,7 +61,7 @@
         <nav class="section-menu one-third">
           <a class="menu-item" href="#section-1">{{ "Services and Resources" | translate }}</a>
           <a class="menu-item" href="#section-2">{{ "News and Updates" | translate }}</a>
-          <a class="menu-item" href="#section-3">{{ "Current Initiatives" | translate }}</a>
+          <a class="menu-item" href="#section-3">{{ "Current Issues" | translate }}</a>
           <a class="menu-item" href="#section-4">{{ "Meet Our Mayor" | translate }}</a>
         </nav>
       </div>
@@ -182,13 +182,13 @@
             <h2>What We've Been Focusing On</h2>
           </div>
           <div class="one-fourth">
-            <a href="{{siteUrl}}initiatives" class="btn btn-small btn-secondary btn-block">See all initiatives  <span class="lnr lnr-arrow-right"></span></a>
+            <a href="{{siteUrl}}issues" class="btn btn-small btn-secondary btn-block">See all issues  <span class="lnr lnr-arrow-right"></span></a>
           </div>
         </div>
         <div class="grid-row">
-          {% for initiative in entry.highlightedInitiatives %}
-          <a href="{{initiative.url}}" class="one-third initiative-link {% if loop.index % 3 == 0 %}column-last{% endif %}" style="background-image: url('{{ initiative.initiativeHero.first().getUrl(initiativeBg) }}')">
-            <h3>{{ initiative.title }}</h3>
+          {% for issue in entry.highlightedIssues %}
+          <a href="{{issue.url}}" class="one-third issue-link {% if loop.index % 3 == 0 %}column-last{% endif %}" style="background-image: url('{{ issue.issueHero.first().getUrl(issueBg) }}')">
+            <h3>{{ issue.title }}</h3>
           </a>
           {% endfor %}
         </div>

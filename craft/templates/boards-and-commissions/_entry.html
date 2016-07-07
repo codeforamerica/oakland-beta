@@ -38,8 +38,8 @@
           {% if craft.entries.section('documents').relatedTo(entry) | length > 0 %}
           <a class="menu-item" href="#section-related-documents">{{"Recently Added Documents" | translate }}</a>
           {% endif %}
-          {% if entry.boardRelatedInitiatives | length > 0 %}
-          <a class="menu-item" href="#section-related-initiatives">{{"Initiatives" | translate }}</a>
+          {% if entry.boardRelatedIssues | length > 0 %}
+          <a class="menu-item" href="#section-related-issues">{{"Issues" | translate }}</a>
           {% endif %}
           {% if entry.boardMoreAbout %}
           <a class="menu-item" href="#section-about">{{"About this Board / Commission" | translate }}</a>
@@ -94,7 +94,7 @@
 
   {% include '_includes/related-documents.html' with {'search_query': 'boards[]'} %}
 
-  {% include '_includes/related-initiatives.html' with {'relatedInitiatives': entry.boardRelatedInitiatives} %}
+  {% include '_includes/related-issues.html' with {'relatedIssues': entry.boardRelatedIssues} %}
 
   {% if entry.boardMoreAbout %}
   <section id="section-about" class="section">

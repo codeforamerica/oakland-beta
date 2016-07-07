@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+{% set issueBg = {
+    mode: 'crop',
+    width: 800,
+    height: 400,
+    quality: 80,
+    position: 'center-center'
+} %}
+
+<main class="issues-index">
+
+  <div class="main-overlay"></div>
+  <section>
+    <div class="container">
+      <nav class="breadcrumbs">
+        <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
+        <span>{{"Issues" | translate }}</span>
+      </nav>
+      <h1>{{"Issues" | translate }}</h1>
+      <p>Explore the issues our city is focusing on right now.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid-row">
+        {% for issue in craft.entries.section('issues') %}
+        <a href="{{issue.url}}" class="one-third issue-link {% if loop.index % 3 == 0 %}column-last{% endif %}" style="background-image: url('{{ issue.issueHero.first().getUrl(issueBg) }}')">
+          <h3>{{ issue.title }}</h3>
+        </a>
+        {% endfor %}
+      </div>
+     
+    </div>
+  </section>
+
+</main> 
+{% endblock %}   

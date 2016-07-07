@@ -16,18 +16,26 @@ The CMS admin interface is accessible through https://beta.oaklandca.gov/admin
 
 ## Local Installation (OS X)
 
-1. Install MAMP with nginx as the web server - https://www.mamp.info/en/
-2. Install Sequel Pro - http://www.sequelpro.com/
-3. Install Node - https://nodejs.org/en/
-4. Run `npm install`
+There are many ways to setup your Nginx server and mySql database. Here's one method: 
+
+1. Clone this repo into `~/Sites`
+1. Install MAMP - https://www.mamp.info/en/
+    - In the MAMP settings, Point the MAMP server to `~/Sites`
+    - Start the MAMP server
+1. Install Sequel Pro - http://www.sequelpro.com/
+    - Login using the socket tab with default username `root` and password `root`
+    - Add a new database with the name `oaklanddb`
+    - Import the production database using the Backup DB setting -  - https://beta.oaklandca.gov/admin/settings/
 
 ## Making Stylistic Changes in SASS
 
-Stylesheets generated using SCSS
+Stylesheets in this repo generated using Scss. Scss files can be compiled into css in many ways. Here's one method:
 
+1. Install Node - https://nodejs.org/en/
+1. Run `npm install`
+1. Install the grunt-cli globally using `npm install -g grunt-cli`
 1. Run `grunt` to compile change in  `dev/scss` to `public/resources/css/main.css`
-2. Run `grunt watch` to watch for live changes and auto-compile
-
+1. Run `grunt watch` to watch for live changes and auto-compile
 
 
 ## Making Changes that involve DB Schema Updates
@@ -35,7 +43,7 @@ Stylesheets generated using SCSS
 There's probably a more efficient way to do this but this has been my current method to make sure that production and local schemas stay in sync.
 
 1. Make schema changes using the admin interface on the production server - https://beta.oaklandca.gov/admin/settings/
-2. Download the production DB using the Backup DB setting - https://beta.oaklandca.gov/admin/settings/
+2. Download the production DB using the Backup DB setting
 3. Import the production DB to local using Sequel Pro
 4. Create a new branch, make changes, and test locally
 5. Push branch to this GitHub repo and submit pull request

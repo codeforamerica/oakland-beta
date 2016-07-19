@@ -15,13 +15,13 @@
         <div class="grid-row">
           <div class="two-thirds">
             <p class="lead">{{ entry.leadIn}}</p>
-            {% if entry.CTATitle != "" %}
+            {% if entry.CTATitle is defined and entry.CTATitle != "" %}
             <p><a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a></p>
             {% endif %}
             {{ entry.body }}
           </div>
         </div>
       </article>
-    </main>    
+    </main>
 
 {% endblock %}

@@ -15,8 +15,10 @@
         <div class="grid-row">
           <div class="two-thirds">
             <p class="lead">{{ entry.leadIn}}</p>
-            {% if entry.CTATitle|default("") != "" %}
-            <p><a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a></p>
+            {% if entry.CTATitle is defined %}
+              {% if entry.CTATitle is not empty %}
+                <p><a class="btn" href="{{ entry.CTALink }}">{{ entry.CTATitle }} <span class="lnr lnr-arrow-right"></span></a></p>
+              {% endif %}
             {% endif %}
             {{ entry.body }}
           </div>

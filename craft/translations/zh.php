@@ -5,7 +5,7 @@ return array(
 	"Oakland" => "奥克兰",
 	"City of Oakland" => "奥克兰市",
 	"Departments" => "部门",
-	"News and Updates" => "新闻与更新",
+	"News and Updates" => "新闻",
 	"Services and Resources" => "服务和资源",
 	"Elected Officials" => "当选官员",
 	"City Council" => "市议会",
@@ -31,7 +31,6 @@ return array(
 	## Homepage
 	"Welcome to Oakland" => "欢迎来到奥克兰",
 	"The best place to find official services and information from the City of Oakland." => "最好的地方，从城市奥克兰找到官方服务和信息。",
-	"Other News" => "其他新闻",
 	"What can we help you with?" => "我们能帮到你什么？",
 	"What's happening in Oakland" => "发生了什么事在奥克兰",
 	"Meet our Mayor" => "认识我们的市长",

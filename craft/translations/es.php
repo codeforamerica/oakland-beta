@@ -5,7 +5,7 @@ return array(
 	"Oakland" => "Oakland",
 	"City of Oakland" => "Ciudad de Oakland",
 	"Departments" => "Departamentos",
-	"News and Updates" => "Noticias y Actualizaciones",
+	"News" => "Noticias",
 	"Services and Resources" => "Servicios y Recursos",
 	"Elected Officials" => "Oficiales Electos",
 	"City Council" => "Ayuntamiento",
@@ -31,7 +31,6 @@ return array(
 	## Homepage
 	"Welcome to Oakland" => "La Bienvenida a Oakland",
 	"The best place to find official services and information from the City of Oakland." => "El mejor lugar para encontrar los servicios oficiales e información de la ciudad de Oakland.",
-	"Other News" => "Otras Noticias",
 	"What can we help you with?" => "¿Qué podemos ayudarte?",
 	"What's happening in Oakland" => "¿Qué está pasando en Oakland",
 	"Meet our Mayor" => "Conoce a nuestro Alcalde",

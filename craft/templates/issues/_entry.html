@@ -15,7 +15,7 @@
 
       <nav class="breadcrumbs">
         <a href="{{ siteUrl }}">{{"Oakland" | translate }}</a>
-        <a href="{{siteUrl}}issues">{{"Issues" | translate}}</a>
+        <a href="{{siteUrl}}issues">{{"Priorities" | translate}}</a>
         <span>{{ entry.title }}</span>
       </nav>
 
@@ -26,7 +26,7 @@
       <div class="grid-row">
 
         <div class="section-info two-thirds">
-          <p class="issue-subtitle">{{"City Issue" | translate }}</p>
+          <p class="issue-subtitle">{{"City Priority" | translate }}</p>
           <h1>{{ entry.title }}</h1>
           <p>{{ entry.issueSummary }}</p>
           {% if entry.issueDonateContact %}<a class="btn btn-small" href="{% if "@" in entry.issueDonateContact %}mailto:{% endif %}{{ entry.issueDonateContact }}">Donate</a>{% endif %}

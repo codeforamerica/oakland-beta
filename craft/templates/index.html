@@ -60,8 +60,8 @@
         </div>
         <nav class="section-menu one-third">
           <a class="menu-item" href="#section-1">{{ "Services and Resources" | translate }}</a>
-          <a class="menu-item" href="#section-2">{{ "News and Updates" | translate }}</a>
-          <a class="menu-item" href="#section-3">{{ "Current Issues" | translate }}</a>
+          <a class="menu-item" href="#section-2">{{ "News" | translate }}</a>
+          <a class="menu-item" href="#section-3">{{ "Mayor's Priorities" | translate }}</a>
           <a class="menu-item" href="#section-4">{{ "Meet Our Mayor" | translate }}</a>
         </nav>
       </div>
@@ -105,15 +105,15 @@
           {% endfor %}
           <nav class="big-menu one-half">
             <div class="menu-item">
-              <a href="{{siteUrl}}documents">
-                <h3>Documents</h3>
+              <a href="http://records.oaklandnet.com">
+                <h3>Request a Public Record</h3>
                 <p>Search forms, reports, policies, ordinances, and more</p>
               </a>
             </div>
           </nav>
           <nav class="big-menu one-half">
             <div class="menu-item">
-              <a href="{{siteUrl}}events">
+              <a href="http://www2.oaklandnet.com/Events/index.htm">
                 <h3>Events</h3>
                 <p>Find council meetings, after school programs, walking tours, volunteer opportunities, and more</p>
               </a>
@@ -144,7 +144,7 @@
     <div class="container">
       <div class="grid-row">
         <div class="seven-twelfths">
-          <h2>{{"What's Happening in Oakland" | translate }}</h2>
+          <h2>{{"News" | translate }}</h2>
           {% set featuredNewsArticle = homepageNews.first() %}
           <div class="post-excerpt">
             <a href="{{ featuredNewsArticle.url }}">
@@ -160,7 +160,7 @@
           </div>
         </div>
         <aside class="one-third column-shift column-last">
-          <h5 class="aside-title">{{"Other News" | translate }}</h5>
+          <h5 class="aside-title">{{"What's happening in Oakland" | translate }}</h5>
           <ul class="list-border-bottom">
             {% for entry in homepageNews.offset(1) %}
             <li>
@@ -168,7 +168,7 @@
             </li>
             {% endfor %}
           </ul>
-          <a class="btn btn-small btn-block btn-secondary btn-see-all-news" href="{{ siteUrl }}news">{{"see all" | translate }} {{"news" | translate }} <span class="lnr lnr-arrow-right"></span></a>
+          <a class="btn btn-small btn-block btn-secondary btn-see-all-news" href="http://www2.oaklandnet.com/News/index.htm">Latest {{"news" | translate }} <span class="lnr lnr-arrow-right"></span></a>
         </aside>
       </div>
       <hr>
@@ -179,10 +179,10 @@
       <div class="container">
         <div class="grid-row no-padding">
           <div class="three-fourths">
-            <h2>What We've Been Focusing On</h2>
+            <h2>Mayor's Priorities</h2>
           </div>
           <div class="one-fourth">
-            <a href="{{siteUrl}}issues" class="btn btn-small btn-secondary btn-block">See all issues  <span class="lnr lnr-arrow-right"></span></a>
+            <a href="{{siteUrl}}issues" class="btn btn-small btn-secondary btn-block">See all priorities  <span class="lnr lnr-arrow-right"></span></a>
           </div>
         </div>
         <div class="grid-row">

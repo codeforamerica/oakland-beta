@@ -33,13 +33,13 @@
           <a class="menu-item" href="#section-related-services">{{"Services and Resources" | translate }}</a>
           {% endif %}
           {% if craft.entries.section('news').relatedTo(entry) | length > 0 %}
-          <a class="menu-item" href="#section-related-news">{{"News and Updates" | translate }}</a>
+          <a class="menu-item" href="#section-related-news">{{"News" | translate }}</a>
           {% endif %}
           {% if craft.entries.section('documents').relatedTo(entry) | length > 0 %}
           <a class="menu-item" href="#section-related-documents">{{"Recently Added Documents" | translate }}</a>
           {% endif %}
           {% if entry.boardRelatedIssues | length > 0 %}
-          <a class="menu-item" href="#section-related-issues">{{"Issues" | translate }}</a>
+          <a class="menu-item" href="#section-related-issues">{{"Priorities" | translate }}</a>
           {% endif %}
           {% if entry.boardMoreAbout %}
           <a class="menu-item" href="#section-about">{{"About this Board / Commission" | translate }}</a>
